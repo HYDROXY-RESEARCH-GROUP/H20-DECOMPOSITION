@@ -1,0 +1,80 @@
+Update ver. 0.2.12 alpha
+
+-Eliminated all but one potentiometer for the scale.
+-Added push button adjustment for all settings via a select button.
+-Reordered all input and output pins to be more compatiable with a Pulsefire arduino set up.
+-Added a user definable delay time in milliseconds between each frequency change interval.
+-Added option to abort scan by pressing and holding the select button until both scans have stopped.
+
+Known Issues
+-As of now the gate duty is displayed in a percentage, a finer adjustment may be possible if a larger range than 1 - 100 is used.  Perhaps 1 - 1000.
+
+New Pin Assignment
+D0 = Not used, it blocks USB communications
+D1 = Select Button
+D2 = Scan Button
+D3 = Plus Button
+D4 = Minus Button
+D5 = Not used
+D6 = LCD pin 4
+D7 = LCD pin 6
+D8 = Locked LED
+D9 = T1 frequency (step)
+D10 = T3 frequency (gate)
+D11 = Not used
+D12 = Scan LED
+D13 = Peak LED
+A0 = LCD pin 11
+A1 = LCD pin 12
+A2 = LCD pin 13
+A3 = LCD pin 14
+A4 = Scale potentiometer
+A5 = Pick-up Coil input via voltage divider
+
+
+Update ver. 0.2.11 alpha
+
+-Cleaned up comment alignment
+-Increased LCD to use 3 rows, 4 rows are possible in the future
+-Relabled LCD frequency titles to Stanley Meyer terminology.  T1= step charge frequency and T3= gate frequency
+-Reorganized the LCD, changed text to all caps 
+-Added manual adjustment for step charging frequency via two plus or minus pushbuttons
+-Manual push buttons have an associated potentiometer that adjust the scale (1 Hz to 1 KHz) for fine or coarse tuning
+-The step charge frequency range has a lower and upper limit of 31 Hz and 24390 Hz, which seems to be an Arduino limitation
+ 
+Update ver. 0.2.10 beta
+
+-Fixed bug where pick up voltage wasnt being read while frequency was locked. This caused the auto rescan feature to no longer function
+-Moved LED pins from D0 and D1 to D11 and D12.  Having a wire connected to D0 was blocking connection from the IDE through the USB serial port
+-Removed Gate LED, which was no longer usable
+-Added Peak Pickup Coil voltage LED, which lights between 4 and 5 volts.  (input range is 0-1023, 1023/5=204.6 per volt, 204.6*4=818.4, an input above 818 lights the LED) 
+-Reduced delay times for Resonance found, Waiting for Stabilization, Frequency locked. (I don't like to wait :D )
+-Added comments to changes made by firepinto
+
+Updade ver.0.2.10alpha
+
+- Improved code stability and timing
+- Added Duty cycle option on the gating frequency
+- More info: http://www.open-source-energy.org/?tid=1097&pid=14742#pid14742
+- http://www.youtube.com/watch?v=u48kOGoTQjg
+
+UPDATE ver. 0.2.9 alpha
+
+- Added Gating function at 50% duty cycle for now (software, but it is functioning good)
+- Added potentiometer to control the gating frequency
+- Added LEDs - Scanning, Locking and gating indicators
+- Added Checkpoint before locking
+- Added function, After frequency lock, if the voltage drops off 10% of the max voltage value found, system will scan again for the best frequency  
+- Voltage is now printed in LCD with values from 0.0 to 5.0 volts
+- Improved UI
+- Improved code quality
+- Added full comments inside the code, so there is no schematic needed if you know arduino basics. I will try to find sime time to make a full schematic.
+
+UPDATE ver. 0.3.7 alpha
+
+- Added a Digital synthesizer (cheap ebay DDS module) Very clear sin wave.
+- Added another check point before locking
+- Added "Scan" led and "Locked" led
+- Improved UI
+- Added function to start scan again if resonant voltage after lock, drops 10% of the Vmax found when scanned.
+- Still working on Gating function.
