@@ -1,0 +1,1579 @@
+<!DOCTYPE html>
+<!-- saved from url=(0037)http://nr8o.dhlpilotcentral.com/?p=83 -->
+<html lang="en-US"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<title>Testing an eBay AD9850 DDS module with Arduino Uno | NR8O</title>
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="stylesheet" type="text/css" media="all" href="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/style.css">
+<link rel="pingback" href="http://nr8o.dhlpilotcentral.com/xmlrpc.php">
+<!--[if lt IE 9]>
+<script src="http://nr8o.dhlpilotcentral.com/wp-content/themes/twentyeleven/js/html5.js" type="text/javascript"></script>
+<![endif]-->
+<link rel="alternate" type="application/rss+xml" title="NR8O » Feed" href="http://nr8o.dhlpilotcentral.com/?feed=rss2">
+<link rel="alternate" type="application/rss+xml" title="NR8O » Comments Feed" href="http://nr8o.dhlpilotcentral.com/?feed=comments-rss2">
+<link rel="alternate" type="application/rss+xml" title="NR8O » Testing an eBay AD9850 DDS module with Arduino Uno Comments Feed" href="http://nr8o.dhlpilotcentral.com/?feed=rss2&p=83">
+<link rel="stylesheet" id="cptch_stylesheet-css" href="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/style(1).css" type="text/css" media="all">
+<link rel="stylesheet" id="dark-css" href="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/dark.css" type="text/css" media="all">
+<link rel="stylesheet" id="jetpack_css-css" href="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/jetpack.css" type="text/css" media="all">
+<script type="text/javascript" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/jquery.js"></script>
+<script type="text/javascript" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/jquery-migrate.min.js"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://nr8o.dhlpilotcentral.com/xmlrpc.php?rsd">
+<link rel="prev" title="Fluke 8860A Digital Multimeter" href="http://nr8o.dhlpilotcentral.com/?p=67">
+<link rel="next" title="FT-726R meter lamp (and why you should replace yours)" href="http://nr8o.dhlpilotcentral.com/?p=93">
+<link rel="canonical" href="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/Testing an eBay AD9850 DDS module with Arduino Uno   NR8O.html">
+<link rel="shortlink" href="http://wp.me/p2BDQ5-1l">
+	<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Testing an eBay AD9850 DDS module with Arduino Uno">
+<meta property="og:url" content="http://nr8o.dhlpilotcentral.com/?p=83">
+<meta property="og:description" content="Like a lot of Hams, while browsing for electronics on eBay I came across some of these super inexpensive DDS modules being sold and shipped from China (less than $6 as of August 2012).  That&#39;s chea...">
+<meta property="article:published_time" content="2012-08-29T04:37:06+00:00">
+<meta property="article:modified_time" content="2012-10-28T15:29:01+00:00">
+<meta property="article:author" content="http://nr8o.dhlpilotcentral.com/?author=53">
+<meta property="og:site_name" content="NR8O">
+<meta property="og:image" content="http://nr8o.dhlpilotcentral.com/wp-content/uploads/2012/08/Modules.jpg">
+<meta name="twitter:site" content="@jetpack">
+<meta name="twitter:image" content="http://nr8o.dhlpilotcentral.com/wp-content/uploads/2012/08/ebay-ad9850-1024x694.jpg?w=240">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" type="text/css" href="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/shCore.css"><link rel="stylesheet" type="text/css" href="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/shThemeArduino.css"><style type="text/css" id="syntaxhighlighteranchor"></style>
+<link rel="stylesheet" type="text/css" id="gravatar-card-css" href="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/hovercard.css"><link rel="stylesheet" type="text/css" id="gravatar-card-services-css" href="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/services.css"></head>
+
+<body class="single single-post postid-83 single-format-aside custom-background single-author singular two-column right-sidebar">
+<div id="page" class="hfeed">
+	<header id="branding" role="banner">
+			<hgroup>
+				<h1 id="site-title"><span><a href="http://nr8o.dhlpilotcentral.com/" title="NR8O" rel="home">NR8O</a></span></h1>
+				<h2 id="site-description">Amateur Radio, Electronics, Test Equipment, Photography, Stuff</h2>
+			</hgroup>
+
+			
+								<form method="get" id="searchform" action="http://nr8o.dhlpilotcentral.com/">
+		<label for="s" class="assistive-text">Search</label>
+		<input type="text" class="field" name="s" id="s" placeholder="Search">
+		<input type="submit" class="submit" name="submit" id="searchsubmit" value="Search">
+	</form>
+			
+			<nav id="access" role="navigation">
+				<h3 class="assistive-text">Main menu</h3>
+								<div class="skip-link"><a class="assistive-text" href="http://nr8o.dhlpilotcentral.com/?p=83#content" title="Skip to primary content">Skip to primary content</a></div>
+				<div class="skip-link"><a class="assistive-text" href="http://nr8o.dhlpilotcentral.com/?p=83#secondary" title="Skip to secondary content">Skip to secondary content</a></div>
+								<div class="menu"><ul><li><a href="http://nr8o.dhlpilotcentral.com/">Home</a></li><li class="page_item page-item-2"><a href="http://nr8o.dhlpilotcentral.com/?page_id=2">About me</a></li></ul></div>
+			</nav><!-- #access -->
+	</header><!-- #branding -->
+
+
+	<div id="main">
+
+		<div id="primary">
+			<div id="content" role="main">
+
+				
+					<nav id="nav-single">
+						<h3 class="assistive-text">Post navigation</h3>
+						<span class="nav-previous"><a href="http://nr8o.dhlpilotcentral.com/?p=67" rel="prev"><span class="meta-nav">←</span> Previous</a></span>
+						<span class="nav-next"><a href="http://nr8o.dhlpilotcentral.com/?p=93" rel="next">Next <span class="meta-nav">→</span></a></span>
+					</nav><!-- #nav-single -->
+
+					
+<article id="post-83" class="post-83 post type-post status-publish format-aside hentry category-ad9850">
+	<header class="entry-header">
+		<h1 class="entry-title">Testing an eBay AD9850 DDS module with Arduino Uno</h1>
+
+				<div class="entry-meta">
+			<span class="sep">Posted on </span><a href="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/Testing an eBay AD9850 DDS module with Arduino Uno   NR8O.html" title="12:37 am" rel="bookmark"><time class="entry-date" datetime="2012-08-29T00:37:06+00:00">August 29, 2012</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="http://nr8o.dhlpilotcentral.com/?author=53" title="View all posts by NR8O" rel="author">NR8O</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		<p>Like a lot of Hams, while browsing for electronics on eBay I came across some of these super inexpensive DDS modules being sold and shipped from China (less than $6 as of August 2012).&nbsp; That’s cheaper than you can buy the 9850 chip by itself here in the States!&nbsp; Without any research whatsoever I went ahead and added 2 to a recent order of some other components I needed.</p>
+<p>About 2 weeks later my package arrived and here’s the board I ended up with.<a href="http://nr8o.dhlpilotcentral.com/?attachment_id=85" rel="attachment wp-att-85"><img class="aligncenter size-large wp-image-85" title="ebay ad9850" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/ebay-ad9850-1024x694.jpg" alt="" width="584" height="395"></a>Anyway, I had visions of dragging out the breadboard, hooking up some jumpers, maybe throwing a couple of capacitors in there…&nbsp;&nbsp; As anyone can tell you that’s bought one of these on impulse – it’s a little more complicated than that.&nbsp; There is actually some math involved, bits, bytes, hexadecimal, longwords even.&nbsp; Stuff I hadn’t seen since college (what I remember of college anyway).&nbsp; So, I finally sat down the other day and dug in to what it would take to get this thing going.</p>
+<p>Long story short, to get any output from one of these you need to send 40 bits of data to the chip, either via it’s serial or parallel interface.&nbsp; It’s all explained in the official Analog Device datasheet here – http://www.analog.com/static/imported-files/data_sheets/AD9850.pdf</p>
+<p>I read it the other night to help me fall asleep.</p>
+<p>Ahh, just kidding.&nbsp; It’s actually pretty cool stuff.&nbsp; You can interface to the board via your computers serial or parallel port, but as a recent Arduino convert, I decided to go that route.&nbsp; I ended up modifying slightly an Arduino sketch that was written for the 9851, putting the AD9850 on a UNO prototype shield, and testing it in single frequency mode.&nbsp; I can envision using these as a crystal eliminator for some older tube type transmitting gear I have here, maybe controlled with an Atmel 90S2313 or PIC.&nbsp; It’s about comparable in cost to buying an actual crystal for the older gear, and you’re not stuck to one frequency.</p>
+<p>Ok, so here are the two board versions, with pinouts labeled that I’ve seen on eBay.</p>
+<p><a href="http://nr8o.dhlpilotcentral.com/?attachment_id=86" rel="attachment wp-att-86"><img class="aligncenter size-full wp-image-86" title="Modules" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/Modules.jpg" alt="" width="494" height="608"></a></p>
+<p>I used a prototype shield with breadboard, although it’s not necessary.&nbsp; You could just jumper to the main Arduino board.</p>
+<p><a href="http://nr8o.dhlpilotcentral.com/?attachment_id=87" rel="attachment wp-att-87"><img class="aligncenter size-large wp-image-87" title="ad9850 breadboard" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/ad9850-breadboard-1024x686.jpg" alt="" width="584" height="391"></a>Using digital pins 8 through 11, proto shield installed on the UNO.&nbsp; Pin 8 to CLK, 9 to FQ, 10 to DATA, and 11 to RST.</p>
+<p><a href="http://nr8o.dhlpilotcentral.com/?attachment_id=88" rel="attachment wp-att-88"><img class="aligncenter size-large wp-image-88" title="ad9850 shield" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/ad9850-shield-1024x715.jpg" alt="" width="584" height="407"></a></p>
+<p>Here is the modified sketch for the 9850.&nbsp; Just cut and paste, and upload to your Arduino board.&nbsp; At the very end of the program you can choose which frequency you would like.</p>
+<div><div id="highlighter_118456" class="syntaxhighlighter  arduino"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div><div class="line number12 index11 alt1">12</div><div class="line number13 index12 alt2">13</div><div class="line number14 index13 alt1">14</div><div class="line number15 index14 alt2">15</div><div class="line number16 index15 alt1">16</div><div class="line number17 index16 alt2">17</div><div class="line number18 index17 alt1">18</div><div class="line number19 index18 alt2">19</div><div class="line number20 index19 alt1">20</div><div class="line number21 index20 alt2">21</div><div class="line number22 index21 alt1">22</div><div class="line number23 index22 alt2">23</div><div class="line number24 index23 alt1">24</div><div class="line number25 index24 alt2">25</div><div class="line number26 index25 alt1">26</div><div class="line number27 index26 alt2">27</div><div class="line number28 index27 alt1">28</div><div class="line number29 index28 alt2">29</div><div class="line number30 index29 alt1">30</div><div class="line number31 index30 alt2">31</div><div class="line number32 index31 alt1">32</div><div class="line number33 index32 alt2">33</div><div class="line number34 index33 alt1">34</div><div class="line number35 index34 alt2">35</div><div class="line number36 index35 alt1">36</div><div class="line number37 index36 alt2">37</div><div class="line number38 index37 alt1">38</div><div class="line number39 index38 alt2">39</div><div class="line number40 index39 alt1">40</div><div class="line number41 index40 alt2">41</div><div class="line number42 index41 alt1">42</div><div class="line number43 index42 alt2">43</div><div class="line number44 index43 alt1">44</div><div class="line number45 index44 alt2">45</div><div class="line number46 index45 alt1">46</div><div class="line number47 index46 alt2">47</div><div class="line number48 index47 alt1">48</div><div class="line number49 index48 alt2">49</div><div class="line number50 index49 alt1">50</div><div class="line number51 index50 alt2">51</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="arduino comments">/*</code></div><div class="line number2 index1 alt1"><code class="arduino spaces">&nbsp;</code><code class="arduino comments">* A simple single freq AD9850 Arduino test script</code></div><div class="line number3 index2 alt2"><code class="arduino spaces">&nbsp;</code><code class="arduino comments">* Original AD9851 DDS sketch by Andrew Smallbone at www.rocketnumbernine.com</code></div><div class="line number4 index3 alt1"><code class="arduino spaces">&nbsp;</code><code class="arduino comments">* Modified for testing the inexpensive AD9850 ebay DDS modules</code></div><div class="line number5 index4 alt2"><code class="arduino spaces">&nbsp;</code><code class="arduino comments">* Pictures and pinouts at nr8o.dhlpilotcentral.com</code></div><div class="line number6 index5 alt1"><code class="arduino spaces">&nbsp;</code><code class="arduino comments">* 9850 datasheet at <a href="http://www.analog.com/static/imported-files/data_sheets/AD9850.pdf">http://www.analog.com/static/imported-files/data_sheets/AD9850.pdf</a></code></div><div class="line number7 index6 alt2"><code class="arduino spaces">&nbsp;</code><code class="arduino comments">* Use freely</code></div><div class="line number8 index7 alt1"><code class="arduino spaces">&nbsp;</code><code class="arduino comments">*/</code></div><div class="line number9 index8 alt2">&nbsp;</div><div class="line number10 index9 alt1"><code class="arduino spaces">&nbsp;</code><code class="arduino preprocessor">#define W_CLK 8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Pin 8 - connect to AD9850 module word load clock pin (CLK)</code></div><div class="line number11 index10 alt2"><code class="arduino spaces">&nbsp;</code><code class="arduino preprocessor">#define FQ_UD 9&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Pin 9 - connect to freq update pin (FQ)</code></div><div class="line number12 index11 alt1"><code class="arduino spaces">&nbsp;</code><code class="arduino preprocessor">#define DATA 10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Pin 10 - connect to serial data load pin (DATA)</code></div><div class="line number13 index12 alt2"><code class="arduino spaces">&nbsp;</code><code class="arduino preprocessor">#define RESET 11&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Pin 11 - connect to reset pin (RST).</code></div><div class="line number14 index13 alt1">&nbsp;</div><div class="line number15 index14 alt2"><code class="arduino spaces">&nbsp;</code><code class="arduino preprocessor">#define pulseHigh(pin) {digitalWrite(pin, HIGH); digitalWrite(pin, LOW); }</code></div><div class="line number16 index15 alt1">&nbsp;</div><div class="line number17 index16 alt2"><code class="arduino spaces">&nbsp;</code><code class="arduino comments">// transfers a byte, a bit at a time, LSB first to the 9850 via serial DATA line</code></div><div class="line number18 index17 alt1"><code class="arduino color1">void</code> <code class="arduino plain">tfr_byte(</code><code class="arduino color1">byte</code> <code class="arduino plain">data)</code></div><div class="line number19 index18 alt2"><code class="arduino plain">{</code></div><div class="line number20 index19 alt1"><code class="arduino spaces">&nbsp;&nbsp;</code><code class="arduino functions bold">for</code> <code class="arduino plain">(</code><code class="arduino color1">int</code> <code class="arduino plain">i=0; i&lt;8; i++, data&gt;&gt;=1) {</code></div><div class="line number21 index20 alt2"><code class="arduino spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="arduino functions bold">digitalWrite</code><code class="arduino plain">(DATA, data &amp; 0x01);</code></div><div class="line number22 index21 alt1"><code class="arduino spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="arduino plain">pulseHigh(W_CLK);&nbsp;&nbsp; </code><code class="arduino comments">//after each bit sent, CLK is pulsed high</code></div><div class="line number23 index22 alt2"><code class="arduino spaces">&nbsp;&nbsp;</code><code class="arduino plain">}</code></div><div class="line number24 index23 alt1"><code class="arduino plain">}</code></div><div class="line number25 index24 alt2">&nbsp;</div><div class="line number26 index25 alt1"><code class="arduino spaces">&nbsp;</code><code class="arduino comments">// frequency calc from datasheet page 8 = &lt;sys clock&gt; * &lt;frequency tuning word&gt;/2^32</code></div><div class="line number27 index26 alt2"><code class="arduino color1">void</code> <code class="arduino plain">sendFrequency(</code><code class="arduino color1">double</code> <code class="arduino plain">frequency) {</code></div><div class="line number28 index27 alt1"><code class="arduino spaces">&nbsp;&nbsp;</code><code class="arduino plain">int32_t freq = frequency * 4294967295/125000000;&nbsp; </code><code class="arduino comments">// note 125 MHz clock on 9850</code></div><div class="line number29 index28 alt2"><code class="arduino spaces">&nbsp;&nbsp;</code><code class="arduino functions bold">for</code> <code class="arduino plain">(</code><code class="arduino color1">int</code> <code class="arduino plain">b=0; b&lt;4; b++, freq&gt;&gt;=8) {</code></div><div class="line number30 index29 alt1"><code class="arduino spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="arduino plain">tfr_byte(freq &amp; 0xFF);</code></div><div class="line number31 index30 alt2"><code class="arduino spaces">&nbsp;&nbsp;</code><code class="arduino plain">}</code></div><div class="line number32 index31 alt1"><code class="arduino spaces">&nbsp;&nbsp;</code><code class="arduino plain">tfr_byte(0x000);&nbsp;&nbsp; </code><code class="arduino comments">// Final control byte, all 0 for 9850 chip</code></div><div class="line number33 index32 alt2"><code class="arduino spaces">&nbsp;&nbsp;</code><code class="arduino plain">pulseHigh(FQ_UD);&nbsp; </code><code class="arduino comments">// Done!&nbsp; Should see output</code></div><div class="line number34 index33 alt1"><code class="arduino plain">}</code></div><div class="line number35 index34 alt2">&nbsp;</div><div class="line number36 index35 alt1"><code class="arduino color1">void</code> <code class="arduino functions bold">setup</code><code class="arduino plain">() {</code></div><div class="line number37 index36 alt2"><code class="arduino spaces">&nbsp;</code><code class="arduino comments">// configure arduino data pins for output</code></div><div class="line number38 index37 alt1"><code class="arduino spaces">&nbsp;&nbsp;</code><code class="arduino functions bold">pinMode</code><code class="arduino plain">(FQ_UD, </code><code class="arduino keyword bold">OUTPUT</code><code class="arduino plain">);</code></div><div class="line number39 index38 alt2"><code class="arduino spaces">&nbsp;&nbsp;</code><code class="arduino functions bold">pinMode</code><code class="arduino plain">(W_CLK, </code><code class="arduino keyword bold">OUTPUT</code><code class="arduino plain">);</code></div><div class="line number40 index39 alt1"><code class="arduino spaces">&nbsp;&nbsp;</code><code class="arduino functions bold">pinMode</code><code class="arduino plain">(DATA, </code><code class="arduino keyword bold">OUTPUT</code><code class="arduino plain">);</code></div><div class="line number41 index40 alt2"><code class="arduino spaces">&nbsp;&nbsp;</code><code class="arduino functions bold">pinMode</code><code class="arduino plain">(RESET, </code><code class="arduino keyword bold">OUTPUT</code><code class="arduino plain">);</code></div><div class="line number42 index41 alt1">&nbsp;</div><div class="line number43 index42 alt2"><code class="arduino spaces">&nbsp;&nbsp;</code><code class="arduino plain">pulseHigh(RESET);</code></div><div class="line number44 index43 alt1"><code class="arduino spaces">&nbsp;&nbsp;</code><code class="arduino plain">pulseHigh(W_CLK);</code></div><div class="line number45 index44 alt2"><code class="arduino spaces">&nbsp;&nbsp;</code><code class="arduino plain">pulseHigh(FQ_UD);&nbsp; </code><code class="arduino comments">// this pulse enables serial mode - Datasheet page 12 figure 10</code></div><div class="line number46 index45 alt1"><code class="arduino plain">}</code></div><div class="line number47 index46 alt2">&nbsp;</div><div class="line number48 index47 alt1"><code class="arduino color1">void</code> <code class="arduino functions bold">loop</code><code class="arduino plain">() {</code></div><div class="line number49 index48 alt2"><code class="arduino spaces">&nbsp;&nbsp;</code><code class="arduino plain">sendFrequency(10.e6);&nbsp; </code><code class="arduino comments">// freq</code></div><div class="line number50 index49 alt1"><code class="arduino spaces">&nbsp;&nbsp;</code><code class="arduino functions bold">while</code><code class="arduino plain">(1);</code></div><div class="line number51 index50 alt2"><code class="arduino plain">}</code></div></div></td></tr></tbody></table></div></div>
+<p>Right click this <a href="http://dhlpilotcentral.com/arduino/ad9850_nr8o.ino" target="_blank">Download Link</a> and choose “save as” to download.</p>
+<p>And here’s the result.</p>
+<p><a href="http://nr8o.dhlpilotcentral.com/?attachment_id=89" rel="attachment wp-att-89"><img class="aligncenter size-large wp-image-89" title="scope" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/scope-1024x660.jpg" alt="" width="584" height="376"></a></p>
+<p>This is a look at a 10 MHz sinewave from pin 10 on my board.&nbsp; The HP 5334A frequency counter uses a GPS phase corrected ovenized crystal oscillator as it’s reference source, so it’s extremely accurate.&nbsp; A little tweeking of the &lt;sys clock&gt; variable in the Arduino sketch and this thing would be balls on, or close to it.</p>
+<p>Pretty impressive little board.</p>
+			</div><!-- .entry-content -->
+
+	<footer class="entry-meta">
+		This entry was posted in <a href="http://nr8o.dhlpilotcentral.com/?cat=16" rel="category">AD9850</a> by <a href="http://nr8o.dhlpilotcentral.com/?author=53">NR8O</a>. Bookmark the <a href="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/Testing an eBay AD9850 DDS module with Arduino Uno   NR8O.html" title="Permalink to Testing an eBay AD9850 DDS module with Arduino Uno" rel="bookmark">permalink</a>.		
+			</footer><!-- .entry-meta -->
+</article><!-- #post-83 -->
+
+						<div id="comments">
+	
+	
+			<h2 id="comments-title">
+			56 thoughts on “<span>Testing an eBay AD9850 DDS module with Arduino Uno</span>”		</h2>
+
+		
+		<ol class="commentlist">
+				<li class="comment even thread-even depth-1" id="li-comment-18">
+		<article id="comment-18" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/5368d3b41ceca07d70d3b37ad2c88712" class="avatar avatar-68 photo grav-hashed grav-hijack" height="68" width="68" id="grav-5368d3b41ceca07d70d3b37ad2c88712-0"><span class="fn">Kurti</span> on <a href="http://nr8o.dhlpilotcentral.com/?p=83#comment-18"><time datetime="2012-09-08T12:59:24+00:00">September 8, 2012 at 12:59 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Hi, nice work.<br>
+but the code can’t be verified by arduino 1.0.1<br>
+Error-messages:<br>
+sketch_sep08a:20: error: stray ‘\’ in program<br>
+sketch_sep08a:31: error: stray ‘\’ in program<br>
+sketch_sep08a.cpp: In function ‘void tfr_byte(byte)':<br>
+sketch_sep08a:20: error: expected `)’ before ‘u00d701′<br>
+sketch_sep08a.cpp: In function ‘void sendFrequency(double)':<br>
+sketch_sep08a:31: error: expected `)’ before ‘u00d7000′</p>
+<p>would be great, if you fix that<br>
+or do I have to use a different Arduino-Shell ?<br>
+Greatings from Germany<br>
+Kurti</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://nr8o.dhlpilotcentral.com/?p=83&replytocom=18#respond" onclick="return addComment.moveForm(&quot;comment-18&quot;, &quot;18&quot;, &quot;respond&quot;, &quot;83&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-NR8O bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-19">
+		<article id="comment-19" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/b2a97574504b1df128e13e80f51fedf6" class="avatar avatar-68 photo grav-hashed grav-hijack" height="68" width="68" id="grav-b2a97574504b1df128e13e80f51fedf6-0"><span class="fn">NR8O</span> on <a href="http://nr8o.dhlpilotcentral.com/?p=83#comment-19"><time datetime="2012-09-09T16:21:00+00:00">September 9, 2012 at 4:21 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Kurti, thanks for the heads up!  I didn’t realize WordPress changed the formatting of the code.  I had to install a plug-in so it would display correctly.  You should now be able to copy and past the code and it will compile correctly.  Let me know how it works out.</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://nr8o.dhlpilotcentral.com/?p=83&replytocom=19#respond" onclick="return addComment.moveForm(&quot;comment-19&quot;, &quot;19&quot;, &quot;respond&quot;, &quot;83&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-20">
+		<article id="comment-20" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/5368d3b41ceca07d70d3b37ad2c88712" class="avatar avatar-68 photo grav-hashed grav-hijack" height="68" width="68" id="grav-5368d3b41ceca07d70d3b37ad2c88712-1"><span class="fn">Kurti</span> on <a href="http://nr8o.dhlpilotcentral.com/?p=83#comment-20"><time datetime="2012-09-10T05:17:16+00:00">September 10, 2012 at 5:17 am</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Hi,<br>
+afer deleteing the ”<br>
+I got the following message:<br>
+sketch_sep10a.cpp: In function ‘void tfr_byte(byte)':<br>
+sketch_sep10a:19: error: expected `;’ before ‘)’ token<br>
+sketch_sep10a.cpp: In function ‘void sendFrequency(double)':<br>
+sketch_sep10a:28: error: expected `;’ before ‘)’ token</p>
+<p>I think a download of the sketch would solve the problem.<br>
+Thanks again for your work<br>
+an Greatings from Germany<br>
+Kurti</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://nr8o.dhlpilotcentral.com/?p=83&replytocom=20#respond" onclick="return addComment.moveForm(&quot;comment-20&quot;, &quot;20&quot;, &quot;respond&quot;, &quot;83&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-21">
+		<article id="comment-21" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/5368d3b41ceca07d70d3b37ad2c88712" class="avatar avatar-68 photo grav-hashed grav-hijack" height="68" width="68" id="grav-5368d3b41ceca07d70d3b37ad2c88712-2"><span class="fn">Kurti</span> on <a href="http://nr8o.dhlpilotcentral.com/?p=83#comment-21"><time datetime="2012-09-10T05:19:01+00:00">September 10, 2012 at 5:19 am</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>I tried to write:<br>
+after deleting the ‘pre’ including the<br>
+Greatings<br>
+Kurti</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://nr8o.dhlpilotcentral.com/?p=83&replytocom=21#respond" onclick="return addComment.moveForm(&quot;comment-21&quot;, &quot;21&quot;, &quot;respond&quot;, &quot;83&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-NR8O bypostauthor even thread-even depth-1" id="li-comment-22">
+		<article id="comment-22" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/b2a97574504b1df128e13e80f51fedf6" class="avatar avatar-68 photo grav-hashed grav-hijack" height="68" width="68" id="grav-b2a97574504b1df128e13e80f51fedf6-1"><span class="fn">NR8O</span> on <a href="http://nr8o.dhlpilotcentral.com/?p=83#comment-22"><time datetime="2012-09-10T07:06:20+00:00">September 10, 2012 at 7:06 am</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Ok, that’s strange, I was getting the same errors you are.  I just re-posted the code and I can cut and paste, and it compiles fine in the IDE.  I am going to add a link for direct download of the sketch.</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://nr8o.dhlpilotcentral.com/?p=83&replytocom=22#respond" onclick="return addComment.moveForm(&quot;comment-22&quot;, &quot;22&quot;, &quot;respond&quot;, &quot;83&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-23">
+		<article id="comment-23" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/5368d3b41ceca07d70d3b37ad2c88712" class="avatar avatar-68 photo grav-hashed grav-hijack" height="68" width="68" id="grav-5368d3b41ceca07d70d3b37ad2c88712-3"><span class="fn">Kurti</span> on <a href="http://nr8o.dhlpilotcentral.com/?p=83#comment-23"><time datetime="2012-09-10T09:40:11+00:00">September 10, 2012 at 9:40 am</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Hi,<br>
+thanks for the downloadlink.<br>
+I can compile the sketch now.<br>
+Greatings<br>
+Kurti</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://nr8o.dhlpilotcentral.com/?p=83&replytocom=23#respond" onclick="return addComment.moveForm(&quot;comment-23&quot;, &quot;23&quot;, &quot;respond&quot;, &quot;83&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-25">
+		<article id="comment-25" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/b03fbb175f9b8f86989a44d45da25671" class="avatar avatar-68 photo grav-hashed grav-hijack" height="68" width="68" id="grav-b03fbb175f9b8f86989a44d45da25671-0"><span class="fn">Walt</span> on <a href="http://nr8o.dhlpilotcentral.com/?p=83#comment-25"><time datetime="2012-09-19T04:51:59+00:00">September 19, 2012 at 4:51 am</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>I’m K4WDE, though very inactive.  I’ve been searching for a sketch to test the DDS module I purchased.  Looks like yours will be the simplest.  Thanks a ton for taking the time.</p>
+<p>Walt</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://nr8o.dhlpilotcentral.com/?p=83&replytocom=25#respond" onclick="return addComment.moveForm(&quot;comment-25&quot;, &quot;25&quot;, &quot;respond&quot;, &quot;83&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+	<li class="comment byuser comment-author-NR8O bypostauthor odd alt depth-2" id="li-comment-26">
+		<article id="comment-26" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/b2a97574504b1df128e13e80f51fedf6(1)" class="avatar avatar-39 photo grav-hashed grav-hijack" height="39" width="39" id="grav-b2a97574504b1df128e13e80f51fedf6-2"><span class="fn">NR8O</span> on <a href="http://nr8o.dhlpilotcentral.com/?p=83#comment-26"><time datetime="2012-09-19T23:46:32+00:00">September 19, 2012 at 11:46 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Hey Walt, thanks for commenting.  Good luck with the DDS module.  I think I’m going to be using mine with a buffer amp as a crystal replacement for an old 2&amp;6 meter tube rig I’m restoring (Ameco TX62).   I think it would be neat to use the 9850 with a LCD keypad shield and be able to just cursor over to the digit you want to change, hit up or down, and then select.  Should be easy to do, and who knows it’s probably already been done, just need to find it.<br>
+73, Ron</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://nr8o.dhlpilotcentral.com/?p=83&replytocom=26#respond" onclick="return addComment.moveForm(&quot;comment-26&quot;, &quot;26&quot;, &quot;respond&quot;, &quot;83&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+	<li class="comment even depth-3" id="li-comment-27">
+		<article id="comment-27" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/b03fbb175f9b8f86989a44d45da25671(1)" class="avatar avatar-39 photo grav-hashed grav-hijack" height="39" width="39" id="grav-b03fbb175f9b8f86989a44d45da25671-1"><span class="fn">Walt</span> on <a href="http://nr8o.dhlpilotcentral.com/?p=83#comment-27"><time datetime="2012-09-21T15:20:23+00:00">September 21, 2012 at 3:20 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>You’re right Ron, it’s already out there.  I saw a couple of versions as I was searching but they were more than I needed so I didn’t collect their URLs.  My eBay DDS worked fine with your sketch. About 2.1 volts PP out up to 10mhz. I didn’t try higher. Here is a post I made about it and another toy I got. <a href="http://www.flickr.com/groups/arduino/discuss/72157631585126834/" rel="nofollow">http://www.flickr.com/groups/arduino/discuss/72157631585126834/</a>  Again, Thanks; Walt</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://nr8o.dhlpilotcentral.com/?p=83&replytocom=27#respond" onclick="return addComment.moveForm(&quot;comment-27&quot;, &quot;27&quot;, &quot;respond&quot;, &quot;83&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-49">
+		<article id="comment-49" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/4b9fccecad19d61699ec86db29538a1e" class="avatar avatar-68 photo grav-hashed grav-hijack" height="68" width="68" id="grav-4b9fccecad19d61699ec86db29538a1e-0"><span class="fn"><a href="http://du1mga.de.vu/" rel="external nofollow" class="url">Erwin Jabor DU1MGA (W3WAZ)</a></span> on <a href="http://nr8o.dhlpilotcentral.com/?p=83#comment-49"><time datetime="2012-10-25T10:38:41+00:00">October 25, 2012 at 10:38 am</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Hi Walt,<br>
+thanks for your listing to test an AD9850 you buying via eBay.<br>
+I have exact the same one here.<br>
+Your code is compiling and working great.<br>
+I have only one problem. The smallest step-rate I can use is 1 Hz.<br>
+Following the datasheet and other publications it must-be possible to use smaller step-rates. What I need it a steprate from abt. 1.46 Hz.<br>
+I hope you can help me with this. </p>
+<p>Regards and vy73 de Erwin DU1MGA (W3WAZ)</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://nr8o.dhlpilotcentral.com/?p=83&replytocom=49#respond" onclick="return addComment.moveForm(&quot;comment-49&quot;, &quot;49&quot;, &quot;respond&quot;, &quot;83&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+	<li class="comment even depth-2" id="li-comment-50">
+		<article id="comment-50" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/b03fbb175f9b8f86989a44d45da25671(1)" class="avatar avatar-39 photo grav-hashed grav-hijack" height="39" width="39" id="grav-b03fbb175f9b8f86989a44d45da25671-2"><span class="fn">Walt</span> on <a href="http://nr8o.dhlpilotcentral.com/?p=83#comment-50"><time datetime="2012-10-25T11:40:07+00:00">October 25, 2012 at 11:40 am</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Hi Erwin;<br>
+The code is the product of NR80, Ron. I’m sure he will see your comment at some point and reply to you.</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://nr8o.dhlpilotcentral.com/?p=83&replytocom=50#respond" onclick="return addComment.moveForm(&quot;comment-50&quot;, &quot;50&quot;, &quot;respond&quot;, &quot;83&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-even depth-1" id="li-comment-51">
+		<article id="comment-51" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/4b9fccecad19d61699ec86db29538a1e" class="avatar avatar-68 photo grav-hashed grav-hijack" height="68" width="68" id="grav-4b9fccecad19d61699ec86db29538a1e-1"><span class="fn"><a href="http://du1mga.de.vu/" rel="external nofollow" class="url">Erwin Jabor DU1MGA (W3WAZ)</a></span> on <a href="http://nr8o.dhlpilotcentral.com/?p=83#comment-51"><time datetime="2012-10-25T11:53:06+00:00">October 25, 2012 at 11:53 am</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Hi Walt,<br>
+thanks for the fast replay. Ok I will see it then. I’m not in a hurry.<br>
+vy73 de Erwin DU1MGA (W3WAZ)</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://nr8o.dhlpilotcentral.com/?p=83&replytocom=51#respond" onclick="return addComment.moveForm(&quot;comment-51&quot;, &quot;51&quot;, &quot;respond&quot;, &quot;83&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-odd thread-alt depth-1" id="li-comment-70">
+		<article id="comment-70" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/78776808f77e9a1fab47c4cf6f81c238" class="avatar avatar-68 photo grav-hashed grav-hijack" height="68" width="68" id="grav-78776808f77e9a1fab47c4cf6f81c238-0"><span class="fn">Com</span> on <a href="http://nr8o.dhlpilotcentral.com/?p=83#comment-70"><time datetime="2012-11-29T01:26:02+00:00">November 29, 2012 at 1:26 am</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Hi! Thanks for your testing!<br>
+Can I connect the module to the COM port? If this possible</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://nr8o.dhlpilotcentral.com/?p=83&replytocom=70#respond" onclick="return addComment.moveForm(&quot;comment-70&quot;, &quot;70&quot;, &quot;respond&quot;, &quot;83&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-even depth-1" id="li-comment-113">
+		<article id="comment-113" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/c154e1a179b4c5dc928b610c369a318a" class="avatar avatar-68 photo grav-hashed grav-hijack" height="68" width="68" id="grav-c154e1a179b4c5dc928b610c369a318a-0"><span class="fn"><a href="http://m0xpd.blogspot.co.uk/" rel="external nofollow" class="url">Paul, m0xpd</a></span> on <a href="http://nr8o.dhlpilotcentral.com/?p=83#comment-113"><time datetime="2013-01-20T09:37:02+00:00">January 20, 2013 at 9:37 am</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Hi Ron<br>
+Thanks for the inspiration – I took your Arduino sketch and translated it into Python. Now I have an eBay DDS module hooked up to my Raspberry Pi. </p>
+<p>It is currently set up as an HF MEPT beacon, sending QRSS Morse and Hellschreiber. </p>
+<p>Details (including my translation of your code) on my blog:<br>
+<a href="http://m0xpd.blogspot.co.uk/2013/01/multi-mode-beacon-on-rpi.html" rel="nofollow">http://m0xpd.blogspot.co.uk/2013/01/multi-mode-beacon-on-rpi.html</a></p>
+<p>73 de Paul, m0xpd</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://nr8o.dhlpilotcentral.com/?p=83&replytocom=113#respond" onclick="return addComment.moveForm(&quot;comment-113&quot;, &quot;113&quot;, &quot;respond&quot;, &quot;83&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-odd thread-alt depth-1" id="li-comment-126">
+		<article id="comment-126" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/9cfdec30d193f1d11396869279a9838b" class="avatar avatar-68 photo grav-hashed grav-hijack" height="68" width="68" id="grav-9cfdec30d193f1d11396869279a9838b-0"><span class="fn"><a href="http://www.usedradiomall.com/" rel="external nofollow" class="url">Matt</a></span> on <a href="http://nr8o.dhlpilotcentral.com/?p=83#comment-126"><time datetime="2013-01-23T13:07:45+00:00">January 23, 2013 at 1:07 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Thanks for posting your frequency programming sketch. I am still waiting for my boards from Hong Kong (they must really be on the “slow boat”).</p>
+<p>Do you know what function R13, the little trimpot, performs?</p>
+<p>73</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://nr8o.dhlpilotcentral.com/?p=83&replytocom=126#respond" onclick="return addComment.moveForm(&quot;comment-126&quot;, &quot;126&quot;, &quot;respond&quot;, &quot;83&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+	<li class="comment odd alt depth-2" id="li-comment-140">
+		<article id="comment-140" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/27d6a600d17c659a7d5165536c779fec" class="avatar avatar-39 photo grav-hashed grav-hijack" height="39" width="39" id="grav-27d6a600d17c659a7d5165536c779fec-0"><span class="fn">Ron</span> on <a href="http://nr8o.dhlpilotcentral.com/?p=83#comment-140"><time datetime="2013-01-26T16:05:30+00:00">January 26, 2013 at 4:05 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Hey Matt, the trimpot adjusts the duty cycle of the square wave output.  The AD9850 will output a square wave up to 1 MHz.  I’ve been wanting to test out a webcam my GF bought me so I put together a quick youtube video.</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://nr8o.dhlpilotcentral.com/?p=83&replytocom=140#respond" onclick="return addComment.moveForm(&quot;comment-140&quot;, &quot;140&quot;, &quot;respond&quot;, &quot;83&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even depth-2" id="li-comment-141">
+		<article id="comment-141" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/27d6a600d17c659a7d5165536c779fec" class="avatar avatar-39 photo grav-hashed grav-hijack" height="39" width="39" id="grav-27d6a600d17c659a7d5165536c779fec-1"><span class="fn">Ron</span> on <a href="http://nr8o.dhlpilotcentral.com/?p=83#comment-141"><time datetime="2013-01-26T16:05:54+00:00">January 26, 2013 at 4:05 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p><span class="embed-youtube" style="text-align:center; display: block;"><iframe class="youtube-player" type="text/html" width="584" height="359" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/3lNGF0PJUpk.html" frameborder="0" allowfullscreen="true"></iframe></span></p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://nr8o.dhlpilotcentral.com/?p=83&replytocom=141#respond" onclick="return addComment.moveForm(&quot;comment-141&quot;, &quot;141&quot;, &quot;respond&quot;, &quot;83&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+	<li class="post pingback">
+		<p>Pingback: <a href="http://www.usedradiomall.com/procrastination-paid-off/" rel="external nofollow" class="url">Procrastination Paid Off | Used Radio Mall</a></p>
+	</li><!-- #comment-## -->
+	<li class="post pingback">
+		<p>Pingback: <a href="http://www.usedradiomall.com/dds-update/" rel="external nofollow" class="url">DDS Update | Used Radio Mall</a></p>
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-even depth-1" id="li-comment-142">
+		<article id="comment-142" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/9cfdec30d193f1d11396869279a9838b" class="avatar avatar-68 photo grav-hashed grav-hijack" height="68" width="68" id="grav-9cfdec30d193f1d11396869279a9838b-1"><span class="fn"><a href="http://www.usedradiomall.com/" rel="external nofollow" class="url">Matt</a></span> on <a href="http://nr8o.dhlpilotcentral.com/?p=83#comment-142"><time datetime="2013-01-26T17:58:54+00:00">January 26, 2013 at 5:58 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Thanks for the video explanation. I wouldn’t have guessed that it was a square wave duty cycle adjust.</p>
+<p>Since my last comment, I have received my AD9850 boards and had it running on the bench in about 5 minutes!</p>
+<p>Thanks for posting your experience and your code.</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://nr8o.dhlpilotcentral.com/?p=83&replytocom=142#respond" onclick="return addComment.moveForm(&quot;comment-142&quot;, &quot;142&quot;, &quot;respond&quot;, &quot;83&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-odd thread-alt depth-1" id="li-comment-160">
+		<article id="comment-160" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/9d769890ad461e7e230b751d7c2030e6" class="avatar avatar-68 photo grav-hashed grav-hijack" height="68" width="68" id="grav-9d769890ad461e7e230b751d7c2030e6-0"><span class="fn"><a href="http://my.sota.gr/" rel="external nofollow" class="url">SV1COX</a></span> on <a href="http://nr8o.dhlpilotcentral.com/?p=83#comment-160"><time datetime="2013-02-02T09:05:45+00:00">February 2, 2013 at 9:05 am</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Great! it works in 5 minutes for me, Thanks!</p>
+<p>some detailed info about the module here: <a href="http://www.eimodule.com/download/EIM377_AD9850_Signal_Generator_Module_V01.pdf" rel="nofollow">http://www.eimodule.com/download/EIM377_AD9850_Signal_Generator_Module_V01.pdf</a></p>
+<p>73, Panos, SV1COX</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://nr8o.dhlpilotcentral.com/?p=83&replytocom=160#respond" onclick="return addComment.moveForm(&quot;comment-160&quot;, &quot;160&quot;, &quot;respond&quot;, &quot;83&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-even depth-1" id="li-comment-220">
+		<article id="comment-220" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/2dbd821659fc2562e7ccd7cc0446bb50" class="avatar avatar-68 photo grav-hashed grav-hijack" height="68" width="68" id="grav-2dbd821659fc2562e7ccd7cc0446bb50-0"><span class="fn"><a href="http://www.k0wfs.com/" rel="external nofollow" class="url">Russ Ramirez</a></span> on <a href="http://nr8o.dhlpilotcentral.com/?p=83#comment-220"><time datetime="2013-02-22T22:45:26+00:00">February 22, 2013 at 10:45 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Nice, I also had this going in about 5 mins after the darn thing sat in one of my parts bins for a year – thanks. I also have a 5334B, mine is fed by a Trimble Thunderbolt.</p>
+<p>Russ</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://nr8o.dhlpilotcentral.com/?p=83&replytocom=220#respond" onclick="return addComment.moveForm(&quot;comment-220&quot;, &quot;220&quot;, &quot;respond&quot;, &quot;83&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-odd thread-alt depth-1" id="li-comment-226">
+		<article id="comment-226" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/c154e1a179b4c5dc928b610c369a318a" class="avatar avatar-68 photo grav-hashed grav-hijack" height="68" width="68" id="grav-c154e1a179b4c5dc928b610c369a318a-1"><span class="fn"><a href="http://m0xpd.blogspot.co.uk/" rel="external nofollow" class="url">Paul, m0xpd</a></span> on <a href="http://nr8o.dhlpilotcentral.com/?p=83#comment-226"><time datetime="2013-02-24T06:09:41+00:00">February 24, 2013 at 6:09 am</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Hi Ron. I now have an HF Beacon running – based on the same DDS module you describe here and with the DDS and a QRP amplifier implemented as Arduino Shields. You code was the starting point!</p>
+<p>73 de m0xpd<br>
+DDS Shield: <a href="http://m0xpd.blogspot.co.uk/2013/02/arduino-dds-shield.html" rel="nofollow">http://m0xpd.blogspot.co.uk/2013/02/arduino-dds-shield.html</a><br>
+Beacon: <a href="http://m0xpd.blogspot.co.uk/2013/02/arduino-beacon.html" rel="nofollow">http://m0xpd.blogspot.co.uk/2013/02/arduino-beacon.html</a></p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://nr8o.dhlpilotcentral.com/?p=83&replytocom=226#respond" onclick="return addComment.moveForm(&quot;comment-226&quot;, &quot;226&quot;, &quot;respond&quot;, &quot;83&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-even depth-1" id="li-comment-263">
+		<article id="comment-263" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/4ff32a05daae96f6f99cdb6092330386" class="avatar avatar-68 photo grav-hashed grav-hijack" height="68" width="68" id="grav-4ff32a05daae96f6f99cdb6092330386-0"><span class="fn">WD0UG - Doug</span> on <a href="http://nr8o.dhlpilotcentral.com/?p=83#comment-263"><time datetime="2013-03-06T11:39:41+00:00">March 6, 2013 at 11:39 am</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Question about AD9850_nr80.ino source<br>
+Thanks for the code!  Now a question:  Your line:<br>
+int32_t freq = frequency * 4294967295/125000000;<br>
+Obviously 4294967295 = 2^32 and 125000000 = RefClk<br>
+But it does not jive with the datasheet page 8 that says:<br>
+Fout = (delta Phase x CLKIN) / 2^32<br>
+Your multiplication then division are not the same as the datasheet formula.<br>
+What am I not understanding?<br>
+Also:<br>
+When I use the Interactive Design Tool at Analog.com<br>
+<a href="http://designtools.analog.com/dt/dds/ad9850.html" rel="nofollow">http://designtools.analog.com/dt/dds/ad9850.html</a><br>
+It does not give the same results as your formula.<br>
+It must be something obvious, but what?<br>
+73, Doug WD0UG</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://nr8o.dhlpilotcentral.com/?p=83&replytocom=263#respond" onclick="return addComment.moveForm(&quot;comment-263&quot;, &quot;263&quot;, &quot;respond&quot;, &quot;83&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+	<li class="comment even depth-2" id="li-comment-269">
+		<article id="comment-269" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/96462ad2c1648171c6f2f41136b92e35" class="avatar avatar-39 photo grav-hashed grav-hijack" height="39" width="39" id="grav-96462ad2c1648171c6f2f41136b92e35-0"><span class="fn">David</span> on <a href="http://nr8o.dhlpilotcentral.com/?p=83#comment-269"><time datetime="2013-03-08T18:23:13+00:00">March 8, 2013 at 6:23 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Hi Doug,</p>
+<p>Perhaps you’ve been misled by the variable name ‘freq’ and you  think this is the same as ‘Fout’ in the datasheet.  What the program is calculating (and calls ‘freq’) is actually the frequency tuning word or the the thing called ‘delta Phase’ in the datasheet.  The routine is given the required frequency Fout and finds delta Phase, the datasheet equation tells you what Fout will be for a given delta Phase:</p>
+<p>Fout = (delta Phase * Refclk) / 2^32</p>
+<p>so the program computes:</p>
+<p>delta Phase = Fout * 2^32 / Refclk</p>
+<p>There may be a small difference between the tuning word calculated by this program and the tool you mentioned, but it will only be in the least significant bits and is simply due to differences in the way rounding to the nearest integer is done.</p>
+<p>Hope that helps,</p>
+<p>David</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://nr8o.dhlpilotcentral.com/?p=83&replytocom=269#respond" onclick="return addComment.moveForm(&quot;comment-269&quot;, &quot;269&quot;, &quot;respond&quot;, &quot;83&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-264">
+		<article id="comment-264" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/4eec43f1db4c369d11a5540cd1ac423e" class="avatar avatar-68 photo grav-hashed grav-hijack" height="68" width="68" id="grav-4eec43f1db4c369d11a5540cd1ac423e-0"><span class="fn">Ian Watson</span> on <a href="http://nr8o.dhlpilotcentral.com/?p=83#comment-264"><time datetime="2013-03-06T17:00:43+00:00">March 6, 2013 at 5:00 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Hi Ron,<br>
+Thanks for the sketch, I have had my arduino ages, but lack the gumption to get stuck in to it. I bought one of these dds boards for £3.70 delivered from Hong Kong after hearing about it in Radcom. I had it wired and running within a matter of minutes. The big rig had it within about 10hz, that’s pretty amazing in my book.<br>
+Thanks for putting this on your blog. I’d like to take it further, maybe add an encoder and have it as a dds vfo for some future qrp rig, maybe for the new 60 metre segments we have here now.</p>
+<p>73,<br>
+Ian MM0GYX</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://nr8o.dhlpilotcentral.com/?p=83&replytocom=264#respond" onclick="return addComment.moveForm(&quot;comment-264&quot;, &quot;264&quot;, &quot;respond&quot;, &quot;83&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-272">
+		<article id="comment-272" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/4ff32a05daae96f6f99cdb6092330386" class="avatar avatar-68 photo grav-hashed grav-hijack" height="68" width="68" id="grav-4ff32a05daae96f6f99cdb6092330386-1"><span class="fn">Doug</span> on <a href="http://nr8o.dhlpilotcentral.com/?p=83#comment-272"><time datetime="2013-03-09T06:14:57+00:00">March 9, 2013 at 6:14 am</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Thanks David.  Now I understand.</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://nr8o.dhlpilotcentral.com/?p=83&replytocom=272#respond" onclick="return addComment.moveForm(&quot;comment-272&quot;, &quot;272&quot;, &quot;respond&quot;, &quot;83&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-317">
+		<article id="comment-317" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/10a8bbb79635e9e760d01b81ba7e321b" class="avatar avatar-68 photo grav-hashed grav-hijack" height="68" width="68" id="grav-10a8bbb79635e9e760d01b81ba7e321b-0"><span class="fn">Ligius</span> on <a href="http://nr8o.dhlpilotcentral.com/?p=83#comment-317"><time datetime="2013-03-21T14:32:33+00:00">March 21, 2013 at 2:32 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Thanks, I was able to have your sketch up and running with Energia on a Stellaris Launchpad within seconds. The module gets its power from the Launchpad as well.</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://nr8o.dhlpilotcentral.com/?p=83&replytocom=317#respond" onclick="return addComment.moveForm(&quot;comment-317&quot;, &quot;317&quot;, &quot;respond&quot;, &quot;83&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-356">
+		<article id="comment-356" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/3d4d135ebd3f72edeafecf939aeff99f" class="avatar avatar-68 photo grav-hashed grav-hijack" height="68" width="68" id="grav-3d4d135ebd3f72edeafecf939aeff99f-0"><span class="fn"><a href="http://n/a" rel="external nofollow" class="url">Jeremy</a></span> on <a href="http://nr8o.dhlpilotcentral.com/?p=83#comment-356"><time datetime="2013-03-30T04:08:54+00:00">March 30, 2013 at 4:08 am</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>How tight is the output sine at low (e.g. audio) freq’s?<br>
+At the moment, I’m using a PIC12F1822 and it’s 5 bit DAC.  Ugly at best, even after a decent filter…</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://nr8o.dhlpilotcentral.com/?p=83&replytocom=356#respond" onclick="return addComment.moveForm(&quot;comment-356&quot;, &quot;356&quot;, &quot;respond&quot;, &quot;83&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+	<li class="comment odd alt depth-2" id="li-comment-708">
+		<article id="comment-708" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/a838d48ecb5ef0efc45a54d8fd6bae5c" class="avatar avatar-39 photo grav-hashed grav-hijack" height="39" width="39" id="grav-a838d48ecb5ef0efc45a54d8fd6bae5c-0"><span class="fn">Jeremy</span> on <a href="http://nr8o.dhlpilotcentral.com/?p=83#comment-708"><time datetime="2013-05-26T05:02:22+00:00">May 26, 2013 at 5:02 am</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Just a note to anybody that might get tripped up…<br>
+The chip doesn’t like to share the CLK and DATA lines with other devices, e.g. if you’re trying to use it on a SPI bus.<br>
+meh…I could be wrong.  At least in my circuit, it didn’t start working right until I split everything out.</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://nr8o.dhlpilotcentral.com/?p=83&replytocom=708#respond" onclick="return addComment.moveForm(&quot;comment-708&quot;, &quot;708&quot;, &quot;respond&quot;, &quot;83&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+	<li class="comment even thread-odd thread-alt depth-1" id="li-comment-357">
+		<article id="comment-357" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/9d769890ad461e7e230b751d7c2030e6" class="avatar avatar-68 photo grav-hashed grav-hijack" height="68" width="68" id="grav-9d769890ad461e7e230b751d7c2030e6-1"><span class="fn"><a href="http://my.sota.gr/" rel="external nofollow" class="url">SV1COX</a></span> on <a href="http://nr8o.dhlpilotcentral.com/?p=83#comment-357"><time datetime="2013-03-31T07:10:52+00:00">March 31, 2013 at 7:10 am</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>On a 20M DC receiver:<br>
+<a href="http://www.youtube.com/watch?v=re9TJIIOlgc" rel="nofollow">http://www.youtube.com/watch?v=re9TJIIOlgc</a></p>
+<p>73.</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://nr8o.dhlpilotcentral.com/?p=83&replytocom=357#respond" onclick="return addComment.moveForm(&quot;comment-357&quot;, &quot;357&quot;, &quot;respond&quot;, &quot;83&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-even depth-1" id="li-comment-508">
+		<article id="comment-508" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/bbbaa41c1980d16657cad92896cedc8b" class="avatar avatar-68 photo grav-hashed grav-hijack" height="68" width="68" id="grav-bbbaa41c1980d16657cad92896cedc8b-0"><span class="fn">Marco Z.</span> on <a href="http://nr8o.dhlpilotcentral.com/?p=83#comment-508"><time datetime="2013-04-28T05:53:03+00:00">April 28, 2013 at 5:53 am</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Thank you very much, I also managed to have the DDS up and running in 5 minutes, an essential starting point. Great work!<br>
+Marco</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://nr8o.dhlpilotcentral.com/?p=83&replytocom=508#respond" onclick="return addComment.moveForm(&quot;comment-508&quot;, &quot;508&quot;, &quot;respond&quot;, &quot;83&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-odd thread-alt depth-1" id="li-comment-562">
+		<article id="comment-562" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/be0bcd4510c2977a1715ccbda9530ff8" class="avatar avatar-68 photo grav-hashed grav-hijack" height="68" width="68" id="grav-be0bcd4510c2977a1715ccbda9530ff8-0"><span class="fn">Niceto</span> on <a href="http://nr8o.dhlpilotcentral.com/?p=83#comment-562"><time datetime="2013-05-05T13:31:35+00:00">May 5, 2013 at 1:31 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Hi, Ron<br>
+Many thanks for sharing info and code for using AD9850 along with arduino.<br>
+I just used your code to make a nice  CW qrpp beacon:<br>
+Hope usefull to others.<br>
+can be downloaded from <a href="http://www.verfotos.es/intercambio/arduinobeacon.ino" rel="nofollow">http://www.verfotos.es/intercambio/arduinobeacon.ino</a></p>
+<p>// Modified and adapted as a qrpp CW beacon using arduino uno and AD98550 board<br>
+// Hardware wiring and Code to send a sinewave carrier with AD9850 taken from<br>
+// <a href="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/Testing an eBay AD9850 DDS module with Arduino Uno   NR8O.html" rel="nofollow">http://nr8o.dhlpilotcentral.com/?p=83</a> Thanks Ron!!<br>
+// CW sending code was taken from <a href="http://brainwagon.org/" rel="nofollow">http://brainwagon.org</a> Thanks Mark!!<br>
+// Almost all merit belongs to the above authors. I only did the adapting job and added “+ – = ” codes<br>
+// I am not a good programmer, but it works!. Feel free to improve and correct bugs.<br>
+// If you modify will be nice to send a brief note to Mark and Ron, real fathers of code<br>
+// I also will appreciate you send a note with the improved/modified code to ea5ehs[at]gmail.com Niceto Muñoz<br>
+// 73 es DX from Niceto (EA5EHS)</p>
+<p>// Modificado y adaptado como baliza CW qrpp, usando “Arduino uno” y una placa con “AD9850″<br>
+// El conexionado y el código para generar una señal senoidal con el AD9850 se ha tomado de<br>
+// <a href="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/Testing an eBay AD9850 DDS module with Arduino Uno   NR8O.html" rel="nofollow">http://nr8o.dhlpilotcentral.com/?p=83</a>  Gracias Ron!!<br>
+// El código para generar los caracteres CW se ha tomado de  <a href="http://brainwagon.org/" rel="nofollow">http://brainwagon.org</a> Gracias Mark!!<br>
+// Casi todo el mérito pertenece a los autores anteriores. Yo únicamente hice el trabajo de adaptar los dos códigos,<br>
+// añadiendo tambien los caracteres cw para “+ – =”.<br>
+// Yo no soy un buen programador, pero funciona!. El código es totalmente libre para mejorarlo y corregir errores.<br>
+// Si lo modificas, estaría bien que enviaras una pequeña nota a Mark y Ron, padres reales del código.<br>
+// Tambien me gustaría que me enviaras una copia del código mejorado/modificado a mi correo ea5ehs[arroba]gmail.com<br>
+// 73 es Dx Niceto (EA5EHS)</p>
+<p>struct t_mtab { char c, pat; } ;</p>
+<p>struct t_mtab morsetab[] = {<br>
+  	{‘+’, 42},<br>
+  	{‘-‘, 97},<br>
+  	{‘=’, 49},<br>
+	{‘.’, 106},<br>
+	{‘,’, 115},<br>
+	{‘?’, 76},<br>
+	{‘/’, 41},<br>
+	{‘A’, 6},<br>
+	{‘B’, 17},<br>
+	{‘C’, 21},<br>
+	{‘D’, 9},<br>
+	{‘E’, 2},<br>
+	{‘F’, 20},<br>
+	{‘G’, 11},<br>
+	{‘H’, 16},<br>
+	{‘I’, 4},<br>
+	{‘J’, 30},<br>
+	{‘K’, 13},<br>
+	{‘L’, 18},<br>
+	{‘M’, 7},<br>
+	{‘N’, 5},<br>
+	{‘O’, 15},<br>
+	{‘P’, 22},<br>
+	{‘Q’, 27},<br>
+	{‘R’, 10},<br>
+	{‘S’, 8},<br>
+	{‘T’, 3},<br>
+	{‘U’, 12},<br>
+	{‘V’, 24},<br>
+	{‘W’, 14},<br>
+	{‘X’, 25},<br>
+	{‘Y’, 29},<br>
+	{‘Z’, 19},<br>
+	{‘1′, 62},<br>
+	{‘2′, 60},<br>
+	{‘3′, 56},<br>
+	{‘4′, 48},<br>
+	{‘5′, 32},<br>
+	{‘6′, 33},<br>
+	{‘7′, 35},<br>
+	{‘8′, 39},<br>
+	{‘9′, 47},<br>
+	{‘0′, 63}<br>
+} ;<br>
+ #define W_CLK 8       // Pin 8 – connect to AD9850 module word load clock pin (CLK)<br>
+ #define FQ_UD 9       // Pin 9 – connect to freq update pin (FQ)<br>
+ #define DATA 10       // Pin 10 – connect to serial data load pin (DATA)<br>
+ #define RESET 11      // Pin 11 – connect to reset pin (RST).</p>
+<p> #define pulseHigh(pin) {digitalWrite(pin, HIGH); digitalWrite(pin, LOW); }</p>
+<p> #define FREQUENCY 10133500<br>
+ #define FREQUENCY2 0              //putting a second frequency different from 0, you also generate an inverse keying CW signal that can be heard using FM mode <img src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/icon_smile.gif" alt=":)" class="wp-smiley"><br>
+ #define N_MORSE  (sizeof(morsetab)/sizeof(morsetab[0]))<br>
+ #define SPEED  (12)<br>
+ #define DOTLEN  (1200/SPEED)<br>
+ #define DASHLEN  (3*(1200/SPEED))</p>
+<p>void<br>
+dash()<br>
+{<br>
+  sendFrequency(FREQUENCY);<br>
+  delay(DASHLEN);<br>
+  sendFrequency(FREQUENCY2);<br>
+  delay(DOTLEN);<br>
+}</p>
+<p>void<br>
+dit()<br>
+{<br>
+  sendFrequency(FREQUENCY);<br>
+  delay(DOTLEN);<br>
+  sendFrequency(FREQUENCY2);<br>
+  delay(DOTLEN);<br>
+}</p>
+<p>void<br>
+send(char c)<br>
+{<br>
+  int i ;<br>
+  if (c == ‘ ‘) {<br>
+    delay(7*DOTLEN) ;<br>
+    return ;<br>
+  }<br>
+  for (i=0; i&lt;N_MORSE; i++) {<br>
+    if (morsetab[i].c == c) {<br>
+      unsigned char p = morsetab[i].pat ;</p>
+<p>      while (p != 1) {<br>
+          if (p &amp; 1)<br>
+            dash() ;<br>
+          else<br>
+            dit() ;<br>
+          p = p / 2 ;<br>
+      }<br>
+      delay(2*DOTLEN) ;<br>
+      return ;<br>
+    }<br>
+  }<br>
+  /* if we drop off the end, then we send a space */<br>
+  Serial.print("?") ;<br>
+}</p>
+<p>void<br>
+sendmsg(char *str)<br>
+{<br>
+  while (*str)<br>
+    send(*str++) ;<br>
+}<br>
+ // transfers a byte, a bit at a time, LSB first to the 9850 via serial DATA line<br>
+void tfr_byte(byte data)<br>
+{<br>
+  for (int i=0; i&gt;=1) {<br>
+    digitalWrite(DATA, data &amp; 0x01);<br>
+    pulseHigh(W_CLK);   //after each bit sent, CLK is pulsed high<br>
+  }<br>
+}</p>
+<p> // frequency calc from datasheet page 8 =  * /2^32<br>
+void sendFrequency(double frequency) {<br>
+  int32_t freq = frequency * 4294967295/125000000;  // note 125 MHz clock on 9850<br>
+  for (int b=0; b&gt;=8) {<br>
+    tfr_byte(freq &amp; 0xFF);<br>
+  }<br>
+  tfr_byte(0x000);   // Final control byte, all 0 for 9850 chip<br>
+  pulseHigh(FQ_UD);  // Done!  Should see output<br>
+}</p>
+<p>void setup() {<br>
+ // configure arduino data pins for output<br>
+  pinMode(FQ_UD, OUTPUT);<br>
+  pinMode(W_CLK, OUTPUT);<br>
+  pinMode(DATA, OUTPUT);<br>
+  pinMode(RESET, OUTPUT);</p>
+<p>  pulseHigh(RESET);<br>
+  pulseHigh(W_CLK);<br>
+  pulseHigh(FQ_UD);  // this pulse enables serial mode – Datasheet page 12 figure 10<br>
+}</p>
+<p>void loop() {<br>
+  sendmsg(” V V V XX0XX/B QRPP BEACON E E E E E E E E E E”) ;<br>
+  delay(1500) ;<br>
+}</p>
+<p>73 es DX from Niceto EA5EHS</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://nr8o.dhlpilotcentral.com/?p=83&replytocom=562#respond" onclick="return addComment.moveForm(&quot;comment-562&quot;, &quot;562&quot;, &quot;respond&quot;, &quot;83&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-even depth-1" id="li-comment-576">
+		<article id="comment-576" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/6ef284940e5d053082fa4df524bc5848" class="avatar avatar-68 photo grav-hashed grav-hijack" height="68" width="68" id="grav-6ef284940e5d053082fa4df524bc5848-0"><span class="fn">Bill</span> on <a href="http://nr8o.dhlpilotcentral.com/?p=83#comment-576"><time datetime="2013-05-07T14:35:51+00:00">May 7, 2013 at 2:35 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Thanks for posting this guide; it really helps speed up the learning curve (reducing it to almost zero). I was able to get my AD9850 board working in only about 30 minutes (taking my time) using this info.</p>
+<p>PS:<br>
+2^32 is 4294967296, but your code shows … 295 (=2^32 – 1).<br>
+Arduino main loop doesn’t require the while(1) statement.</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://nr8o.dhlpilotcentral.com/?p=83&replytocom=576#respond" onclick="return addComment.moveForm(&quot;comment-576&quot;, &quot;576&quot;, &quot;respond&quot;, &quot;83&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+	<li class="comment even depth-2" id="li-comment-14318">
+		<article id="comment-14318" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/6467d8392545066c6b5dcf62da1b5434" class="avatar avatar-39 photo grav-hashed grav-hijack" height="39" width="39" id="grav-6467d8392545066c6b5dcf62da1b5434-0"><span class="fn">Paul</span> on <a href="http://nr8o.dhlpilotcentral.com/?p=83#comment-14318"><time datetime="2014-06-27T16:14:00+00:00">June 27, 2014 at 4:14 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Hi Bill,<br>
+Just wondering about not needing the while(1). If it is omitted, won’t the Arduino keep writing the same value over &amp; over again to the AD9850? Or are you saying because that won’t cause any harm, just let it ?</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://nr8o.dhlpilotcentral.com/?p=83&replytocom=14318#respond" onclick="return addComment.moveForm(&quot;comment-14318&quot;, &quot;14318&quot;, &quot;respond&quot;, &quot;83&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-577">
+		<article id="comment-577" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/be0bcd4510c2977a1715ccbda9530ff8" class="avatar avatar-68 photo grav-hashed grav-hijack" height="68" width="68" id="grav-be0bcd4510c2977a1715ccbda9530ff8-1"><span class="fn">Niceto</span> on <a href="http://nr8o.dhlpilotcentral.com/?p=83#comment-577"><time datetime="2013-05-07T15:01:17+00:00">May 7, 2013 at 3:01 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Hallo, Bill<br>
+Thanks for info for “while(1)”. I<br>
+I copied code from the two oringins and adapted. You can see following links in the code comments area. This is my first Arduino ide code (excepting pin 13 led blinking). I used my limited Turbo C knowledge (last time I used  was 20 years ago) to make it work.<br>
+If you put …296, arduino ide can´t compile:<br>
+“error: integer constant is too large for ‘long’ type”</p>
+<p>Best 73 from Niceto</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://nr8o.dhlpilotcentral.com/?p=83&replytocom=577#respond" onclick="return addComment.moveForm(&quot;comment-577&quot;, &quot;577&quot;, &quot;respond&quot;, &quot;83&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+	<li class="comment even depth-2" id="li-comment-588">
+		<article id="comment-588" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/e7c4e50d0c640eee6e490a587e4aa0bd" class="avatar avatar-39 photo grav-hashed grav-hijack" height="39" width="39" id="grav-e7c4e50d0c640eee6e490a587e4aa0bd-0"><span class="fn">Bill</span> on <a href="http://nr8o.dhlpilotcentral.com/?p=83#comment-588"><time datetime="2013-05-10T08:54:59+00:00">May 10, 2013 at 8:54 am</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>“…296 can’t compile…”</p>
+<p>Of course! Good one.</p>
+<p>My next iteration will move the constant calculation outside the main loop. No need to repeatedly recalculate it, but I’ll need to think carefully about where the truncation of significant digits or bits occurs. We don’t want to lose resolution of frequency steps.</p>
+<p>Thank you.</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://nr8o.dhlpilotcentral.com/?p=83&replytocom=588#respond" onclick="return addComment.moveForm(&quot;comment-588&quot;, &quot;588&quot;, &quot;respond&quot;, &quot;83&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-even depth-1" id="li-comment-582">
+		<article id="comment-582" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/d368e7c6ad7bbc8ec3b65bb294637136" class="avatar avatar-68 photo grav-hashed grav-hijack" height="68" width="68" id="grav-d368e7c6ad7bbc8ec3b65bb294637136-0"><span class="fn">Kevin G</span> on <a href="http://nr8o.dhlpilotcentral.com/?p=83#comment-582"><time datetime="2013-05-08T22:55:06+00:00">May 8, 2013 at 10:55 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Thanks for the info.  I ordered 4 of them – probably won’t get them until after Dayton.   Presently using a PICAXE to control an AD9851, but the freq&gt;word conversion is considerably more difficult with a PICAXE.</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://nr8o.dhlpilotcentral.com/?p=83&replytocom=582#respond" onclick="return addComment.moveForm(&quot;comment-582&quot;, &quot;582&quot;, &quot;respond&quot;, &quot;83&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-odd thread-alt depth-1" id="li-comment-976">
+		<article id="comment-976" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/ed24ebc2ca374aa3e431294af3c97392" class="avatar avatar-68 photo grav-hashed grav-hijack" height="68" width="68" id="grav-ed24ebc2ca374aa3e431294af3c97392-0"><span class="fn">Tony</span> on <a href="http://nr8o.dhlpilotcentral.com/?p=83#comment-976"><time datetime="2013-07-04T12:07:46+00:00">July 4, 2013 at 12:07 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>HI, Congratulation ! This is a very neat job you did. I tried it, and it really work. At the end you could choose what ever frequency you want and that is Great ! Do you have a code where you could input a range of frequency say from 500khz to 30mhz? I would appreciate it very much if you could help me out with this, I’m new to this ad9850 and Arduino. More power and Thank you.</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://nr8o.dhlpilotcentral.com/?p=83&replytocom=976#respond" onclick="return addComment.moveForm(&quot;comment-976&quot;, &quot;976&quot;, &quot;respond&quot;, &quot;83&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-even depth-1" id="li-comment-1026">
+		<article id="comment-1026" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/eae8a8829e93f1a78550c0ebc3aef208" class="avatar avatar-68 photo grav-hashed grav-hijack" height="68" width="68" id="grav-eae8a8829e93f1a78550c0ebc3aef208-0"><span class="fn">Nanda</span> on <a href="http://nr8o.dhlpilotcentral.com/?p=83#comment-1026"><time datetime="2013-07-11T21:08:19+00:00">July 11, 2013 at 9:08 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Hi,,  I have a problem with Arduino Mega 2560 and AD9850<br>
+Need help..<br>
+What  AD9850 source code to produce frequency output 20Mhz with clock in 100Mhz??</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://nr8o.dhlpilotcentral.com/?p=83&replytocom=1026#respond" onclick="return addComment.moveForm(&quot;comment-1026&quot;, &quot;1026&quot;, &quot;respond&quot;, &quot;83&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-odd thread-alt depth-1" id="li-comment-1364">
+		<article id="comment-1364" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/bdc9c5d2e4e082228a4da8a8965aa66a" class="avatar avatar-68 photo grav-hashed grav-hijack" height="68" width="68" id="grav-bdc9c5d2e4e082228a4da8a8965aa66a-0"><span class="fn">chris</span> on <a href="http://nr8o.dhlpilotcentral.com/?p=83#comment-1364"><time datetime="2013-09-10T19:27:19+00:00">September 10, 2013 at 7:27 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Hello, thank you for the code,<br>
+how can we change the phase modulation? I want 180 degrees</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://nr8o.dhlpilotcentral.com/?p=83&replytocom=1364#respond" onclick="return addComment.moveForm(&quot;comment-1364&quot;, &quot;1364&quot;, &quot;respond&quot;, &quot;83&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-even depth-1" id="li-comment-1457">
+		<article id="comment-1457" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/6d986a9758b3d9615aefc8e167db36d7" class="avatar avatar-68 photo grav-hashed grav-hijack" height="68" width="68" id="grav-6d986a9758b3d9615aefc8e167db36d7-0"><span class="fn">Aditya</span> on <a href="http://nr8o.dhlpilotcentral.com/?p=83#comment-1457"><time datetime="2013-09-21T09:37:29+00:00">September 21, 2013 at 9:37 am</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>I borrowed your code and testited mine …..<br>
+<a href="http://youtu.be/-9stj3a1zvY" rel="nofollow">http://youtu.be/-9stj3a1zvY</a></p>
+<p>Thanks For your Code<br>
+ID tiwari[dot]aditya13[at]gmail.com</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://nr8o.dhlpilotcentral.com/?p=83&replytocom=1457#respond" onclick="return addComment.moveForm(&quot;comment-1457&quot;, &quot;1457&quot;, &quot;respond&quot;, &quot;83&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-odd thread-alt depth-1" id="li-comment-1584">
+		<article id="comment-1584" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/76cdba720a794adefa05cce4c62e1648" class="avatar avatar-68 photo grav-hashed grav-hijack" height="68" width="68" id="grav-76cdba720a794adefa05cce4c62e1648-0"><span class="fn">Alejandro</span> on <a href="http://nr8o.dhlpilotcentral.com/?p=83#comment-1584"><time datetime="2013-10-04T13:17:17+00:00">October 4, 2013 at 1:17 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Thanks for the review, and the code. I have a question, if you please. I wonder if there is a DC bias in the output waveform. I mean, does the output, referenced to GND, vary from -2.5v and +2.5v, or from 0 and 5v, assuming 5v working voltage? If the latter is true, do you happen to know of a method to remove the bias? (I ask just in case).</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://nr8o.dhlpilotcentral.com/?p=83&replytocom=1584#respond" onclick="return addComment.moveForm(&quot;comment-1584&quot;, &quot;1584&quot;, &quot;respond&quot;, &quot;83&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="post pingback">
+		<p>Pingback: <a href="http://mcu8.ru/wp-gull/mylinks/2013/10/16/dds-generator-na-osnove-mikroshemyi-ad9850/" rel="external nofollow" class="url">DDS-генератор на основе микросхемы AD9850 | MyLinks</a></p>
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-even depth-1" id="li-comment-12604">
+		<article id="comment-12604" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/c154e1a179b4c5dc928b610c369a318a" class="avatar avatar-68 photo grav-hashed grav-hijack" height="68" width="68" id="grav-c154e1a179b4c5dc928b610c369a318a-2"><span class="fn"><a href="http://m0xpd.blogspot.com/" rel="external nofollow" class="url">m0xpd</a></span> on <a href="http://nr8o.dhlpilotcentral.com/?p=83#comment-12604"><time datetime="2014-03-09T02:50:58+00:00">March 9, 2014 at 2:50 am</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Ron<br>
+I’ve just published Arduino libraries for controlling AD9850-based modules.</p>
+<p>There’s a general library, which uses soft SPI here:<br>
+<a href="https://github.com/m0xpd/DDS" rel="nofollow">https://github.com/m0xpd/DDS</a></p>
+<p>and a specific library for the Arduino DUE, which achieves faster control of the module using hardware SPI, here:<br>
+<a href="https://github.com/m0xpd/DueDDS" rel="nofollow">https://github.com/m0xpd/DueDDS</a></p>
+<p>A general description, including details of the simple API and physical hook-up, appears on my blog:<br>
+<a href="http://m0xpd.blogspot.co.uk/2014/03/dds-and-duedds-libraries.html" rel="nofollow">http://m0xpd.blogspot.co.uk/2014/03/dds-and-duedds-libraries.html</a></p>
+<p>Thanks for starting all this!<br>
+73<br>
+Paul<br>
+m0xpd</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://nr8o.dhlpilotcentral.com/?p=83&replytocom=12604#respond" onclick="return addComment.moveForm(&quot;comment-12604&quot;, &quot;12604&quot;, &quot;respond&quot;, &quot;83&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-odd thread-alt depth-1" id="li-comment-13992">
+		<article id="comment-13992" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/62a066e016cbd059831a72f068513131" class="avatar avatar-68 photo grav-hashed grav-hijack" height="68" width="68" id="grav-62a066e016cbd059831a72f068513131-0"><span class="fn">Ragbir Chana</span> on <a href="http://nr8o.dhlpilotcentral.com/?p=83#comment-13992"><time datetime="2014-05-14T17:15:05+00:00">May 14, 2014 at 5:15 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Hello Ron, first many thanks for your article on this eBay AD9850 DDS Module. I have successfully produced SINE WAVES using AD9850 Module.<br>
+How ever I seem to find no documentation that will let me enable SQUARE WAVES. On some other version of similar module, for example,<br>
+<a href="http://www.siliconray.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/a/d/ad9850-2.jpg" rel="nofollow">http://www.siliconray.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/a/d/ad9850-2.jpg</a><br>
+one just enables or disables the plastic link. All help will be greatly appreciated.<br>
+Many thanks</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://nr8o.dhlpilotcentral.com/?p=83&replytocom=13992#respond" onclick="return addComment.moveForm(&quot;comment-13992&quot;, &quot;13992&quot;, &quot;respond&quot;, &quot;83&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+	<li class="comment odd alt depth-2" id="li-comment-14002">
+		<article id="comment-14002" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/62a066e016cbd059831a72f068513131(1)" class="avatar avatar-39 photo grav-hashed grav-hijack" height="39" width="39" id="grav-62a066e016cbd059831a72f068513131-1"><span class="fn">Ragbir Chana</span> on <a href="http://nr8o.dhlpilotcentral.com/?p=83#comment-14002"><time datetime="2014-05-15T23:10:16+00:00">May 15, 2014 at 11:10 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Hello Ron &amp; All<br>
+Recently,  I also sent question to the eBay Seller who in turn pointed me to technical material which I  already have seen before. So lookjing at the schematic and doing countinuity checks on my AD9850 Module,<br>
+(the following schematic might be useful<br>
+<a href="http://4.bp.blogspot.com/-eGs5CgvQQvc/T2Qao2YipGI/AAAAAAAAECY/X8xitGVNmk4/s1600/AD9850_51_DDS_02.jpg" rel="nofollow">http://4.bp.blogspot.com/-eGs5CgvQQvc/T2Qao2YipGI/AAAAAAAAECY/X8xitGVNmk4/s1600/AD9850_51_DDS_02.jpg</a><br>
+)<br>
+It appears that on our AD9850 Module similar to your GREEN BOARD (mine was sent to me as Blue Board) the square wave should be appearing on the SQUARE WAVE PINS Qout1 and Qout2 whenever the Sine Wave appears on the pins SINA and SINB of the AD9850 Module.<br>
+If so, then in my case the COMPARATOR section is probably to blame.<br>
+I will greatly appreciate if anyone can confirm or otherwise what I think is happening. To make the matters worse, I lost my old Tek2430A scope also. Tried ArduinoScope but is very limiting. I am planing this time buy RIGOL DS2072 Oscilloscope. I done with secondhand scopes. Well this was truly an example of Murphy’s at its best.<br>
+Anyway, If what I am saying is correct then I will be contacting the supplier for the replacement of the module. </p>
+<p>Here are couple of pictures:<br>
+<a href="http://imagizer.imageshack.us/v2/640x480q90/841/9iery.jpg" rel="nofollow">http://imagizer.imageshack.us/v2/640x480q90/841/9iery.jpg</a><br>
+<a href="http://imagizer.imageshack.us/v2/640x480q90/835/5icx.jpg" rel="nofollow">http://imagizer.imageshack.us/v2/640x480q90/835/5icx.jpg</a></p>
+<p>Many thanks.<br>
+ragbir</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://nr8o.dhlpilotcentral.com/?p=83&replytocom=14002#respond" onclick="return addComment.moveForm(&quot;comment-14002&quot;, &quot;14002&quot;, &quot;respond&quot;, &quot;83&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+	<li class="comment even depth-3" id="li-comment-14005">
+		<article id="comment-14005" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/62a066e016cbd059831a72f068513131(1)" class="avatar avatar-39 photo grav-hashed grav-hijack" height="39" width="39" id="grav-62a066e016cbd059831a72f068513131-2"><span class="fn">Ragbir Chana</span> on <a href="http://nr8o.dhlpilotcentral.com/?p=83#comment-14005"><time datetime="2014-05-16T13:15:23+00:00">May 16, 2014 at 1:15 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Hi Ron &amp; Everyone – UPDATE on my AD9850 DDS Module<br>
+last night  it occurred to me that as in your SQUARE WAVE  YouTube Video POT R13 adjusts the duty cycle of the SQURE WAVE. Next I thought, what if my unit left the factory not setting R13 Trim Pot properly (50-50 duty-cycle). Continuity check revealed that there cannot be anything wrong with the module. As I stated earlier my old Tek2430A died. Next in an emergency I set up Arduino-Scope. Its really very weak. I loaded 10Hz freq into my AD9850 DDS Module. Next I adjusted R13, voila,I got the SQUARE WAVE adjusted within the limits of Arduino Scope.</p>
+<p>Arduino Scope in Emergency<br>
+<a href="http://imagizer.imageshack.us/v2/640" rel="nofollow">http://imagizer.imageshack.us/v2/640</a>…0/845/ihdc.png</p>
+<p>My AD9850 DDS Module<br>
+<a href="http://imagizer.imageshack.us/v2/640" rel="nofollow">http://imagizer.imageshack.us/v2/640</a>…/841/9iery.jpg</p>
+<p>Rife LLLT Therapy Healing Unit under construction<br>
+<a href="http://imagizer.imageshack.us/v2/640" rel="nofollow">http://imagizer.imageshack.us/v2/640</a>…0/842/z0oy.jpg</p>
+<p>Thanks everyone<br>
+Ragbir</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://nr8o.dhlpilotcentral.com/?p=83&replytocom=14005#respond" onclick="return addComment.moveForm(&quot;comment-14005&quot;, &quot;14005&quot;, &quot;respond&quot;, &quot;83&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-even depth-1" id="li-comment-14007">
+		<article id="comment-14007" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/62a066e016cbd059831a72f068513131" class="avatar avatar-68 photo grav-hashed grav-hijack" height="68" width="68" id="grav-62a066e016cbd059831a72f068513131-3"><span class="fn">Ragbir Chana</span> on <a href="http://nr8o.dhlpilotcentral.com/?p=83#comment-14007"><time datetime="2014-05-16T13:28:24+00:00">May 16, 2014 at 1:28 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Sorry the picture links did not work but there no way I know in this forum to edit the post. I am new to this forum.<br>
+Arduino Scope in Emergency<br>
+<a href="http://imagizer.imageshack.us/v2/640x480q90/845/ihdc.png" rel="nofollow">http://imagizer.imageshack.us/v2/640x480q90/845/ihdc.png</a></p>
+<p>My AD9850 DDS Module<br>
+<a href="http://imagizer.imageshack.us/v2/640x480q90/841/9iery.jpg" rel="nofollow">http://imagizer.imageshack.us/v2/640x480q90/841/9iery.jpg</a></p>
+<p>Rife LLLT Therapy Healing Unit under construction<br>
+<a href="http://imagizer.imageshack.us/v2/640x480q90/842/z0oy.jpg" rel="nofollow">http://imagizer.imageshack.us/v2/640x480q90/842/z0oy.jpg</a></p>
+<p>Thanks and sorry for the duplicate post<br>
+Ragbir</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://nr8o.dhlpilotcentral.com/?p=83&replytocom=14007#respond" onclick="return addComment.moveForm(&quot;comment-14007&quot;, &quot;14007&quot;, &quot;respond&quot;, &quot;83&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-odd thread-alt depth-1" id="li-comment-14307">
+		<article id="comment-14307" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/51d6c4b84cd4a4a336099b73a7fecc5b" class="avatar avatar-68 photo grav-hashed grav-hijack" height="68" width="68" id="grav-51d6c4b84cd4a4a336099b73a7fecc5b-0"><span class="fn"><a href="http://thanksalot/" rel="external nofollow" class="url">Timi</a></span> on <a href="http://nr8o.dhlpilotcentral.com/?p=83#comment-14307"><time datetime="2014-06-23T08:44:24+00:00">June 23, 2014 at 8:44 am</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Hi  NR8O</p>
+<p>thanks a lot for your code. i just got my ad9850 board and will try it on arduino leonardo.</p>
+<p>Timi,</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://nr8o.dhlpilotcentral.com/?p=83&replytocom=14307#respond" onclick="return addComment.moveForm(&quot;comment-14307&quot;, &quot;14307&quot;, &quot;respond&quot;, &quot;83&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-even depth-1" id="li-comment-14314">
+		<article id="comment-14314" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/ef582d18a4bc500d7bb6b00fb5c1f66c" class="avatar avatar-68 photo grav-hashed grav-hijack" height="68" width="68" id="grav-ef582d18a4bc500d7bb6b00fb5c1f66c-0"><span class="fn"><a href="http://spacenear.us/tracker/" rel="external nofollow" class="url">N2NXZ</a></span> on <a href="http://nr8o.dhlpilotcentral.com/?p=83#comment-14314"><time datetime="2014-06-25T09:24:45+00:00">June 25, 2014 at 9:24 am</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Has anyone tried to use the AD9850 DDS module for GPS tracking , (HAB)?<br>
+I would like to use an Arduino UNO for high altitude HF balloon tracking using RTTY.<br>
+I have it transmitting using this method so far and very impressed with this inexpensive module.<br>
+<span class="embed-youtube" style="text-align:center; display: block;"><iframe class="youtube-player" type="text/html" width="584" height="359" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/-YQe8AYZBQM.html" frameborder="0" allowfullscreen="true"></iframe></span></p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://nr8o.dhlpilotcentral.com/?p=83&replytocom=14314#respond" onclick="return addComment.moveForm(&quot;comment-14314&quot;, &quot;14314&quot;, &quot;respond&quot;, &quot;83&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-odd thread-alt depth-1" id="li-comment-26840">
+		<article id="comment-26840" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/766594f0e89c48c0bb6dc61c11f7b098" class="avatar avatar-68 photo grav-hashed grav-hijack" height="68" width="68" id="grav-766594f0e89c48c0bb6dc61c11f7b098-0"><span class="fn"><a href="http://k183.bake-neko.net/ji3bnb/" rel="external nofollow" class="url">JI3BNB</a></span> on <a href="http://nr8o.dhlpilotcentral.com/?p=83#comment-26840"><time datetime="2014-08-29T07:44:56+00:00">August 29, 2014 at 7:44 am</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Hi, thanks for your great work, and sharing the code.<br>
+It works fine on my Arduino MEGA board.<br>
+It’s so simple, and It helped me to understand how to control AD9850 module.<br>
+Thanks again de JI3BNB KAZ</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://nr8o.dhlpilotcentral.com/?p=83&replytocom=26840#respond" onclick="return addComment.moveForm(&quot;comment-26840&quot;, &quot;26840&quot;, &quot;respond&quot;, &quot;83&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-even depth-1" id="li-comment-28881">
+		<article id="comment-28881" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/92461021ed6b529995abb5969e36e8d3" class="avatar avatar-68 photo grav-hashed grav-hijack" height="68" width="68" id="grav-92461021ed6b529995abb5969e36e8d3-0"><span class="fn">g0thy</span> on <a href="http://nr8o.dhlpilotcentral.com/?p=83#comment-28881"><time datetime="2014-10-06T11:00:07+00:00">October 6, 2014 at 11:00 am</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>works very well on my Mega.<br>
+my first play with DDS</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://nr8o.dhlpilotcentral.com/?p=83&replytocom=28881#respond" onclick="return addComment.moveForm(&quot;comment-28881&quot;, &quot;28881&quot;, &quot;respond&quot;, &quot;83&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-odd thread-alt depth-1" id="li-comment-31428">
+		<article id="comment-31428" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/b563279adcc15450ac3a2d7dab23c679" class="avatar avatar-68 photo grav-hashed grav-hijack" height="68" width="68" id="grav-b563279adcc15450ac3a2d7dab23c679-0"><span class="fn">Robert L. Pendergast, N5JYW</span> on <a href="http://nr8o.dhlpilotcentral.com/?p=83#comment-31428"><time datetime="2014-12-18T10:25:03+00:00">December 18, 2014 at 10:25 am</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Hi,</p>
+<p>Thanks for your blog. I succeeded in getting this operating with no difficulty.<br>
+Have you considered making this an audio sweep generator?</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://nr8o.dhlpilotcentral.com/?p=83&replytocom=31428#respond" onclick="return addComment.moveForm(&quot;comment-31428&quot;, &quot;31428&quot;, &quot;respond&quot;, &quot;83&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="post pingback">
+		<p>Pingback: <a href="https://coolarduino.wordpress.com/2014/12/24/lcq-meter-amplitude-phase-characterizer-piezo-tester/" rel="external nofollow" class="url">LCQ Meter / Amplitude-Phase Characterizer / Piezo tester. | coolarduino</a></p>
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-even depth-1" id="li-comment-31459">
+		<article id="comment-31459" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/935095f47a4b2db3b93adc6ed83b88c4" class="avatar avatar-68 photo grav-hashed grav-hijack" height="68" width="68" id="grav-935095f47a4b2db3b93adc6ed83b88c4-0"><span class="fn">Todd</span> on <a href="http://nr8o.dhlpilotcentral.com/?p=83#comment-31459"><time datetime="2014-12-28T03:07:53+00:00">December 28, 2014 at 3:07 am</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Just wanted to say thanks for the sketch! It got mine running in 10 minutes after the package arrived <img src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/icon_smile.gif" alt=":-)" class="wp-smiley"></p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://nr8o.dhlpilotcentral.com/?p=83&replytocom=31459#respond" onclick="return addComment.moveForm(&quot;comment-31459&quot;, &quot;31459&quot;, &quot;respond&quot;, &quot;83&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+		</ol>
+
+		
+		
+	
+									<div id="respond" class="comment-respond">
+				<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="http://nr8o.dhlpilotcentral.com/?p=83#respond" style="display:none;">Cancel reply</a></small></h3>
+									<form action="http://nr8o.dhlpilotcentral.com/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+																			<p class="comment-notes">Your email address will not be published. Required fields are marked <span class="required">*</span></p>							<p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" aria-required="true" style="background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABHklEQVQ4EaVTO26DQBD1ohQWaS2lg9JybZ+AK7hNwx2oIoVf4UPQ0Lj1FdKktevIpel8AKNUkDcWMxpgSaIEaTVv3sx7uztiTdu2s/98DywOw3Dued4Who/M2aIx5lZV1aEsy0+qiwHELyi+Ytl0PQ69SxAxkWIA4RMRTdNsKE59juMcuZd6xIAFeZ6fGCdJ8kY4y7KAuTRNGd7jyEBXsdOPE3a0QGPsniOnnYMO67LgSQN9T41F2QGrQRRFCwyzoIF2qyBuKKbcOgPXdVeY9rMWgNsjf9ccYesJhk3f5dYT1HX9gR0LLQR30TnjkUEcx2uIuS4RnI+aj6sJR0AM8AaumPaM/rRehyWhXqbFAA9kh3/8/NvHxAYGAsZ/il8IalkCLBfNVAAAAABJRU5ErkJggg==); background-attachment: scroll; background-position: 100% 50%; background-repeat: no-repeat;"></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="text" value="" size="30" aria-required="true"></p>
+<p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="text" value="" size="30"></p>
+<p class="cptch_block"><br>		<input type="hidden" name="cptch_result" value="JCs=">
+		<input type="hidden" name="cptch_time" value="1422943535">
+		<input type="hidden" value="Version: 4.0.6">
+		8 − two =  <input id="cptch_input" class="cptch_input" type="text" autocomplete="off" name="cptch_number" value="" maxlength="2" size="2" aria-required="true" required="required" style="margin-bottom:0;display:inline;font-size: 12px;width: 40px;">	</p>												<p class="comment-form-comment"><label for="comment">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>						<p class="form-allowed-tags">You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes:  <code>&lt;a href="" title=""&gt; &lt;abbr title=""&gt; &lt;acronym title=""&gt; &lt;b&gt; &lt;blockquote cite=""&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=""&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=""&gt; &lt;strike&gt; &lt;strong&gt; </code></p>						<p class="form-submit">
+							<input name="submit" type="submit" id="submit" value="Post Comment">
+							<input type="hidden" name="comment_post_ID" value="83" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+						</p>
+						<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="699bff5d85"></p><p class="comment-subscription-form"><input type="checkbox" name="subscribe_comments" id="subscribe_comments" value="subscribe" style="width: auto; -moz-appearance: checkbox; -webkit-appearance: checkbox;"> <label class="subscribe-label" id="subscribe-label" for="subscribe_comments">Notify me of follow-up comments by email.</label></p><p class="comment-subscription-form"><input type="checkbox" name="subscribe_blog" id="subscribe_blog" value="subscribe" style="width: auto; -moz-appearance: checkbox; -webkit-appearance: checkbox;"> <label class="subscribe-label" id="subscribe-blog-label" for="subscribe_blog">Notify me of new posts by email.</label></p><p style="display: none;"></p>					<input type="hidden" id="ak_js" name="ak_js" value="1422943533225"></form>
+							</div><!-- #respond -->
+			
+</div><!-- #comments -->
+
+				
+			</div><!-- #content -->
+		</div><!-- #primary -->
+
+
+	</div><!-- #main -->
+
+	<footer id="colophon" role="contentinfo">
+
+			
+
+			<div id="site-generator">
+								<a href="http://wordpress.org/" title="Semantic Personal Publishing Platform">Proudly powered by WordPress</a>
+			</div>
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+	<div style="display:none">
+	<div class="grofile-hash-map-5f0e772cf15320467d4bc0482da56074">
+	</div>
+	<div class="grofile-hash-map-b2a97574504b1df128e13e80f51fedf6">
+	</div>
+	<div class="grofile-hash-map-b03fbb175f9b8f86989a44d45da25671">
+	</div>
+	<div class="grofile-hash-map-4b9fccecad19d61699ec86db29538a1e">
+	</div>
+	<div class="grofile-hash-map-78776808f77e9a1fab47c4cf6f81c238">
+	</div>
+	<div class="grofile-hash-map-1e22609c06312f700f6c648cd6a02a9c">
+	</div>
+	<div class="grofile-hash-map-9cfdec30d193f1d11396869279a9838b">
+	</div>
+	<div class="grofile-hash-map-27d6a600d17c659a7d5165536c779fec">
+	</div>
+	<div class="grofile-hash-map-9d769890ad461e7e230b751d7c2030e6">
+	</div>
+	<div class="grofile-hash-map-2dbd821659fc2562e7ccd7cc0446bb50">
+	</div>
+	<div class="grofile-hash-map-c154e1a179b4c5dc928b610c369a318a">
+	</div>
+	<div class="grofile-hash-map-67db4ad752f1ba16fcb320fa8426c87b">
+	</div>
+	<div class="grofile-hash-map-96462ad2c1648171c6f2f41136b92e35">
+	</div>
+	<div class="grofile-hash-map-4eec43f1db4c369d11a5540cd1ac423e">
+	</div>
+	<div class="grofile-hash-map-10a8bbb79635e9e760d01b81ba7e321b">
+	</div>
+	<div class="grofile-hash-map-3d4d135ebd3f72edeafecf939aeff99f">
+	</div>
+	<div class="grofile-hash-map-a838d48ecb5ef0efc45a54d8fd6bae5c">
+	</div>
+	<div class="grofile-hash-map-bbbaa41c1980d16657cad92896cedc8b">
+	</div>
+	<div class="grofile-hash-map-be0bcd4510c2977a1715ccbda9530ff8">
+	</div>
+	<div class="grofile-hash-map-6b8acaf6a3d6abf574288a3ac940ae6b">
+	</div>
+	<div class="grofile-hash-map-6467d8392545066c6b5dcf62da1b5434">
+	</div>
+	<div class="grofile-hash-map-3fc1ed950a406becb0a672f0592bdfc3">
+	</div>
+	<div class="grofile-hash-map-d368e7c6ad7bbc8ec3b65bb294637136">
+	</div>
+	<div class="grofile-hash-map-ed24ebc2ca374aa3e431294af3c97392">
+	</div>
+	<div class="grofile-hash-map-eae8a8829e93f1a78550c0ebc3aef208">
+	</div>
+	<div class="grofile-hash-map-bdc9c5d2e4e082228a4da8a8965aa66a">
+	</div>
+	<div class="grofile-hash-map-6d986a9758b3d9615aefc8e167db36d7">
+	</div>
+	<div class="grofile-hash-map-76cdba720a794adefa05cce4c62e1648">
+	</div>
+	<div class="grofile-hash-map-62a066e016cbd059831a72f068513131">
+	</div>
+	<div class="grofile-hash-map-51d6c4b84cd4a4a336099b73a7fecc5b">
+	</div>
+	<div class="grofile-hash-map-ef582d18a4bc500d7bb6b00fb5c1f66c">
+	</div>
+	<div class="grofile-hash-map-766594f0e89c48c0bb6dc61c11f7b098">
+	</div>
+	<div class="grofile-hash-map-92461021ed6b529995abb5969e36e8d3">
+	</div>
+	<div class="grofile-hash-map-b563279adcc15450ac3a2d7dab23c679">
+	</div>
+	<div class="grofile-hash-map-935095f47a4b2db3b93adc6ed83b88c4">
+	</div>
+	</div>
+<script type="text/javascript" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/form.js"></script>
+<script type="text/javascript" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/shCore.js"></script>
+<script type="text/javascript" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/shBrushArduino.js"></script>
+<script type="text/javascript">
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "http://nr8o.dhlpilotcentral.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css?ver=3.0.9";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "http://nr8o.dhlpilotcentral.com/wp-content/plugins/syntaxhighlighter-arduino/shThemeArduino.css?ver=3.0.9";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
+<script type="text/javascript" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/comment-reply.min.js"></script>
+<script type="text/javascript" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/devicepx-jetpack.js"></script>
+<script type="text/javascript" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/gprofiles.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/wpgroho.js"></script>
+
+	<script src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/e-201506.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	st_go({v:'ext',j:'1:3.2',blog:'38523953',post:'83',tz:'-4'});
+	var load_cmc = function(){linktracker_init(38523953,83,2);};
+	if ( typeof addLoadEvent != 'undefined' ) addLoadEvent(load_cmc);
+	else load_cmc();
+	</script><img src="./Testing an eBay AD9850 DDS module with Arduino Uno   NR8O_files/g.gif" id="wpstats">
+
+<script id="hiddenlpsubmitdiv" style="display: none;"></script><script>try{for(var lastpass_iter=0; lastpass_iter < document.forms.length; lastpass_iter++){ var lastpass_f = document.forms[lastpass_iter]; if(typeof(lastpass_f.lpsubmitorig2)=="undefined"){ lastpass_f.lpsubmitorig2 = lastpass_f.submit; lastpass_f.submit = function(){ var form=this; var customEvent = document.createEvent("Event"); customEvent.initEvent("lpCustomEvent", true, true); var d = document.getElementById("hiddenlpsubmitdiv"); if (d) {for(var i = 0; i < document.forms.length; i++){ if(document.forms[i]==form){ if (typeof(d.innerText) != 'undefined') { d.innerText=i; } else { d.textContent=i; } } } d.dispatchEvent(customEvent); }form.lpsubmitorig2(); } } }}catch(e){}</script></body></html>
