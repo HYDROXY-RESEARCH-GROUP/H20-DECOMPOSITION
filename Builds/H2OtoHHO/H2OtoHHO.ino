@@ -20,13 +20,6 @@ Down   - 4
 Right  - 5
 
 */
-
-#include <LiquidCrystal.h>
-#include <LCDKeypad.h>
-#include <DFR_Key.h>
-#include <Tone.h>
-#include <AD9850.h>
-//#include "pitches.h"
 #include "H2OtoHHO.h"
 
 
@@ -63,14 +56,14 @@ AD9850 DDS_Pulse(DDS1_CLK_Pin, DDS1_FQ_Pin, DDS1_DATA_Pin); // w_clk, fq_ud, Sda
 //---------------------------------------------
 
 /* I\O PIN MAPPING BUZZER MODULE  */
-const uint8_t Buzzer_Pin = 30;
+//const uint8_t Buzzer_Pin = 30;
 //const unsigned int BuzzerToneFq = NOTE_C4;
-const unsigned long BuzzerShortTone = 500;
-const unsigned long BuzzerLongTone = 1000;
+//const unsigned long BuzzerShortTone = 500;
+//const unsigned long BuzzerLongTone = 1000;
 
 /* CREATE BUZZER CLASS INSTANCE */
-Tone buzzer[1];
-buzzer[0].begin(Buzzer_Pin);
+//Tone buzzer[1];
+//buzzer[0].begin(Buzzer_Pin);
 
 
 /* Define Locale Variables */
@@ -192,137 +185,10 @@ void loop()
 }
 //---------------------------------------------
 
-/* Updates Display upon Keypress */
-int UpdateKeypress(int keypress)
-{
-  //if (keypress != KEYPAD_NONE)
-  //{
-    lcd.clear();
-    lcd.setCursor(0, 0);
-    lcd.print("Current Key:");
-    lcd.setCursor(0, 1);
-    lcd.print(FuncKey);
-    lcd.print(" => ");
-    lcd.print(analogRead(0));
-    lcd.print(", ");
-    lcd.print(lcd.button());
-    delay(1000);
-  //}
-  return 0;
-}
-//---------------------------------------------
 
 
-int MainMenu ()
-{
-  int k = 0, exitCode = -1, SelectedItem = 0, keypress= 0;
-  String MainItems[4] = {
-    " 1. Exit Menu!",
-    " 2. Re-Scan Freq.",
-    " 3. [Option #2]",
-    " 4. Debug Mode" };
-    
-  
-  do
-  {
-    //keypress = lcd.button();
-    
-    switch ( lcd.button() ) 
-    {
-      //case KEYPAD_RIGHT:
-      //  break;
-        
-      case KEYPAD_UP:
-          if ( SelectedItem > 0 )
-          {
-            SelectedItem--;
-            lcd.setCursor(0,1);
-            lcd.print( MainItems[SelectedItem] );
-            delay(2000);
-          }
-          else 
-            buzzer.play( NOTE_C4, BuzzerShortTone );
-            
-          exitCode = 0;
-        break;
-        
-      case KEYPAD_DOWN:
-          if ( SelectedItem < 4 )
-          {
-            SelectedItem++;
-            lcd.setCursor(0,1);
-            lcd.print( MainItems[SelectedItem] );
-            delay(2000);
-          }
-          else
-            buzzer.play( NOTE_C4, BuzzerShortTone );
-            
-             exitCode = 0;
-        break;
-        
-      //case KEYPAD_LEFT:
-      //  break;
-        
-      case KEYPAD_SELECT:
-          lcd.begin(16, 2);
-          lcd.clear();
-          lcd.print("     MAIN");
-          lcd.setCursor(0,1);
-          lcd.print("     MENU");
-          delay(3000);
-          
-          for (k=0;k<16;k++)
-          {
-            lcd.scrollDisplayLeft();
-            delay(200);
-          }
-          
-          MainMenu();
-          
-        break;
-        
-      default:
-        exitCode = 0;
-    }
-    
-  } while (exitCode!=-1);
-  
-  return exitCode;  
-}
-//---------------------------------------------
 
 
-/* Scans Resonant Frequency */
-int ResonanceScan()
-{
-  uint32_t lockFreq = 0;
-  
-  lcd.clear();
-  lcd.print("  SCANNING RANGE....  ");
-   
-  // Sweep frequency from 'F_Scan_min' to 'F_Scan_max' 
-  for (uint32_t i = F_Scan_min; i < F_Scan_max; i++)
-  {        
-    lcd.setCursor(3,1);
-    lcd.print(i);
-    lcd.print(" Hz  ");
-    
-    DDS_Gate.setfreq(i);
-    DDS_Pulse.setfreq(i*10);
-  }
-  
-  delay(200);
-  lockFreq = F_Resonace;
-  lcd.print(" ");
-  lcd.write(CUSTOM_LOCK);
-  lcd.print(" ");
-  lcd.print( lockFreq );
-  lcd.print(" Hz  ");  
-  delay(2000);
-  
-  return lockFreq;
-}
-//---------------------------------------------
 
 
 
