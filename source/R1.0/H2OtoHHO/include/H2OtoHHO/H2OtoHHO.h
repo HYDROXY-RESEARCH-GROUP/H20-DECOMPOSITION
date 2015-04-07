@@ -6,13 +6,6 @@
 #ifndef H2OtoHHO_h
 #define H2OtoHHO_h
 
-//#include <LCDKeypad.h>
-//#include <DFR_Key.h>
-//#include <AD9850.h>
-#include "LCDKeypad.h"
-#include "DFR_Key.h"
-#include "AD9850.h"
-
 #define FREQ_MIN 1                                                //Low end of freqency fine tune scale
 #define FREQ_MAX 1000                                             //High end of freqency fine tune scale
 #define SCAN_FREQ_MIN 500                                         //Low end of freqency auto tune scale
@@ -52,9 +45,9 @@
 //buzzer[0].begin(Buzzer_Pin);
 
 
-//class LCDKeypad;
-//class DFR_Key;
-//class AD9850;
+class LCDKeypad;
+class DFR_Key;
+class AD9850;
 
 
 //class H2OtoHHO: public LCDKeypad, public AD9850
@@ -65,14 +58,13 @@ class H2OtoHHO
     int ResonanceScan();
     int MainMenu();
     int UpdateKeypress(int keypress);
-    LCDKeypad screen;
-    DFR_Key ctrls;
-    AD9850 gate, pulse;
-	//int getFuncKey();
+    //int getFuncKey();
     
   private:
     //static display
-        
+    LCDKeypad *screen;
+    DFR_Key *ctrls;
+    AD9850 *gate, *pulse;    
 };
 
 #endif

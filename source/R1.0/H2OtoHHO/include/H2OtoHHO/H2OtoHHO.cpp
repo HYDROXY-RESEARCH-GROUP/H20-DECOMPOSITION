@@ -11,15 +11,14 @@
 
 
 // include this library's description file
-//#include <LiquidCrystal.h>
-#include "LiquidCrystal.h"
+#include <LiquidCrystal.h>
 //#include <Tone.h>
 #include "pitches.h"
 #include <LCDKeypad.h>
 #include <DFR_Key.h>
 #include <AD9850.h>
-//#include "H2OtoHHO.h"
-#include <H2OtoHHO.h>
+#include "H2OtoHHO.h"
+//#include <H2OtoHHO.h>
 // ensure this library description is only included once
 
 

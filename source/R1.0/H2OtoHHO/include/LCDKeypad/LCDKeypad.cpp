@@ -22,8 +22,14 @@ LCDKeypad::LCDKeypad() : LiquidCrystal(8, 9, 4, 5, 6, 7)
 int LCDKeypad::button()
 {
   static int NUM_KEYS=5;
-  static int adc_key_val[5] = { 30, 230, 535, 760, 1023 };
+  static int adc_key_val[5] = { KEY_VALUE_RIGHT, 
+		KEY_VALUE_UP,
+		KEY_VALUE_DOWN,
+		KEY_VALUE_LEFT,
+		KEY_VALUE_SELECT };
+		
   int k, input;
+  
   input=analogRead(0);
   for (k = 0; k < NUM_KEYS; k++)
   {
