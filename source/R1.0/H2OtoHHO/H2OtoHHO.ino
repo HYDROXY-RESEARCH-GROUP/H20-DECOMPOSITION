@@ -95,13 +95,13 @@ void loop()
         gen.screen->begin(16, 2);
         gen.screen->clear();
         gen.screen->print("     MAIN");
-        gen.screen->setCursor(0,1);
-        gen.screen->print("     MENU");
+        //gen.screen->setCursor(0,1);
+        //gen.screen->print("     MENU");
         delay(3000);
         
         for (k=0; k<16; k++)
         {
-          gen.screen->scrollDisplayLeft();
+          //gen.screen->scrollDisplayLeft();
           delay(200);
         }
         
