@@ -1,0 +1,1991 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="TestLibraries" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Script file="lib_finder.script" />
+			<Target title="Debug">
+				<Option output="bin/Debug/TestLibraries" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add directory="C:/Program Files (x86)/Arduino/libraries" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/TestLibraries" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add directory="C:/Program Files (x86)/Arduino/libraries" />
+		</Compiler>
+		<ResourceCompiler>
+			<Add directory="C:/Program Files (x86)/Arduino/libraries" />
+		</ResourceCompiler>
+		<Linker>
+			<Add directory="C:/Program Files (x86)/Arduino/libraries" />
+		</Linker>
+		<Unit filename="../../source/H2OtoHHO/include/H2OtoHHO.h" />
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Adafruit_CircuitPlayground/Adafruit_CircuitPlayground.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Adafruit_CircuitPlayground/Adafruit_CircuitPlayground.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Adafruit_CircuitPlayground/examples/comm_badge/coin.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Adafruit_CircuitPlayground/examples/comm_badge/trek.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Adafruit_CircuitPlayground/examples/mega_demo/CapTouchDemo.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Adafruit_CircuitPlayground/examples/mega_demo/Demo.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Adafruit_CircuitPlayground/examples/mega_demo/RainbowCycleDemo.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Adafruit_CircuitPlayground/examples/mega_demo/SensorDemo.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Adafruit_CircuitPlayground/examples/mega_demo/TiltDemo.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Adafruit_CircuitPlayground/examples/mega_demo/VUMeterDemo.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Adafruit_CircuitPlayground/utility/Adafruit_CPlay_LIS3DH.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Adafruit_CircuitPlayground/utility/Adafruit_CPlay_LIS3DH.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Adafruit_CircuitPlayground/utility/Adafruit_CPlay_Mic.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Adafruit_CircuitPlayground/utility/Adafruit_CPlay_Mic.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Adafruit_CircuitPlayground/utility/Adafruit_CPlay_NeoPixel.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Adafruit_CircuitPlayground/utility/Adafruit_CPlay_NeoPixel.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Adafruit_CircuitPlayground/utility/Adafruit_CPlay_Sensor.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Adafruit_CircuitPlayground/utility/Adafruit_CPlay_Speaker.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Adafruit_CircuitPlayground/utility/Adafruit_CPlay_Speaker.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Adafruit_CircuitPlayground/utility/CP_Boards.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Adafruit_CircuitPlayground/utility/CP_Firmata.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Adafruit_CircuitPlayground/utility/CP_Firmata.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Adafruit_CircuitPlayground/utility/CPlay_CapacitiveSensor.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Adafruit_CircuitPlayground/utility/CPlay_CapacitiveSensor.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Adafruit_CircuitPlayground/utility/esp8266.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Adafruit_CircuitPlayground/utility/ffft.S">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Adafruit_CircuitPlayground/utility/talkie.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Bridge/src/Bridge.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Bridge/src/Bridge.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Bridge/src/BridgeClient.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Bridge/src/BridgeClient.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Bridge/src/BridgeSSLClient.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Bridge/src/BridgeSSLClient.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Bridge/src/BridgeServer.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Bridge/src/BridgeServer.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Bridge/src/BridgeUdp.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Bridge/src/BridgeUdp.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Bridge/src/Console.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Bridge/src/Console.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Bridge/src/FileIO.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Bridge/src/FileIO.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Bridge/src/HttpClient.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Bridge/src/HttpClient.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Bridge/src/Mailbox.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Bridge/src/Mailbox.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Bridge/src/Process.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Bridge/src/Process.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Bridge/src/YunClient.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Bridge/src/YunServer.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Esplora/src/Esplora.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Esplora/src/Esplora.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Dhcp.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Dhcp.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Dns.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Dns.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Ethernet.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Ethernet.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Ethernet/src/EthernetClient.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Ethernet/src/EthernetClient.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Ethernet/src/EthernetServer.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Ethernet/src/EthernetServer.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Ethernet/src/EthernetUdp.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Ethernet/src/EthernetUdp.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Ethernet/src/utility/socket.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Ethernet/src/utility/socket.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Ethernet/src/utility/util.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Ethernet/src/utility/w5100.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Ethernet/src/utility/w5100.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Firmata/Boards.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Firmata/Firmata.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Firmata/Firmata.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Firmata/FirmataConstants.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Firmata/FirmataDefines.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Firmata/FirmataMarshaller.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Firmata/FirmataMarshaller.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Firmata/FirmataParser.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Firmata/FirmataParser.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Firmata/examples/StandardFirmataBLE/bleConfig.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Firmata/examples/StandardFirmataEthernet/ethernetConfig.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Firmata/examples/StandardFirmataWiFi/wifiConfig.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Firmata/utility/BLEStream.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Firmata/utility/BLEStream.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Firmata/utility/EthernetClientStream.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Firmata/utility/EthernetClientStream.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Firmata/utility/FirmataFeature.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Firmata/utility/SerialFirmata.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Firmata/utility/SerialFirmata.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Firmata/utility/WiFiClientStream.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Firmata/utility/WiFiServerStream.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Firmata/utility/WiFiStream.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Firmata/utility/WiFiStream.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Firmata/utility/firmataDebug.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3CircularBuffer.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3CircularBuffer.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3IO.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3MobileAccessProvider.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3MobileAccessProvider.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3MobileCellManagement.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3MobileCellManagement.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3MobileClientProvider.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3MobileClientProvider.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3MobileClientService.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3MobileClientService.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3MobileDataNetworkProvider.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3MobileDataNetworkProvider.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3MobileMockupProvider.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3MobileMockupProvider.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3MobileNetworkProvider.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3MobileNetworkProvider.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3MobileNetworkRegistry.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3MobileNetworkRegistry.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3MobileSMSProvider.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3MobileSMSProvider.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3MobileServerProvider.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3MobileServerProvider.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3MobileServerService.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3MobileServerService.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3MobileVoiceProvider.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3MobileVoiceProvider.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3SMSService.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3SMSService.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3ShieldV1.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3ShieldV1.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3ShieldV1AccessProvider.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3ShieldV1AccessProvider.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3ShieldV1BandManagement.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3ShieldV1BandManagement.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3ShieldV1BaseProvider.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3ShieldV1BaseProvider.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3ShieldV1CellManagement.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3ShieldV1CellManagement.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3ShieldV1ClientProvider.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3ShieldV1ClientProvider.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3ShieldV1DataNetworkProvider.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3ShieldV1DataNetworkProvider.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3ShieldV1DirectModemProvider.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3ShieldV1DirectModemProvider.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3ShieldV1ModemCore.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3ShieldV1ModemCore.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3ShieldV1ModemVerification.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3ShieldV1ModemVerification.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3ShieldV1MultiClientProvider.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3ShieldV1MultiClientProvider.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3ShieldV1MultiServerProvider.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3ShieldV1MultiServerProvider.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3ShieldV1PinManagement.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3ShieldV1PinManagement.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3ShieldV1SMSProvider.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3ShieldV1SMSProvider.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3ShieldV1ScanNetworks.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3ShieldV1ScanNetworks.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3ShieldV1ServerProvider.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3ShieldV1ServerProvider.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3ShieldV1VoiceProvider.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3ShieldV1VoiceProvider.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3SoftSerial.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3SoftSerial.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3VoiceCallService.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/GSM/src/GSM3VoiceCallService.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Keyboard/src/Keyboard.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Keyboard/src/Keyboard.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/LiquidCrystal/src/LiquidCrystal.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/LiquidCrystal/src/LiquidCrystal.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Mouse/src/Mouse.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Mouse/src/Mouse.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/RobotIRremote/src/IRremote.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/RobotIRremote/src/IRremote.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/RobotIRremote/src/IRremoteInt.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/RobotIRremote/src/IRremoteTools.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/RobotIRremote/src/IRremoteTools.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Robot_Control/examples/explore/R06_Wheel_Calibration/scripts_library.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Robot_Control/src/ArduinoRobot.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Robot_Control/src/ArduinoRobot.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Robot_Control/src/Arduino_LCD.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Robot_Control/src/Arduino_LCD.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Robot_Control/src/Compass.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Robot_Control/src/Compass.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Robot_Control/src/EEPROM_I2C.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Robot_Control/src/EEPROM_I2C.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Robot_Control/src/EasyTransfer2.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Robot_Control/src/EasyTransfer2.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Robot_Control/src/Fat16.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Robot_Control/src/Fat16.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Robot_Control/src/Fat16Config.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Robot_Control/src/Fat16mainpage.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Robot_Control/src/Fat16util.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Robot_Control/src/FatStructs.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Robot_Control/src/Melody.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Robot_Control/src/Motors.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Robot_Control/src/Multiplexer.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Robot_Control/src/Multiplexer.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Robot_Control/src/RobotSdCard.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Robot_Control/src/SdCard.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Robot_Control/src/SdCard.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Robot_Control/src/SdInfo.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Robot_Control/src/Sensors.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Robot_Control/src/Squawk.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Robot_Control/src/Squawk.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Robot_Control/src/SquawkSD.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Robot_Control/src/SquawkSD.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Robot_Control/src/communication.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Robot_Control/src/glcdfont.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Robot_Control/src/helper.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Robot_Control/src/information.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Robot_Control/src/keyboard.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Robot_Control/src/lcd.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Robot_Control/src/utility/Adafruit_GFX.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Robot_Control/src/utility/Adafruit_GFX.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Robot_Control/src/utility/RobotTextManager.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Robot_Control/src/utility/RobotTextManager.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Robot_Control/src/utility/VirtualKeyboard.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Robot_Control/src/utility/VirtualKeyboard.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Robot_Control/src/utility/scripts_Hello_User.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Robot_Motor/src/ArduinoRobotMotorBoard.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Robot_Motor/src/ArduinoRobotMotorBoard.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Robot_Motor/src/EasyTransfer2.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Robot_Motor/src/EasyTransfer2.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Robot_Motor/src/LineFollow.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Robot_Motor/src/Multiplexer.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Robot_Motor/src/Multiplexer.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Robot_Motor/src/lineFollow.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/SD/src/File.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/SD/src/SD.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/SD/src/SD.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/SD/src/utility/FatStructs.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/SD/src/utility/Sd2Card.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/SD/src/utility/Sd2Card.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/SD/src/utility/Sd2PinMap.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/SD/src/utility/SdFat.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/SD/src/utility/SdFatUtil.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/SD/src/utility/SdFatmainpage.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/SD/src/utility/SdFile.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/SD/src/utility/SdInfo.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/SD/src/utility/SdVolume.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Servo/src/Servo.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Servo/src/avr/Servo.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Servo/src/avr/ServoTimers.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Servo/src/nrf52/Servo.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Servo/src/nrf52/ServoTimers.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Servo/src/sam/Servo.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Servo/src/sam/ServoTimers.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Servo/src/samd/Servo.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Servo/src/samd/ServoTimers.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Servo/src/stm32f4/Servo.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Servo/src/stm32f4/ServoTimers.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/SpacebrewYun/src/SpacebrewYun.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/SpacebrewYun/src/SpacebrewYun.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Stepper/src/Stepper.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Stepper/src/Stepper.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/TFT/src/TFT.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/TFT/src/TFT.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/TFT/src/utility/Adafruit_GFX.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/TFT/src/utility/Adafruit_GFX.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/TFT/src/utility/Adafruit_ST7735.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/TFT/src/utility/Adafruit_ST7735.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/TFT/src/utility/PImage.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/TFT/src/utility/glcdfont.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/examples/ArduinoYun/GetYahooWeatherReport/TembooAccount.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/examples/ArduinoYun/ReadATweet/TembooAccount.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/examples/ArduinoYun/SendATweet/TembooAccount.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/examples/ArduinoYun/SendAnEmail/TembooAccount.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/examples/ArduinoYun/SendAnSMS/TembooAccount.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/examples/ArduinoYun/SendDataToGoogleSpreadsheet/TembooAccount.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/examples/ArduinoYun/ToxicFacilitiesSearch/TembooAccount.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/examples/ArduinoYun/UpdateFacebookStatus/TembooAccount.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/examples/ArduinoYun/UploadToDropbox/TembooAccount.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/Temboo.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/Temboo.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/TembooCoAPEdgeDevice.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/TembooCoAPEdgeDevice.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/TembooMQTTEdgeDevice.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/TembooMQTTEdgeDevice.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/TembooMonitoring.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/TembooMonitoring.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/TembooSSL.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/TembooSSL.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/TembooYunShield.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/ArduinoTimer.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/BaseFormatter.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/BaseFormatter.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/ChoreoDevice.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/ChoreoDevice.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/ChoreoDeviceFormatter.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/ChoreoDeviceFormatter.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/ChoreoInput.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/ChoreoInput.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/ChoreoInputExpression.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/ChoreoInputExpression.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/ChoreoInputExpressionFormatter.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/ChoreoInputExpressionFormatter.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/ChoreoInputExpressionSet.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/ChoreoInputExpressionSet.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/ChoreoInputFormatter.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/ChoreoInputFormatter.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/ChoreoInputSet.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/ChoreoInputSet.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/ChoreoOutput.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/ChoreoOutput.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/ChoreoOutputFormatter.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/ChoreoOutputFormatter.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/ChoreoOutputSet.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/ChoreoOutputSet.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/ChoreoPreset.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/ChoreoPreset.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/ChoreoPresetFormatter.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/ChoreoPresetFormatter.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/ChoreoSensorInput.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/ChoreoSensorInput.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/ChoreoSensorInputFormatter.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/ChoreoSensorInputFormatter.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/ChoreoSensorInputSet.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/ChoreoSensorInputSet.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/CoapMessageLayer.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/CoapMessageLayer.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/CoapMsg.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/CoapMsg.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/CoapRRLayer.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/CoapRRLayer.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/DataFormatter.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/DataFormatter.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/FP.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/MQTTClient.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/MQTTConnect.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/MQTTConnectClient.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/MQTTConnectServer.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/MQTTDeserializePublish.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/MQTTFormat.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/MQTTFormat.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/MQTTLogging.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/MQTTPacket.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/MQTTPacket.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/MQTTPublish.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/MQTTSerializePublish.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/MQTTSubscribe.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/MQTTSubscribeClient.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/MQTTSubscribeServer.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/MQTTUnsubscribe.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/MQTTUnsubscribeClient.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/MQTTUnsubscribeServer.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/StackTrace.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/TembooCoAPIPStack.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/TembooCoAPSession.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/TembooCoAPSession.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/TembooDS18B20.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/TembooDS18B20.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/TembooGPIO.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/TembooGPIO.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/TembooGlobal.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/TembooGlobal.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/TembooMQTTIPStack.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/TembooMQTTSession.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/TembooMQTTSession.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/TembooOneWire.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/TembooOneWire.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/TembooSession.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/TembooSession.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/TembooTags.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/TembooTimer.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/TembooWebSocketRequestHandles.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/TembooWebSocketRequestHandles.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/tmbhmac.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/tmbhmac.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/tmbmd5.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/Temboo/src/utility/tmbmd5.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/CONFIG/conf_access.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/CONFIG/conf_at45dbx.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/CONFIG/conf_ebi.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/CONFIG/conf_sd_mmc_spi.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/BOARDS/ARDUINO/arduino.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/BOARDS/ARDUINO/led.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/BOARDS/ARDUINO/led.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/BOARDS/EVK1105/evk1105.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/BOARDS/EVK1105/led.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/BOARDS/EVK1105/led.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/BOARDS/board.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/COMPONENTS/MEMORY/DATA_FLASH/AT45DBX/at45dbx.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/COMPONENTS/MEMORY/DATA_FLASH/AT45DBX/at45dbx.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/COMPONENTS/MEMORY/DATA_FLASH/AT45DBX/at45dbx_mem.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/COMPONENTS/MEMORY/DATA_FLASH/AT45DBX/at45dbx_mem.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/COMPONENTS/WIFI/HD/wl_api.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/COMPONENTS/WIFI/HD/wl_fw.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/COMPONENTS/WIFI/HD/wl_os.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/COMPONENTS/WIFI/HD/wl_sdio.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/COMPONENTS/WIFI/HD/wl_spi.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/COMPONENTS/WIFI/HD/wlap_api.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/DRIVERS/CPU/CYCLE_COUNTER/cycle_counter.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/DRIVERS/EBI/SMC/smc.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/DRIVERS/EBI/SMC/smc.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/DRIVERS/EIC/eic.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/DRIVERS/EIC/eic.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/DRIVERS/FLASHC/flashc.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/DRIVERS/FLASHC/flashc.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/DRIVERS/GPIO/gpio.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/DRIVERS/GPIO/gpio.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/DRIVERS/INTC/intc.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/DRIVERS/INTC/intc.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/DRIVERS/PDCA/pdca.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/DRIVERS/PDCA/pdca.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/DRIVERS/PM/pm.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/DRIVERS/PM/pm.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/DRIVERS/PM/pm_conf_clocks.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/DRIVERS/PM/power_clocks_lib.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/DRIVERS/PM/power_clocks_lib.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/DRIVERS/RTC/rtc.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/DRIVERS/RTC/rtc.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/DRIVERS/SPI/spi.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/DRIVERS/SPI/spi.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/DRIVERS/TC/tc.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/DRIVERS/TC/tc.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/DRIVERS/USART/usart.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/DRIVERS/USART/usart.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/DELAY/delay.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/DELAY/delay.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/core/dhcp.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/core/dns.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/core/init.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/core/ipv4/autoip.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/core/ipv4/icmp.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/core/ipv4/igmp.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/core/ipv4/inet.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/core/ipv4/inet_chksum.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/core/ipv4/ip.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/core/ipv4/ip_addr.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/core/ipv4/ip_frag.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/core/mem.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/core/memp.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/core/netif.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/core/pbuf.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/core/raw.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/core/stats.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/core/tcp.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/core/tcp_in.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/core/tcp_out.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/core/udp.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/ipv4/lwip/autoip.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/ipv4/lwip/icmp.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/ipv4/lwip/igmp.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/ipv4/lwip/inet.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/ipv4/lwip/inet_chksum.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/ipv4/lwip/ip.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/ipv4/lwip/ip_addr.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/ipv4/lwip/ip_frag.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/api.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/api_msg.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/arch.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/debug.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/def.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/dhcp.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/dns.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/err.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/init.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/mem.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/memp.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/memp_std.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/netbuf.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/netdb.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/netif.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/netifapi.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/opt.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/pbuf.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/raw.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/sio.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/snmp.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/snmp_asn1.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/snmp_msg.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/snmp_structs.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/sockets.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/stats.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/sys.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/tcp.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/tcpip.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/udp.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/netif/etharp.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/netif/loopif.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/netif/ppp_oe.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/netif/slipif.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/netif/etharp.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/netif/loopif.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-port-1.3.2/HD/if/include/arch/cc.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-port-1.3.2/HD/if/include/arch/perf.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-port-1.3.2/HD/if/include/lwipopts.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-port-1.3.2/HD/if/include/netif/wlif.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-port-1.3.2/HD/if/netif/wlif.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/MEMORY/CTRL_ACCESS/ctrl_access.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/MEMORY/CTRL_ACCESS/ctrl_access.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/UTILS/DEBUG/debug.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/UTILS/DEBUG/debug.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/UTILS/DEBUG/print_funcs.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/UTILS/DEBUG/print_funcs.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/UTILS/LIBS/NEWLIB_ADDONS/INCLUDE/nlao_cpu.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/UTILS/LIBS/NEWLIB_ADDONS/INCLUDE/nlao_exceptions.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/UTILS/LIBS/NEWLIB_ADDONS/INCLUDE/nlao_interrupts.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/UTILS/LIBS/NEWLIB_ADDONS/INCLUDE/nlao_io.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/UTILS/LIBS/NEWLIB_ADDONS/INCLUDE/nlao_usart.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/UTILS/PREPROCESSOR/mrepeat.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/UTILS/PREPROCESSOR/preprocessor.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/UTILS/PREPROCESSOR/stringz.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/UTILS/PREPROCESSOR/tpaste.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/UTILS/compiler.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/UTILS/conf_isp.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/UTILS/parts.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/ard_spi.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/ard_spi.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/ard_tcp.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/ard_tcp.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/ard_utils.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/ard_utils.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/avr32_spi.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/board_init.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/board_init.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/cmd_wl.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/cmd_wl.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/console.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/console.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/debug.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/fw_download.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/fw_download_extflash.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/lwip_setup.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/lwip_setup.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/lwipopts.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/main.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/nvram.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/nvram.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/owl_os.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/ping.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/ping.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/printf-stdarg.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/printf-stdarg.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/timer.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/timer.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/top_defs.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/trace.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/util.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/util.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/wifi_spi.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/wl_cm.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/wl_cm.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifiHD/src/wl_definitions.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifi_dnld/src/CONFIG/conf_access.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifi_dnld/src/CONFIG/conf_at45dbx.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/BOARDS/ARDUINO/arduino.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/BOARDS/ARDUINO/led.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/BOARDS/ARDUINO/led.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/BOARDS/EVK1105/evk1105.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/BOARDS/EVK1105/led.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/BOARDS/EVK1105/led.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/BOARDS/board.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/COMPONENTS/MEMORY/DATA_FLASH/AT45DBX/at45dbx.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/COMPONENTS/MEMORY/DATA_FLASH/AT45DBX/at45dbx.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/COMPONENTS/MEMORY/DATA_FLASH/AT45DBX/at45dbx_mem.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/COMPONENTS/MEMORY/DATA_FLASH/AT45DBX/at45dbx_mem.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/DRIVERS/FLASHC/flashc.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/DRIVERS/FLASHC/flashc.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/DRIVERS/GPIO/gpio.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/DRIVERS/GPIO/gpio.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/DRIVERS/INTC/intc.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/DRIVERS/INTC/intc.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/DRIVERS/PM/pm.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/DRIVERS/PM/pm.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/DRIVERS/PM/pm_conf_clocks.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/DRIVERS/PM/power_clocks_lib.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/DRIVERS/PM/power_clocks_lib.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/DRIVERS/SPI/spi.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/DRIVERS/SPI/spi.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/DRIVERS/USART/usart.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/DRIVERS/USART/usart.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/SERVICES/MEMORY/CTRL_ACCESS/ctrl_access.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/SERVICES/MEMORY/CTRL_ACCESS/ctrl_access.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/UTILS/DEBUG/debug.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/UTILS/DEBUG/debug.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/UTILS/DEBUG/print_funcs.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/UTILS/DEBUG/print_funcs.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/UTILS/LIBS/NEWLIB_ADDONS/INCLUDE/nlao_cpu.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/UTILS/LIBS/NEWLIB_ADDONS/INCLUDE/nlao_exceptions.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/UTILS/LIBS/NEWLIB_ADDONS/INCLUDE/nlao_interrupts.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/UTILS/LIBS/NEWLIB_ADDONS/INCLUDE/nlao_io.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/UTILS/LIBS/NEWLIB_ADDONS/INCLUDE/nlao_usart.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/UTILS/PREPROCESSOR/mrepeat.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/UTILS/PREPROCESSOR/preprocessor.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/UTILS/PREPROCESSOR/stringz.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/UTILS/PREPROCESSOR/tpaste.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/UTILS/compiler.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/UTILS/conf_isp.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/UTILS/parts.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifi_dnld/src/clocks.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifi_dnld/src/clocks.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifi_dnld/src/flash_fw.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifi_dnld/src/nor_flash.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifi_dnld/src/nor_flash.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifi_dnld/src/printf-stdarg.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifi_dnld/src/printf-stdarg.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifi_dnld/src/startup.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifi_dnld/src/startup.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/extras/wifi_dnld/src/wl_fw.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/src/WiFi.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/src/WiFi.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/src/WiFiClient.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/src/WiFiClient.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/src/WiFiServer.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/src/WiFiServer.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/src/WiFiUdp.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/src/WiFiUdp.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/src/utility/debug.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/src/utility/server_drv.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/src/utility/server_drv.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/src/utility/spi_drv.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/src/utility/spi_drv.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/src/utility/wifi_drv.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/src/utility/wifi_drv.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/src/utility/wifi_spi.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/src/utility/wl_definitions.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/WiFi/src/utility/wl_types.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="main.cpp" />
+		<Extensions>
+			<code_completion>
+				<search_path add="C:\Program Files (x86)\Arduino\libraries" />
+			</code_completion>
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
