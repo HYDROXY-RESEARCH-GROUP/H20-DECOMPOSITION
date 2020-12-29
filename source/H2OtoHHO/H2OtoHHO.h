@@ -9,9 +9,9 @@
 //#include <LCDKeypad.h>
 //#include <DFR_Key.h>
 //#include <AD9850.h>
-#include "LCDKeypad.h"
-#include "DFR_Key.h"
-#include "AD9850.h"
+#include "include\LCDKeypad\LCDKeypad.h"
+#include "include\DFR_Key\DFR_Key.h"
+#include "include\AD9850\AD9850.h"
 
 #define FREQ_MIN 1                                                //Low end of freqency fine tune scale
 #define FREQ_MAX 1000                                             //High end of freqency fine tune scale

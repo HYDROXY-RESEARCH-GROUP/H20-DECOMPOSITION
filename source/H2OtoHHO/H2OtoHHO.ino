@@ -20,7 +20,7 @@ Down   - 4
 Right  - 5
 
 */
-#include "H2OtoHHO.h"
+#include <H2OtoHHO.h>
 
 
 //Pin assignments for SainSmart LCD Keypad Shield
