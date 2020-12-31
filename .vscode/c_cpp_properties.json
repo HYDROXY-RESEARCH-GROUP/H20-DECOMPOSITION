@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
     "configurations": [
         {
@@ -17,3 +18,81 @@
     ],
     "version": 4
 }
+=======
+//
+// !!! WARNING !!! AUTO-GENERATED FILE!
+// PLEASE DO NOT MODIFY IT AND USE "platformio.ini":
+// https://docs.platformio.org/page/projectconf/section_env_build.html#build-flags
+//
+{
+    "configurations": [
+        {
+            "name": "PlatformIO",
+            "includePath": [
+                "c:/Users/The_E/OneDrive/Documents/PlatformIO/Projects/201230-110619-sainSmartDue/include",
+                "c:/Users/The_E/OneDrive/Documents/PlatformIO/Projects/201230-110619-sainSmartDue/src",
+                "c:/Users/The_E/OneDrive/Documents/PlatformIO/Projects/201230-110619-sainSmartDue/.pio/libdeps/sainSmartDue/Embedded Template Library/include",
+                "c:/Users/The_E/OneDrive/Documents/PlatformIO/Projects/201230-110619-sainSmartDue/.pio/libdeps/sainSmartDue/Embedded Template Library",
+                "c:/Users/The_E/OneDrive/Documents/PlatformIO/Projects/201230-110619-sainSmartDue/.pio/libdeps/sainSmartDue/LiquidCrystal/src",
+                "C:/Users/The_E/.platformio/packages/framework-arduino-sam/cores/arduino",
+                "C:/Users/The_E/.platformio/packages/framework-arduino-sam/system/libsam",
+                "C:/Users/The_E/.platformio/packages/framework-arduino-sam/system/CMSIS/CMSIS/Include",
+                "C:/Users/The_E/.platformio/packages/framework-arduino-sam/system/CMSIS/Device/ATMEL",
+                "C:/Users/The_E/.platformio/packages/framework-arduino-sam/variants/arduino_due_x",
+                "c:/Users/The_E/OneDrive/Documents/PlatformIO/Projects/201230-110619-sainSmartDue/.pio/libdeps/sainSmartDue/Embedded Template Library@18.20.2/include",
+                "c:/Users/The_E/OneDrive/Documents/PlatformIO/Projects/201230-110619-sainSmartDue/.pio/libdeps/sainSmartDue/Embedded Template Library@18.20.2",
+                "C:/Users/The_E/.platformio/packages/framework-arduino-sam/libraries/HID/src",
+                "C:/Users/The_E/.platformio/packages/framework-arduino-sam/libraries/SPI/src",
+                "C:/Users/The_E/.platformio/packages/framework-arduino-sam/libraries/Wire/src",
+                "C:/Users/The_E/.platformio/packages/tool-unity",
+                ""
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "path": [
+                    "c:/Users/The_E/OneDrive/Documents/PlatformIO/Projects/201230-110619-sainSmartDue/include",
+                    "c:/Users/The_E/OneDrive/Documents/PlatformIO/Projects/201230-110619-sainSmartDue/src",
+                    "c:/Users/The_E/OneDrive/Documents/PlatformIO/Projects/201230-110619-sainSmartDue/.pio/libdeps/sainSmartDue/Embedded Template Library/include",
+                    "c:/Users/The_E/OneDrive/Documents/PlatformIO/Projects/201230-110619-sainSmartDue/.pio/libdeps/sainSmartDue/Embedded Template Library",
+                    "c:/Users/The_E/OneDrive/Documents/PlatformIO/Projects/201230-110619-sainSmartDue/.pio/libdeps/sainSmartDue/LiquidCrystal/src",
+                    "C:/Users/The_E/.platformio/packages/framework-arduino-sam/cores/arduino",
+                    "C:/Users/The_E/.platformio/packages/framework-arduino-sam/system/libsam",
+                    "C:/Users/The_E/.platformio/packages/framework-arduino-sam/system/CMSIS/CMSIS/Include",
+                    "C:/Users/The_E/.platformio/packages/framework-arduino-sam/system/CMSIS/Device/ATMEL",
+                    "C:/Users/The_E/.platformio/packages/framework-arduino-sam/variants/arduino_due_x",
+                    "c:/Users/The_E/OneDrive/Documents/PlatformIO/Projects/201230-110619-sainSmartDue/.pio/libdeps/sainSmartDue/Embedded Template Library@18.20.2/include",
+                    "c:/Users/The_E/OneDrive/Documents/PlatformIO/Projects/201230-110619-sainSmartDue/.pio/libdeps/sainSmartDue/Embedded Template Library@18.20.2",
+                    "C:/Users/The_E/.platformio/packages/framework-arduino-sam/libraries/HID/src",
+                    "C:/Users/The_E/.platformio/packages/framework-arduino-sam/libraries/SPI/src",
+                    "C:/Users/The_E/.platformio/packages/framework-arduino-sam/libraries/Wire/src",
+                    "C:/Users/The_E/.platformio/packages/tool-unity",
+                    ""
+                ]
+            },
+            "defines": [
+                "PLATFORMIO=50004",
+                "__SAM3X8E__",
+                "ARDUINO_SAM_DUE",
+                "ARDUINO=10805",
+                "F_CPU=84000000L",
+                "USBCON",
+                "USB_VID=0x2341",
+                "USB_PID=0x003E",
+                "USB_PRODUCT=\"Arduino Due\"",
+                "USB_MANUFACTURER=\"SainSmart\"",
+                "ARDUINO_ARCH_SAM",
+                ""
+            ],
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "compilerPath": "C:/Users/The_E/.platformio/packages/toolchain-gccarmnoneeabi@1.70201.0/bin/arm-none-eabi-gcc.exe",
+            "compilerArgs": [
+                "-mcpu=cortex-m3",
+                "-mthumb",
+                ""
+            ]
+        }
+    ],
+    "version": 4
+}
+>>>>>>> remotes/origin/Intel-Galileo2
