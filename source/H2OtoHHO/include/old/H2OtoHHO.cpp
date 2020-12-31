@@ -8,33 +8,12 @@
 #if defined(ARDUINO) && ARDUINO >= 100
   #include "Arduino.h"
 #else
-  #include <WProgram.h>
+  #include "WProgram.h"
 #endif
 
 
-<<<<<<< HEAD:source/H2OtoHHO/H2OtoHHO.cpp
-// include this library's description file
-//#include <LiquidCrystal.h>
-#include <LiquidCrystal.h>
-//#include <Tone.h>
-#include "pitches.h"
-#include "include\LCDKeypad\LCDKeypad.h"
-#include "include\DFR_Key\DFR_Key.h"
-#include "include\AD9850\AD9850.h"
-//#include "H2OtoHHO.h"
-#include <H2OtoHHO.h>
-// ensure this library description is only included once
-
-
-
-/* CREATE DFR Keypad CLASS INSTANCE */
-//DFR_Key keypad;
-//---------------------------------------------
-
-=======
 // ensure this library header is already included
 #include "H2OtoHHO.h"
->>>>>>> remotes/origin/Dec-2020_Revision_Previous_Base:source/H2OtoHHO/H2OtoHHO.cpp
 
 
 /* Define Locale Variables */
@@ -160,18 +139,13 @@ byte custom_watermol2[8] = {           //custom character, it's a Water Molecule
 };
 
 
-/* Define static class data member INSTANCES */
-//int H2OtoHHO::keyPress_cur = -1;
-//---------------------------------------------
-
-
-/* Define H2OtoHHO Class Constructor */
-H2OtoHHO::H2OtoHHO() : LCDKeypad(), DFR_Key(), 
-  gate(PDO_DDS0_CLK, PDO_DDS0_FREQ, PDO_DDS0_DATA),                                       // w_clk, fq_ud, Sdata
-  pulse(PDO_DDS1_CLK, PDO_DDS1_FREQ, PDO_DDS1_DATA)                                      // w_clk, fq_ud, Sdata
-  //MainMenuList()
+H2OtoHHO::H2OtoHHO() : LCDKeypad(), DFR_Key(), gate(DDS0_CLK_Pin, DDS0_FREQ_Pin, DDS0_DATA_Pin), pulse(DDS1_CLK_Pin, DDS1_FREQ_Pin, DDS1_DATA_Pin)
 {
-	
+	/* CREATE AD9850 CLASS INSTANCES */
+	//this->gate = new AD9850(DDS0_CLK_Pin, DDS0_FREQ_Pin, DDS0_DATA_Pin);                   // w_clk, fq_ud, Sdata
+	//this->pulse = new AD9850(DDS1_CLK_Pin, DDS1_FREQ_Pin, DDS1_DATA_Pin);                  // w_clk, fq_ud, Sdata
+	//---------------------------------------------
+
 	/* Initialize special character sets */
 	this->createChar(CURSOR_SELECT, c_select);
 	this->createChar(CURSOR_LEFT, c_left);
@@ -182,54 +156,38 @@ H2OtoHHO::H2OtoHHO() : LCDKeypad(), DFR_Key(),
 	this->createChar(CUSTOM_WATER_MOLECULE, custom_watermol);
 	this->createChar(CUSTOM_WATER_MOLECULE2, custom_watermol2);
 	
+	this->keyPress_cur = -1;
+	this->menuList = NULL;	
 	
-	//this->menuList = NULL;	
-	//menuList( NULL, NULL )
 }
-//---------------------------------------------
 
-
-/* Define H2OtoHHO Class member function used for loading configuration locale settings  */
-ExecStatus H2OtoHHO::LoadLocale( String locale )
+/* Loads Locale Settings Function  */
+ExecStatus H2OtoHHO::LoadLocale( String loc_val )
 {
+	this->menuList = new MenuItem[TOTAL_MENU_COUNT];
 	
-	//for ( int i=0; i < TOTAL_MENU_COUNT; i++ )
-	//{
-
-      MenuItem temp1 = MenuItem{"MENU0_ITEM1", NULL};
-      MenuItem temp2{"MENU0_ITEM2", NULL};
-		/*
-		this->MainMenuList = { 
-		  {1, "MENU0_ITEM1"}, 
-      {2, "MENU0_ITEM2"}
-     }; 
-     */
-     std::map<int, String> test = { {1, "MENU0_ITEM1"}, {2, "MENU0_ITEM2"} }; 
-     
-     
-	//}
+	for ( int i=0; i < TOTAL_MENU_COUNT; i++ )
+	{
+		this->menuList[i] =
+	}
 	
 	return (EXEC_SUCCESS);
 }
-//---------------------------------------------
 
 
-/* Define H2OtoHHO Class member function used for updating the Menu Display Items  */
 ExecStatus H2OtoHHO::UpdateMenu( int menu_id )
 {
 	
 	
 	return (EXEC_SUCCESS);
 }
-//---------------------------------------------
 
 
-/* Define H2OtoHHO Class member function used for accessing the current function keypress  */
-int H2OtoHHO::getKeyPress()
+int H2OtoHHO::getKeyPress( int cur_pos )
 {
-	return (this->keyPress_cur);
+	return (this.keyPress_cur);
 }
-//---------------------------------------------
+
 	
 
 
