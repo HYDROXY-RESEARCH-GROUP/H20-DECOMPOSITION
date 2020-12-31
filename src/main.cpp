@@ -18,51 +18,53 @@ Left   - 2
 Up     - 3
 Down   - 4
 Right  - 5
-
 */
 
+#include <H2OtoHHO/H2OtoHHO.cpp>
+//#include "H2OtoHHO/H2OtoHHO.h"
+//#include "H2OtoHHO/H2OtoHHO.cpp"
 
 //Pin assignments for SainSmart LCD Keypad Shield
-//LiquidCrystal lcd(8, 9, 4, 5, 6, 7); 
+//LiquidCrystal lcd(8, 9, 4, 5, 6, 7);
+//#define MINVAL 1
+//#define MAXVAL 1000
 
-
-#include "H2OtoHHO.h"
-
-
-H2OtoHHO gen;
+//H2OtoHHO *gen = new H2OtoHHO();
+H2OtoHHO gen = H2OtoHHO();
 //H2OtoHHO loadSymbols(lcd);
 //---------------------------------------------
 
-
-
 /* Main Program Initial Setup */
-void setup() 
-{ 
-   
-  // Startup Splash Screen
-  gen.begin(16, 2);
-  gen.clear();
-  gen.setCursor(0, 0);
-  gen.write(CUSTOM_WATER_MOLECULE);
-  gen.print(" H20 to HHO ");
-  gen.write(CUSTOM_WATER_MOLECULE2);
-  gen.setCursor(0, 1);
-  gen.print("Generator v1.0 ");
+void setup()
+{
+  //lcd.createChar(0, lock);
+  //lcd.createChar(1, watermol);
+  //H2OtoHHO::LoadSymbols();
   
-  
+  gen.screen.begin(16, 2);
+  gen.screen.clear();
+  gen.screen.setCursor(0, 0);
+  gen.screen.print(" H20 to HHO ");
+  gen.screen.setCursor(0, 1);
+  gen.screen.print("Generator v1.0 ");
+  gen.screen.write(CUSTOM_LOCK);
   delay(2500);
-  
+
   /*
   OPTIONAL
   keypad.setRate(x);
   Sets the sample rate at once every x milliseconds.
   Default: 10ms
   */
-  gen.setRate(10);
-  
+  gen.ctrls.setRate(10);
+
   //gen.UpdateKeypress(gen.FuncKey);
-  
-  //gen.ResonanceScan();
+
+  gen.ResonanceScan();
+
+  delay(3000);
+
+  gen.HomeScreen();
 }
 //---------------------------------------------
 
@@ -70,18 +72,58 @@ void setup()
 /* Main Program Loop */
 void loop()
 {
-  int i=0, k=0, func_key=-1;
+  int func_key=0; //k=0, 
   
-  
-  func_key = gen.button();
-  
-  Serial.write(func_key);
+  func_key = gen.screen.button();
+   
+  switch (func_key) 
+  {
+    case KEYPAD_RIGHT:
+      gen.UpdateKeypress(func_key);
+      break;
 
-  //gen.MainMenu();
-  
-  
+    case KEYPAD_UP:
+      gen.UpdateKeypress(func_key);
+      break;
+      
+    case KEYPAD_DOWN:
+        gen.UpdateKeypress(func_key);
+      break;
+      
+    case KEYPAD_LEFT:
+        gen.UpdateKeypress(func_key);
+      break;
+      
+    case KEYPAD_SELECT:
+      gen.MainMenu();
+      //gen.UpdateKeypress(func_key);
+      break;
 
-   delay(250);
+    default:
+      if (func_key != KEYPAD_NONE)
+      {
+        gen.UpdateKeypress(func_key);
+      }
+   }
+
+   /*
+
+   delay(3000);
+
+   for (k = 0; k < 16; k++)
+   {
+     gen.screen.scrollDisplayLeft();
+     delay(200);
+   }
+
+   */
 }
 //---------------------------------------------
+
+
+
+
+
+
+
 

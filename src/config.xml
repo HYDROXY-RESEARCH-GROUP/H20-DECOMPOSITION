@@ -1,0 +1,56 @@
+<?xml version = "1.0" encoding = "UTF-8" standalone = "yes" ?>
+<!DOCTYPE ConfigFile
+[
+    <!ELEMENT configFile (DisplayElements)>
+    <!ATTLIST configFile locale CDATA #REQUIRED>
+    
+    <!ELEMENT DisplayElements (ScreenObjects,ApplicationStates)>
+    <!ATTLIST DisplayElements name CDATA #REQUIRED>
+    
+    <!ELEMENT ScreenObjects (objIdentifier,freqValue,unitPrefix,unit)>
+    
+    <!ELEMENT objIdentifier (#PCDATA)>
+    <!ATTLIST objIdentifier id CDATA #REQUIRED>
+    <!ATTLIST objIdentifier desc CDATA >
+    
+    <!ELEMENT freqValue (#PCDATA)>
+    <!ATTLIST freqValue id CDATA #REQUIRED>
+    <!ATTLIST freqValue desc CDATA >
+
+    <!ELEMENT unitPrefix (prefix)>
+    <!ATTLIST unitPrefix id CDATA #REQUIRED>
+    <!ATTLIST unitPrefix desc CDATA >
+    
+    <!ELEMENT prefix (#PCDATA)>
+    <!ATTLIST prefix id CDATA #REQUIRED>
+    <!ATTLIST prefix desc CDATA >
+
+    <!ELEMENT unit (#PCDATA)>
+    <!ATTLIST unit id CDATA #REQUIRED>
+    <!ATTLIST unit desc CDATA >
+    
+    <!ELEMENT ApplicationStates (state)>
+    
+    <!ELEMENT state (#PCDATA)>
+    <!ATTLIST state id CDATA #REQUIRED>
+    <!ATTLIST state desc CDATA >
+]>
+
+<ConfigFile locale="JM-EN">
+    <DisplayElement name="HomeScreen">
+        <ScreenObjects>
+            <objIdentifier id=0  desc="Ramp Trigger frequency identifier.">R</objIdentifier>
+            <freqValue id=1 desc="Ramp Trigger frequency value." >999.99</freqValue>
+            <unitPrefix id=2 desc="Ramp Trigger frequency prefix." >
+                <prefix id=0 desc="Frequency unit in hertz (Hz)" > </prefix>
+                <prefix id=1 desc="Frequency unit in kilo hertz (kHz)" >K</prefix>
+                <prefix id=2 desc="Frequency unit in mega hertz (MHz)" >M</prefix>
+            </unitPrefix>
+            <unit id=3 desc="Dispays unit of frequency mega hertz (Hz)" >Hz</unit>
+        </ScreenObjects>
+        <ApplicationStates>
+            <state id=0 desc="Automatic scanning mode." />
+            <state id=1 desc="Manual mode fine tuning." />
+        </ApplicationStates>
+    </DisplayElement>
+</ConfigFile>
