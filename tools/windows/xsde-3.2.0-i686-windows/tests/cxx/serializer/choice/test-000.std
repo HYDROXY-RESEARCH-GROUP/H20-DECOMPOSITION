@@ -1,0 +1,1 @@
+<g1:root xmlns:g1="test"><test-1><a>123</a></test-1><test-1><b>234</b></test-1><test-1><c>1</c><c>2</c><c>3</c></test-1><test-2></test-2><test-2><b>234</b></test-2><test-3><a>123</a><b>234</b><a>123</a><b>234</b></test-3><test-4><a>123</a></test-4><test-4><c>234</c></test-4><test-4><d>345</d><e>456</e></test-4></g1:root>

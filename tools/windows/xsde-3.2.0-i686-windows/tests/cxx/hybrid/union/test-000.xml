@@ -1,0 +1,6 @@
+<t:root xmlns:t="test">
+
+  <int-string-union>123</int-string-union>
+  <int-string-union-lang lang="en">one</int-string-union-lang>
+
+</t:root>

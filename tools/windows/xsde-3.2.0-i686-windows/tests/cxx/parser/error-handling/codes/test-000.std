@@ -1,0 +1,15 @@
+xml:2:2: 7: mismatched tag
+app: 1
+app:7:11: 2
+app: 3
+app:5:19: 4
+app:5:19: 5
+app:6:17: 6
+app:7:11: 7
+schema:1:22: 4: unexpected element encountered
+schema:2:16: 3: expected element not encountered
+schema:2:30: 1: expected attribute not encountered
+schema:4:6: 4: unexpected element encountered
+schema:2:23: 2: unexpected attribute encountered
+schema:3:14: 11: invalid int value
+sys: 2: open failed

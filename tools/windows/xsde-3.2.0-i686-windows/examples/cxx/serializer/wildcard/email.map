@@ -1,0 +1,12 @@
+# file      : examples/cxx/serializer/wildcard/email.map
+# author    : Boris Kolpackov <boris@codesynthesis.com>
+# copyright : not copyrighted - public domain
+
+namespace http://www.codesynthesis.com/email
+{
+  include "email.hxx";
+
+  text "const text*";
+  binary "const binary*";
+  envelope "const envelope&";
+}

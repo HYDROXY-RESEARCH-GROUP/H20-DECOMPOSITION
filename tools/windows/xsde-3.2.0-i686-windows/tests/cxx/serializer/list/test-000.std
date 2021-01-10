@@ -1,0 +1,1 @@
+<g1:root xmlns:g1="test"><int-list></int-list><int-list>1</int-list><int-list>1 2 3</int-list><int-list-base base="123"></int-list-base><int-list-base base="123">1</int-list-base><int-list-base base="123">1 2 3</int-list-base></g1:root>

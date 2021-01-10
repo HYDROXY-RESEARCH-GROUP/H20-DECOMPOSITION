@@ -1,0 +1,31 @@
+root = ..\..\..\..\..
+
+!include $(root)\build\config.nmake
+
+dirs = binary boolean byte date-time float int integer qname short string uri
+
+!if "$(XSDE_IOSTREAM)" == "y"
+!if "$(XSDE_EXCEPTIONS)" == "y"
+!if "$(XSDE_REUSE_STYLE)" == "tiein"
+dirs = $(dirs) any-type
+!endif
+!endif
+!endif
+
+!if "$(XSDE_LONGLONG)" == "y"
+dirs = $(dirs) long-long
+!else
+dirs = $(dirs) long
+!endif
+
+all:
+	@for %i in ( $(dirs) ) do \
+@cmd /c "echo entering %i && cd %i && $(MAKE) /nologo /f nmakefile" || exit 1
+
+gen test:
+	@for %i in ( $(dirs) ) do \
+@cmd /c "echo entering %i && cd %i && $(MAKE) /nologo /f nmakefile $@" || exit 1
+
+clean cleanobj:
+	@for %i in ( $(dirs) ) do \
+@cmd /c "echo entering %i && cd %i && $(MAKE) /nologo /f nmakefile $@"

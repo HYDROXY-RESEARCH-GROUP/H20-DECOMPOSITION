@@ -1,0 +1,8 @@
+<t:root xmlns:t="test">
+
+  <int-list>123 456 789</int-list>
+  <qname-list>one t:two three</qname-list>
+  <string-list>abc def ghi</string-list>
+  <string-list-lang lang="fr">abc def ghi</string-list-lang>
+
+</t:root>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:t="test" targetNamespace="test">
+
+  <complexType name="test">
+    <sequence>
+      <element name="a" type="int"/>
+      <element name="b" type="int" minOccurs="0"/>
+      <element name="c" type="int" maxOccurs="unbounded"/>
+    </sequence>
+    <attribute name="x" type="int"/>
+    <attribute name="y" type="int" use="required"/>
+  </complexType>
+
+  <complexType name="root">
+    <sequence>
+      <element name="test" type="t:test"/>
+    </sequence>
+  </complexType>
+
+  <element name="root" type="t:root"/>
+
+</schema>

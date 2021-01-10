@@ -1,0 +1,57 @@
+<t:root xmlns:t="test" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	     xsi:schemaLocation="test test.xsd">
+
+  <!-- test 2 -->
+
+  <test2><a>123</a></test2>
+
+  <test2><b>abc</b><b>def</b></test2>
+
+  <test2><c><a>1.23</a><b>123</b></c></test2>
+
+  <test2><d><a>true</a><a>false</a><b>abc</b></d></test2>
+
+  <test2><e/></test2>
+
+  <test2><s1>1.23</s1><s2>123</s2></test2>
+  <test2><s3>1.23</s3><s4>123</s4></test2>
+  <test2><s5>1.23</s5><s6>123</s6><s5>4.56</s5><s6>456</s6></test2>
+
+  <!-- test 3 -->
+
+  <test3>
+         <f1>1.23</f1>
+         <v1>true</v1>
+         <f5>1.23</f5>
+         <v5>true</v5></test3>
+
+  <test3>
+         <f2>123</f2>
+         <v2><a>true</a><a>false</a><b>abc</b></v2>
+         <f3>1.23</f3>
+         <v3>true</v3>
+         <f6>123</f6><f5>1.23</f5>
+         <v6><a>true</a><a>false</a><b>abc</b></v6><v5>true</v5>
+  </test3>
+
+  <!-- test 4 -->
+
+  <test4><f1>1.23</f1></test4>
+  <test4><v1>true</v1></test4>
+  <test4><f5>1.23</f5></test4>
+  <test4><v5>true</v5></test4>
+  <test4><f2>123</f2></test4>
+  <test4><v2><a>true</a><a>false</a><b>abc</b></v2></test4>
+  <test4><f3>1.23</f3></test4>
+  <test4><v3>true</v3></test4>
+  <test4><f6>123</f6><f5>1.23</f5></test4>
+  <test4><v6><a>true</a><a>false</a><b>abc</b></v6><v5>true</v5></test4>
+
+  <!-- test 5 -->
+
+  <test5a></test5a>
+  <test5b><d>true</d></test5b>
+  <test5c><d>true</d></test5c>
+  <test5d></test5d>
+
+</t:root>

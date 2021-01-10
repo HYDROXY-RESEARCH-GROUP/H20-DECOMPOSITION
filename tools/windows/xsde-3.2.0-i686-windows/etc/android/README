@@ -1,0 +1,67 @@
+This file describes how to build and use XSD/e with Android. While it should
+be possible to build the XSD/e runtime library (libxsde) using GNU make and
+the native XSD/e build system, the amount of compiler options one has to
+keep track of makes this approach impractical. Instead, the configuration
+files and makefiles in this directory implement a split build procedure
+where the XSD/e build system is used to generate the XSD/e configuration
+header (libxsde/xsde/config.h) as well as the list of source files that
+need to be compiled. Then the Android build system is used to compile the
+source files and build the libxsde.a library. The XSD/e build system is
+transparently invoked by the Android build system when the XSD/e
+configuration file is changed.
+
+This directory also includes the Android makefile (Android.mk) for the
+'minimal' C++/Hybrid example (examples/cxx/hybrid/minimal) which shows
+how to integrate the libxsde build into your application's build, set
+up the include directories, as well as compile the schemas with the
+XSD/e compiler.
+
+To set up an application to use XSD/e, follow these steps:
+
+1.  Unpack the pre-compiled XSD/e package for your host development 
+    platform into your application's 'jni' directory. Rename the
+    resulting directory to 'xsde' or, alternatively, adjust the
+    MY_XSDE_DIR variable in steps 4.a/4.b.
+
+2.  Copy the xsde/etc/android/config.make configuration file to the
+    xsde/config/ directory. The default configuration disables STL,
+    iostream, and C++ exceptions which can be enabled if supported
+    by the Android NDK you are using. You may also adjust other
+    configuration parameters except for those in the "Toolchain"
+    section.
+
+3.  Copy the xsde/etc/android/libxsde/Android.mk file to the 
+    xsde/libxsde/ directory.
+
+4.a If you would like to integrate the libxsde build into an existing
+    application, then in your top-level Android.mk file (in the jni/ 
+    directory), replace the following line at the beginning of the file:
+
+    LOCAL_PATH := $(call my-dir)
+
+    With the following fragment:
+
+    MY_XSDE_DIR := xsde
+    MY_LOCAL_PATH := $(call my-dir)
+
+    include $(MY_LOCAL_PATH)/$(MY_XSDE_DIR)/libxsde/Android.mk
+
+    LOCAL_PATH := $(MY_LOCAL_PATH)
+
+    Also add the following two lines after the LOCAL_SRC_FILES
+    definition:
+
+    LOCAL_C_INCLUDES := $(LOCAL_PATH)/$(MY_XSDE_DIR)/libxsde
+    LOCAL_STATIC_LIBRARIES := libxsde
+
+4.b Alternatively, if you would like to build the 'minimal' example
+    from the XSD/e distribution, replace the top-level Android.mk 
+    file with xsde/etc/android/minimal/Android.mk. You will also
+    need to copy over the driver.cxx and people.xsd files from the
+    xsde/examples/cxx/hybrid/minimal/ directory.
+
+5.  Run ndk-build in the jni/ directory which should build the libxsde
+    library as well as the application.
+
+For information on how to perform schema compilation from the Android
+makefile, refer to the sample Android.mk file for the 'minimal' example.

@@ -1,0 +1,175 @@
+<?xml version="1.0"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:t="test" targetNamespace="test">
+
+  <complexType name="fix">
+    <sequence>
+      <element name="a" type="double" minOccurs="0"/>
+      <element name="b" type="int"/>
+    </sequence>
+  </complexType>
+
+  <complexType name="var">
+    <sequence>
+      <element name="a" type="boolean" maxOccurs="unbounded"/>
+      <element name="b" type="string"/>
+    </sequence>
+  </complexType>
+
+  <complexType name="empty">
+    <sequence/>
+  </complexType>
+
+
+  <!-- test 1: fixed choice copying/assignment -->
+
+  <complexType name="test1">
+    <choice>
+      <element name="a" type="int"/>
+      <element name="b" type="string"/>
+      <element name="c" type="long"/>
+    </choice>
+  </complexType>
+
+  <!-- test 2: general -->
+
+  <complexType name="test2">
+    <choice>
+      <element name="a" type="int" minOccurs="0"/>
+      <element name="b" type="string" maxOccurs="unbounded"/>
+      <element name="c" type="t:fix"/>
+      <element name="d" type="t:var"/>
+      <element name="e" type="t:empty"/>
+      <sequence>
+        <element name="s1" type="double"/>
+        <element name="s2" type="int"/>
+      </sequence>
+      <sequence minOccurs="0">
+        <element name="s3" type="double"/>
+        <element name="s4" type="int"/>
+      </sequence>
+      <sequence maxOccurs="unbounded">
+        <element name="s5" type="double"/>
+        <element name="s6" type="int"/>
+      </sequence>
+    </choice>
+  </complexType>
+
+  <!-- test 3: choice cardinalities -->
+
+  <complexType name="test3">
+    <sequence>
+      <choice>
+        <element name="f1" type="double"/>
+        <element name="f2" type="int"/>
+      </choice>
+      <choice>
+        <element name="v1" type="boolean"/>
+        <element name="v2" type="t:var"/>
+      </choice>
+      <choice minOccurs="0">
+        <element name="f3" type="double"/>
+        <element name="f4" type="int"/>
+      </choice>
+      <choice minOccurs="0">
+        <element name="v3" type="boolean"/>
+        <element name="v4" type="t:var"/>
+      </choice>
+      <choice maxOccurs="unbounded">
+        <element name="f5" type="double"/>
+        <element name="f6" type="int"/>
+      </choice>
+      <choice maxOccurs="unbounded">
+        <element name="v5" type="boolean"/>
+        <element name="v6" type="t:var"/>
+      </choice>
+    </sequence>
+  </complexType>
+
+  <!-- test 4: nested choice -->
+
+  <complexType name="test4">
+    <choice minOccurs="0">
+      <choice>
+        <element name="f1" type="double"/>
+        <element name="f2" type="int"/>
+      </choice>
+      <choice>
+        <element name="v1" type="boolean"/>
+        <element name="v2" type="t:var"/>
+      </choice>
+      <choice minOccurs="0">
+        <element name="f3" type="double"/>
+        <element name="f4" type="int"/>
+      </choice>
+      <choice minOccurs="0">
+        <element name="v3" type="boolean"/>
+        <element name="v4" type="t:var"/>
+      </choice>
+      <choice maxOccurs="unbounded">
+        <element name="f5" type="double"/>
+        <element name="f6" type="int"/>
+      </choice>
+      <choice maxOccurs="unbounded">
+        <element name="v5" type="boolean"/>
+        <element name="v6" type="t:var"/>
+      </choice>
+    </choice>
+  </complexType>
+
+  <!-- test 5: required choice with optional element-->
+
+  <complexType name="test5a">
+    <choice>
+      <element name="a" type="int"/>
+      <element name="b" type="double" minOccurs="0"/>
+      <element name="c" type="boolean"/>
+    </choice>
+  </complexType>
+
+  <complexType name="test5b">
+    <sequence>
+      <choice>
+        <element name="a" type="int"/>
+        <element name="b" type="double" minOccurs="0"/>
+        <element name="c" type="boolean"/>
+      </choice>
+      <element name="d" type="boolean"/>
+    </sequence>
+  </complexType>
+
+  <complexType name="test5c">
+    <sequence>
+      <element name="d" type="boolean"/>
+      <choice>
+        <element name="a" type="int"/>
+        <element name="b" type="double" minOccurs="0"/>
+        <element name="c" type="boolean"/>
+      </choice>
+    </sequence>
+  </complexType>
+
+  <complexType name="test5d">
+    <choice>
+      <choice>
+        <element name="a" type="int"/>
+        <element name="b" type="double" minOccurs="0"/>
+      </choice>
+      <element name="c" type="boolean"/>
+    </choice>
+  </complexType>
+
+  <complexType name="type">
+    <sequence>
+      <element name="test2" type="t:test2" maxOccurs="unbounded"/>
+      <element name="test3" type="t:test3" maxOccurs="unbounded"/>
+      <element name="test4" type="t:test4" maxOccurs="unbounded"/>
+      <element name="test5a" type="t:test5a" maxOccurs="unbounded"/>
+      <element name="test5b" type="t:test5b" maxOccurs="unbounded"/>
+      <element name="test5c" type="t:test5c" maxOccurs="unbounded"/>
+      <element name="test5d" type="t:test5d" maxOccurs="unbounded"/>
+    </sequence>
+  </complexType>
+
+  <element name="root" type="t:type"/>
+
+</schema>

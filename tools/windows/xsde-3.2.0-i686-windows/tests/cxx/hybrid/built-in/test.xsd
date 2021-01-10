@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:t="test" targetNamespace="test">
+
+  <!-- anyType -->
+
+  <complexType name="any-res">
+    <complexContent>
+      <restriction base="anyType">
+        <sequence>
+          <element name="a" type="int"/>
+          <element name="b" type="string"/>
+        </sequence>
+        <attribute name="x" type="string"/>
+      </restriction>
+    </complexContent>
+  </complexType>
+
+  <!-- anySimpleType -->
+
+  <complexType name="any-simple-ext">
+    <simpleContent>
+      <extension base="anySimpleType">
+        <attribute name="x" type="string"/>
+      </extension>
+    </simpleContent>
+  </complexType>
+
+
+  <!-- int -->
+
+  <simpleType name="simple-int">
+    <restriction base="int"/>
+  </simpleType>
+
+  <complexType name="int-base">
+    <simpleContent>
+      <extension base="int">
+        <attribute name="x" type="string"/>
+      </extension>
+    </simpleContent>
+  </complexType>
+
+  <complexType name="int-derived">
+    <simpleContent>
+      <extension base="t:int-base">
+        <attribute name="y" type="string"/>
+      </extension>
+    </simpleContent>
+  </complexType>
+
+  <!-- base64Binary -->
+
+  <simpleType name="simple-bin">
+    <restriction base="base64Binary"/>
+  </simpleType>
+
+  <complexType name="bin-base">
+    <simpleContent>
+      <extension base="base64Binary">
+        <attribute name="x" type="string"/>
+      </extension>
+    </simpleContent>
+  </complexType>
+
+  <complexType name="bin-derived">
+    <simpleContent>
+      <extension base="t:bin-base">
+        <attribute name="y" type="string"/>
+      </extension>
+    </simpleContent>
+  </complexType>
+
+  <!-- string -->
+
+  <simpleType name="simple-string">
+    <restriction base="string"/>
+  </simpleType>
+
+  <complexType name="string-base">
+    <simpleContent>
+      <extension base="string">
+        <attribute name="x" type="string"/>
+      </extension>
+    </simpleContent>
+  </complexType>
+
+  <complexType name="string-derived">
+    <simpleContent>
+      <extension base="t:string-base">
+        <attribute name="y" type="string"/>
+      </extension>
+    </simpleContent>
+  </complexType>
+
+  <complexType name="type">
+    <sequence>
+
+      <element name="any" type="anyType"/>
+      <element name="any-res" type="t:any-res"/>
+
+      <element name="any-simple" type="anySimpleType"/>
+      <element name="any-simple-ext" type="t:any-simple-ext"/>
+
+      <element name="int" type="int"/>
+      <element name="simple-int" type="t:simple-int"/>
+      <element name="int-base" type="t:int-base"/>
+      <element name="int-derived" type="t:int-derived"/>
+
+      <element name="bin" type="base64Binary"/>
+      <element name="simple-bin" type="t:simple-bin"/>
+      <element name="bin-base" type="t:bin-base"/>
+      <element name="bin-derived" type="t:bin-derived"/>
+
+      <element name="string" type="string"/>
+      <element name="simple-string" type="t:simple-string"/>
+      <element name="string-base" type="t:string-base"/>
+      <element name="string-derived" type="t:string-derived"/>
+
+    </sequence>
+      <attribute name="any-simple-attr" type="anySimpleType"/>
+  </complexType>
+
+  <element name="root" type="t:type"/>
+
+</schema>

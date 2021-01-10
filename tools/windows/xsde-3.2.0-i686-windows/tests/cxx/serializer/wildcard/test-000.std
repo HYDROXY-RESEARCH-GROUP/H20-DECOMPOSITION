@@ -1,0 +1,1 @@
+<g1:root xmlns:g1="test" xmlns:g2="foo" x="##local#x" g2:x="foo#x"><a x="123"><a>321</a></a><g2:a>0</g2:a><g2:a>1</g2:a><g2:a>2</g2:a><g3:b xmlns:g3="bar">bar#b</g3:b></g1:root>

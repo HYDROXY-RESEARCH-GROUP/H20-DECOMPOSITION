@@ -1,0 +1,24 @@
+<t:root xmlns:t="test" any-simple-attr="abc123">
+
+  <any></any>
+  <any-res x="x"><a>123</a><b>abc</b></any-res>
+
+  <any-simple>abc123</any-simple>
+  <any-simple-ext x="x">abc123</any-simple-ext>
+
+  <int>123</int>
+  <simple-int>456</simple-int>
+  <int-base x="x">789</int-base>
+  <int-derived x="x" y="y">123</int-derived>
+
+  <bin>YmFzZTY0IGJpbmFyeQ==</bin>
+  <simple-bin>YmFzZTY0IGJpbmFyeQ==</simple-bin>
+  <bin-base x="x">YmFzZTY0IGJpbmFyeQ==</bin-base>
+  <bin-derived x="x" y="y">YmFzZTY0IGJpbmFyeQ==</bin-derived>
+
+  <string>abc</string>
+  <simple-string>def</simple-string>
+  <string-base x="x">ghi</string-base>
+  <string-derived x="x" y="y">jkl</string-derived>
+
+</t:root>

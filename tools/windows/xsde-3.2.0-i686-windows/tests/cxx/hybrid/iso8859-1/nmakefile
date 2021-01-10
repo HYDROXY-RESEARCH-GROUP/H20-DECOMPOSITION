@@ -1,0 +1,69 @@
+root = ..\..\..\..
+
+!include $(root)\build\cxx\rules.nmake
+
+EXTRA_CPPFLAGS = /I$(root)\libxsde
+
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --char-encoding $(XSDE_ENCODING)
+
+!if "$(XSDE_STL)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --no-stl
+!endif
+
+!if "$(XSDE_IOSTREAM)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --no-iostream
+!endif
+
+!if "$(XSDE_EXCEPTIONS)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --no-exceptions
+!endif
+
+!if "$(XSDE_LONGLONG)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --no-long-long
+!endif
+
+!if "$(XSDE_PARSER_VALIDATION)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --suppress-parser-val
+!endif
+
+!if "$(XSDE_SERIALIZER_VALIDATION)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --suppress-serializer-val
+!endif
+
+!if "$(XSDE_REUSE_STYLE)" == "mixin"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --reuse-style-mixin
+!endif
+
+!if "$(XSDE_POLYMORPHIC)" == "y"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --runtime-polymorphic
+!endif
+
+!if "$(XSDE_CUSTOM_ALLOCATOR)" == "y"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --custom-allocator
+!endif
+
+driver.exe: driver.obj test.obj test-pskel.obj test-pimpl.obj test-sskel.obj test-simpl.obj $(root)\libxsde\xsde\xsde.lib
+
+driver.obj: driver.cxx test.hxx test-pskel.hxx test-pimpl.hxx test-sskel.hxx test-simpl.hxx 
+test.obj: test.cxx
+test-pskel.obj: test-pskel.cxx
+test-pimpl.obj: test-pimpl.cxx
+test-sskel.obj: test-sskel.cxx
+test-simpl.obj: test-simpl.cxx
+
+test.hxx test.cxx test-pskel.hxx test-pskel.cxx test-pimpl.hxx test-pimpl.cxx test-sskel.hxx test-sskel.cxx test-simpl.hxx test-simpl.cxx: test.xsd
+	$(root)\bin\xsde.exe cxx-hybrid $(XSDFLAGS) $(EXTRA_XSDFLAGS) --generate-parser --generate-serializer --generate-aggregate test.xsd
+
+gen: test.hxx test.cxx test-pskel.hxx test-pskel.cxx test-pimpl.hxx test-pimpl.cxx test-sskel.hxx test-sskel.cxx test-simpl.hxx test-simpl.cxx
+
+test: driver.exe
+	.\driver.exe test-000.xml >tmp
+	fc test-000.std tmp
+	del tmp
+
+cleanobj:
+	-del driver.exe driver.obj test.obj test-pskel.obj test-pimpl.obj test-sskel.obj test-simpl.obj
+
+clean: cleanobj
+	-del test.cxx test-pskel.cxx test-pimpl.cxx test-sskel.cxx test-simpl.cxx test.ixx test-pskel.ixx test-pimpl.ixx test-sskel.ixx test-simpl.ixx test.hxx test-pskel.hxx test-pimpl.hxx test-sskel.hxx test-simpl.hxx 
+

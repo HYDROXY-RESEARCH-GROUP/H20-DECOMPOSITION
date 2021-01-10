@@ -1,0 +1,52 @@
+root = ..\..\..\..
+
+!include $(root)\build\cxx\rules.nmake
+
+# Build.
+#
+EXTRA_CPPFLAGS = /I$(root)\libxsde
+
+!if "$(XSDE_ENCODING)" == "iso8859-1"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --char-encoding iso8859-1
+!endif
+
+!if "$(XSDE_LONGLONG)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --no-long-long
+!endif
+
+!if "$(XSDE_PARSER_VALIDATION)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --suppress-validation
+!endif
+
+!if "$(XSDE_POLYMORPHIC)" == "y"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --runtime-polymorphic
+!endif
+
+driver.exe: driver.obj text-pskel.obj $(root)\libxsde\xsde\xsde.lib
+
+driver.obj: driver.cxx text-pskel.hxx anchor.hxx
+text-pskel.obj: text-pskel.cxx text-pskel.hxx anchor.hxx
+
+text-pskel.hxx text-pskel.cxx: text.xsd text.map
+	$(root)\bin\xsde.exe cxx-parser $(XSDFLAGS) $(EXTRA_XSDFLAGS) \
+--type-map text.map text.xsd
+
+
+# Generate.
+#
+gen: text-pskel.hxx
+
+
+# Test.
+#
+test: driver.exe text.xml
+	.\driver.exe text.xml
+
+
+# Clean.
+#
+cleanobj:
+	-del text-pskel.obj driver.obj driver.exe
+
+clean: cleanobj
+	-del text-pskel.?xx

@@ -1,0 +1,4 @@
+// On Symbian there is no <new> and placement <new> is defined
+// in the <e32std.h> header.
+//
+#include <e32std.h>

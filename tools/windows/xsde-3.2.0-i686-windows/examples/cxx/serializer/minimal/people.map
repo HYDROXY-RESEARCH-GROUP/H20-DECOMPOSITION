@@ -1,0 +1,9 @@
+# file      : examples/cxx/serializer/minimal/people.map
+# author    : Boris Kolpackov <boris@codesynthesis.com>
+# copyright : not copyrighted - public domain
+
+include "people.hxx";
+
+gender ::gender ::gender;
+person "const ::person&";
+people "const ::people&";

@@ -1,0 +1,22 @@
+# file      : examples/cxx/serializer/library/library.map
+# author    : Boris Kolpackov <boris@codesynthesis.com>
+# copyright : not copyrighted - public domain
+
+namespace http://www.codesynthesis.com/library
+{
+  include "library.hxx";
+
+  # Use the actual type instead of a typedef. The compiler
+  # has no way of knowing that isbn and unsigned int are
+  # the same C++ types and may generate clashing function
+  # signatures if we use the typedef alias here.
+  #
+  isbn    "unsigned int" "unsigned int";
+
+  title   "const library::title&";
+  genre   library::genre library::genre;
+  person  "const library::person&";
+  author  "const library::author&";
+  book    "const library::book&";
+  catalog "const library::catalog&";
+}

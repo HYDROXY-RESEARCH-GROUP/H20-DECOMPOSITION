@@ -1,0 +1,1 @@
+<t:root xmlns:t="test" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><t:base><a>1</a></t:base><t:base xsi:type="t:interm_type"><a>1</a><b>2</b></t:base><t:interm><a>1</a><b>2</b></t:interm><t:base xsi:type="t:derived_type"><a>1</a><b>2</b><c>3</c></t:base><t:derived><a>1</a><b>2</b><c>3</c></t:derived></t:root>

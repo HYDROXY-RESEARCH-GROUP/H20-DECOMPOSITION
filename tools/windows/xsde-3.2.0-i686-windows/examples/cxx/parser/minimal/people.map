@@ -1,0 +1,7 @@
+# file      : examples/cxx/parser/minimal/people.map
+# author    : Boris Kolpackov <boris@codesynthesis.com>
+# copyright : not copyrighted - public domain
+
+include "gender.hxx";
+
+gender ::gender ::gender;

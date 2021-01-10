@@ -1,0 +1,21 @@
+rmatted XML:
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE UIXConfig SYSTEM "config.dtd">
+<UIXConfig locale="JM-EN">
+    <DisplayElement name="HomeScreen">
+        <ScreenObjects>
+            <objIdentifier id="0" desc="Ramp Trigger frequency identifier.">R</objIdentifier>
+            <freqValue id="1" desc="Ramp Trigger frequency value.">999.99</freqValue>
+            <unitPrefix id="2" desc="Ramp Trigger frequency prefix.">
+                <prefix id="0" desc="Frequency unit in hertz (Hz)" />
+                <prefix id="1" desc="Frequency unit in kilo hertz (kHz)">K</prefix>
+                <prefix id="2" desc="Frequency unit in mega hertz (MHz)">M</prefix>
+            </unitPrefix>
+            <unit id="3" desc="Dispays unit of frequency i.e. hertz (Hz)">Hz</unit>
+        </ScreenObjects>
+        <ApplicationStates>
+            <state id="0">Automatic scanning mode.</state>
+            <state id="1">Manual fine tuning mode.</state>
+        </ApplicationStates>
+    </DisplayElement>
+</UIXConfig>

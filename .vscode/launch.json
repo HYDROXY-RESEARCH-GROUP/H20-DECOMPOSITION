@@ -1,44 +1,3 @@
-<<<<<<< HEAD
-{
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "Arduino",
-            "type": "arduino",
-            "request": "launch",
-            "program": "${file}",
-            "cwd": "${workspaceFolder}",
-            "MIMode": "gdb",
-            "targetArchitecture": "arm",
-            "miDebuggerPath": "",
-            "debugServerPath": "",
-            "debugServerArgs": "",
-            "customLaunchSetupCommands": [
-                {
-                    "text": "target remote localhost:3333"
-                },
-                {
-                    "text": "file \"${file}\""
-                },
-                {
-                    "text": "load"
-                },
-                {
-                    "text": "monitor reset halt"
-                },
-                {
-                    "text": "monitor reset init"
-                }
-            ],
-            "stopAtEntry": true,
-            "serverStarted": "Info\\ :\\ [\\w\\d\\.]*:\\ hardware",
-            "launchCompleteCommand": "exec-continue",
-            "filterStderr": true,
-            "args": []
-=======
 // AUTOMATICALLY GENERATED FILE. PLEASE DO NOT MODIFY IT MANUALLY
 
 // PIO Unified Debugger
@@ -53,7 +12,7 @@
             "type": "platformio-debug",
             "request": "launch",
             "name": "PIO Debug",
-            "executable": "c:/Users/The_E/OneDrive/Documents/PlatformIO/Projects/201230-110619-sainSmartDue/.pio/build/sainSmartDue/firmware.elf",
+            "executable": "c:/Users/The_E/OneDrive/Documents/PlatformIO/Projects/H20-DECOMPOSITION/.pio/build/sainSmartDue/firmware.elf",
             "projectEnvName": "sainSmartDue",
             "toolchainBinDir": "C:/Users/The_E/.platformio/packages/toolchain-gccarmnoneeabi@1.70201.0/bin",
             "svdPath": "C:/Users/The_E/.platformio/platforms/atmelsam/misc/svd/ATSAM3X8E.svd",
@@ -67,12 +26,11 @@
             "type": "platformio-debug",
             "request": "launch",
             "name": "PIO Debug (skip Pre-Debug)",
-            "executable": "c:/Users/The_E/OneDrive/Documents/PlatformIO/Projects/201230-110619-sainSmartDue/.pio/build/sainSmartDue/firmware.elf",
+            "executable": "c:/Users/The_E/OneDrive/Documents/PlatformIO/Projects/H20-DECOMPOSITION/.pio/build/sainSmartDue/firmware.elf",
             "projectEnvName": "sainSmartDue",
             "toolchainBinDir": "C:/Users/The_E/.platformio/packages/toolchain-gccarmnoneeabi@1.70201.0/bin",
             "svdPath": "C:/Users/The_E/.platformio/platforms/atmelsam/misc/svd/ATSAM3X8E.svd",
             "internalConsoleOptions": "openOnSessionStart"
->>>>>>> remotes/origin/Intel-Galileo2
         }
     ]
 }

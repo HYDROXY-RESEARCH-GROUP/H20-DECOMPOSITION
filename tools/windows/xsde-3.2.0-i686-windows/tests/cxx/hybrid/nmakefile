@@ -1,0 +1,49 @@
+root = ..\..\..
+
+!include $(root)\build\config.nmake
+
+dirs = sequences
+
+!if "$(XSDE_POLYMORPHIC)" == "y"
+dirs = $(dirs) polymorphism\any-type polymorphism\enumeration polymorphism\multischema
+!endif
+
+!if "$(XSDE_STL)" == "y"
+!if "$(XSDE_STL_ITERATOR)" == "y"
+dirs = $(dirs) iterator
+!endif
+!endif
+
+!if "$(XSDE_IOSTREAM)" == "y"
+dirs = $(dirs) built-in default enumeration list test-template union facets pattern
+
+!if "$(XSDE_ENCODING)" == "iso8859-1"
+dirs = $(dirs) iso8859-1
+!endif
+
+!if "$(XSDE_PARSER_VALIDATION)" == "y"
+dirs = $(dirs) choice recursive clone
+
+!if "$(XSDE_CDR)" == "y"
+dirs = $(dirs) binary/cdr
+!endif
+
+!if "$(XSDE_XDR)" == "y"
+dirs = $(dirs) binary/xdr
+!endif
+!endif
+
+!endif # XSDE_IOSTREAM
+
+
+all:
+	@for %i in ( $(dirs) ) do \
+@cmd /c "echo entering %i && cd %i && $(MAKE) /nologo /f nmakefile" || exit 1
+
+gen test:
+	@for %i in ( $(dirs) ) do \
+@cmd /c "echo entering %i && cd %i && $(MAKE) /nologo /f nmakefile $@" || exit 1
+
+clean cleanobj:
+	@for %i in ( $(dirs) ) do \
+@cmd /c "echo entering %i && cd %i && $(MAKE) /nologo /f nmakefile $@"

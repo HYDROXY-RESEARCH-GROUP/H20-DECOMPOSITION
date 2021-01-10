@@ -1,0 +1,29 @@
+This file describes how to build and use XSD/e with Symbian.
+
+The first step is to create the XSD/e configuration for your version
+of the Symbian SDK. Copy the config.make file found in this directory
+to the config/ subdirectory of the XSD/e distribution. Then build your
+Symbian application with the -v abld option to see the actual C++ 
+compiler command lines being executed. For example:
+
+abld -v build gcce urel
+
+Copy the compiler options used to build your application to the
+config/config.make. You would normally put -I, -D, and -include options
+to the CPPFLAGS variable and all the other options to the CFLAGS and
+CXXFLAGS variable (they normally will be identical or near identical).
+You will also need to adjust the SDKROOT and GCCEROOT variables.
+
+Once this is done, in a terminal or command prompt change to the
+libxsde directory and run make to build the XSD/e runtime library
+(libxsde.a). On Windows, GNU make can be found in the epoc32/tools/
+subdirectory of the Symbian SDK.
+
+If you get a compile error saying that the <new> header file is not
+found, then copy the 'new' file found in this directory to libxsde/ and
+run make again.
+
+Once the XSD/e runtime library is built, compile your schemas to C++ with
+the XSD/e compiler (bin/xsde) and add the resulting generated C++ files to
+your Symbian project. You will also need to add the libxsde directory to
+your project's header search paths (-I option) and link to libxsde.a.

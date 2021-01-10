@@ -1,0 +1,68 @@
+root = ..\..\..\..
+
+!include $(root)\build\cxx\rules.nmake
+
+# Build.
+#
+EXTRA_CPPFLAGS = /I$(root)\libxsde
+
+EXTRA_XSDFLAGS = --no-stl --no-exceptions
+
+!if "$(XSDE_ENCODING)" == "iso8859-1"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --char-encoding iso8859-1
+!endif
+
+!if "$(XSDE_IOSTREAM)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --no-iostream
+!endif
+
+!if "$(XSDE_LONGLONG)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --no-long-long
+!endif
+
+!if "$(XSDE_SERIALIZER_VALIDATION)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --suppress-validation
+!endif
+
+!if "$(XSDE_REUSE_STYLE)" == "mixin"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --reuse-style-mixin
+!endif
+
+!if "$(XSDE_POLYMORPHIC)" == "y"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --runtime-polymorphic
+!endif
+
+!if "$(XSDE_REUSE_STYLE)" == "mixin"
+impl = people-simpl-mixin
+!else
+impl = people-simpl-tiein
+!endif
+
+driver.exe: driver.obj people-sskel.obj $(root)\libxsde\xsde\xsde.lib
+
+driver.obj: driver.cxx $(impl).hxx people-sskel.hxx people.hxx
+people-sskel.obj: people-sskel.cxx people-sskel.hxx people.hxx
+
+people-sskel.cxx people-sskel.hxx: people.xsd people.map
+	$(root)\bin\xsde.exe cxx-serializer $(XSDFLAGS) $(EXTRA_XSDFLAGS) \
+--type-map people.map people.xsd
+
+
+# Generate.
+#
+gen: people-sskel.hxx
+
+
+# Test.
+#
+test: driver.exe
+	.\driver.exe
+
+
+# Clean.
+#
+cleanobj:
+	-del people-sskel.obj driver.obj driver.exe
+
+clean: cleanobj
+	-del people-sskel.?xx

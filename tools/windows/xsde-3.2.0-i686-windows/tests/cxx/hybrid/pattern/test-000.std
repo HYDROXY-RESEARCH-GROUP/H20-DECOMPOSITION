@@ -1,0 +1,11 @@
+<t:root xmlns:t="test">
+  <t1>foobarbaz</t1>
+  <t2>12,32,123,321,</t2>
+  <t3>12321</t3>
+  <t4>12321</t4>
+  <t5>
+
+
+  </t5>
+  <t6>abcdef</t6>
+</t:root>

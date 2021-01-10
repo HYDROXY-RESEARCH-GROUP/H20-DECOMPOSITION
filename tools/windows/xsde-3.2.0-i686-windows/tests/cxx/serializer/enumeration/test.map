@@ -1,0 +1,7 @@
+namespace test
+{
+  include "boolean.hxx";
+
+  digit int int;
+  boolean ::boolean ::boolean;
+}

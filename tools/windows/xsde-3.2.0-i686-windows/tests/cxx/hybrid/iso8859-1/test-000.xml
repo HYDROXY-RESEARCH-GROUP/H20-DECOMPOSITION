@@ -1,0 +1,15 @@
+<t:root xmlns:t="test" x="longlonglong&#xA2;&#xA3;&#xA4;&#xA5;longlong">
+
+  <a>abc</a>
+  <a>&#xE6;</a>
+  <a>&#xA2;&#xA3;&#xA4;&#xA5;</a>
+  <a>&#x100;&#xAAAA;&#xAAAAA;</a>
+  <a>longlonglonglonglonglonglonglonglonglonglonglong&#xE6;longlonglonglong</a>
+
+  <b>abc</b>
+  <b>a&#xE2;c</b>
+  <b>&#xE2;&#xF2;bc</b>
+
+  <element_name_with_special_char_â>longlonglong&#xA2;&#xA3;&#xA4;&#xA5;longlong</element_name_with_special_char_â>
+
+</t:root>

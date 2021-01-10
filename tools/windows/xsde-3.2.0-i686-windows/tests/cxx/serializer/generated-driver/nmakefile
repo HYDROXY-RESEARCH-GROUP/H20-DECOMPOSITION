@@ -1,0 +1,62 @@
+root = ..\..\..\..
+
+!include $(root)\build\cxx\rules.nmake
+
+EXTRA_CPPFLAGS = /I$(root)\libxsde
+
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --char-encoding $(XSDE_ENCODING)
+
+!if "$(XSDE_STL)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --no-stl
+!endif
+
+!if "$(XSDE_IOSTREAM)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --no-iostream
+!endif
+
+!if "$(XSDE_EXCEPTIONS)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --no-exceptions
+!endif
+
+!if "$(XSDE_LONGLONG)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --no-long-long
+!endif
+
+!if "$(XSDE_SERIALIZER_VALIDATION)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --suppress-validation
+!endif
+
+!if "$(XSDE_REUSE_STYLE)" == "mixin"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --reuse-style-mixin
+!endif
+
+!if "$(XSDE_POLYMORPHIC)" == "y"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --runtime-polymorphic
+!endif
+
+!if "$(XSDE_CUSTOM_ALLOCATOR)" == "y"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --custom-allocator
+!endif
+
+test-sdriver.exe: test-simpl.obj test-sskel.obj test-sdriver.obj $(root)\libxsde\xsde\xsde.lib
+
+test-simpl.obj: test-simpl.cxx test-sskel.hxx 
+test-sskel.obj: test-sskel.cxx
+test-sdriver.obj: test-sdriver.cxx
+
+test-sskel.hxx test-sskel.ixx test-sskel.cxx test-sdriver.cxx: test.xsd
+	$(root)\bin\xsde.exe cxx-serializer $(XSDFLAGS) $(EXTRA_XSDFLAGS) --generate-test-driver --force-overwrite test.xsd
+
+gen: test-sskel.hxx test-sskel.ixx test-sskel.cxx test-sdriver.cxx
+
+test: test-sdriver.exe
+	.\test-sdriver.exe >tmp
+	fc test-000.std tmp
+	del tmp
+
+cleanobj:
+	-del test-sdriver.exe test-simpl.obj test-sskel.obj test-sdriver.obj
+
+clean: cleanobj
+	-del test-sskel.cxx test-sdriver.cxx test-sskel.ixx test-sdriver.ixx test-sskel.hxx 
+

@@ -1,0 +1,53 @@
+root = ..\..\..\..
+
+!include $(root)\build\cxx\rules.nmake
+
+# Build.
+#
+EXTRA_CPPFLAGS = /I$(root)\libxsde
+
+!if "$(XSDE_ENCODING)" == "iso8859-1"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --char-encoding iso8859-1
+!endif
+
+!if "$(XSDE_LONGLONG)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --no-long-long
+!endif
+
+!if "$(XSDE_SERIALIZER_VALIDATION)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --suppress-validation
+!endif
+
+!if "$(XSDE_POLYMORPHIC)" == "y"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --runtime-polymorphic
+!endif
+
+driver.exe: driver.obj email-sskel.obj $(root)\libxsde\xsde\xsde.lib
+
+driver.obj: driver.cxx email-sskel.hxx email.hxx
+email-sskel.obj: email-sskel.cxx email-sskel.hxx email.hxx
+
+
+email-sskel.hxx email-sskel.cxx: email.xsd email.map
+	$(root)\bin\xsde.exe cxx-serializer $(XSDFLAGS) $(EXTRA_XSDFLAGS) \
+--type-map email.map email.xsd
+
+
+# Generate.
+#
+gen: email-sskel.hxx
+
+
+# Test.
+#
+test: driver.exe
+	.\driver.exe
+
+
+# Clean.
+#
+cleanobj:
+	-del email-sskel.obj driver.obj driver.exe
+
+clean: cleanobj
+	-del email-sskel.?xx

@@ -1,0 +1,86 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ConfigFile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="DisplayElement">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ScreenObjects">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="objIdentifier">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                            <xs:attribute type="xs:byte" name="id"/>
+                            <xs:attribute type="xs:string" name="desc" use="optional"/>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="freqValue">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                            <xs:attribute type="xs:byte" name="id"/>
+                            <xs:attribute type="xs:string" name="desc" use="optional"/>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="unitPrefix">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="prefix" maxOccurs="unbounded" minOccurs="0">
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:string">
+                                  <xs:attribute type="xs:byte" name="id"/>
+                                  <xs:attribute type="xs:string" name="desc" use="optional"/>
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                        <xs:attribute type="xs:byte" name="id"/>
+                        <xs:attribute type="xs:string" name="desc" use="optional"/>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="unit">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                            <xs:attribute type="xs:byte" name="id"/>
+                            <xs:attribute type="xs:string" name="desc" use="optional"/>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="ApplicationStates">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="state" maxOccurs="unbounded" minOccurs="0">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                            <xs:attribute type="xs:byte" name="id" use="optional"/>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute type="xs:string" name="name"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute type="xs:string" name="locale"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,1 @@
+<g1:root xmlns:g1="test"><base x="123" y="234"><a>-123</a><b>-234</b></base><derived x="123" y="234" z="345"><a>-123</a><b>-234</b><c>-345</c></derived></g1:root>

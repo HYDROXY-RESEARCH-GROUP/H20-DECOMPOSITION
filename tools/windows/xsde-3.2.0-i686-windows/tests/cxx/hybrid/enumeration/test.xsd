@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:t="test" targetNamespace="test">
+
+  <simpleType name="base">
+    <restriction base="string"/>
+  </simpleType>
+
+  <simpleType name="simple">
+    <restriction base="string">
+      <enumeration value="a"/>
+      <enumeration value="b"/>
+      <enumeration value="c"/>
+    </restriction>
+  </simpleType>
+
+  <simpleType name="derived">
+    <restriction base="t:base">
+      <enumeration value="a"/>
+      <enumeration value="b"/>
+      <enumeration value="c"/>
+    </restriction>
+  </simpleType>
+
+  <simpleType name="interm">
+    <restriction base="t:simple"/>
+  </simpleType>
+
+  <simpleType name="final">
+    <restriction base="t:interm">
+      <enumeration value="a"/>
+      <enumeration value="c"/>
+    </restriction>
+  </simpleType>
+
+  <complexType name="complex">
+    <simpleContent>
+      <extension base="t:final">
+        <attribute name="x" type="string"/>
+      </extension>
+    </simpleContent>
+  </complexType>
+
+  <!-- Variable-length (custom data) -->
+
+  <simpleType name="simple-cd">
+    <restriction base="string">
+      <enumeration value="a"/>
+      <enumeration value="b"/>
+      <enumeration value="c"/>
+    </restriction>
+  </simpleType>
+
+  <!-- fixed base, variable derived -->
+  <simpleType name="fbvd">
+    <restriction base="t:simple">
+      <enumeration value="a"/>
+      <enumeration value="c"/>
+    </restriction>
+  </simpleType>
+
+  <!-- variable base, variable derived -->
+  <simpleType name="vbvd">
+    <restriction base="t:simple-cd">
+      <enumeration value="a"/>
+      <enumeration value="c"/>
+    </restriction>
+  </simpleType>
+
+
+  <complexType name="type">
+    <sequence>
+      <element name="simple" type="t:simple" maxOccurs="unbounded"/>
+      <element name="derived" type="t:derived" maxOccurs="unbounded"/>
+      <element name="final" type="t:final" maxOccurs="unbounded"/>
+      <element name="complex" type="t:complex" maxOccurs="unbounded"/>
+
+      <element name="simple-cd" type="t:simple-cd" maxOccurs="unbounded"/>
+      <element name="fbvd" type="t:fbvd" maxOccurs="unbounded"/>
+      <element name="vbvd" type="t:vbvd" maxOccurs="unbounded"/>
+    </sequence>
+    <attribute name="x" type="t:simple" default="a"/>
+    <attribute name="y" type="t:final" default="c"/>
+    <attribute name="z" type="t:simple-cd" default="b"/>
+  </complexType>
+
+  <element name="root" type="t:type"/>
+
+</schema>

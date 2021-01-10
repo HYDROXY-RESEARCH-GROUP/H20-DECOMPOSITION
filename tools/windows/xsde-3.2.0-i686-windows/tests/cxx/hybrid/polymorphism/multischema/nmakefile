@@ -1,0 +1,77 @@
+root = ..\..\..\..\..
+
+!include $(root)\build\cxx\rules.nmake
+
+EXTRA_CPPFLAGS = /I$(root)\libxsde
+
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --char-encoding $(XSDE_ENCODING)
+
+!if "$(XSDE_STL)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --no-stl
+!endif
+
+!if "$(XSDE_IOSTREAM)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --no-iostream
+!endif
+
+!if "$(XSDE_EXCEPTIONS)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --no-exceptions
+!endif
+
+!if "$(XSDE_LONGLONG)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --no-long-long
+!endif
+
+!if "$(XSDE_PARSER_VALIDATION)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --suppress-parser-val
+!endif
+
+!if "$(XSDE_SERIALIZER_VALIDATION)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --suppress-serializer-val
+!endif
+
+!if "$(XSDE_REUSE_STYLE)" == "mixin"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --reuse-style-mixin
+!endif
+
+!if "$(XSDE_POLYMORPHIC)" == "y"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --runtime-polymorphic
+!endif
+
+!if "$(XSDE_CUSTOM_ALLOCATOR)" == "y"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --custom-allocator
+!endif
+
+driver.exe: driver.obj test.obj type.obj test-pskel.obj type-pskel.obj test-pimpl.obj type-pimpl.obj test-sskel.obj type-sskel.obj test-simpl.obj type-simpl.obj $(root)\libxsde\xsde\xsde.lib
+
+driver.obj: driver.cxx test.hxx type.hxx test-pskel.hxx type-pskel.hxx test-pimpl.hxx type-pimpl.hxx test-sskel.hxx type-sskel.hxx test-simpl.hxx type-simpl.hxx 
+test.obj: test.cxx
+type.obj: type.cxx
+test-pskel.obj: test-pskel.cxx
+type-pskel.obj: type-pskel.cxx
+test-pimpl.obj: test-pimpl.cxx
+type-pimpl.obj: type-pimpl.cxx
+test-sskel.obj: test-sskel.cxx
+type-sskel.obj: type-sskel.cxx
+test-simpl.obj: test-simpl.cxx
+type-simpl.obj: type-simpl.cxx
+
+test.hxx test.cxx test-pskel.hxx test-pskel.cxx test-pimpl.hxx test-pimpl.cxx test-sskel.hxx test-sskel.cxx test-simpl.hxx test-simpl.cxx: test.xsd
+	$(root)\bin\xsde.exe cxx-hybrid $(XSDFLAGS) $(EXTRA_XSDFLAGS) --generate-parser --generate-serializer --generate-aggregate --generate-polymorphic --generate-typeinfo --polymorphic-type base --polymorphic-schema type.xsd test.xsd
+
+type.hxx type.cxx type-pskel.hxx type-pskel.cxx type-pimpl.hxx type-pimpl.cxx type-sskel.hxx type-sskel.cxx type-simpl.hxx type-simpl.cxx: type.xsd
+	$(root)\bin\xsde.exe cxx-hybrid $(XSDFLAGS) $(EXTRA_XSDFLAGS) --generate-parser --generate-serializer --generate-aggregate --generate-polymorphic --generate-typeinfo --polymorphic-type base --polymorphic-schema type.xsd type.xsd
+
+gen: test.hxx type.hxx test.cxx type.cxx test-pskel.hxx type-pskel.hxx test-pskel.cxx type-pskel.cxx test-pimpl.hxx type-pimpl.hxx test-pimpl.cxx type-pimpl.cxx test-sskel.hxx type-sskel.hxx test-sskel.cxx type-sskel.cxx test-simpl.hxx type-simpl.hxx test-simpl.cxx type-simpl.cxx
+
+test: driver.exe
+	.\driver.exe test-000.xml >tmp
+	fc test-000.std tmp
+	del tmp
+
+cleanobj:
+	-del driver.exe driver.obj test.obj type.obj test-pskel.obj type-pskel.obj test-pimpl.obj type-pimpl.obj test-sskel.obj type-sskel.obj test-simpl.obj type-simpl.obj
+
+clean: cleanobj
+	-del test.cxx type.cxx test-pskel.cxx type-pskel.cxx test-pimpl.cxx type-pimpl.cxx test-sskel.cxx type-sskel.cxx test-simpl.cxx type-simpl.cxx test.ixx type.ixx test-pskel.ixx type-pskel.ixx test-pimpl.ixx type-pimpl.ixx test-sskel.ixx type-sskel.ixx test-simpl.ixx type-simpl.ixx test.hxx type.hxx test-pskel.hxx type-pskel.hxx test-pimpl.hxx type-pimpl.hxx test-sskel.hxx type-sskel.hxx test-simpl.hxx type-simpl.hxx 
+

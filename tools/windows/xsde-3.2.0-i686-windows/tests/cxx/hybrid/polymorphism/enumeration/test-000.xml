@@ -1,0 +1,13 @@
+<t:root xmlns:t="test" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <base xsi:type="t:derived">a</base>
+  <base xsi:type="t:derived">b</base>
+
+  <simple>a</simple>
+  <simple>b</simple>
+
+  <simple xsi:type="t:interm">b</simple>
+  <simple xsi:type="t:final">c</simple>
+  <simple xsi:type="t:complex" x="c">c</simple>
+
+</t:root>

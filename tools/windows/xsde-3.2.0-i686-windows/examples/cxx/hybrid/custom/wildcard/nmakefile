@@ -1,0 +1,74 @@
+root = ..\..\..\..\..
+
+!include $(root)\build\cxx\rules.nmake
+
+# Build.
+#
+EXTRA_CPPFLAGS = /I$(root)\libxsde
+
+!if "$(XSDE_ENCODING)" == "iso8859-1"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --char-encoding iso8859-1
+!endif
+
+!if "$(XSDE_LONGLONG)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --no-long-long
+!endif
+
+!if "$(XSDE_PARSER_VALIDATION)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --suppress-parser-val
+!endif
+
+!if "$(XSDE_SERIALIZER_VALIDATION)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --suppress-serializer-val
+!endif
+
+!if "$(XSDE_REUSE_STYLE)" == "mixin"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --reuse-style-mixin
+!endif
+
+!if "$(XSDE_POLYMORPHIC)" == "y"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --runtime-polymorphic
+!endif
+
+driver.exe: driver.obj email.obj body.obj email-pskel.obj email-pimpl.obj \
+email-sskel.obj email-simpl.obj envelope-pimpl.obj envelope-simpl.obj \
+$(root)\libxsde\xsde\xsde.lib
+
+driver.obj: driver.cxx email.hxx envelope.hxx body.hxx email-pimpl.hxx email-simpl.hxx
+email.obj: email.cxx email.hxx envelope.hxx
+body.obj: body.cxx body.hxx email.hxx
+email-pskel.obj: email-pskel.cxx
+email-pimpl.obj: email-pimpl.cxx
+email-simpl.obj: email-simpl.cxx
+email-simpl.obj: email-simpl.cxx
+envelope-pimpl.obj: envelope-pimpl.cxx envelope-pimpl.hxx email.hxx body.hxx
+envelope-simpl.obj: envelope-simpl.cxx envelope-simpl.hxx email.hxx body.hxx
+
+email.cxx email.hxx \
+email-pskel.cxx email-pskel.hxx email-pimpl.cxx email-pimpl.hxx \
+email-sskel.cxx email-sskel.hxx email-simpl.cxx email-simpl.hxx \
+: email.xsd
+	$(root)\bin\xsde.exe cxx-hybrid $(XSDFLAGS) $(EXTRA_XSDFLAGS) \
+--options-file options email.xsd
+
+
+# Generate.
+#
+gen: email.hxx
+
+
+# Test.
+#
+test: driver.exe email.xml
+	.\driver.exe email.xml
+
+# Clean.
+#
+cleanobj:
+	-del envelope-pimpl.obj envelope-simpl.obj email-pimpl.obj \
+email-pskel.obj email-simpl.obj email-sskel.obj body.obj email.obj \
+driver.obj driver.exe
+
+clean: cleanobj
+	-del email-pimpl.?xx email-pskel.?xx email-simpl.?xx \
+email-sskel.?xx email.?xx

@@ -1,0 +1,425 @@
+Version 3.2.0
+
+  * Support for ISO-8859-1 in addition to UTF-8 as application encoding.
+    Note that this encoding is not the same as the XML document encoding 
+    that is being parsed or serialized. Rather, it is the encoding that 
+    is used inside the application. When an XML document is parsed, the
+    character data is automatically converted to the application encoding.
+    Similarly, when an XML document is serialized, the data in the
+    application encoding is automatically converted to the resulting
+    document encoding. To select a particular encoding, configure the 
+    XSD/e runtime library accordingly and pass the --char-encoding option
+    to the XSD/e compiler when translating your schemas.
+
+  * Support for custom allocators. This feature allows you to configure
+    the XSD/e runtime and generated code to perform memory management
+    using custom allocator functions provided by your application instead
+    of the standard operator new/delete. For more information, see Section
+    3.8, "Custom Allocators" in the C++/Hybrid Mapping Getting Started
+    Guide (equivalent documentation is provided for other mappings) as
+    well as the 'allocator' example in the examples/cxx/hybrid/ directory.
+
+  * When built with Xerces-C++ 3-series, enable handling of multiple imports
+    for the same namespace. Before, all subsequent imports for a namespace
+    were ignored which caused errors in some schemas.
+
+  * Automatic mapping for the urn-style XML namespaces. The last component
+    in the urn name is used to derive the C++ namespace name.
+
+  * New option, --schema-file-regex, in combination with the existing
+    --type-file-regex, can be used to place the generated files into 
+    subdirectories or to resolve file name conflicts in the file-per-
+    type mode (--file-per-type).
+
+  * Strings used to match regular expression supplied with the
+    --namespace-regex and --anonymous-regex options now include the file 
+    component for the schema being compiled.
+
+ C++/Hybrid
+
+  * String-based types that use XML Schema restriction by enumeration are 
+    now mapped to C++ classes with semantics similar to C++ enum. You can 
+    suppress this new mapping and instead get the old behavior (plain 
+    inheritance) by specifying the --suppress-enum compiler option. See
+    Section 4.3, "Enumerations" in the Getting Started Guide for more
+    information.
+
+  * New option, --generate-clone, triggers the generation of clone functions
+    for variable-length types. These functions allow you to make dynamically-
+    allocated copies of variable-length objects.
+
+  * Support for schema evolution using substitution groups. The 'ignore' and
+    'passthrough' examples in the examples/cxx/hybrid/evolution/ directory
+    show how the new mechanism works. The 'ignore' example shows how to
+    ignore unknown elements. The 'passthrough' example shows how to pass
+    the unknown content through parsing and serialization so that the output
+    XML contains all the unknown elements.
+
+  * The anySimpleType build-in type is now mapped to std::string or a C-string,
+    depending on whether STL is enabled or not.
+
+  * New mapping for anyType with support for polymorphism. For more
+    information, see Section 5.14, "Mapping for anyType" in the Embedded
+    C++/Hybrid Mapping Getting Started Guide.
+
+  * The object model interface for optional members of variable-length
+    types now omits the _present modifier function. This is done to help
+    detect programming errors that result from a type becoming variable-
+    length due to schema changes. To reset such optional members you can
+    call the member modifier function with NULL as its argument.
+
+  * New configuration parameter, XSDE_STL_ITERATOR, makes iterators
+    provided by the mapping conform to the STL requirements. This feature
+    requires working <iterator> header and allows you to use the standard
+    algorithms such as find_if, etc.
+
+  * When the code is generated with the --generate-polymorphic or
+    --runtime-polymorphic option, the resulting parser and serializer
+    aggregate classes provide the static polymorphic() function which 
+    returns true if the object model corresponding to the root element 
+    or root type is polymorphic and false otherwise. This can be used 
+    together with the XSDE_POLYMORPHIC macro to implement generic parsing
+    and serialization code that works with both polymorphic and non-
+    polymorphic object models.
+
+  * XML Schema union types with members that are enumeration types are 
+    automatically converted to equivalent enumeration types with a union 
+    of all the member's enumerators.
+
+ C++/Parser
+
+  * Support for the following XML Schema facets:
+
+    String-based types:
+      - length
+      - minLength
+      - maxLength
+      - pattern
+      - whiteSpace
+      - enumeration
+
+    Integer and floating-point types:
+      - minExclusive
+      - minInclusive
+      - maxExclusive
+      - maxInclusive
+
+    For more information on the pattern facet validation, see the XSDE_REGEXP
+    parameter in the configuration files.
+
+  * The anySimpleType build-in type is now mapped to std::string or a C-string,
+    depending on whether STL is enabled or not.
+
+ C++/Serializer
+
+  * Support for the following XML Schema facets:
+
+    String-based types:
+      - length
+      - minLength
+      - maxLength
+      - pattern
+      - enumeration
+
+    Integer and floating-point types:
+      - minExclusive
+      - minInclusive
+      - maxExclusive
+      - maxInclusive
+
+    For more information on the pattern facet validation, see the XSDE_REGEXP
+    parameter in the configuration files.
+
+  * The anySimpleType build-in type is now mapped to std::string or a C-string,
+    depending on whether STL is enabled or not.
+
+Version 3.1.0
+
+ C++/Hybrid
+
+  * Support for XML Schema polymorphism. The new --generate-polymorphic
+    option triggers the generation of polymorphism-aware code. This option
+    should be used on XML vocabularies which use xsi:type and/or
+    substitution groups. For more information see Section 3.7, "Support
+    for Polymorphism" and Section 4.9, "Polymorphic Object Models" in
+    the Embedded C++/Parser Mapping Getting Started Guide as well as
+    the polymorphism and polyroot examples in the examples/cxx/hybrid/
+    directory.
+
+  * Support for saving the object model to and loading it from binary
+    representations. The new --generate--insertion and --generate-extraction
+    options trigger the generation of data representation stream insertion
+    and extraction operators, respectively. The XSD/e runtime provides
+    support for the ACE CDR streams and XDR API that is part of Sun RPC.
+    Custom representations can be supported by implementing insertion and
+    extraction operators for the built-in XML Schema types and sequence
+    templates. For more information, see Chapter 7, "Binary Representation"
+    in the Getting Started Guide as well as examples in the 
+    examples/cxx/hybrid/binary/ directory.
+
+  * Support for attributes with default and fixed values. For details see
+    Section 4.3, "Attributes and Elements" in the Getting Started Guide.
+    Use the new --omit-default-attributes option to omit the attributes
+    with default and fixed values from serialized XML documents.
+
+  * New option, --custom-type, allows the customization of the object model
+    classes. You have the option of either basing your custom implementation
+    on the generated version or providing your own implementation from
+    scratch. For details see Section 4.8, "Customizing the Object Model"
+    in the Getting Started Guide as well as examples in the 
+    examples/cxx/hybrid/custom/ directory.
+
+  * New option, --generate-detach, triggers the generation of detach
+    functions for elements and attributes of variable-length types. These
+    functions, for example, allow you to move sub-trees in the object model
+    either within the same tree or between different trees. The sequence
+    interfaces for variable-length types now also provide the detach()
+    function.
+
+  * The generated parser and serializer implementations are now capable
+    of parsing/serializing recursive types. The XSD/e compiler detects
+    recursive types and generates stack-based implementations with the
+    optimized non-recursive case (i.e., the first iteration still does
+    not result in any heap allocations for the state maintenance).
+
+  * Assignment function with signature assign(const T*, size_t) for
+    sequences of fixed-length types. With this function you can, for
+    example, initialize a sequence with a C array. Assignment of 
+    sequences of fundamental types (e.g., int, float, etc.) is 
+    implemented in terms of memcpy().
+
+ C++/Serializer
+
+  * Support for XML pretty-printing. The serialize() functions in the
+    xml_schema::document_simpl class now have the flags argument (defaults
+    to 0). You can pass the xml_schema::document_simpl::pretty_print flag
+    for this argument to turn on pretty-printing. See the examples and 
+    documentation for details.
+
+Version 3.0.0
+
+  * The new Embedded C++/Hybrid mapping provides a light-weight, tree-
+    like object model with precise reproduction of the XML vocabulary
+    structure and element order. C++/Hybrid supports fully in-memory
+    as well as hybrid, partially event-driven, partially in-memory
+    XML processing. For more information on the new mapping see the
+    Embedded C++/Hybrid Mapping Getting Started Guide and examples in
+    the examples/cxx/hybrid/ directory.
+
+  * New option, --disable-warning, disables printing of a warning with
+    the specified id. Specifying 'all' for the warning id disables all
+    warnings.
+
+  * The interfaces of the non-STL versions of the xml_schema::qname and
+    xml_schema::string_sequence classes have changed. Now by default
+    their modifier functions assume ownership of the passed strings.
+    The *_copy() versions of the modifier functions that make copies
+    of the passed strings are now provided. See the documentation for
+    details.
+
+  * The implementation of the STL version of the xml_schema::string_sequence
+    class has changed. Now a custom implementation of the sequence
+    container is used instead of std::vector. See the documentation for
+    details.
+
+  * When STL is enabled the xml_schema::string_sequence objects
+    corresponding to the NMTOKENS and IDREFS types are now returned and
+    passed by pointer rather than by value.
+
+Version 2.1.0
+
+  * New delegation-based parser/serializer implementation reuse style in
+    addition to virtual inheritance-based. The new style results in a much
+    smaller object code size. The new reuse style is used by default and is
+    incompatible with the old style. Applications that require backwards
+    compatibility should use the --reuse-style-mixin option. The reuse
+    support code now can be completely omitted with the --reuse-style-none
+    option. A number of examples were converted to support both the new
+    and old reuse styles while others were converted to support the new
+    style only. For more information on the new reuse style see Section
+    5.6 in the Embedded C++/Parser Getting Started Guide and Section 6.6
+    in the Embedded C++/Serializer Getting Started Guide.
+
+  * New option, --file-per-type, triggers generation of a separate set
+    of C++ files for each type defined in XML Schema. This compilation
+    mode is primarily useful when some of your schemas cannot be compiled
+    separately or have cyclic dependencies which involve inheritance.
+    Other new options that are useful in this compilation mode are
+    --type-file-regex, --type-file-regex-trace, and --file-list. See the
+    compiler command line manual (man pages) for more information.
+
+  * New option, --options-file, allows additional command line options
+    to be provided in files, with one option per line.
+
+  * New option, --reserved-name, allows inserting additional names with
+    optional replacements to the list of names that should not be used
+    as identifiers. See the compiler command line manual (man pages)
+    for details.
+
+  * New options, --location-map, --location-regex, and
+    --location-regex-trace, allow re-mapping of schema locations
+    specified in the include and import elements without modifying the
+    schema files. See the compiler command line manual (man pages) for
+    more information.
+
+  * New option, --guard-prefix, allows specifying a prefix that will be
+    added to generated header inclusion guards.
+
+  * New option, --file-list, triggers creation of a file with a list of
+    generated C++ files. This option is primarily useful in the file-per-
+    type compilation mode (--file-per-type) to create a list of generated
+    C++ files, for example, as a makefile fragment. Other new options
+    that are useful with --file-list are --file-list-prologue,
+    --file-list-epilogue, and --file-list-delim. See the compiler command
+    line manual (man pages) for more information.
+
+  * In type map files the optional argument type now defaults to the
+    return type if the return type ends with * or & (that is, it is
+    a pointer or a reference) and 'const return type&' otherwise.
+
+  * Type map files can now include comments. A comment starts with #
+    and ends with a new line or end of file. To specify a name that
+    contains # enclose it in "".
+
+ C++/Parser
+
+  * New option, --generate-polymorphic, triggers generation of polymorphism-
+    aware code. This option should be used on XML vocabularies which use
+    xsi:type and/or substitution groups. For more information see Section
+    5.7, "Support for Polymorphism" in the Embedded C++/Parser Mapping
+    Getting Started Guide we well as the polymorphism and polyroot
+    examples in the examples/cxx/parser/ directory.
+
+  * New options, --generate-xml-schema and --extern-xml-schema, trigger
+    generation of the mapping for the XML Schema namespace to a separate
+    header file and inclusion of that header into other generated header
+    files instead of generating the necessary declarations inline,
+    respectively. See the the compiler command line manual (man pages)
+    for details.
+
+  * Support for parser reuse after an error. For more information refer
+    to Section 7.4, "Reusing Parsers after an Error" in the Embedded 
+    C++/Parser Mapping Getting Started Guide. To suppress generation
+    of the reset code use the --suppress-reset option.
+
+  * New, context-based internal parsing architecture which provides
+    better performance, especially for deeply-nested documents. This
+    change should not affect user code except for wildcard parsing.
+    See the wildcard example for the required changes.
+
+  * The generated sample test driver file name was changed from
+    <schema>-driver.cxx to <schema>-pdriver.cxx.
+
+ C++/Serializer
+
+  * The mapping now supports automatic generation of sample serializer
+    implementations and a test driver. The --generate-empty-impl option
+    triggers generation of a sample implementation with empty function
+    bodies which can then be filled with application code. The
+    --generate-test-driver option trigger generation of a test driver.
+    For more information on this feature see the compiler command line
+    manual (man pages). Other relevant new options include:
+    --impl-file-suffix, --force-overwrite, --root-element-first,
+    --root-element-last, and --root-element.
+
+  * New option, --generate-polymorphic, triggers generation of polymorphism-
+    aware code. This option should be used on XML vocabularies which use
+    xsi:type and/or substitution groups. For more information see Section
+    6.7, "Support for Polymorphism" in the Embedded C++/Serializer Mapping
+    Getting Started Guide we well as the polymorphism and polyroot
+    examples in the examples/cxx/serializer/ directory.
+
+  * New options, --generate-xml-schema and --extern-xml-schema, trigger
+    generation of the mapping for the XML Schema namespace to a separate
+    header file and inclusion of that header into other generated header
+    files instead of generating the necessary declarations inline,
+    respectively. See the the compiler command line manual (man pages)
+    for details.
+
+  * Support for serializer reuse after an error. For more information
+    refer to Section 8.4, "Reusing Serializers after an Error" in the
+    Embedded C++/Serializer Mapping Getting Started Guide. To suppress
+    generation of the reset code use the --suppress-reset option.
+
+Version 2.0.0
+
+  * The new Embedded C++/Serializer mapping supports event-driven,
+    stream oriented XML serialization with XML Schema validation
+    and C++ data binding. The new Embedded C++/Serializer Mapping
+    Getting Started Guide as well as the set of examples provide
+    an introduction to the mapping.
+
+ C++/Parser
+
+  * The argument order in the generated parsers() functions has
+    changed from elements then attributes to attributes then
+    elements.
+
+  * A number of types in the xml_schema namespaces have been
+    renamed in order to make the C++/Parser and C++/Serializer
+    mappings usable in the same translation unit. The old and
+    new names are listed below:
+
+    document         document_pimpl
+    exception        parser_exception
+    xml              parser_xml
+    schema           parser_schema
+    error            parser_error
+    xml_error        parser_xml_error
+    schema_error     parser_schema_error
+    simple_content   parser_simple_content
+    complex_content  parser_complex_content
+    list_base        parser_list_base
+
+  * The error accessor function has been renamed from error()
+    to _error(). The application error modifier function has
+    been renamed from error(int) to _app_error(int).
+
+  * For each subsequent element with the same name in the same
+    complex type, the mapping now produces a separate set of
+    callbacks and accessors. Note that in this case the
+    generated code will be able to perform correct dispatching
+    only with XML Schema validation enabled. When validation is
+    disabled all events will be delivered to the callback
+    corresponding to the first element with this name.
+
+Version 1.1.0
+
+  * The runtime library now provides parser implementations for all
+    built-in XML Schema types. See Chapter 6, "Built-In XML Schema
+    Type Parsers" in the Embedded C++/Parser Mapping Getting Started
+    Guide for more information.
+
+  * The mapping now supports automatic generation of sample parser
+    implementations and a test driver. The --generate-noop-impl option
+    triggers generation of a sample implementation with empty function
+    bodies. The --generate-print-impl option triggers generation of a
+    sample implementation that prints the data stored in XML to STDOUT.
+    The --generate-test-driver option trigger generation of a test driver.
+    For more information on this feature see the compiler command line
+    manual (man pages) and the generated example in the examples/cxx/parser/
+    directory. Other relevant new options include: --force-overwrite,
+    --root-element-first, --root-element-last, and --root-element.
+
+  * New example, examples/cxx/parser/wildcard, shows how to parse the
+    XML data matched by XML Schema wildcards (any and anyAttribute).
+
+  * The xml_schema::document parser has been extended with overridable
+    virtual functions start_root_element and end_root_element to support
+    parsing of XML vocabularies with multiple document roots. See the
+    multiroot example in the examples/cxx/parser/ directory for more
+    information.
+
+  * Declaration for built-in parser implementations and the document
+    parser are now automatically included into generated header files.
+    As a result, you do not need to explicitly include the
+    xml-schema-impl.hxx or document.hxx header files.
+
+  * The default parser skeleton type and file suffixes have changed
+    from _skel to _pskel and from -skel to -pskel, respectively. The
+    --type-suffix and --file-suffix options were renamed to
+    --skel-type-suffix and --skel-file-suffix, respectively.
+
+Version 1.0.0
+
+  * First public release.

@@ -1,0 +1,8 @@
+--generate-parser
+--generate-serializer
+--generate-aggregate
+--root-element transformations
+--generate-polymorphic
+--custom-type unknown_type=//unknown_type_base/unknown-type.hxx
+--custom-parser unknown_type=unknown_type_base_pimpl/unknown-type-pimpl.hxx
+--custom-serializer unknown_type=unknown_type_base_simpl/unknown-type-simpl.hxx

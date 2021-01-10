@@ -1,0 +1,1 @@
+<t:root xmlns:t="test" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><x xsi:type="t:foo"><a>abc</a><b>123</b></x><x xsi:type="t:bar"><a>abc</a><b>true</b></x><x xsi:type="t:baz"><a>abc</a><b>123</b><c>true</c></x></t:root>

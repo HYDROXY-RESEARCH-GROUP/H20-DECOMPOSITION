@@ -1,0 +1,66 @@
+root = ..\..\..\..\..
+
+!include $(root)\build\cxx\rules.nmake
+
+# Build.
+#
+EXTRA_CPPFLAGS = /I$(root)\libxsde
+
+!if "$(XSDE_ENCODING)" == "iso8859-1"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --char-encoding iso8859-1
+!endif
+
+!if "$(XSDE_LONGLONG)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --no-long-long
+!endif
+
+!if "$(XSDE_PARSER_VALIDATION)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --suppress-parser-val
+!endif
+
+!if "$(XSDE_SERIALIZER_VALIDATION)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --suppress-serializer-val
+!endif
+
+!if "$(XSDE_REUSE_STYLE)" == "mixin"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --reuse-style-mixin
+!endif
+
+!if "$(XSDE_POLYMORPHIC)" == "y"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --runtime-polymorphic
+!endif
+
+driver.exe: driver.obj transform.obj transform-pskel.obj transform-pimpl.obj \
+$(root)\libxsde\xsde\xsde.lib
+
+driver.obj: driver.cxx transform.hxx transform-pimpl.hxx
+transform.obj: transform.cxx transform.hxx
+transform-pskel.obj: transform-pskel.cxx
+transform-pimpl.obj: transform-pimpl.cxx
+
+transform.cxx transform.hxx \
+transform-pskel.cxx transform-pskel.hxx transform-pimpl.cxx transform-pimpl.hxx \
+: transform.xsd
+	$(root)\bin\xsde.exe cxx-hybrid $(XSDFLAGS) $(EXTRA_XSDFLAGS) \
+--generate-parser --generate-aggregate --root-element transformations \
+--generate-polymorphic transform.xsd
+
+
+# Generate.
+#
+gen: transform.hxx
+
+
+# Test.
+#
+test: driver.exe transform.xml
+	.\driver.exe transform.xml
+
+# Clean.
+#
+cleanobj:
+	-del transform-pimpl.obj transform-pskel.obj transform.obj \
+driver.obj driver.exe
+
+clean: cleanobj
+	-del transform-pimpl.?xx transform-pskel.?xx transform.?xx

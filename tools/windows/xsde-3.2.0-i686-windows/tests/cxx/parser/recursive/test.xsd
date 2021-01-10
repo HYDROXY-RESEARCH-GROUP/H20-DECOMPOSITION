@@ -1,0 +1,52 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- test 1 -->
+
+  <xs:complexType name="sub_type">
+    <xs:sequence>
+      <xs:element name="sub" type="sub_type" minOccurs="0"/>
+      <xs:element name="indir" type="indir_type" minOccurs="0"/>
+      <xs:element name="sub2" type="sub_type" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:string" />
+  </xs:complexType>
+
+  <xs:complexType name="indir_type">
+    <xs:sequence>
+      <xs:element name="sub" type="sub_type" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:string" />
+  </xs:complexType>
+
+  <!-- test 2 -->
+
+  <xs:element name="a">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice maxOccurs="unbounded">
+          <xs:element ref="a" />
+          <xs:element ref="b" />
+        </xs:choice>
+      </xs:sequence>
+      <xs:attribute name="name" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="b">
+    <xs:complexType>
+      <xs:attribute name="name" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- root -->
+
+  <xs:complexType name="test_type">
+    <xs:choice>
+      <xs:element name="sub" type="sub_type" />
+      <xs:element ref="a"/>
+    </xs:choice>
+    <xs:attribute name="name" type="xs:string" />
+  </xs:complexType>
+
+  <xs:element name="test" type="test_type" />
+</xs:schema>

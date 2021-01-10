@@ -1,0 +1,33 @@
+<!ELEMENT configFile (DisplayElements)>
+<!ATTLIST configFile locale CDATA #REQUIRED>
+
+<!ELEMENT DisplayElements (ScreenObjects,ApplicationStates)>
+<!ATTLIST DisplayElements name CDATA #REQUIRED>
+
+<!ELEMENT ScreenObjects (objIdentifier,freqValue,unitPrefix,unit)>
+
+<!ELEMENT objIdentifier (#PCDATA)>
+<!ATTLIST objIdentifier id CDATA #REQUIRED>
+<!ATTLIST objIdentifier desc CDATA >
+
+<!ELEMENT freqValue (#PCDATA)>
+<!ATTLIST freqValue id CDATA #REQUIRED>
+<!ATTLIST freqValue desc CDATA >
+
+<!ELEMENT unitPrefix (prefix)>
+<!ATTLIST unitPrefix id CDATA #REQUIRED>
+<!ATTLIST unitPrefix desc CDATA >
+
+<!ELEMENT prefix (#PCDATA)>
+<!ATTLIST prefix id CDATA #REQUIRED>
+<!ATTLIST prefix desc CDATA >
+
+<!ELEMENT unit (#PCDATA)>
+<!ATTLIST unit id CDATA #REQUIRED>
+<!ATTLIST unit desc CDATA >
+
+<!ELEMENT ApplicationStates (state)>
+
+<!ELEMENT state (#PCDATA)>
+<!ATTLIST state id CDATA #REQUIRED>
+<!ATTLIST state desc CDATA >

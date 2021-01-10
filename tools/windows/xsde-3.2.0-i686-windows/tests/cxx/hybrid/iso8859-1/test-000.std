@@ -1,0 +1,1 @@
+<t:root xmlns:t="test" x="longlonglong¢£¤¥longlong"><a>abc</a><a>æ</a><a>¢£¤¥</a><a>???</a><a>longlonglonglonglonglonglonglonglonglonglonglongælonglonglonglong</a><b>abc</b><b>aâc</b><b>âòbc</b><element_name_with_special_char_â>longlonglong¢£¤¥longlong</element_name_with_special_char_â></t:root>

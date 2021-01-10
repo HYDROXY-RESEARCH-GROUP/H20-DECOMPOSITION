@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:t="test" targetNamespace="test">
+
+  <!-- base is polymorphic -->
+
+  <simpleType name="base">
+    <restriction base="string"/>
+  </simpleType>
+
+  <simpleType name="derived">
+    <restriction base="t:base">
+      <enumeration value="a"/>
+      <enumeration value="b"/>
+      <enumeration value="c"/>
+    </restriction>
+  </simpleType>
+
+  <!-- enum is polymorphic -->
+
+  <simpleType name="simple">
+    <restriction base="string">
+      <enumeration value="a"/>
+      <enumeration value="b"/>
+      <enumeration value="c"/>
+    </restriction>
+  </simpleType>
+
+  <!-- base enum is polymorphic -->
+
+  <simpleType name="interm">
+    <restriction base="t:simple"/>
+  </simpleType>
+
+  <simpleType name="final">
+    <restriction base="t:interm">
+      <enumeration value="a"/>
+      <enumeration value="c"/>
+    </restriction>
+  </simpleType>
+
+  <complexType name="complex">
+    <simpleContent>
+      <extension base="t:final">
+        <attribute name="x" type="string"/>
+      </extension>
+    </simpleContent>
+  </complexType>
+
+  <complexType name="type">
+    <sequence>
+      <element name="base" type="t:base" maxOccurs="unbounded"/>
+      <element name="simple" type="t:simple" maxOccurs="unbounded"/>
+    </sequence>
+  </complexType>
+
+  <element name="root" type="t:type"/>
+
+</schema>

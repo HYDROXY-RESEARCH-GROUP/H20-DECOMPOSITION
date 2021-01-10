@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<!--
+
+file      : examples/cxx/parser/polyroot/superman.xml
+author    : Boris Kolpackov <boris@codesynthesis.com>
+copyright : not copyrighted - public domain
+
+-->
+
+<superman xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="supermen.xsd"
+	  can-fly="false">
+
+  <name>James "007" Bond</name>
+
+</superman>

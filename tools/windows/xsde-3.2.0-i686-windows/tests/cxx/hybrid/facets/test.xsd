@@ -1,0 +1,180 @@
+<?xml version="1.0"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:t="test" targetNamespace="test">
+
+  <simpleType name="byte">
+    <restriction base="byte">
+      <minInclusive value="10"/>
+      <maxInclusive value="100"/>
+    </restriction>
+  </simpleType>
+
+  <simpleType name="ubyte">
+    <restriction base="unsignedByte">
+      <minInclusive value="10"/>
+      <maxInclusive value="100"/>
+    </restriction>
+  </simpleType>
+
+  <simpleType name="short">
+    <restriction base="short">
+      <minInclusive value="10"/>
+      <maxInclusive value="100"/>
+    </restriction>
+  </simpleType>
+
+  <simpleType name="ushort">
+    <restriction base="unsignedShort">
+      <minInclusive value="10"/>
+      <maxInclusive value="100"/>
+    </restriction>
+  </simpleType>
+
+  <simpleType name="int">
+    <restriction base="int">
+      <minInclusive value="10"/>
+      <maxInclusive value="100"/>
+    </restriction>
+  </simpleType>
+
+  <simpleType name="uint">
+    <restriction base="unsignedInt">
+      <minInclusive value="10"/>
+      <maxInclusive value="100"/>
+    </restriction>
+  </simpleType>
+
+  <simpleType name="long">
+    <restriction base="long">
+      <minInclusive value="10"/>
+      <maxInclusive value="100"/>
+    </restriction>
+  </simpleType>
+
+  <simpleType name="ulong">
+    <restriction base="unsignedLong">
+      <minInclusive value="10"/>
+      <maxInclusive value="100"/>
+    </restriction>
+  </simpleType>
+
+  <simpleType name="integer">
+    <restriction base="integer">
+      <minInclusive value="10"/>
+      <maxInclusive value="100"/>
+    </restriction>
+  </simpleType>
+
+  <simpleType name="ninteger">
+    <restriction base="negativeInteger">
+      <minInclusive value="-100"/>
+      <maxInclusive value="-10"/>
+    </restriction>
+  </simpleType>
+
+  <simpleType name="npinteger">
+    <restriction base="nonPositiveInteger">
+      <minInclusive value="-100"/>
+      <maxInclusive value="-10"/>
+    </restriction>
+  </simpleType>
+
+  <simpleType name="pinteger">
+    <restriction base="positiveInteger">
+      <minInclusive value="10"/>
+      <maxInclusive value="100"/>
+    </restriction>
+  </simpleType>
+
+  <simpleType name="nninteger">
+    <restriction base="nonNegativeInteger">
+      <minInclusive value="10"/>
+      <maxInclusive value="100"/>
+    </restriction>
+  </simpleType>
+
+  <simpleType name="float">
+    <restriction base="float">
+      <minInclusive value="10.0"/>
+      <maxInclusive value="100"/>
+    </restriction>
+  </simpleType>
+
+  <simpleType name="double">
+    <restriction base="double">
+      <minInclusive value="10.0"/>
+      <maxInclusive value="100"/>
+    </restriction>
+  </simpleType>
+
+  <simpleType name="decimal">
+    <restriction base="decimal">
+      <minInclusive value="10.0"/>
+      <maxInclusive value="100"/>
+    </restriction>
+  </simpleType>
+
+  <simpleType name="string1">
+    <restriction base="string">
+      <length value="5"/>
+    </restriction>
+  </simpleType>
+
+  <simpleType name="string2">
+    <restriction base="string">
+      <minLength value="5"/>
+      <maxLength value="10"/>
+    </restriction>
+  </simpleType>
+
+  <simpleType name="string3">
+    <restriction base="string">
+      <whiteSpace value="preserve"/>
+    </restriction>
+  </simpleType>
+
+  <simpleType name="string4">
+    <restriction base="string">
+      <whiteSpace value="replace"/>
+    </restriction>
+  </simpleType>
+
+  <simpleType name="string5">
+    <restriction base="string">
+      <whiteSpace value="collapse"/>
+    </restriction>
+  </simpleType>
+
+  <complexType name="type">
+    <sequence>
+      <element name="byte" type="t:byte" maxOccurs="unbounded"/>
+      <element name="ubyte" type="t:ubyte" maxOccurs="unbounded"/>
+      <element name="short" type="t:short" maxOccurs="unbounded"/>
+      <element name="ushort" type="t:ushort" maxOccurs="unbounded"/>
+      <element name="int" type="t:int" maxOccurs="unbounded"/>
+      <element name="uint" type="t:uint" maxOccurs="unbounded"/>
+      <element name="long" type="t:long" maxOccurs="unbounded"/>
+      <element name="ulong" type="t:ulong" maxOccurs="unbounded"/>
+
+      <element name="integer" type="t:integer" maxOccurs="unbounded"/>
+      <element name="ninteger" type="t:ninteger" maxOccurs="unbounded"/>
+      <element name="npinteger" type="t:npinteger" maxOccurs="unbounded"/>
+      <element name="pinteger" type="t:pinteger" maxOccurs="unbounded"/>
+      <element name="nninteger" type="t:nninteger" maxOccurs="unbounded"/>
+
+      <element name="float" type="t:float" maxOccurs="unbounded"/>
+      <element name="double" type="t:double" maxOccurs="unbounded"/>
+      <element name="decimal" type="t:decimal" maxOccurs="unbounded"/>
+
+      <element name="string1" type="t:string1" maxOccurs="unbounded"/>
+      <element name="string2" type="t:string2" maxOccurs="unbounded"/>
+      <element name="string3" type="t:string3" maxOccurs="unbounded"/>
+      <element name="string4" type="t:string4" maxOccurs="unbounded"/>
+      <element name="string5" type="t:string5" maxOccurs="unbounded"/>
+
+      <element name="token" type="token" maxOccurs="unbounded"/>
+    </sequence>
+  </complexType>
+
+  <element name="root" type="t:type"/>
+
+</schema>

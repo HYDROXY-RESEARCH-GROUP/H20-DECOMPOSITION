@@ -1,0 +1,80 @@
+root = ..\..\..\..\..
+
+!include $(root)\build\cxx\rules.nmake
+
+# Build.
+#
+EXTRA_CPPFLAGS = /I$(root)\libxsde
+
+!if "$(XSDE_ENCODING)" == "iso8859-1"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --char-encoding iso8859-1
+!endif
+
+!if "$(XSDE_LONGLONG)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --no-long-long
+!endif
+
+!if "$(XSDE_PARSER_VALIDATION)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --suppress-parser-val
+!endif
+
+!if "$(XSDE_SERIALIZER_VALIDATION)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --suppress-serializer-val
+!endif
+
+!if "$(XSDE_REUSE_STYLE)" == "mixin"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --reuse-style-mixin
+!endif
+
+!if "$(XSDE_POLYMORPHIC)" == "y"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --runtime-polymorphic
+!endif
+
+driver.exe: driver.obj unknown-type.obj transform.obj xml.obj \
+transform-pskel.obj transform-pimpl.obj transform-sskel.obj \
+transform-simpl.obj unknown-type-pimpl.obj unknown-type-simpl.obj \
+$(root)\libxsde\xsde\xsde.lib
+
+driver.obj: driver.cxx transform.hxx unknown-type.hxx xml.hxx xml.ixx \
+transform-pimpl.hxx transform-simpl.hxx
+transform.obj: transform.cxx transform.hxx unknown-type.hxx
+xml.obj: xml.cxx xml.hxx xml.ixx transform.hxx
+transform-pskel.obj: transform-pskel.cxx
+transform-pimpl.obj: transform-pimpl.cxx
+transform-simpl.obj: transform-simpl.cxx
+transform-simpl.obj: transform-simpl.cxx
+unknown-type.obj: unknown-type.cxx unknown-type.hxx transform.hxx xml.hxx \
+xml.ixx
+unknown-type-pimpl.obj: unknown-type-pimpl.cxx unknown-type-pimpl.hxx \
+transform.hxx xml.hxx xml.ixx
+unknown-type-simpl.obj: unknown-type-simpl.cxx unknown-type-simpl.hxx \
+transform.hxx xml.hxx xml.ixx
+
+transform.cxx transform.hxx \
+transform-pskel.cxx transform-pskel.hxx transform-pimpl.cxx transform-pimpl.hxx \
+transform-sskel.cxx transform-sskel.hxx transform-simpl.cxx transform-simpl.hxx \
+: transform.xsd
+	$(root)\bin\xsde.exe cxx-hybrid $(XSDFLAGS) $(EXTRA_XSDFLAGS) \
+--options-file options transform.xsd
+
+
+# Generate.
+#
+gen: transform.hxx
+
+
+# Test.
+#
+test: driver.exe transform.xml
+	.\driver.exe transform.xml
+
+# Clean.
+#
+cleanobj:
+	-del unknown-type.obj unknown-type-pimpl.obj unknown-type-simpl.obj \
+transform-pimpl.obj transform-pskel.obj transform-simpl.obj \
+transform-sskel.obj xml.obj transform.obj driver.obj driver.exe
+
+clean: cleanobj
+	-del transform-pimpl.?xx transform-pskel.?xx transform-simpl.?xx \
+transform-sskel.?xx transform.?xx

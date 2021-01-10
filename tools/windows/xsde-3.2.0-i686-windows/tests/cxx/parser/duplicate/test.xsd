@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:t="test" targetNamespace="test">
+
+  <!-- Test duplicate element handling -->
+
+  <complexType name="type">
+    <sequence>
+      <element name="a" type="int"/>
+      <element name="a" type="int"/>
+      <element name="a" type="int"/>
+    </sequence>
+  </complexType>
+
+  <element name="root" type="t:type"/>
+
+</schema>

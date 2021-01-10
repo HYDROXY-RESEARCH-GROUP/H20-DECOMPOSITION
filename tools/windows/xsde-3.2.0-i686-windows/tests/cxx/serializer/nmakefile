@@ -1,0 +1,57 @@
+root = ..\..\..
+
+!include $(root)\build\config.nmake
+
+dirs = generated-driver
+
+!if "$(XSDE_IOSTREAM)" == "y"
+
+dirs = $(dirs)  \
+all             \
+built-in        \
+choice          \
+recursive       \
+reset           \
+restriction     \
+sequence        \
+test-template   \
+wildcard
+
+!if "$(XSDE_EXCEPTIONS)" == "y"
+dirs = $(dirs) error-handling\exceptions
+!else
+dirs = $(dirs) error-handling\codes
+!endif
+
+!if "$(XSDE_REUSE_STYLE)" == "tiein"
+dirs = $(dirs)  \
+complex         \
+enumeration     \
+list            \
+union
+!endif
+
+!if "$(XSDE_POLYMORPHIC)" == "y"
+!if "$(XSDE_REUSE_STYLE)" == "tiein"
+dirs = $(dirs) polymorphism
+!endif
+!endif
+
+!endif # XSDE_IOSTREAM
+
+!if "$(XSDE_SERIALIZER_VALIDATION)" == "y"
+dirs = $(dirs) validation
+!endif
+
+
+_all:
+	@for %i in ( $(dirs) ) do \
+@cmd /c "echo entering %i && cd %i && $(MAKE) /nologo /f nmakefile" || exit 1
+
+gen test:
+	@for %i in ( $(dirs) ) do \
+@cmd /c "echo entering %i && cd %i && $(MAKE) /nologo /f nmakefile $@" || exit 1
+
+clean cleanobj:
+	@for %i in ( $(dirs) ) do \
+@cmd /c "echo entering %i && cd %i && $(MAKE) /nologo /f nmakefile $@"

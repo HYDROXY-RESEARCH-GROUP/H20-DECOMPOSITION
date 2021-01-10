@@ -1,0 +1,148 @@
+<?xml version="1.0"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:t="test" targetNamespace="test">
+
+  <complexType name="fix">
+    <sequence>
+      <element name="x" type="int"/>
+      <element name="y" type="int"/>
+    </sequence>
+  </complexType>
+
+  <complexType name="var">
+    <sequence>
+      <element name="x" type="int"/>
+      <element name="y" type="NMTOKENS"/>
+    </sequence>
+  </complexType>
+
+  <complexType name="all">
+    <all minOccurs="0">
+      <element name="f" type="int"/>
+      <element name="v" type="NMTOKENS"/>
+      <element name="of" type="int" minOccurs="0"/>
+      <element name="ov" type="NMTOKENS" minOccurs="0"/>
+    </all>
+  </complexType>
+
+  <complexType name="sequence">
+    <sequence>
+      <sequence maxOccurs="unbounded">
+        <element name="f" type="int"/>
+        <element name="v" type="NMTOKENS"/>
+      </sequence>
+      <choice>
+        <element name="c1f" type="int"/>
+        <element name="c1v" type="NMTOKENS"/>
+      </choice>
+      <choice minOccurs="0">
+        <element name="c2f" type="int"/>
+        <element name="c2v" type="NMTOKENS"/>
+      </choice>
+    </sequence>
+  </complexType>
+
+  <complexType name="choice">
+    <choice>
+      <choice>
+        <element name="cf" type="int"/>
+        <element name="cv" type="NMTOKENS"/>
+      </choice>
+      <sequence maxOccurs="unbounded">
+        <element name="f" type="int"/>
+        <element name="v" type="NMTOKENS"/>
+      </sequence>
+    </choice>
+  </complexType>
+
+  <complexType name="complex">
+    <sequence>
+      <element name="f" type="int"/>
+      <element name="v" type="NMTOKENS"/>
+      <element name="of" type="int" minOccurs="0"/>
+      <element name="ov" type="NMTOKENS" minOccurs="0"/>
+      <element name="pod" type="int" maxOccurs="unbounded"/>
+      <element name="fix" type="t:var" maxOccurs="unbounded"/>
+      <element name="var" type="NMTOKENS" maxOccurs="unbounded"/>
+      <element name="str" type="string" maxOccurs="unbounded"/>
+      <choice>
+        <element name="cf" type="int"/>
+        <element name="cv" type="NMTOKENS"/>
+      </choice>
+    </sequence>
+    <attribute name="af" type="int" use="required"/>
+    <attribute name="av" type="NMTOKENS" default="abc"/>
+    <attribute name="afixed" type="NMTOKENS" default="abc"/>
+  </complexType>
+
+  <complexType name="fixder">
+    <complexContent>
+      <extension base="t:fix">
+        <sequence>
+          <element name="v" type="NMTOKENS"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+
+  <complexType name="varder">
+    <complexContent>
+      <extension base="t:var">
+        <sequence>
+          <element name="f" type="int"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+
+  <complexType name="strder">
+    <simpleContent>
+      <extension base="string">
+        <attribute name="v" type="NMTOKENS"/>
+      </extension>
+    </simpleContent>
+  </complexType>
+
+  <simpleType name="list">
+    <list itemType="string"/>
+  </simpleType>
+
+  <simpleType name="union">
+    <union memberTypes="int string"/>
+  </simpleType>
+
+  <simpleType name="enum">
+    <restriction base="string">
+      <enumeration value="a"/>
+      <enumeration value="b"/>
+      <enumeration value="c"/>
+    </restriction>
+  </simpleType>
+
+  <simpleType name="enumder">
+    <restriction base="t:enum">
+      <enumeration value="a"/>
+      <enumeration value="b"/>
+    </restriction>
+  </simpleType>
+
+  <complexType name="type">
+    <sequence>
+      <element name="complex" type="t:complex"/>
+      <element name="all" type="t:all"/>
+      <element name="sequence" type="t:sequence"/>
+      <element name="choice" type="t:choice" maxOccurs="unbounded"/>
+
+      <element name="fixder" type="t:fixder"/>
+      <element name="varder" type="t:varder"/>
+      <element name="strder" type="t:strder"/>
+
+      <element name="list" type="t:list"/>
+      <element name="union" type="t:union"/>
+      <element name="enum" type="t:enum"/>
+      <element name="enumder" type="t:enumder"/>
+    </sequence>
+  </complexType>
+
+  <element name="root" type="t:type"/>
+
+</schema>

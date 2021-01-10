@@ -1,0 +1,59 @@
+root = ..\..\..\..
+
+!include $(root)\build\cxx\rules.nmake
+
+# Build.
+#
+EXTRA_CPPFLAGS = /I$(root)\libxsde
+
+!if "$(XSDE_ENCODING)" == "iso8859-1"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --char-encoding iso8859-1
+!endif
+
+!if "$(XSDE_LONGLONG)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --no-long-long
+!endif
+
+!if "$(XSDE_PARSER_VALIDATION)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --suppress-validation
+!endif
+
+!if "$(XSDE_REUSE_STYLE)" == "mixin"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --reuse-style-mixin
+!endif
+
+!if "$(XSDE_REUSE_STYLE)" == "none"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --reuse-style-none
+!endif
+
+!if "$(XSDE_POLYMORPHIC)" == "y"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --runtime-polymorphic
+!endif
+
+driver.exe: driver.obj hello-pskel.obj $(root)\libxsde\xsde\xsde.lib
+
+driver.obj: driver.cxx hello-pskel.hxx
+hello-pskel.obj: hello-pskel.cxx hello-pskel.hxx
+
+hello-pskel.cxx hello-pskel.hxx: hello.xsd
+	$(root)\bin\xsde.exe cxx-parser $(XSDFLAGS) $(EXTRA_XSDFLAGS) hello.xsd
+
+
+# Generate.
+#
+gen: hello-pskel.hxx
+
+
+# Test.
+#
+test: driver.exe hello.xml
+	.\driver.exe hello.xml
+
+
+# Clean.
+#
+cleanobj:
+	-del hello-pskel.obj driver.obj driver.exe
+
+clean: cleanobj
+	-del hello-pskel.?xx

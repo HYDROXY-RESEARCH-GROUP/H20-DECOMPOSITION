@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+
+<!--
+
+file      : examples/cxx/hybrid/evolution/ignore/transform.xml
+author    : Boris Kolpackov <boris@codesynthesis.com>
+copyright : not copyrighted - public domain
+
+-->
+
+<transformations xmlns="http://www.codesynthesis.com/transform">
+
+  <move-transformation name="move">
+    <description>Move an object.</description>
+    <x>1.1</x>
+    <y>2.1</y>
+  </move-transformation>
+
+  <rotate-transformation name="rotate">
+    <description>Rotate an object.</description>
+    <angle>90</angle>
+  </rotate-transformation>
+
+  <scale-transformation name="scale" proportional="true">
+    <description>Scale an object.</description>
+    <ratios unit="percent">
+      <x>210</x>
+      <y>210</y>
+    </ratios>
+  </scale-transformation>
+
+</transformations>

@@ -1,0 +1,13 @@
+# file      : build/c/rules.nmake
+# author    : Boris Kolpackov <boris@codesynthesis.com>
+# copyright : Copyright (c) 2006-2011 Code Synthesis Tools CC
+# license   : GNU GPL v2 + exceptions; see accompanying LICENSE file
+
+!include $(root)\build\config.nmake
+
+# Rules.
+#
+.SUFFIXES: .c .obj
+
+.c.obj:
+	$(CC) $(CPPFLAGS) $(EXTRA_CPPFLAGS) $(CFLAGS) /c $< /Fo$@

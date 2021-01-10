@@ -1,0 +1,20 @@
+{
+  c = c
+  d = d
+  any: test#any
+  {
+    chars = any
+  }
+  f = f
+  e = e
+  c = c
+  d = d
+  any: test#any
+  {
+    chars = any
+  }
+  f = f
+  e = e
+  20:7 unexpected element encountered
+}
+

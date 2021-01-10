@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:t="test" targetNamespace="test">
+
+  <complexType name="content">
+    <sequence>
+      <element name="a" type="int"/>
+    </sequence>
+    <attribute name="x" type="int" use="required"/>
+  </complexType>
+
+  <complexType name="root-base">
+    <sequence>
+      <any namespace="##local" processContents="skip"/>
+      <choice maxOccurs="unbounded">
+        <any namespace="foo" processContents="skip" maxOccurs="unbounded"/>
+        <any namespace="bar" processContents="skip" minOccurs="0"/>
+      </choice>
+    </sequence>
+    <anyAttribute namespace="foo" processContents="skip"/>
+  </complexType>
+
+  <complexType name="root">
+    <complexContent>
+      <extension base="t:root-base">
+        <anyAttribute namespace="##local" processContents="skip"/>
+      </extension>
+    </complexContent>
+  </complexType>
+
+  <element name="root" type="t:root"/>
+
+</schema>

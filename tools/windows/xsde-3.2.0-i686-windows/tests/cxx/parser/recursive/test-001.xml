@@ -1,0 +1,50 @@
+<test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="test.xsd"
+      name="testName">
+<a name="1">
+    <b name="b1"/>
+<a name="2">
+    <b name="b1"/>
+<a name="3">
+    <b name="b3"/>
+<a name="4">
+    <b name="b4"/>
+<a name="5">
+    <b name="b5"/>
+<a name="6">
+    <b name="b6"/>
+<a name="7">
+    <b name="b7"/>
+<a name="8">
+    <b name="b8"/>
+<a name="9">
+    <b name="b9"/>
+<a name="10">
+    <b name="b10"/>
+<a name="11">
+    <b name="b11"/>
+<a name="12">
+    <b name="b12"/>
+<a name="13">
+    <b name="b13"/>
+<a name="14">
+    <b name="b14"/>
+<a name="15">
+    <b name="b15"/>
+
+</a>
+</a>
+</a>
+</a>
+</a>
+</a>
+</a>
+</a>
+</a>
+</a>
+</a>
+</a>
+</a>
+</a>
+</a>
+</test>

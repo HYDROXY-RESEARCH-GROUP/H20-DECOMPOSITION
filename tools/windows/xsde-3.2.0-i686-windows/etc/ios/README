@@ -1,0 +1,146 @@
+This file describes how to build and use XSD/e with XCode and iPhone/iOS. 
+
+It is possible to build the XSD/e runtime library (libxsde) and examples
+using GNU make and the native XSD/e build system. It is also possible to
+create an XCode project and build the XSD/e runtime from the XCode IDE.
+The latter approach allows you to make sure the XSD/e runtime and your
+application are built with exactly the same compiler options and without
+having to manually copy the options from the XCode project to the XSD/e
+configuration file. The following two sections describe each approach
+in more detail.
+
+
+GNU make Build
+--------------
+
+A number of sample configuration files are provided for the GNU make-
+based build. The config-device-*.make files are for the device and
+config-simulator-*.make are for the simulator. You will need to copy
+one of these files to the config/ directory and rename it to config.make.
+If your XCode is installed in a location other than the default
+(/Developer) then you will need to adjust the paths at the beginning
+of the configuration file. You may also need to adjust the iOS SDK
+version (e.g., 4.0 or 4.2 instead of 4.1) as well as the C and C++
+compiler flags, notably the target architecture (-arch). Additionally,
+you may also want to check other configuration parameters (e.g., the
+use of iostream, STL, C++ exceptions, etc; they are all enabled by
+default).
+
+
+XCode Build
+-----------
+
+For this approach the config-xcode.make configuration file included in
+this directory implements a split build procedure where the XSD/e build
+system is used to generate the XSD/e configuration header 
+(libxsde/xsde/config.h) as well as the list of source files that need to
+be compiled. Then the XCode project is created to compile the source files
+and build the libxsde.a library. 
+
+The following step-by-step instructions show how to build the XSD/e runtime
+library using this method as well as how to integrate XSD/e into your
+application.
+
+To build the XSD/e runtime library (libxsde.a), perform the following steps:
+
+1.  Unpack the pre-compiled XSD/e package for Mac OS X. In the rest of the
+    steps we will refer to the resulting XSD/e directory as xsde-x.y.z.
+
+2.  Start a new terminal window and run the following commands:
+
+    cd xsde-x.y.z
+    cp etc/iphone/config-xcode.make config/config.make
+
+    Don't close the terminal.
+
+3.  Edit config/config.make and adjust the XSD/e configuration to suit your
+    requirements.
+
+4.  In the terminal, execute:
+
+    cd libxsde
+    make
+
+    If the make command is not found, try /Developer/usr/bin/make (or your
+    alternative XCode installation directory).
+
+
+5.  Start XCode and perform the following steps:
+
+    5.1 Select "File"->"New Project"
+
+    5.2 In the opened dialog select "iOS Library"->"Cocoa Touch Static 
+        Library". Click "Choose...".
+
+    5.3 In the next dialog type libxsde in the "Save As" field and navigate
+        to the xsde-x.y.z directory. Click "Save".
+
+    5.4 Next you should see a warning dialog saying that the libxsde directory
+        already exists. This is expected so click "Replace".
+
+    5.5 In the project window in the "Groups & Files" list select "Other 
+        Sources" group, then select "Project"->"Add to Project...".
+
+    5.6 In the opened dialog navigate to the xsde-x.y.z/libxsde directory and
+        select the src directory. Click "Add".
+
+    5.7 In the next dialog leave the default settings and click "Add". Now
+        you should see multiple source files (.cxx and .c) listed in the
+        "Other Sources" group.
+
+    5.8 Next select "Project"->"Edit Project Settings", "Build" tab. In the
+        "Configurations" drop-down list select "All Configurations".
+
+    5.9 Scroll down to the "Search Paths" section and add . (dot) to the
+        "Header Search Paths" field.
+
+    5.10 Scroll down to the "GCC 4.2 - Language" section and add the
+         -fvisibility=hidden flag to the "Other C Flags" field as well
+         as the -fvisibility=hidden and -fvisibility-inlines-hidden flags
+         to the "Other C++ Flags" field. If you set any extra C/C++ flags
+         in your application's project, you may also want to add them here.
+
+    5.11 Build the project for all the desired configurations (for example,
+         Debug/Release, Device/Simulator, ARMv6/ARMv7, etc).
+
+6.  In the terminal window create "fat" libraries by running the following
+    commands (which may need to be adjusted depending on the configurations
+    that you have built):
+
+    cd build
+    lipo -output libxsde.a -create Release-iphonesimulator/liblibxsde.a Release-iphoneos/liblibxsde.a
+    lipo -output libxsde-d.a -create Debug-iphonesimulator/liblibxsde.a Debug-iphoneos/liblibxsde.a
+
+
+If at some point you need to change the XSD/e configuration then it is best
+to start from scratch (step 1 above) since the set of files that is added
+to the XCode project may vary from configuration to configuration.
+
+Once the runtime library is built, to integrate XSD/e into your application
+perform the following steps:
+
+1.  Compile your schemas to C++ with the XSD/e compiler (xsde-x.y.z/bin/xsde)
+    and add the resulting generated C++ files to your project.
+
+2.  To link your application to the XSD/e runtime library (libxsde), perform
+    the following steps in your project:
+
+    2.1 In the "Targets" group, double-click on your application to open the
+        "Info" dialog.
+
+    2.2 Select the "General" tab and click on the Plus (+) button to add the
+        library.
+
+    2.3 In the opened dialog click the "Add Other..." button and add either
+        the libxsde.a or libxsde-d.a (debug) fat library created above.
+
+3.  To add the XSD/e runtime headers to your application's search paths,
+    perform the following steps in your project:
+
+    3.1 Select "Project"->"Edit Project Settings", "Build" tab. In the
+        "Configurations" drop-down list select "All Configurations".
+
+    3.2 Scroll down to the "Search Paths" section and add the path to the
+        xsde-x.y.z/libxsde directory to the "Header Search Paths" field.
+
+    3.3 Build the application.

@@ -1,0 +1,90 @@
+root = ..\..\..\..\..
+
+!include $(root)\build\cxx\rules.nmake
+
+# Build.
+#
+EXTRA_CPPFLAGS = /I$(root)\libxsde
+
+!if "$(XSDE_ENCODING)" == "iso8859-1"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --char-encoding iso8859-1
+!endif
+
+!if "$(XSDE_STL)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --no-stl
+!endif
+
+!if "$(XSDE_LONGLONG)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --no-long-long
+!endif
+
+!if "$(XSDE_PARSER_VALIDATION)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --suppress-parser-val
+!endif
+
+!if "$(XSDE_SERIALIZER_VALIDATION)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --suppress-serializer-val
+!endif
+
+!if "$(XSDE_REUSE_STYLE)" == "mixin"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --reuse-style-mixin
+!endif
+
+!if "$(XSDE_POLYMORPHIC)" == "y"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --runtime-polymorphic
+!endif
+
+driver.exe: driver.obj library.obj library-pskel.obj library-pimpl.obj \
+library-sskel.obj library-simpl.obj exceptions.obj orawstream.obj \
+irawstream.obj $(root)\libxsde\xsde\xsde.lib
+
+driver.obj: driver.cxx library.hxx library-pimpl.hxx library-simpl.hxx
+exceptions.obj: exceptions.cxx
+orawstream.obj: orawstream.cxx xml-schema.hxx
+irawstream.obj: irawstream.cxx xml-schema.hxx
+library.obj: library.cxx library.hxx
+library-pskel.obj: library-pskel.cxx library-pskel.hxx
+library-pimpl.obj: library-pimpl.cxx library-pskel.hxx
+library-simpl.obj: library-simpl.cxx library-simpl.hxx
+library-simpl.obj: library-simpl.cxx library-simpl.hxx
+
+library.hxx: xml-schema.hxx
+library-pskel.hxx: xml-schema-pskel.hxx
+library-sskel.hxx: xml-schema-sskel.hxx
+library-sskel.hxx: xml-schema-sskel.hxx
+library-simpl.hxx: xml-schema-sskel.hxx
+
+xml-schema.hxx xml-schema-pskel.hxx xml-schema-sskel.hxx:
+	$(root)\bin\xsde.exe cxx-hybrid $(XSDFLAGS) $(EXTRA_XSDFLAGS) \
+--generate-parser --generate-serializer --generate-xml-schema xml-schema.xsd
+
+library.cxx library.hxx \
+library-pskel.cxx library-pskel.hxx library-pimpl.cxx library-pimpl.hxx \
+library-sskel.cxx library-sskel.hxx library-simpl.cxx library-simpl.hxx \
+: library.xsd
+	$(root)\bin\xsde.exe cxx-hybrid $(XSDFLAGS) $(EXTRA_XSDFLAGS) \
+--options-file options library.xsd
+
+
+# Generate.
+#
+gen: xml-schema.hxx library.hxx
+
+
+# Test.
+#
+test: driver.exe library.xml
+	.\driver.exe library.xml
+
+
+# Clean.
+#
+cleanobj:
+	-del library-pimpl.obj library-pskel.obj library-simpl.obj \
+library-sskel.obj library.obj irawstream.obj orawstream.obj exceptions.obj \
+driver.obj driver.exe
+
+clean: cleanobj
+	-del xml-schema.hxx xml-schema-pskel.hxx xml-schema-sskel.hxx \
+library-pimpl.?xx library-pskel.?xx library-simpl.?xx library-sskel.?xx \
+library.?xx

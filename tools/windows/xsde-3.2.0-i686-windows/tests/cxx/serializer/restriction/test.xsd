@@ -1,0 +1,174 @@
+<?xml version="1.0"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:t="test" targetNamespace="test">
+
+  <!-- attribute restriction -->
+
+  <complexType name="test-1-base">
+    <attribute name="optional" type="int"/>
+    <attribute name="required" type="int" use="required"/>
+    <anyAttribute namespace="foo bar" processContents="skip"/>
+  </complexType>
+
+  <complexType name="test-1">
+    <complexContent>
+      <restriction base="t:test-1-base">
+        <attribute name="optional" type="int" use="required"/>
+        <anyAttribute namespace="foo" processContents="skip"/>
+      </restriction>
+    </complexContent>
+  </complexType>
+
+  <!-- simple content restriction -->
+
+  <complexType name="test-2-base">
+    <sequence>
+      <element name="a" type="int" minOccurs="0"/>
+      <sequence maxOccurs="unbounded">
+        <element name="b" type="int"/>
+        <element name="c" type="int"/>
+      </sequence>
+      <choice>
+        <element name="d" type="int"/>
+        <element name="e" type="int" minOccurs="0"/>
+      </choice>
+    </sequence>
+  </complexType>
+
+  <complexType name="test-2">
+    <complexContent>
+      <restriction base="t:test-2-base">
+        <sequence>
+          <element name="a" type="int" minOccurs="1"/>
+          <sequence maxOccurs="2">
+            <element name="b" type="int"/>
+            <element name="c" type="int"/>
+          </sequence>
+          <choice>
+            <element name="d" type="int"/>
+            <element name="e" type="int" minOccurs="1"/>
+          </choice>
+        </sequence>
+      </restriction>
+    </complexContent>
+  </complexType>
+
+  <!-- more complex content restriction with some parts removed-->
+
+  <complexType name="test-3-base">
+    <sequence>
+      <element name="a" type="int" minOccurs="0"/>
+      <element name="b" type="int"/>
+      <sequence minOccurs="0">
+        <element name="c" type="int"/>
+        <element name="d" type="int"/>
+      </sequence>
+      <choice>
+        <element name="e" type="int" minOccurs="0"/>
+        <element name="f" type="int"/>
+	<element name="g" type="int"/>
+      </choice>
+    </sequence>
+  </complexType>
+
+  <complexType name="test-3">
+    <complexContent>
+      <restriction base="t:test-3-base">
+        <sequence>
+          <element name="b" type="int"/>
+          <choice>
+            <element name="f" type="int"/>
+	    <element name="g" type="int"/>
+          </choice>
+        </sequence>
+      </restriction>
+    </complexContent>
+  </complexType>
+
+  <!-- complex content restriction spread over inheritance-by-extension-->
+
+  <complexType name="test-4-base">
+    <sequence>
+      <element name="a" type="int" minOccurs="0"/>
+      <element name="b" type="int"/>
+    </sequence>
+    <anyAttribute namespace="foo bar" processContents="skip"/>
+  </complexType>
+
+  <complexType name="test-4-ext">
+    <complexContent>
+      <extension base="t:test-4-base">
+        <sequence>
+          <sequence minOccurs="0">
+            <element name="c" type="int"/>
+            <element name="d" type="int"/>
+          </sequence>
+          <choice>
+            <element name="e" type="int" minOccurs="0"/>
+            <element name="f" type="int"/>
+            <element name="g" type="int"/>
+          </choice>
+        </sequence>
+        <anyAttribute namespace="baz biz" processContents="skip"/>
+      </extension>
+    </complexContent>
+  </complexType>
+
+  <complexType name="test-4">
+    <complexContent>
+      <restriction base="t:test-4-ext">
+        <sequence>
+          <sequence>
+            <element name="b" type="int"/>
+          </sequence>
+          <sequence>
+            <choice>
+              <element name="f" type="int"/>
+	      <element name="g" type="int"/>
+            </choice>
+          </sequence>
+        </sequence>
+        <anyAttribute namespace="foo baz" processContents="skip"/>
+      </restriction>
+    </complexContent>
+  </complexType>
+
+  <!-- restriction of sequence into optional (compilation only) -->
+
+  <complexType name="test-5-base">
+    <sequence minOccurs="0" maxOccurs="unbounded">
+      <choice minOccurs="0" maxOccurs="unbounded">
+        <element name="a" type="int" minOccurs="0" maxOccurs="unbounded"/>
+        <element name="b" type="int"/>
+      </choice>
+      <any namespace="foo" minOccurs="0" maxOccurs="unbounded" processContents="skip"/>
+    </sequence>
+  </complexType>
+
+  <complexType name="test-5">
+    <complexContent>
+      <restriction base="t:test-5-base">
+        <sequence minOccurs="0" maxOccurs="1">
+          <choice minOccurs="0" maxOccurs="1">
+            <element name="a" type="int" minOccurs="0" maxOccurs="1"/>
+            <element name="b" type="int"/>
+          </choice>
+          <any namespace="foo" minOccurs="0" maxOccurs="1" processContents="skip"/>
+        </sequence>
+      </restriction>
+    </complexContent>
+  </complexType>
+
+  <!-- -->
+
+  <complexType name="root">
+    <sequence>
+      <element name="test-1" type="t:test-1"/>
+      <element name="test-2" type="t:test-2"/>
+      <element name="test-3" type="t:test-3"/>
+      <element name="test-4" type="t:test-4"/>
+    </sequence>
+  </complexType>
+
+  <element name="root" type="t:root"/>
+
+</schema>

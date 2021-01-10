@@ -1,0 +1,1 @@
+<t:root xmlns:t="test" x="a" y="c" z="b"><simple>a</simple><simple>b</simple><derived>a</derived><derived>b</derived><final>a</final><final>c</final><complex x="a">a</complex><complex x="c">c</complex><simple-cd>a</simple-cd><simple-cd>b</simple-cd><fbvd>a</fbvd><fbvd>c</fbvd><vbvd>a</vbvd><vbvd>c</vbvd></t:root>

@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:t="test" targetNamespace="test">
+
+  <simpleType name="t1">
+    <restriction base="string">
+      <pattern value="foo.*baz"/>
+    </restriction>
+  </simpleType>
+
+  <simpleType name="t2">
+    <restriction base="string">
+      <pattern value="([123]+,)+"/>
+    </restriction>
+  </simpleType>
+
+  <simpleType name="t3">
+    <restriction base="string">
+      <pattern value="[1-9]*"/>
+    </restriction>
+  </simpleType>
+
+  <simpleType name="t4">
+    <restriction base="string">
+      <pattern value="\d+"/>
+    </restriction>
+  </simpleType>
+
+  <simpleType name="t5">
+    <restriction base="string">
+      <pattern value="\s+"/>
+    </restriction>
+  </simpleType>
+
+  <simpleType name="t6">
+    <restriction base="string">
+      <pattern value="\w+"/>
+    </restriction>
+  </simpleType>
+
+  <complexType name="type">
+    <sequence>
+      <element name="t1" type="t:t1" maxOccurs="unbounded"/>
+      <element name="t2" type="t:t2" maxOccurs="unbounded"/>
+      <element name="t3" type="t:t3" maxOccurs="unbounded"/>
+      <element name="t4" type="t:t4" maxOccurs="unbounded"/>
+      <element name="t5" type="t:t5" maxOccurs="unbounded"/>
+      <element name="t6" type="t:t6" maxOccurs="unbounded"/>
+    </sequence>
+  </complexType>
+
+  <element name="root" type="t:type"/>
+
+</schema>

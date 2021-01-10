@@ -1,0 +1,64 @@
+root = ..\..\..\..
+
+!include $(root)\build\cxx\rules.nmake
+
+# Build.
+#
+EXTRA_CPPFLAGS = /I$(root)\libxsde
+
+!if "$(XSDE_ENCODING)" == "iso8859-1"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --char-encoding iso8859-1
+!endif
+
+!if "$(XSDE_LONGLONG)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --no-long-long
+!endif
+
+!if "$(XSDE_SERIALIZER_VALIDATION)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --suppress-validation
+!endif
+
+!if "$(XSDE_REUSE_STYLE)" == "mixin"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --reuse-style-mixin
+!endif
+
+!if "$(XSDE_POLYMORPHIC)" == "y"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --runtime-polymorphic
+!endif
+
+!if "$(XSDE_REUSE_STYLE)" == "mixin"
+impl = library-simpl-mixin
+!else
+impl = library-simpl-tiein
+!endif
+
+driver.exe: driver.obj library-sskel.obj $(impl).obj $(root)\libxsde\xsde\xsde.lib
+
+driver.obj: driver.cxx $(impl).hxx library-sskel.hxx library.hxx
+$(impl).obj: $(impl).cxx $(impl).hxx library-sskel.hxx library.hxx
+library-sskel.obj: library-sskel.cxx library-sskel.hxx library.hxx
+
+
+library-sskel.hxx library-sskel.cxx: library.xsd library.map
+	$(root)\bin\xsde.exe cxx-serializer $(XSDFLAGS) $(EXTRA_XSDFLAGS) \
+--type-map library.map library.xsd
+
+
+# Generate.
+#
+gen: library-sskel.hxx
+
+
+# Test.
+#
+test: driver.exe
+	.\driver.exe
+
+
+# Clean.
+#
+cleanobj:
+	-del $(impl).obj library-sskel.obj driver.obj driver.exe
+
+clean: cleanobj
+	-del library-sskel.?xx

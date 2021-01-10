@@ -1,0 +1,35 @@
+root = ..\..\..\..
+
+!include $(root)\build\config.nmake
+
+dirs =
+
+!if "$(XSDE_IOSTREAM)" == "y"
+!if "$(XSDE_EXCEPTIONS)" == "y"
+
+!if "$(XSDE_STL)" == "y"
+dirs = $(dirs) custom
+!endif
+
+!if "$(XSDE_CDR)" == "y"
+dirs = $(dirs) cdr
+!endif
+
+!if "$(XSDE_XDR)" == "y"
+dirs = $(dirs) xdr
+!endif
+
+!endif
+!endif
+
+all:
+	@for %i in ( $(dirs) ) do \
+@cmd /c "echo entering %i && cd %i && $(MAKE) /nologo /f nmakefile" || exit 1
+
+gen test:
+	@for %i in ( $(dirs) ) do \
+@cmd /c "echo entering %i && cd %i && $(MAKE) /nologo /f nmakefile $@" || exit 1
+
+clean cleanobj:
+	@for %i in ( $(dirs) ) do \
+@cmd /c "echo entering %i && cd %i && $(MAKE) /nologo /f nmakefile $@"

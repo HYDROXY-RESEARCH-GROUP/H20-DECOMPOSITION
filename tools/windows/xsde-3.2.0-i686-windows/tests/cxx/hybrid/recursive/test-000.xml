@@ -1,0 +1,25 @@
+<t:root xmlns:t="test">
+
+  <test1><a>123</a></test1>
+  <test1><b><a>123</a></b></test1>
+  <test1><b><b><a>123</a></b></b></test1>
+
+  <test2></test2>
+  <test2><b><d><x>123</x></d></b></test2>
+  <test2><b><c></c><d><x>123</x></d></b></test2>
+  <test2><b><c><a></a></c><d><x>123</x></d></b></test2>
+  <test2><b><c><a><b><c><a></a></c><d><x>123</x></d></b></a></c><d><x>123</x></d></b></test2>
+
+  <test3><a>123</a><b>abc</b><c>a1</c></test3>
+  <test3><a>123</a><b>abc</b><c>a1</c><d><a>456</a><b>def</b><c>b2</c></d></test3>
+  <test3><a>123</a><b>abc</b><c>a1</c><d><a>456</a><b>def</b><c>b2</c><d><a>789</a><b>ghi</b><c>c3</c></d></d></test3>
+
+  <test4><a>123</a><c>abc</c></test4>
+  <test4><b><a>123</a></b><c>abc</c></test4>
+  <test4><b><b><a>123</a></b></b><c>abc</c></test4>
+
+  <test5><a>123</a><c>abc</c></test5>
+  <test5><b><a>123</a><c>abc</c></b><c>def</c></test5>
+  <test5><b><b><a>123</a><c>abc</c></b><c>def</c></b><c>ghi</c></test5>
+
+</t:root>

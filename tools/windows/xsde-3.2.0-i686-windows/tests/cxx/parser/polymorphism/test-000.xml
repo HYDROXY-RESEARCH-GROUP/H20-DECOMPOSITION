@@ -1,0 +1,19 @@
+<t:root xmlns:t="test"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="test test.xsd">
+
+  <t:base><a>1</a></t:base>
+
+  <t:base xsi:type="t:interm"><a>1</a><b>2</b></t:base>
+  <t:interm><a>1</a><b>2</b></t:interm>
+
+  <t:base xsi:type="t:derived"><a>1</a><b>2</b><c>3</c></t:base>
+  <t:derived><a>1</a><b>2</b><c>3</c></t:derived>
+
+  <!-- same type substitution -->
+
+  <t:another-base><a>1</a></t:another-base>
+  <t:base xsi:type="t:base"><a>1</a></t:base>
+  <t:another-base xsi:type="t:base"><a>1</a></t:another-base>
+
+</t:root>

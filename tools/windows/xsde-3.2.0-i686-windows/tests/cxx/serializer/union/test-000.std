@@ -1,0 +1,1 @@
+<g1:root xmlns:g1="test"><int-bool-union>123</int-bool-union><int-bool-union>false</int-bool-union><int-bool-base base="123">123</int-bool-base><int-bool-base base="123">false</int-bool-base></g1:root>

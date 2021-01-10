@@ -1,0 +1,75 @@
+root = ..\..\..\..
+
+!include $(root)\build\cxx\rules.nmake
+
+# Build.
+#
+EXTRA_CPPFLAGS = /I$(root)\libxsde
+
+!if "$(XSDE_ENCODING)" == "iso8859-1"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --char-encoding iso8859-1
+!endif
+
+!if "$(XSDE_LONGLONG)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --no-long-long
+!endif
+
+!if "$(XSDE_PARSER_VALIDATION)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --suppress-parser-val
+!endif
+
+!if "$(XSDE_SERIALIZER_VALIDATION)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --suppress-serializer-val
+!endif
+
+!if "$(XSDE_REUSE_STYLE)" == "mixin"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --reuse-style-mixin
+!endif
+
+!if "$(XSDE_POLYMORPHIC)" == "y"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --runtime-polymorphic
+!endif
+
+driver.exe: driver.obj people.obj people-pskel.obj people-pimpl.obj \
+people-sskel.obj people-simpl.obj people-custom-pimpl.obj \
+people-custom-simpl.obj $(root)\libxsde\xsde\xsde.lib
+
+driver.obj: driver.cxx people.hxx people-pimpl.hxx people-simpl.hxx
+people.obj: people.cxx people.hxx
+people-pskel.obj: people-pskel.cxx
+people-pimpl.obj: people-pimpl.cxx
+people-simpl.obj: people-simpl.cxx
+people-simpl.obj: people-simpl.cxx
+people-custom-pimpl.obj: people-custom-pimpl.cxx people-custom-pimpl.hxx people.hxx
+people-custom-simpl.obj: people-custom-simpl.cxx people-custom-simpl.hxx people.hxx
+
+people.cxx people.hxx \
+people-pskel.cxx people-pskel.hxx people-pimpl.cxx people-pimpl.hxx \
+people-sskel.cxx people-sskel.hxx people-simpl.cxx people-simpl.hxx \
+: people.xsd
+	$(root)\bin\xsde.exe cxx-hybrid $(XSDFLAGS) $(EXTRA_XSDFLAGS) \
+--generate-parser --generate-serializer --generate-aggregate \
+--custom-parser people=people_base_pimpl/people-custom-pimpl.hxx \
+--custom-serializer people=people_base_simpl/people-custom-simpl.hxx people.xsd
+
+
+# Generate.
+#
+gen: people.hxx
+
+
+# Test.
+#
+test: driver.exe people.xml
+	.\driver.exe people.xml
+
+# Clean.
+#
+cleanobj:
+	-del people-custom-pimpl.obj people-custom-simpl.obj \
+people-pimpl.obj people-pskel.obj people-simpl.obj people-sskel.obj \
+people.obj driver.obj driver.exe
+
+clean: cleanobj
+	-del people-pimpl.?xx people-pskel.?xx people-simpl.?xx \
+people-sskel.?xx people.?xx

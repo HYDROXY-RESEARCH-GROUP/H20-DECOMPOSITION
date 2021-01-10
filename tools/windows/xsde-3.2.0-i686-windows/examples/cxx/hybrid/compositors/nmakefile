@@ -1,0 +1,63 @@
+root = ..\..\..\..
+
+!include $(root)\build\cxx\rules.nmake
+
+# Build.
+#
+EXTRA_CPPFLAGS = /I$(root)\libxsde
+
+!if "$(XSDE_ENCODING)" == "iso8859-1"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --char-encoding iso8859-1
+!endif
+
+!if "$(XSDE_STL)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --no-stl
+!endif
+
+!if "$(XSDE_IOSTREAM)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --no-iostream
+!endif
+
+!if "$(XSDE_EXCEPTIONS)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --no-exceptions
+!endif
+
+!if "$(XSDE_LONGLONG)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --no-long-long
+!endif
+
+!if "$(XSDE_REUSE_STYLE)" == "mixin"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --reuse-style-mixin
+!endif
+
+!if "$(XSDE_POLYMORPHIC)" == "y"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --runtime-polymorphic
+!endif
+
+driver.exe: driver.obj compositors.obj $(root)\libxsde\xsde\xsde.lib
+
+driver.obj: driver.cxx compositors.hxx
+compositors.obj: compositors.cxx
+
+compositors.cxx compositors.hxx: compositors.xsd
+	$(root)\bin\xsde.exe cxx-hybrid $(XSDFLAGS) $(EXTRA_XSDFLAGS) compositors.xsd
+
+
+# Generate.
+#
+gen: compositors.hxx
+
+
+# Test.
+#
+test: driver.exe
+	.\driver.exe
+
+
+# Clean.
+#
+cleanobj:
+	-del compositors.obj driver.obj driver.exe
+
+clean: cleanobj
+	-del compositors.?xx

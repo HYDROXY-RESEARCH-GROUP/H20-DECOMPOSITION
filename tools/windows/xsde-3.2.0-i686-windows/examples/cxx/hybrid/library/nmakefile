@@ -1,0 +1,71 @@
+root = ..\..\..\..
+
+!include $(root)\build\cxx\rules.nmake
+
+# Build.
+#
+EXTRA_CPPFLAGS = /I$(root)\libxsde
+
+!if "$(XSDE_ENCODING)" == "iso8859-1"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --char-encoding iso8859-1
+!endif
+
+!if "$(XSDE_LONGLONG)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --no-long-long
+!endif
+
+!if "$(XSDE_PARSER_VALIDATION)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --suppress-parser-val
+!endif
+
+!if "$(XSDE_SERIALIZER_VALIDATION)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --suppress-serializer-val
+!endif
+
+!if "$(XSDE_REUSE_STYLE)" == "mixin"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --reuse-style-mixin
+!endif
+
+!if "$(XSDE_POLYMORPHIC)" == "y"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --runtime-polymorphic
+!endif
+
+driver.exe: driver.obj library.obj library-pskel.obj library-pimpl.obj \
+library-sskel.obj library-simpl.obj $(root)\libxsde\xsde\xsde.lib
+
+driver.obj: driver.cxx library.hxx library-pimpl.hxx library-simpl.hxx
+library.obj: library.cxx
+library-pskel.obj: library-pskel.cxx
+library-pimpl.obj: library-pimpl.cxx
+library-sskel.obj: library-sskel.cxx
+library-simpl.obj: library-simpl.cxx
+
+library.cxx library.hxx \
+library-pskel.cxx library-pskel.hxx library-pimpl.cxx library-pimpl.hxx \
+library-sskel.cxx library-sskel.hxx library-simpl.cxx library-simpl.hxx \
+: library.xsd
+	$(root)\bin\xsde.exe cxx-hybrid $(XSDFLAGS) $(EXTRA_XSDFLAGS) \
+--generate-parser --generate-serializer --generate-aggregate \
+--omit-default-attributes library.xsd
+
+
+# Generate.
+#
+gen: library.hxx
+
+
+# Test.
+#
+test: driver.exe library.xml
+	.\driver.exe library.xml
+
+
+# Clean.
+#
+cleanobj:
+	-del library-pimpl.obj library-pskel.obj library-simpl.obj \
+library-sskel.obj library.obj driver.obj driver.exe
+
+clean: cleanobj
+	-del library-pimpl.?xx library-pskel.?xx library-simpl.?xx \
+library-sskel.?xx library.?xx

@@ -1,0 +1,9 @@
+# file      : examples/cxx/serializer/polyroot/supermen.map
+# author    : Boris Kolpackov <boris@codesynthesis.com>
+# copyright : not copyrighted - public domain
+
+include "supermen.hxx";
+
+person   "const ::person&";
+superman "const ::person&";
+batman   "const ::person&";

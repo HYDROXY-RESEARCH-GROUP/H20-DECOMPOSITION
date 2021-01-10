@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:t="test" targetNamespace="test">
+
+  <complexType name="base">
+    <sequence>
+    </sequence>
+  </complexType>
+
+  <complexType name="inner">
+    <complexContent>
+      <extension base="t:base">
+        <sequence>
+          <element name="b" type="int"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+
+  <complexType name="type">
+    <sequence>
+      <element name="a" type="t:inner"/>
+    </sequence>
+  </complexType>
+
+  <element name="root" type="t:type"/>
+
+</schema>

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+
+<!--
+
+file      : examples/cxx/hybrid/streaming/position.xsd
+author    : Boris Kolpackov <boris@codesynthesis.com>
+copyright : not copyrighted - public domain
+
+-->
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+
+  <xsd:complexType name="position">
+    <xsd:attribute name="lat" type="xsd:float" use="required"/>
+    <xsd:attribute name="lon" type="xsd:float" use="required"/>
+  </xsd:complexType>
+
+  <xsd:complexType name="object">
+    <xsd:sequence>
+      <xsd:element name="position" type="position" maxOccurs="unbounded"/>
+    </xsd:sequence>
+    <xsd:attribute name="id" type="xsd:unsignedInt" use="required"/>
+  </xsd:complexType>
+
+  <xsd:element name="object" type="object"/>
+
+</xsd:schema>

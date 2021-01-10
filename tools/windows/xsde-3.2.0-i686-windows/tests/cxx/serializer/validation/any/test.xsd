@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:t="test" targetNamespace="test">
+
+  <complexType name="test-1">
+    <sequence>
+      <any namespace="foo" processContents="skip" maxOccurs="unbounded"/>
+    </sequence>
+  </complexType>
+
+  <complexType name="test-2">
+    <sequence>
+      <any namespace="##any" processContents="skip"/>
+    </sequence>
+  </complexType>
+
+  <complexType name="test-3">
+    <sequence>
+      <any namespace="##other" processContents="skip"/>
+    </sequence>
+  </complexType>
+
+  <complexType name="test-4">
+    <sequence>
+      <any namespace="##local" processContents="skip"/>
+    </sequence>
+  </complexType>
+
+  <complexType name="test-5">
+    <sequence>
+      <any namespace="##targetNamespace" processContents="skip"/>
+    </sequence>
+  </complexType>
+
+  <complexType name="test-6">
+    <sequence>
+      <any namespace="bar" processContents="skip"/>
+    </sequence>
+  </complexType>
+
+  <complexType name="root">
+    <choice>
+      <element name="test-1" type="t:test-1"/>
+      <element name="test-2" type="t:test-2"/>
+      <element name="test-3" type="t:test-3"/>
+      <element name="test-4" type="t:test-4"/>
+      <element name="test-5" type="t:test-5"/>
+      <element name="test-6" type="t:test-6"/>
+    </choice>
+  </complexType>
+
+  <element name="root" type="t:root"/>
+
+</schema>

@@ -1,0 +1,6542 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+
+<head>
+  <title>Embedded C++/Serializer Mapping Getting Started Guide</title>
+
+  <meta name="copyright" content="&copy; 2005-2011 Code Synthesis Tools CC"/>
+  <meta name="keywords" content="xsd,xml,schema,c++,mapping,data,binding,serialize,create,write,validation,embedded,mobile"/>
+  <meta name="description" content="Embedded C++/Serializer Mapping Getting Started Guide"/>
+
+  <link rel="stylesheet" type="text/css" href="../../../default.css" />
+
+<style type="text/css">
+  pre {
+    padding    : 0 0 0 0em;
+    margin     : 0em 0em 0em 0;
+
+    font-size  : 102%
+  }
+
+  body {
+    min-width: 48em;
+  }
+
+  h1 {
+    font-weight: bold;
+    font-size: 200%;
+    line-height: 1.2em;
+  }
+
+  h2 {
+    font-weight : bold;
+    font-size   : 150%;
+
+    padding-top : 0.8em;
+  }
+
+  h3 {
+    font-size   : 140%;
+    padding-top : 0.8em;
+  }
+
+  /* Adjust indentation for three levels. */
+  #container {
+    max-width: 48em;
+  }
+
+  #content {
+    padding: 0 0.1em 0 4em;
+    /*background-color: red;*/
+  }
+
+  #content h1 {
+    margin-left: -2.06em;
+  }
+
+  #content h2 {
+    margin-left: -1.33em;
+  }
+
+  /* Title page */
+
+  #titlepage {
+    padding: 2em 0 1em 0;
+    border-bottom: 1px solid black;
+  }
+
+  #titlepage .title {
+    font-weight: bold;
+    font-size: 200%;
+    text-align: center;
+  }
+
+  #titlepage #first-title {
+    padding: 1em 0 0.4em 0;
+  }
+
+  #titlepage #second-title {
+    padding: 0.4em 0 2em 0;
+  }
+
+  /* Lists */
+  ul.list li {
+    padding-top      : 0.3em;
+    padding-bottom   : 0.3em;
+  }
+
+  ol.steps {
+    padding-left     : 1.8em;
+  }
+
+  ol.steps li {
+    padding-top      : 0.3em;
+    padding-bottom   : 0.3em;
+  }
+
+
+  div.img {
+    text-align: center;
+    padding: 2em 0 2em 0;
+  }
+
+  /*  */
+  dl dt {
+    padding   : 0.8em 0 0 0;
+  }
+
+  /* TOC */
+  table.toc {
+    border-style      : none;
+    border-collapse   : separate;
+    border-spacing    : 0;
+
+    margin            : 0.2em 0 0.2em 0;
+    padding           : 0 0 0 0;
+  }
+
+  table.toc tr {
+    padding           : 0 0 0 0;
+    margin            : 0 0 0 0;
+  }
+
+  table.toc * td, table.toc * th {
+    border-style      : none;
+    margin            : 0 0 0 0;
+    vertical-align    : top;
+  }
+
+  table.toc * th {
+    font-weight       : normal;
+    padding           : 0em 0.1em 0em 0;
+    text-align        : left;
+    white-space       : nowrap;
+  }
+
+  table.toc * table.toc th {
+    padding-left      : 1em;
+  }
+
+  table.toc * td {
+    padding           : 0em 0 0em 0.7em;
+    text-align        : left;
+  }
+
+  /* Built-in table */
+  #builtin {
+    margin: 2em 0 2em 0;
+
+    border-collapse   : collapse;
+    border            : 1px solid;
+    border-color      : #000000;
+
+    font-size        : 11px;
+    line-height      : 14px;
+  }
+
+  #builtin th, #builtin td {
+    border: 1px solid;
+    padding           : 0.9em 0.9em 0.7em 0.9em;
+  }
+
+  #builtin th {
+    background : #cde8f6;
+  }
+
+  #builtin td {
+    text-align: left;
+  }
+
+  /* XML Schema features table. */
+  #features {
+    margin: 2em 0 2em 0;
+
+    border-collapse   : collapse;
+    border            : 1px solid;
+    border-color      : #000000;
+
+    font-size        : 11px;
+    line-height      : 14px;
+  }
+
+  #features th, #features td {
+    border: 1px solid;
+    padding           : 0.6em 0.6em 0.6em 0.6em;
+  }
+
+  #features th {
+    background : #cde8f6;
+  }
+
+  #features td {
+    text-align: left;
+  }
+</style>
+
+
+</head>
+
+<body>
+<div id="container">
+  <div id="content">
+
+  <div class="noprint">
+
+  <div id="titlepage">
+    <div class="title" id="first-title">Embedded C++/Serializer Mapping</div>
+    <div class="title" id="second-title">Getting Started Guide</div>
+
+  <p>Copyright &copy; 2005-2011 CODE SYNTHESIS TOOLS CC</p>
+
+  <p>Permission is granted to copy, distribute and/or modify this
+     document under the terms of the
+     <a href="http://www.codesynthesis.com/licenses/fdl-1.2.txt">GNU Free
+     Documentation License, version 1.2</a>; with no Invariant Sections,
+     no Front-Cover Texts and no Back-Cover Texts.
+  </p>
+
+  <p>This document is available in the following formats:
+     <a href="http://www.codesynthesis.com/projects/xsde/documentation/cxx/serializer/guide/index.xhtml">XHTML</a>,
+     <a href="http://www.codesynthesis.com/projects/xsde/documentation/cxx/serializer/guide/cxx-serializer-e-guide.pdf">PDF</a>, and
+     <a href="http://www.codesynthesis.com/projects/xsde/documentation/cxx/serializer/guide/cxx-serializer-e-guide.ps">PostScript</a>.</p>
+
+  </div>
+
+  <h1>Table of Contents</h1>
+
+  <table class="toc">
+    <tr>
+      <th></th><td><a href="#0">Preface</a>
+        <table class="toc">
+          <tr><th></th><td><a href="#0.1">About This Document</a></td></tr>
+          <tr><th></th><td><a href="#0.2">More Information</a></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <th>1</th><td><a href="#1">Introduction</a>
+        <table class="toc">
+          <tr><th>1.1</th><td><a href="#1.1">Mapping Overview</a></td></tr>
+          <tr><th>1.2</th><td><a href="#1.2">Benefits</a></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <th>2</th><td><a href="#2">Hello World Example</a>
+        <table class="toc">
+          <tr><th>2.1</th><td><a href="#2.1">Writing Schema</a></td></tr>
+          <tr><th>2.2</th><td><a href="#2.2">Translating Schema to C++</a></td></tr>
+          <tr><th>2.3</th><td><a href="#2.3">Implementing Application Logic</a></td></tr>
+          <tr><th>2.4</th><td><a href="#2.4">Compiling and Running</a></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <th>3</th><td><a href="#3">Serializer Skeletons</a>
+        <table class="toc">
+          <tr><th>3.1</th><td><a href="#3.1">Implementing the Gender Serializer</a></td></tr>
+          <tr><th>3.2</th><td><a href="#3.2">Implementing the Person Serializer</a></td></tr>
+          <tr><th>3.3</th><td><a href="#3.3">Implementing the People Serializer</a></td></tr>
+          <tr><th>3.4</th><td><a href="#3.4">Connecting the Serializers Together</a></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <th>4</th><td><a href="#4">Type Maps</a>
+        <table class="toc">
+          <tr><th>4.1</th><td><a href="#4.1">Object Model</a></td></tr>
+          <tr><th>4.2</th><td><a href="#4.2">Type Map File Format</a></td></tr>
+          <tr><th>4.3</th><td><a href="#4.3">Serializer Implementations</a></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <th>5</th><td><a href="#5">Serializer Callbacks</a>
+        <table class="toc">
+          <tr><th>5.1</th><td><a href="#5.1">Optional Callback</a></td></tr>
+          <tr><th>5.2</th><td><a href="#5.2">Sequence Callback</a></td></tr>
+	  <tr><th>5.3</th><td><a href="#5.3">Choice Callback</a></td></tr>
+	  <tr><th>5.4</th><td><a href="#5.4">Element Wildcard Callbacks</a></td></tr>
+          <tr><th>5.5</th><td><a href="#5.5">Attribute Wildcard Callbacks</a></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <th>6</th><td><a href="#6">Mapping Configuration</a>
+        <table class="toc">
+          <tr><th>6.1</th><td><a href="#6.1">Standard Template Library</a></td></tr>
+          <tr><th>6.2</th><td><a href="#6.2">Input/Output Stream Library</a></td></tr>
+          <tr><th>6.3</th><td><a href="#6.3">C++ Exceptions</a></td></tr>
+          <tr><th>6.4</th><td><a href="#6.4">XML Schema Validation</a></td></tr>
+	  <tr><th>6.5</th><td><a href="#6.5">64-bit Integer Type</a></td></tr>
+          <tr><th>6.6</th><td><a href="#6.6">Serializer Reuse</a></td></tr>
+	  <tr><th>6.7</th><td><a href="#6.7">Support for Polymorphism</a></td></tr>
+	  <tr><th>6.8</th><td><a href="#6.8">Custom Allocators</a></td></tr>
+	  <tr><th>6.9</th><td><a href="#6.9">A Minimal Example</a></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <th>7</th><td><a href="#7">Built-In XML Schema Type Serializers</a>
+        <table class="toc">
+          <tr><th>7.1</th><td><a href="#7.1">Floating-Point Type Serializers</a></td></tr>
+	  <tr><th>7.2</th><td><a href="#7.2">String-Based Type Serializers</a></td></tr>
+          <tr><th>7.3</th><td><a href="#7.3"><code>QName</code> Serializer</a></td></tr>
+          <tr><th>7.4</th><td><a href="#7.4"><code>NMTOKENS</code> and <code>IDREFS</code> Serializers</a></td></tr>
+          <tr><th>7.5</th><td><a href="#7.5"><code>base64Binary</code> and <code>hexBinary</code> Serializers</a></td></tr>
+	  <tr><th>7.6</th><td><a href="#7.6">Time Zone Representation</a></td></tr>
+	  <tr><th>7.7</th><td><a href="#7.7"><code>date</code> Serializer</a></td></tr>
+	  <tr><th>7.8</th><td><a href="#7.8"><code>dateTime</code> Serializer</a></td></tr>
+	  <tr><th>7.9</th><td><a href="#7.9"><code>duration</code> Serializer</a></td></tr>
+	  <tr><th>7.10</th><td><a href="#7.10"><code>gDay</code> Serializer</a></td></tr>
+	  <tr><th>7.11</th><td><a href="#7.11"><code>gMonth</code> Serializer</a></td></tr>
+	  <tr><th>7.12</th><td><a href="#7.12"><code>gMonthDay</code> Serializer</a></td></tr>
+	  <tr><th>7.13</th><td><a href="#7.13"><code>gYear</code> Serializer</a></td></tr>
+	  <tr><th>7.14</th><td><a href="#7.14"><code>gYearMonth</code> Serializer</a></td></tr>
+	  <tr><th>7.15</th><td><a href="#7.15"><code>time</code> Serializer</a></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <th>8</th><td><a href="#8">Document Serializer and Error Handling</a>
+        <table class="toc">
+          <tr><th>8.1</th><td><a href="#8.1">Document Serializer</a></td></tr>
+          <tr><th>8.2</th><td><a href="#8.2">Exceptions</a></td></tr>
+          <tr><th>8.3</th><td><a href="#8.3">Error Codes</a></td></tr>
+	  <tr><th>8.4</th><td><a href="#8.4">Reusing Serializers after an Error</a></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <th></th><td><a href="#A">Appendix A &mdash; Supported XML Schema Constructs</a></td>
+    </tr>
+
+  </table>
+  </div>
+
+  <h1><a name="0">Preface</a></h1>
+
+  <h2><a name="0.1">About This Document</a></h2>
+
+  <p>The goal of this document is to provide you with an
+     understanding of the C++/Serializer programming model and allow you
+     to efficiently evaluate XSD/e against your project's technical
+     requirements. As such, this document is intended for embedded
+     C++ developers and software architects who are looking for an
+     embedded XML processing solution. Prior experience with XML
+     and C++ is required to understand this document. Basic
+     understanding of XML Schema is advantageous but not expected
+     or required.
+  </p>
+
+
+  <h2><a name="0.2">More Information</a></h2>
+
+  <p>Beyond this guide, you may also find the following sources of
+     information useful:</p>
+
+  <ul class="list">
+    <li><a href="http://www.codesynthesis.com/projects/xsde/documentation/xsde.xhtml">XSD/e
+        Compiler Command Line Manual</a></li>
+
+    <li>The <code>INSTALL</code> file in the XSD/e distribution provides
+        build instructions for various platforms.</li>
+
+    <li>The <code>examples/cxx/serializer/</code> directory in the XSD/e
+        distribution contains a collection of examples and a README
+        file with an overview of each example.</li>
+
+    <li>The <a href="http://www.codesynthesis.com/mailman/listinfo/xsde-users">xsde-users</a>
+        mailing list is the place to ask technical questions about XSD/e and the
+        Embedded C++/Serializer mapping. Furthermore, the
+        <a href="http://www.codesynthesis.com/pipermail/xsde-users/">archives</a>
+        may already have answers to some of your questions.</li>
+
+  </ul>
+
+  <!-- Introduction -->
+
+  <h1><a name="1">1 Introduction</a></h1>
+
+  <p>Welcome to CodeSynthesis XSD/e and the Embedded C++/Serializer mapping.
+     XSD/e is a validating XML parser/serializer generator for mobile and
+     embedded systems. Embedded C++/Serializer is a W3C XML Schema to C++
+     mapping that represents an XML vocabulary as a set of serializer
+     skeletons which you can implement to perform XML serialization as
+     required by your application logic.
+  </p>
+
+  <h2><a name="1.1">1.1 Mapping Overview</a></h2>
+
+  <p>The Embedded C++/Serializer mapping provides event-driven,
+     stream-oriented XML serialization, XML Schema validation,
+     and C++ data binding. It was specifically designed and
+     optimized for mobile and embedded systems where hardware
+     constraints require high efficiency and economical use of
+     resources. As a result, the generated serializers are 2-10
+     times faster than general-purpose validating XML serializers
+     while at the same time maintaining extremely low static and
+     dynamic memory footprints. For example, a validating serializer
+     executable can be as small as 60KB in size. The size can be
+     further reduced by disabling support for XML Schema validation.
+  </p>
+
+  <p>The generated code and the runtime library are also highly-portable
+     and, in their minimal configuration, can be used without STL, RTTI,
+     iostream, C++ exceptions, and C++ templates.</p>
+
+  <p>To speed up application development, the C++/Serializer mapping
+     can be instructed to generate sample serializer implementations
+     and a test driver which can then be filled with the application
+     logic code. The mapping also provides a wide range of
+     mechanisms for controlling and customizing the generated code.</p>
+
+  <p>The next chapter shows how to create a simple application
+     that uses the Embedded C++/Serializer mapping to validate
+     and serialize simple data to an XML document. The following
+     chapters describe the Embedded C++/Serializer mapping in more
+     detail.</p>
+
+  <h2><a name="1.2">1.2 Benefits</a></h2>
+
+  <p>Traditional XML serialization APIs such as Document Object Model (DOM)
+     or XML Writer as well as general-purpose XML Schema validators have
+     a number of drawbacks that make them less suitable for creating
+     mobile and embedded XML processing applications. These drawbacks
+     include:
+  </p>
+
+  <ul class="list">
+    <li>Text-based representation results in inefficient use of
+        resources.</li>
+
+    <li>Extra validation code that is not used by the application.</li>
+
+    <li>Generic representation of XML in terms of elements, attributes,
+        and text forces an application developer to write a substantial
+        amount of bridging code that identifies and transforms pieces
+        of information produced by the application logic to the text
+        encoding used in XML.</li>
+
+    <li>Resulting applications are hard to debug, change, and
+        maintain.</li>
+  </ul>
+
+  <p>In contrast, statically-typed, vocabulary-specific serializer
+     skeletons produced by the Embedded C++/Serializer mapping use
+     native data types (for example, integers are passed as
+     integers, not as text) and include validation code only for
+     XML Schema constructs that are used in the application. This
+     results in efficient use of resources and compact object code.</p>
+
+  <p>Furthermore, the serializer skeletons allow you to operate in your
+     domain terms instead of the generic elements, attributes, and
+     text. Automatic code generation frees you for more
+     interesting tasks (such as doing something useful with the
+     information that needs to be stored in XML) and
+     minimizes the effort needed to adapt your applications to changes
+     in the document structure. To summarize, the C++/Serializer mapping
+     has the following key advantages over generic XML serialization APIs:</p>
+
+  <ul class="list">
+    <li><b>Ease of use.</b> The generated code hides all the complexity
+        associated with recreating the document structure, maintaining the
+        state, and converting the data from types suitable for
+        manipulation by the application logic to the text representation
+        used in XML.</li>
+
+    <li><b>Natural representation.</b> The generated serializer skeletons
+        implement serializer callbacks as virtual functions with names
+        corresponding to elements and attributes in XML. As a result,
+        you serialize the data using your domain vocabulary instead
+        of generic elements, attributes, and text.
+    </li>
+
+    <li><b>Concise code.</b> With a separate serializer skeleton for each
+        XML Schema type, the application implementation is simpler
+        and thus easier to read and understand.</li>
+
+    <li><b>Safety.</b> The data is passed by serializer callbacks as
+        statically typed objects. The serializer callbacks themselves
+        are virtual functions. This helps catch programming errors
+        at compile-time rather than at runtime.</li>
+
+    <li><b>Maintainability.</b> Automatic code generation minimizes the
+        effort needed to adapt the application to changes in the
+        document structure. With static typing, the C++ compiler
+        can pin-point the places in the application code that need to be
+        changed.</li>
+
+   <li><b>Efficiency.</b> The generated serializer skeletons use native
+       data types and combine validation and data-to-text
+       conversion in a single step. This makes them much more efficient
+       than traditional architectures with separate stages for validation
+       and data conversion.</li>
+  </ul>
+
+
+  <!-- Hello World Example -->
+
+
+  <h1><a name="2">2 Hello World Example</a></h1>
+
+  <p>In this chapter we will examine how to create a very simple XML
+     document using the XSD/e-generated C++/Serializer skeletons.
+
+     All the code presented in this chapter is based on the <code>hello</code>
+     example which can be found in the <code>examples/cxx/serializer/</code>
+     directory of the XSD/e distribution.</p>
+
+  <h2><a name="2.1">2.1 Writing Schema</a></h2>
+
+  <p>First, we need to get an idea about the structure of the XML
+     document that we are going to create. The sample XML that
+     we will try to produce with our Hello application looks like
+     this:</p>
+
+      <pre class="xml">
+&lt;hello>
+
+  &lt;greeting>Hello&lt;/greeting>
+
+  &lt;name>sun&lt;/name>
+  &lt;name>moon&lt;/name>
+  &lt;name>world&lt;/name>
+
+&lt;/hello>
+      </pre>
+
+  <p>Then we can write a description of the above XML in the
+     XML Schema language and save it into <code>hello.xsd</code>:</p>
+
+      <pre class="xml">
+&lt;xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  &lt;xs:complexType name="hello">
+    &lt;xs:sequence>
+      &lt;xs:element name="greeting" type="xs:string"/>
+      &lt;xs:element name="name" type="xs:string" maxOccurs="unbounded"/>
+    &lt;/xs:sequence>
+  &lt;/xs:complexType>
+
+  &lt;xs:element name="hello" type="hello"/>
+
+&lt;/xs:schema>
+      </pre>
+
+  <p>Even if you are not familiar with the XML Schema language, it
+     should be easy to connect declarations in <code>hello.xsd</code>
+     to elements in the sample XML document above. The <code>hello</code>
+     type is defined as a sequence of the nested <code>greeting</code>
+     and <code>name</code> elements. Note that the term sequence in XML
+     Schema means that elements should appear in a particular order
+     as opposed to appearing multiple times. The <code>name</code>
+     element has its <code>maxOccurs</code> property set to
+     <code>unbounded</code> which means it can appear multiple times
+     in an XML document. Finally, the globally-defined <code>hello</code>
+     element prescribes the root element for our vocabulary. For an
+     easily-approachable introduction to XML Schema refer to
+     <a href="http://www.w3.org/TR/xmlschema-0/">XML Schema Part 0:
+     Primer</a>.</p>
+
+  <p>The above schema is a specification of our vocabulary; it tells
+     everybody what valid XML instances of our vocabulary should look
+     like. The next step is to compile this schema to generate C++
+     serializer skeletons.</p>
+
+  <h2><a name="2.2">2.2 Translating Schema to C++</a></h2>
+
+  <p>Now we are ready to translate our <code>hello.xsd</code> to C++
+     serializer skeletons. To do this we invoke the XSD/e compiler
+     from a terminal (UNIX) or a command prompt (Windows):
+  </p>
+
+  <pre class="terminal">
+$ xsde cxx-serializer hello.xsd
+  </pre>
+
+  <p>The XSD/e compiler produces two C++ files: <code>hello-sskel.hxx</code>
+     and <code>hello-sskel.cxx</code>. The following code fragment is taken
+     from <code>hello-sskel.hxx</code>; it should give you an idea about what
+     gets generated:
+  </p>
+
+<pre class="c++">
+class hello_sskel
+{
+public:
+  // Serializer callbacks. Override them in your implementation.
+  //
+  virtual void
+  pre ();
+
+  virtual std::string
+  greeting () = 0;
+
+  virtual bool
+  name_next () = 0;
+
+  virtual std::string
+  name () = 0;
+
+  virtual void
+  post ();
+
+  // Serializer construction API.
+  //
+  void
+  greeting_serializer (xml_schema::string_sskel&amp;);
+
+  void
+  name_serializer (xml_schema::string_sskel&amp;);
+
+  void
+  serializers (xml_schema::string_sskel&amp; /* greeting */,
+               xml_schema::string_sskel&amp; /* name */);
+
+private:
+  ...
+};
+  </pre>
+
+  <p>The first five member functions shown above are called serializer
+     callbacks. You would normally override them in your implementation
+     of the serializer. Let's go through all of them one by one.</p>
+
+  <p>The <code>pre()</code> function is an initialization callback. It is
+     called when a new element of type <code>hello</code> is about
+     to be serialized. You would normally use this function to initialize
+     data structures, such as iterators, which will be used during
+     serialization. As we will see in subsequent chapters, there is
+     also a way to pass an argument to this function which may be
+     useful if you are serializing an in-memory data structure
+     to XML. The default implementation of the initialization callback
+     does nothing.</p>
+
+  <p>The <code>post()</code> function is a finalization callback. It is
+     called when serialization of the element is completed. If necessary,
+     you can use this function to perform cleanups of data structures
+     initialized in <code>pre()</code> or during serialization.
+     The default implementation of the finalization callback also does
+     nothing.
+  </p>
+
+  <p>The <code>greeting()</code> and <code>name()</code> functions are
+     called when the <code>greeting</code> and <code>name</code> elements
+     are about to be serialized and the values for these elements need
+     to be provided. Because the <code>name</code> element can be
+     repeated several times (note the <code>maxOccurs="unbounded"</code>
+     attribute in the schema), the serializer skeleton also has the
+     <code>name_next()</code> function which is called before
+     <code>name()</code> to check if another <code>name</code> element
+     needs to be serialized.</p>
+
+  <p>The last three functions are for connecting serializers to each other.
+     For example, there is a predefined serializer for built-in XML Schema
+     type <code>string</code> in the XSD/e runtime. We will be using it to
+     serialize the values of <code>greeting</code> and <code>name</code>
+     elements, as shown in the next section.</p>
+
+  <h2><a name="2.3">2.3 Implementing Application Logic</a></h2>
+
+  <p>At this point we have all the parts we need to create our
+     sample XML document. The first step is to implement the
+     serializer:
+  </p>
+
+  <pre class="c++">
+#include &lt;string>
+#include &lt;vector>
+#include "hello-sskel.hxx"
+
+struct hello_simpl: hello_sskel
+{
+  hello_simpl ()
+  {
+    names_.push_back ("sun");
+    names_.push_back ("moon");
+    names_.push_back ("world");
+  }
+
+  virtual void
+  pre ()
+  {
+    i_ = names_.begin ();
+  }
+
+  virtual std::string
+  greeting ()
+  {
+    return "Hello";
+  }
+
+  virtual bool
+  name_next ()
+  {
+    return i_ != names_.end ();
+  }
+
+  virtual std::string
+  name ()
+  {
+    return *i_++;
+  }
+
+private:
+  typedef std::vector&lt;std::string> names;
+
+  names names_;
+  names::iterator i_;
+};
+  </pre>
+
+  <p>We use the <code>hello_simpl</code>'s constructor to initialize
+     a vector of names. Then, in the <code>pre()</code> initialization
+     callback, we initialize an iterator to point to the beginning of the
+     names vector. The <code>greeting()</code> callback
+     simply returns the string representing our greeting. The
+     <code>name_next()</code> callback checks if we reached the
+     end of the names vector and returns <code>false</code>
+     if that's the case. The <code>name()</code> callback returns
+     the next name from the names vector and advances the iterator.
+     Note that <code>name()</code> is not called if <code>name_next()</code>
+     returned false. Finally, we left <code>post()</code> with the
+     default implementations since we don't have anything to cleanup.</p>
+
+  <p>Now it is time to put this serializer implementation to work:</p>
+
+  <pre class="c++">
+#include &lt;iostream>
+
+using namespace std;
+
+int
+main ()
+{
+  try
+  {
+    // Construct the serializer.
+    //
+    xml_schema::string_simpl string_s;
+    hello_simpl hello_s;
+
+    hello_s.greeting_serializer (string_s);
+    hello_s.name_serializer (string_s);
+
+    // Create the XML document.
+    //
+    xml_schema::document_simpl doc_s (hello_s, "hello");
+
+    hello_s.pre ();
+    doc_s.serialize (cout, xml_schema::document_simpl::pretty_print);
+    hello_s.post ();
+  }
+  catch (const xml_schema::serializer_exception&amp; e)
+  {
+    cerr &lt;&lt; "error: " &lt;&lt; e.text () &lt;&lt; endl;
+    return 1;
+  }
+}
+  </pre>
+
+  <p>The first part of this code snippet instantiates individual serializers
+     and assembles them into a complete vocabulary serializer.
+     <code>xml_schema::string_simpl</code> is an implementation of a
+     serializer for built-in XML Schema type <code>string</code>. It is
+     provided by the XSD/e runtime along with serializers for other built-in
+     types (for more information on the built-in serializers see
+     <a href="#7">Chapter 7, "Built-In XML Schema Type Serializers"</a>).
+     We use <code>string_simpl</code> to serialize the <code>greeting</code>
+     and <code>name</code> elements as indicated by the calls to
+     <code>greeting_serializer()</code> and <code>name_serializer()</code>.
+  </p>
+
+  <p>Then we instantiate a document serializer (<code>doc_s</code>). The
+     first argument to its constructor is the serializer for the root
+     element (<code>hello_s</code> in our case). The second argument is
+     the root element name.
+   </p>
+
+  <p>The final piece is the calls to <code>pre()</code>,
+     <code>serialize()</code>, and <code>post()</code>. The call to
+     <code>serialize()</code> performs the actual XML serialization
+     with the result written to <code>std::cout</code>. The second
+     argument in this call is a flag that requests pretty-printing
+     of the resulting XML document. You would normally specify this flag
+     during testing to obtain easily-readable XML and remove it
+     in production to get faster serialization and smaller documents.
+     The calls to <code>pre()</code> and
+     <code>post()</code> make sure that the serializer for the
+     root element can perform proper initialization and cleanup.</p>
+
+  <p>While our serializer implementation and test driver are pretty small and
+     easy to write by hand, for bigger XML vocabularies it can be a
+     substantial effort. To help with this task XSD/e can automatically
+     generate sample serializer implementations and a test driver from your
+     schemas. To request the generation of a sample implementation with
+     empty function bodies specify the <code>--generate-empty-impl</code>
+     option. To request the generation of a test driver you can use the
+     <code>--generate-test-driver</code> option. For more information
+     on these options refer to the
+     <a href="http://www.codesynthesis.com/projects/xsde/documentation/xsde.xhtml">XSD/e
+     Compiler Command Line Manual</a>.</p>
+
+  <h2><a name="2.4">2.4 Compiling and Running</a></h2>
+
+  <p>After saving all the parts from the previous section in
+     <code>driver.cxx</code>, we are ready to compile and run
+     our first application. On UNIX this can be done with the
+     following commands:
+  </p>
+
+  <pre class="terminal">
+$ c++ -I.../libxsde -c driver.cxx hello-sskel.cxx
+$ c++ -o driver driver.o hello-sskel.o .../libxsde/xsde/libxsde.a
+$ ./driver
+&lt;hello>
+  &lt;greeting>Hello&lt;/greeting>
+  &lt;name>sun&lt;/name>
+  &lt;name>moon&lt;/name>
+  &lt;name>world&lt;/name>
+&lt;/hello>
+  </pre>
+
+  <p>Here <code>.../libxsde</code> represents the path to the
+     <code>libxsde</code> directory in the XSD/e distribution.</p>
+
+  <p>
+     We can also test XML Schema validation. We can "forget" to
+     add any names to the vector so that <code>name_next()</code>
+     returns <code>false</code> on the first call:</p>
+
+<pre class="c++">
+struct hello_simpl: hello_sskel
+{
+  hello_simpl ()
+  {
+    /*
+    names_.push_back ("sun");
+    names_.push_back ("moon");
+    names_.push_back ("world");
+    */
+  }
+  ...
+};
+  </pre>
+
+  <p>This will violate our vocabulary specification which requires
+     at least one <code>name</code> element to be present. If we
+     make the above change and recompile our application, we will
+     get the following output:</p>
+
+  <pre class="terminal">
+$ ./driver
+error: expected element not encountered
+  </pre>
+
+
+  <!-- Chapater 3 -->
+
+
+  <h1><a name="3">3 Serializer Skeletons</a></h1>
+
+  <p>As we have seen in the previous chapter, the XSD/e compiler generates
+     a serializer skeleton class for each type defined in XML Schema. In
+     this chapter we will take a closer look at different functions
+     that comprise a serializer skeleton as well as the way to connect
+     our implementations of these serializer skeletons to create a complete
+     vocabulary serializer.</p>
+
+  <p>In this and subsequent chapters we will use the following
+     schema that describes a collection of person records. We
+     save it in <code>people.xsd</code>:</p>
+
+  <pre class="xml">
+&lt;xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  &lt;xs:simpleType name="gender">
+    &lt;xs:restriction base="xs:string">
+      &lt;xs:enumeration value="male"/>
+      &lt;xs:enumeration value="female"/>
+    &lt;/xs:restriction>
+  &lt;/xs:simpleType>
+
+  &lt;xs:complexType name="person">
+    &lt;xs:sequence>
+      &lt;xs:element name="first-name" type="xs:string"/>
+      &lt;xs:element name="last-name" type="xs:string"/>
+      &lt;xs:element name="gender" type="gender"/>
+      &lt;xs:element name="age" type="xs:short"/>
+    &lt;/xs:sequence>
+  &lt;/xs:complexType>
+
+  &lt;xs:complexType name="people">
+    &lt;xs:sequence>
+      &lt;xs:element name="person" type="person" maxOccurs="unbounded"/>
+    &lt;/xs:sequence>
+  &lt;/xs:complexType>
+
+  &lt;xs:element name="people" type="people"/>
+
+&lt;/xs:schema>
+  </pre>
+
+  <p>A sample XML instance to go along with this schema could look like
+     this:</p>
+
+  <pre class="xml">
+&lt;people>
+  &lt;person>
+    &lt;first-name>John&lt;/first-name>
+    &lt;last-name>Doe&lt;/last-name>
+    &lt;gender>male&lt;/gender>
+    &lt;age>32&lt;/age>
+  &lt;/person>
+  &lt;person>
+    &lt;first-name>Jane&lt;/first-name>
+    &lt;last-name>Doe&lt;/last-name>
+    &lt;gender>female&lt;/gender>
+    &lt;age>28&lt;/age>
+  &lt;/person>
+&lt;/people>
+  </pre>
+
+  <p>Compiling <code>people.xsd</code> with the XSD/e compiler results
+     in three serializer skeletons being generated: <code>gender_sskel</code>,
+     <code>person_sskel</code>, and <code>people_sskel</code>. We are going
+     to examine and implement each of them in the subsequent sections.</p>
+
+  <p>In the previous chapter we used pre-initialized, static data to
+     create an XML document. In this chapter we will use the standard
+     input (<code>std::cin</code>) as the source of data. This approach
+     reflects a common design theme where the data to be serialized is
+     computed on the fly instead of being stored in, for example, an
+     in-memory object model. The next chapter will examine mechanisms
+     provided by the C++/Serializer mapping for serializing in-memory
+     object models.</p>
+
+  <h2><a name="3.1">3.1 Implementing the Gender Serializer</a></h2>
+
+  <p>The generated <code>gender_sskel</code> serializer skeleton looks
+     like this:</p>
+
+  <pre class="c++">
+class gender_sskel: public xml_schema::string_sskel
+{
+public:
+  gender_sskel (xml_schema::string_sskel* base_impl)
+
+  // Serializer callbacks. Override them in your implementation.
+  //
+  virtual void
+  pre ();
+
+  virtual void
+  post ();
+};
+  </pre>
+
+  <p>Notice that <code>gender_sskel</code> inherits from
+     <code>xml_schema::string_sskel</code> which is a serializer
+     skeleton for built-in XML Schema type <code>string</code>
+     and is predefined in the XSD/e runtime library. This is an example
+     of the general rule that serializer skeletons follow: if a type
+     in XML Schema inherits from another then there will be an
+     equivalent inheritance between the corresponding serializer
+     skeleton classes. The <code>gender_sskel</code> class also
+     declares a constructor which expects a pointer to the base
+     serializer skeleton. We will discuss the purpose of this
+     constructor shortly.</p>
+
+  <p>The <code>pre()</code> and <code>post()</code> callbacks should look
+     familiar from the previous chapter. Let's now implement this
+     serializer. Our implementation will simply query the gender
+     value from the standard input stream (<code>std::cin</code>):</p>
+
+
+  <pre class="c++">
+#include &lt;string>
+#include &lt;iostream>
+
+using namespace std;
+
+class gender_simpl: public gender_sskel
+{
+public:
+  gender_simpl ()
+    : gender_sskel (&amp;base_impl_)
+  {
+  }
+
+  virtual void
+  pre ()
+  {
+    string g;
+    cerr &lt;&lt; "gender (male/female): ";
+    getline (cin, g);
+    base_impl_.pre (g);
+  }
+
+private:
+  xml_schema::string_simpl base_impl_;
+};
+  </pre>
+
+  <p>While the code is quite short, there is a lot going on. First,
+     notice that we define a member variable <code>base_impl_</code>
+     of type <code>xml_schema::string_simpl</code> and then pass
+     it to the <code>gender_sskel</code>'s constructor. We have
+     encountered <code>xml_schema::string_simpl</code> already; it is an
+     implementation of the <code>xml_schema::string_sskel</code> serializer
+     skeleton for built-in XML Schema type <code>string</code>. By
+     passing <code>base_impl_</code> to the <code>gender_sskel</code>'s
+     constructor we provide an implementation for the part of the
+     serializer skeleton that is inherited from <code>string_sskel</code>.</p>
+
+  <p>This is another common theme in the C++/Serializer programming model:
+     reusing implementations of the base serializers in the derived ones.
+     In our case, <code>string_simpl</code> will do all the dirty work of
+     serializing the data which we pass to it with the call to
+     <code>base_impl_.pre()</code>. For more information on serializer
+     implementation reuse refer to <a href="#6.6">Section 6.6,
+     "Serializer Reuse"</a>.</p>
+
+  <p>In case you are curious, here are the definitions for
+     <code>xml_schema::string_sskel</code> and
+     <code>xml_schema::string_simpl</code>:</p>
+
+  <pre class="c++">
+namespace xml_schema
+{
+  class string_sskel: public serializer_simple_content
+  {
+  public:
+    virtual void
+    pre (const std::string&amp;) = 0;
+  };
+
+  class string_simpl: public string_sskel
+  {
+  public:
+    virtual void
+    pre (const std::string&amp;);
+
+    virtual void
+    _serialize_content ();
+
+  protected:
+    std::string value_;
+  };
+}
+  </pre>
+
+  <p>There are two new pieces in this code that we haven't seen yet.
+     Those are the <code>xml_schema::serializer_simple_content</code>
+     class and the <code>_serialize_content()</code> function.
+     The <code>serializer_simple_content</code> class is defined in
+     the XSD/e runtime and is a base class for all serializer skeletons
+     that conform to the simple content model in XML Schema. Types with
+     the simple content model cannot have nested elements&mdash;only
+     text and attributes. There is also the
+     <code>xml_schema::serializer_complex_content</code> class which
+     corresponds to the complex content mode (types with nested elements,
+     for example, <code>person</code> from <code>people.xsd</code>).</p>
+
+  <p>The <code>_serialize_content()</code> function is a low-level
+     serializer callback that is called to perform actual content
+     serialization (that is to output text or nested elements). There
+     is also the <code>_serialize_attributes()</code> callback which
+     is called to serialize attributes in complex types. You will seldom
+     need to use these callbacks directly. Using implementations for the
+     built-in serializers provided by the XSD/e runtime is usually a
+     simpler and more convenient alternative.</p>
+
+  <p>Another bit of information that is useful to know about is
+     the <code>_pre()</code> and <code>_post()</code> serialization
+     callbacks. Remember we talked about the <code>pre()</code> and
+     <code>post()</code> callbacks in the previous chapter? The
+     <code>_pre()</code> and <code>_post</code> have very
+     similar but somewhat different roles. As a result, each
+     serializer skeleton has four special callbacks:</p>
+
+  <pre class="c++">
+  virtual void
+  pre ();
+
+  virtual void
+  _pre ();
+
+  virtual void
+  _post ();
+
+  virtual void
+  post ();
+  </pre>
+
+  <p><code>pre()</code> and <code>_pre()</code> are initialization
+     callbacks. They get called in that order before a new instance of the type
+     is about to be serialized. The difference between <code>pre()</code> and
+     <code>_pre()</code> is conventional: <code>pre()</code> can
+     be completely overridden by a derived serializer. The derived
+     serializer can also override <code>_pre()</code> but has to always call
+     the original version. This allows you to partition initialization
+     into customizable and required parts.</p>
+
+  <p>Similarly, <code>_post()</code> and <code>post()</code> are
+     finalization callbacks with exactly the same semantics:
+    <code>post()</code> can be completely overridden by the derived
+     serializer while the original <code>_post()</code> should always be
+     called.
+  </p>
+
+  <p>At this point you might be wondering why some <code>pre()</code>
+     callbacks, for example <code>string_sskel::pre()</code>, have an
+     argument with which they receive the data they need to serialize while
+     others, for example <code>gender_sskel::pre()</code>, have no such
+     argument. This is a valid concern and it will be addressed in the
+     next chapter.</p>
+
+  <h2><a name="3.2">3.2 Implementing the Person Serializer</a></h2>
+
+  <p>The generated <code>person_sskel</code> serializer skeleton looks like
+     this:</p>
+
+  <pre class="c++">
+class person_sskel: public xml_schema::serializer_complex_content
+{
+public:
+  // Serializer callbacks. Override them in your implementation.
+  //
+  virtual void
+  pre ();
+
+  virtual std::string
+  first_name () = 0;
+
+  virtual std::string
+  last_name () = 0;
+
+  virtual void
+  gender ();
+
+  virtual short
+  age () = 0;
+
+  virtual void
+  post ();
+
+  // Serializer construction API.
+  //
+  void
+  first_name_serializer (xml_schema::string_sskel&amp;);
+
+  void
+  last_name_serializer (xml_schema::string_sskel&amp;);
+
+  void
+  gender_serializer (gender_sskel&amp;);
+
+  void
+  age_serializer (xml_schema::short_sskel&amp;);
+
+  void
+  serializers (xml_schema::string_sskel&amp; /* first-name */,
+               xml_schema::string_sskel&amp; /* last-name */,
+               gender_sskel&amp;             /* gender */,
+               xml_schema::short_sskel&amp;  /* age */);
+};
+  </pre>
+
+
+  <p>As you can see, we have a serializer callback for each of the nested
+     elements found in the <code>person</code> XML Schema type.
+     The implementation of this serializer is straightforward:</p>
+
+  <pre class="c++">
+class person_simpl: public person_sskel
+{
+public:
+  virtual string
+  first_name ()
+  {
+    string fn;
+    cerr &lt;&lt; "first name: ";
+    getline (cin, fn);
+    return fn;
+  }
+
+  virtual std::string
+  last_name ()
+  {
+    string ln;
+    cerr &lt;&lt; "last name: ";
+    getline (cin, ln);
+    return ln;
+  }
+
+  virtual short
+  age ()
+  {
+    short a;
+    cerr &lt;&lt; "age: ";
+    cin >> a;
+    return a;
+  }
+};
+  </pre>
+
+  <p>Notice that we didn't need to override the <code>gender()</code>
+     callback because all the work is done by <code>gender_simpl</code>.</p>
+
+  <h2><a name="3.3">3.3 Implementing the People Serializer</a></h2>
+
+  <p>The generated <code>people_sskel</code> serializer skeleton looks like
+     this:</p>
+
+  <pre class="c++">
+class people_sskel: public xml_schema::serializer_complex_content
+{
+public:
+  // Serializer callbacks. Override them in your implementation.
+  //
+  virtual void
+  pre ();
+
+  virtual bool
+  person_next () = 0;
+
+  virtual void
+  person ();
+
+  virtual void
+  post ();
+
+  // Serializer construction API.
+  //
+  void
+  person_serializer (person_sskel&amp;);
+
+  void
+  serializers (person_sskel&amp; /* person */);
+};
+  </pre>
+
+  <p>The <code>person_next()</code> callback will be called before serializing
+     each <code>person</code> element. Our implementation of
+     <code>person_next()</code> asks the user whether to serialize
+     another person record:</p>
+
+  <pre class="c++">
+class people_simpl: public people_sskel
+{
+public:
+  virtual bool
+  person_next ()
+  {
+    string s;
+    cerr &lt;&lt; "serialize another person record (y/n): ";
+    cin >> ws; // Skip leading whitespaces.
+    getline (cin, s);
+    return s == "y";
+  }
+};
+  </pre>
+
+  <p>Now it is time to put everything together.</p>
+
+
+  <h2><a name="3.4">3.4 Connecting the Serializers Together</a></h2>
+
+  <p>At this point we have all the individual serializers implemented
+     and can proceed to assemble them into a complete serializer
+     for our XML vocabulary. The first step is to instantiate
+     all the individual serializers that we will need:</p>
+
+  <pre class="c++">
+xml_schema::short_simpl short_s;
+xml_schema::string_simpl string_s;
+
+gender_simpl gender_s;
+person_simpl person_s;
+people_simpl people_s;
+  </pre>
+
+  <p>Notice that our schema uses two built-in XML Schema types:
+     <code>string</code> for the <code>first-name</code> and
+     <code>last-name</code> elements as well as <code>short</code>
+     for <code>age</code>. We will use predefined serializers that
+     come with the XSD/e runtime to serialize these types. The next
+     step is to connect all the individual serializers. We do this
+     with the help of functions defined in the serializer
+     skeletons and marked with the "Serializer Construction API"
+     comment. One way to do it is to connect each individual
+     serializers by calling the <code>*_serializer()</code> functions:</p>
+
+  <pre class="c++">
+person_s.first_name_serializer (string_s);
+person_s.last_name_serializer (string_s);
+person_s.gender_serializer (gender_s);
+person_s.age_serializer (short_s);
+
+people_s.person_serializer (person_s);
+  </pre>
+
+  <p>You might be wondering what happens if you do not provide
+     a serializer by not calling one of the <code>*_serializer()</code>
+     functions. In that case the corresponding XML fragment will be
+     skipped.</p>
+
+  <p>An alternative, shorter, way to connect the serializers is by using
+     the <code>serializers()</code> functions which connects all the
+     serializers for a given type at once:</p>
+
+  <pre class="c++">
+person_s.serializers (string_s, string_s, gender_s, short_s);
+people_s.serializers (person_s);
+  </pre>
+
+  <p>The following figure illustrates the resulting connections. Notice
+     the correspondence between return types of element callbacks and
+     argument types of the <code>pre()</code> functions that are connected
+     by the arrows.</p>
+
+  <!-- align=center is needed for html2ps -->
+  <div class="img" align="center"><img src="figure-1.png"/></div>
+
+  <p>The last step is the construction of the document serializer and
+     invocation of the complete serializer to produce an XML
+     document:</p>
+
+  <pre class="c++">
+xml_schema::document_simpl doc_s (people_s, "people");
+
+std::ostringstream os;
+
+people_s.pre ();
+doc_s.serialize (os, xml_schema::document_simpl::pretty_print);
+people_s.post ();
+
+cout &lt;&lt; os.str ();
+  </pre>
+
+  <p>Note that we first serialize the document into an
+     <code>std::ostringstream</code> object and then write
+     the result to the standard output stream. This is done
+     to prevent the input prompts and output XML from interleaving.
+     However, writing XML directly to <code>std::cout</code> in
+     this example is a great way to observe the moments in the XML
+     document construction process at which serializer callbacks are
+     being called.</p>
+
+  <p>Let's consider <code>xml_schema::document_simpl</code> in
+     more detail. While the exact definition of this class
+     varies depending on the mapping configuration, here is
+     the part relevant to our example:</p>
+
+  <pre class="c++">
+namespace xml_schema
+{
+  class document_simpl
+  {
+  public:
+    document_simpl (xml_schema::serializer_base&amp;,
+                    const std::string&amp; root_element_name);
+
+    document_simpl (xml_schema::serializer_base&amp;,
+                    const std::string&amp; root_element_namespace,
+                    const std::string&amp; root_element_name);
+
+    typedef unsigned short flags;
+    static const flags pretty_print;
+
+    void
+    serialize (std::ostream&amp;, flags = 0);
+  };
+}
+  </pre>
+
+   <p><code>xml_schema::document_simpl</code> is a root serializer for
+     the vocabulary. The first argument to its constructors is the
+     serializer for the type of the root element (<code>people_simpl</code>
+     in our case). Because a type serializer is only concerned with
+     the element's content and not with the element's name, we need
+     to specify the root element name somewhere. That's
+     what is passed as the second and third arguments to the
+     <code>document_simpl</code>'s constructors.</p>
+
+   <p>There is also a number of overloaded <code>serialize()</code>
+      function defined in the <code>document_simpl</code> class.
+      At the moment we are only interested in the version that
+      writes XML to a standard output stream. For more information
+      on the <code>xml_schema::document_simpl</code> class
+      refer to <a href="#8">Chapter 8, "Document Serializer and Error
+      Handling"</a>.</p>
+
+   <p>Let's now consider a step-by-step list of actions that happen
+      as we serialize the following sample XML document:</p>
+
+  <pre class="xml">
+&lt;people>
+  &lt;person>
+    &lt;first-name>John&lt;/first-name>
+    &lt;last-name>Doe&lt;/last-name>
+    &lt;gender>male&lt;/gender>
+    &lt;age>32&lt;/age>
+  &lt;/person>
+&lt;/people>
+  </pre>
+
+
+   <ol class="steps">
+     <li><code>people_s.pre()</code> is called from
+         <code>main()</code>. We did not provide any implementation
+         for this callback so this call is a no-op.</li>
+
+     <li><code>doc_s.serialize(os)</code> is called from
+         <code>main()</code>. The document serializer
+         writes out the <code>&lt;people></code> opening tag
+         and calls <code>_pre()</code> on the root element
+         type serializer (<code>people_s</code>) which is
+         also a no-op. Serialization is delegated to
+         <code>people_s</code>.</li>
+
+     <li>The <code>people_s</code> serializer calls <code>person_next()</code>
+         to determine if another <code>person</code> element
+         needs to be serialized. Our implementation ask the user
+         (who answers <code>"y"</code>) and returns <code>true</code>.</li>
+
+     <li>The <code>people_s</code> serializer calls <code>person()</code>
+         which is a no-op. It then calls <code>pre()</code> on
+         <code>person_s</code> (no-op), writes out the
+         <code>&lt;person></code> opening tag, and calls <code>_pre()</code>
+         on <code>person_s</code> (no-op). Serialization is delegated to
+         <code>person_s</code>.</li>
+
+     <li>The <code>person_s</code> serializer calls <code>first_name()</code>
+         that returns a first name which it asks the user to enter.
+         <code>person_s</code> then calls <code>pre()</code> on
+         <code>string_s</code> and passes the name returned from
+         <code>first_name()</code> as its argument. It then writes
+         out the <code>&lt;first-name></code> opening tag and calls
+         <code>_pre()</code> on <code>string_s</code>. Serialization
+         is delegated to <code>string_s</code>.</li>
+
+     <li>The <code>_serialize_content()</code> callback is called on
+         <code>string_s</code> which writes out the string passed
+         to it in the <code>pre()</code> call.</li>
+
+     <li>Control is returned to <code>person_s</code> which
+         calls <code>_post()</code> on <code>string_s</code>, writes
+         out the <code>&lt;/first-name></code> closing tag, and calls
+         <code>post()</code> on <code>string_s</code>.</li>
+
+     <li>Steps analogous to 5-7 are performed for the <code>last-name</code>,
+         <code>gender</code>, and <code>age</code> elements.</li>
+
+     <li>Control is returned to <code>people_s</code>
+         which calls <code>_post()</code> on <code>person_s</code> (no-op),
+         writes out the <code>&lt;/person></code> closing tag, and calls
+         <code>post()</code> on <code>person_s</code> (no-op).</li>
+
+     <li>The <code>people_s</code> serializer calls <code>person_next()</code>
+         to determine if another <code>person</code> element
+         needs to be serialized. Our implementation ask the user
+         (who answers <code>"n"</code>) and returns <code>false</code>.</li>
+
+     <li>Control is returned to <code>doc_s</code> which calls
+         <code>_post()</code> on <code>people_s</code> (no-op) and
+         writes out the <code>&lt;/people></code> closing tag.</li>
+
+     <li>Control is returned to <code>main()</code> which
+         calls <code>post()</code> on <code>people_s</code> (no-op).</li>
+   </ol>
+
+
+  <!-- Chpater 4 -->
+
+
+  <h1><a name="4">4 Type Maps</a></h1>
+
+  <p>There are many useful things you can do inside serializer callbacks as they
+     are right now. There are, however, times when you want to propagate
+     some information from one serializer to another or from the caller of
+     the serializer. One common task that would greatly benefit from such a
+     possibility is serializing a tree-like in-memory object model to XML.
+     During execution, each individual serializer would be responsible
+     for disaggregating and serializing a specific portion of the tree
+     and delegating the rest to its sub-serializers.</p>
+
+  <p>In this chapter we will discuss the mechanisms offered by the
+     C++/Serializer mapping for passing information between individual
+     serializers and see how to use them to serialize a sample object
+     model for our people vocabulary.</p>
+
+  <h2><a name="4.1">4.1 Object Model</a></h2>
+
+  <p>An object model for our person record example could
+     look like this (saved in the <code>people.hxx</code> file):</p>
+
+  <pre class="c++">
+#include &lt;string>
+#include &lt;vector>
+
+enum gender
+{
+  male,
+  female
+};
+
+class person
+{
+public:
+  person (const std::string&amp; first,
+          const std::string&amp; last,
+          ::gender gender,
+          short age)
+    : first_ (first), last_ (last),
+      gender_ (gender), age_ (age)
+  {
+  }
+
+  const std::string&amp;
+  first () const
+  {
+    return first_;
+  }
+
+  const std::string&amp;
+  last () const
+  {
+    return last_;
+  }
+
+  ::gender
+  gender () const
+  {
+    return gender_;
+  }
+
+  short
+  age () const
+  {
+    return age_;
+  }
+
+private:
+  std::string first_;
+  std::string last_;
+  ::gender gender_;
+  short age_;
+};
+
+typedef std::vector&lt;person> people;
+  </pre>
+
+  <p>While it is clear which serializer is responsible for which part of
+     the object model, it is not exactly clear how, for
+     example, <code>person_simpl</code> will pass <code>gender</code>
+     to <code>gender_simpl</code>. You might have noticed that
+     <code>string_simpl</code> manages to receive its value from the
+     <code>first_name()</code> callback. Let's
+     see how we can utilize the same mechanism to propagate our
+     own data.</p>
+
+  <p>There is a way to tell the XSD/e compiler that you want to
+     exchange data between serializers. More precisely, for each
+     type defined in XML Schema, you can tell the compiler two things.
+     First, the argument type of the <code>pre()</code> callback
+     in the serializer skeleton generated for this type. And, second,
+     the return type for callbacks corresponding to elements and
+     attributes of this type. For example, for XML Schema type
+     <code>gender</code> we can specify the argument type for
+     <code>pre()</code> in the <code>gender_sskel</code>
+     skeleton and the return type for the <code>gender()</code> callback
+     in the <code>person_sskel</code> skeleton. As you might have guessed,
+     the generated code will then pass the return value from an
+     element or attribute callback (<code>person_sskel::gender()</code>
+     in our case) to the <code>pre()</code> callback of the corresponding
+     serializer skeleton (<code>gender_sskel::pre()</code> in our case).</p>
+
+  <p>The way to tell the XSD/e compiler about these XML Schema to
+     C++ mappings is with type map files. Here is a simple type
+     map for the <code>gender</code> type from the previous paragraph.</p>
+
+  <pre class="type-map">
+include "people.hxx";
+gender ::gender ::gender;
+  </pre>
+
+  <p>The first line indicates that the generated code must include
+     <code>people.hxx</code> in order to get the definition for the
+     <code>gender</code> type. The second line specifies that both
+     argument and return types for the <code>gender</code>
+     XML Schema type should be the <code>::gender</code> C++ enum
+     (we use fully-qualified C++ names to avoid name clashes).
+     The next section will describe the type map format in more detail.
+     We save this type map in <code>people.map</code> and
+     then translate our schemas with the <code>--type-map</code>
+     option to let the XSD/e compiler know about our type map:</p>
+
+  <pre class="terminal">
+$ xsde cxx-serializer --type-map people.map people.xsd
+  </pre>
+
+  <p>If we now look at the generated <code>people-sskel.hxx</code>,
+     we will see the following changes in the <code>gender_sskel</code> and
+     <code>person_sskel</code> skeletons:</p>
+
+  <pre class="c++">
+#include "people.hxx"
+
+class gender_sskel: public xml_schema::string_sskel
+{
+  virtual void
+  pre (::gender) = 0;
+
+  ...
+};
+
+class person_sskel: public xml_schema::serializer_complex_content
+{
+  virtual ::gender
+  gender () = 0;
+
+  ...
+};
+  </pre>
+
+  <p>Notice that <code>#include "people.hxx"</code> was added to
+     the generated header file from the type map to provide the
+     definition for the <code>gender</code> enum.</p>
+
+  <h2><a name="4.2">4.2 Type Map File Format</a></h2>
+
+  <p>Type map files are used to define a mapping between XML Schema
+     and C++ types. The compiler uses this information
+     to determine argument types of <code>pre()</code>
+     callbacks in serializer skeletons corresponding to XML Schema
+     types as well as return types for callbacks corresponding
+     to elements and attributes of these types.</p>
+
+  <p>The compiler has a set of predefined mapping rules that map
+     the built-in XML Schema types to suitable C++ types (discussed
+     below) and all other types to <code>void</code>.
+     By providing your own type maps you can override these predefined
+     rules. The format of the type map file is presented below:
+  </p>
+
+  <pre class="type-map">
+namespace &lt;schema-namespace> [&lt;cxx-namespace>]
+{
+  (include &lt;file-name>;)*
+  ([type] &lt;schema-type> &lt;cxx-ret-type> [&lt;cxx-arg-type>];)*
+}
+  </pre>
+
+  <p>Both <code><i>&lt;schema-namespace></i></code> and
+     <code><i>&lt;schema-type></i></code> are regex patterns while
+     <code><i>&lt;cxx-namespace></i></code>,
+     <code><i>&lt;cxx-ret-type></i></code>, and
+     <code><i>&lt;cxx-arg-type></i></code> are regex pattern
+     substitutions. All names can be optionally enclosed in
+     <code>"&nbsp;"</code>, for example, to include white-spaces.</p>
+
+  <p><code><i>&lt;schema-namespace></i></code> determines XML
+     Schema namespace. Optional <code><i>&lt;cxx-namespace></i></code>
+     is prefixed to every C++ type name in this namespace declaration.
+     <code><i>&lt;cxx-ret-type></i></code> is a C++ type name that is
+     used as a return type for the element and attribute callbacks corresponding
+     to this schema type. Optional <code><i>&lt;cxx-arg-type></i></code>
+     is an argument type for the <code>pre()</code> callback in the serializer
+     skeleton for this schema type. If <code><i>&lt;cxx-arg-type></i></code>
+     is not specified, it defaults to <code><i>&lt;cxx-ret-type></i></code>
+     if <code><i>&lt;cxx-ret-type></i></code> ends with <code>*</code> or
+     <code>&amp;</code> (that is, it is a pointer or a reference) and
+     <code>const&nbsp;<i>&lt;cxx-ret-type></i>&amp;</code>
+     otherwise.
+     <code><i>&lt;file-name></i></code> is a file name either in the
+     <code>"&nbsp;"</code> or <code>&lt;&nbsp;></code> format
+     and is added with the <code>#include</code> directive to
+     the generated code.</p>
+
+  <p>The <code><b>#</b></code> character starts a comment that ends
+     with a new line or end of file. To specify a name that contains
+     <code><b>#</b></code> enclose it in <code><b>"&nbsp;"</b></code>.
+     For example:</p>
+
+  <pre>
+namespace http://www.example.com/xmlns/my my
+{
+  include "my.hxx";
+
+  # Pass apples by value.
+  #
+  apple apple;
+
+  # Pass oranges as pointers.
+  #
+  orange orange_t*;
+}
+  </pre>
+
+  <p>In the example above, for the
+     <code>http://www.example.com/xmlns/my#orange</code>
+     XML Schema type, the <code>my::orange_t*</code> C++ type will
+     be used as both return and argument types.</p>
+
+  <p>Several namespace declarations can be specified in a single
+     file. The namespace declaration can also be completely
+     omitted to map types in a schema without a namespace. For
+     instance:</p>
+
+  <pre class="type-map">
+include "my.hxx";
+apple apple;
+
+namespace http://www.example.com/xmlns/my
+{
+  orange "const orange_t*";
+}
+  </pre>
+
+  <p>The compiler has a number of predefined mapping rules for
+     the built-in XML Schema types which can be presented as the
+     following map files:</p>
+
+  <pre class="type-map">
+namespace http://www.w3.org/2001/XMLSchema
+{
+  boolean bool bool;
+
+  byte "signed char" "signed char";
+  unsignedByte "unsigned char" "unsigned char";
+
+  short short short;
+  unsignedShort "unsigned short" "unsigned short";
+
+  int int int;
+  unsignedInt "unsigned int" "unsigned int";
+
+  long "long long" "long long";
+  unsignedLong "unsigned long long" "unsigned long long";
+
+  integer long long;
+
+  negativeInteger long long;
+  nonPositiveInteger long long;
+
+  positiveInteger "unsigned long" "unsigned long";
+  nonNegativeInteger "unsigned long" "unsigned long";
+
+  float float float;
+  double double double;
+  decimal double double;
+
+  NMTOKENS "const xml_schema::string_sequence*";
+  IDREFS "const xml_schema::string_sequence*";
+
+  base64Binary "const xml_schema::buffer*";
+  hexBinary "const xml_schema::buffer*";
+
+  date xml_schema::date;
+  dateTime xml_schema::date_time;
+  duration xml_schema::duration;
+  gDay xml_schema::gday;
+  gMonth xml_schema::gmonth;
+  gMonthDay xml_schema::gmonth_day;
+  gYear xml_schema::gyear;
+  gYearMonth xml_schema::gyear_month;
+  time xml_schema::time;
+}
+  </pre>
+
+  <p>If STL is enabled (<a href="#6.1">Section 6.1, "Standard Template
+     Library"</a>), the following mapping is used for the string-based
+     XML Schema built-in types:</p>
+
+  <pre class="type-map">
+namespace http://www.w3.org/2001/XMLSchema
+{
+  include &lt;string>;
+
+  anySimpleType std::string;
+
+  string std::string;
+  normalizedString std::string;
+  token std::string;
+  Name std::string;
+  NMTOKEN std::string;
+  NCName std::string;
+  ID std::string;
+  IDREF std::string;
+  language std::string;
+  anyURI std::string;
+
+  QName xml_schema::qname;
+}
+  </pre>
+
+  <p>Otherwise, a C string-based mapping is used:</p>
+
+  <pre class="type-map">
+namespace http://www.w3.org/2001/XMLSchema
+{
+  anySimpleType "const char*";
+
+  string "const char*";
+  normalizedString "const char*";
+  token "const char*";
+  Name "const char*";
+  NMTOKEN "const char*";
+  NCName "const char*";
+  ID "const char*";
+  IDREF "const char*";
+  language "const char*";
+  anyURI "const char*";
+
+  QName "const xml_schema::qname*";
+}
+  </pre>
+
+  <p>For more information about the mapping of the built-in XML Schema types
+     to C++ types refer to <a href="#7">Chapter 7, "Built-In XML Schema Type
+     Serializers"</a>. The last predefined rule maps anything that wasn't
+     mapped by previous rules to <code>void</code>:</p>
+
+  <pre class="type-map">
+namespace .*
+{
+  .* void void;
+}
+  </pre>
+
+
+  <p>When you provide your own type maps with the
+     <code>--type-map</code> option, they are evaluated first. This
+     allows you to selectively override any
+     of the predefined rules. Note also that if you change the mapping
+     of a built-in XML Schema type then it becomes your responsibility
+     to provide the corresponding serializer skeleton and implementation
+     in the <code>xml_schema</code> namespace. You can include the
+     custom definitions into the generated header file using the
+     <code>--hxx-prologue-*</code> options.</p>
+
+  <h2><a name="4.3">4.3 Serializer Implementations</a></h2>
+
+  <p>With the knowledge from the previous section, we can proceed
+     with creating a type map that maps types in the <code>people.xsd</code>
+     schema to our object model classes in
+     <code>people.hxx</code>. In fact, we already have the beginning
+     of our type map file in <code>people.map</code>. Let's extend
+     it with the rest of the types:</p>
+
+  <pre class="type-map">
+include "people.hxx";
+
+gender ::gender ::gender;
+person "const ::person&amp;";
+people "const ::people&amp;";
+  </pre>
+
+  <p>A few things to note about this type map. We decided to pass
+     the <code>person</code> and <code>people</code> objects by
+     constant references in order to avoid unnecessary copying.
+     We can do this because we know that our object model is
+     present for the duration of serialization. We also did not
+     provide any mappings for built-in XML Schema types
+     <code>string</code> and <code>short</code> because they
+     are handled by the predefined rules and we are happy with
+     the result. Note also that all C++ types are fully qualified.
+     This is done to avoid potential name conflicts in the generated
+     code. Now we can recompile our schema and move on to implementing
+     the serializers:</p>
+
+  <pre class="terminal">
+$ xsde cxx-serializer --type-map people.map people.xsd
+  </pre>
+
+  <p>Here is the implementation of our three serializers in full. One
+     way to save typing when implementing your own serializers is
+     to open the generated code and copy the signatures of serializer
+     callbacks into your code. Or you could always auto generate the
+     sample implementations and fill them with your code.</p>
+
+  <pre class="c++">
+#include "people-sskel.hxx"
+
+const char* gender_strings[] = {"male", "female"};
+
+class gender_simpl: public gender_sskel
+{
+public:
+  gender_simpl ()
+    : gender_sskel (&amp;base_impl_)
+  {
+  }
+
+  virtual void
+  pre (gender g)
+  {
+    base_impl_.pre (gender_strings[g]);
+  }
+
+private:
+  xml_schema::string_simpl base_impl_;
+};
+
+class person_simpl: public person_sskel
+{
+public:
+  virtual void
+  pre (const person&amp; p)
+  {
+    p_ = &amp;p;
+  }
+
+  virtual std::string
+  first_name ()
+  {
+    return p_->first ();
+  }
+
+  virtual std::string
+  last_name ()
+  {
+    return p_->last ();
+  }
+
+  virtual ::gender
+  gender ()
+  {
+    return p_->gender ();
+  }
+
+  virtual short
+  age ()
+  {
+    return p_->age ();
+  }
+
+private:
+  const person* p_;
+};
+
+class people_simpl: public people_sskel
+{
+public:
+  virtual void
+  pre (const people&amp; p)
+  {
+    p_ = &amp;p;
+    i_ = p_->begin ();
+  }
+
+  virtual bool
+  person_next ()
+  {
+    return i_ != p_->end ();
+  }
+
+  virtual const ::person&amp;
+  person ()
+  {
+    return *i_++;
+  }
+
+private:
+  const people* p_;
+  people::const_iterator i_;
+};
+  </pre>
+
+  <p>This code fragment should look familiar by now. Just note that
+     all the <code>pre()</code> callbacks now have arguments. Here is the
+     implementation of the test driver for this example:</p>
+
+  <pre class="c++">
+#include &lt;iostream>
+
+using namespace std;
+
+int
+main ()
+{
+  // Create a sample object model.
+  //
+  people ppl;
+
+  ppl.push_back (person ("John", "Doe", male, 32));
+  ppl.push_back (person ("Jane", "Doe", female, 28));
+
+  // Construct the serializer.
+  //
+  xml_schema::short_simpl short_s;
+  xml_schema::string_simpl string_s;
+
+  gender_simpl gender_s;
+  person_simpl person_s;
+  people_simpl people_s;
+
+  person_s.serializers (string_s, string_s, gender_s, short_s);
+  people_s.serializers (person_s);
+
+  // Create the XML document.
+  //
+  xml_schema::document_simpl doc_s (people_s, "people");
+
+  people_s.pre (ppl);
+  doc_s.serialize (cout, xml_schema::document_simpl::pretty_print);
+  people_s.post ();
+}
+  </pre>
+
+  <p>The serializer creation and assembly part is exactly the same as in
+     the previous chapter. The serialization part is a bit different:
+     <code>people_simpl::pre()</code> now has an argument which is the
+     complete object model. Also we write the resulting XML directly
+     to the standard output stream instead of first storing it in a string.
+     We can now save the last two code fragments to <code>driver.cxx</code>
+     and proceed to compile and test our new application:</p>
+
+
+  <pre class="terminal">
+$ c++ -I.../libxsde -c driver.cxx people-sskel.cxx
+$ c++ -o driver driver.o people-sskel.o .../libxsde/xsde/libxsde.a
+$ ./driver
+&lt;people>
+  &lt;person>
+    &lt;first-name>John&lt;/first-name>
+    &lt;last-name>Doe&lt;/last-name>
+    &lt;gender>male&lt;/gender>
+    &lt;age>32&lt;/age>
+  &lt;/person>
+  &lt;person>
+    &lt;first-name>Jane&lt;/first-name>
+    &lt;last-name>Doe&lt;/last-name>
+    &lt;gender>female&lt;/gender>
+    &lt;age>28&lt;/age>
+  &lt;/person>
+&lt;/people>
+  </pre>
+
+
+  <!-- Serializer Callbacks -->
+
+  <h1><a name="5">5 Serializer Callbacks</a></h1>
+
+  <p>In previous chapters we have learned that for each attribute
+     and element in a schema type there is a callback in a serializer
+     skeleton with the same name and which optionally returns
+     this element's or attribute's value. We've also seen that
+     elements that can appear multiple times
+     (<code>maxOccurs="unbounded"</code>) have an additional
+     serializer callback in the form:</p>
+
+  <pre class="c++">
+virtual bool
+&lt;name>_next ();
+  </pre>
+
+  <p>Where <code>&lt;name></code> stands for the element's name. In
+     this chapter we will discuss other additional serializer
+     callbacks that are generated for certain XML Schema constructs.
+     We will also learn that besides elements and attributes, serializer
+     callback can be generated for the <code>all</code>, <code>choice</code>,
+     and <code>sequence</code> compositors as well as the <code>any</code>
+     and <code>anyAttribute</code> wildcards.</p>
+
+  <p>When additional serializer callback are generated for elements
+     and attributes, their names are derived from element's and
+     attribute's names. Compositors and wildcards, on the other
+     hand, do not have names and as a result the serializer
+     callback names for these constructs are based on synthesized
+     names in the form: <code>all</code> for the <code>all</code>
+     compositor, <code>sequence</code>, <code>sequence1</code>,
+     etc., for the <code>sequence</code> compositors, <code>choice</code>,
+     <code>choice1</code>, etc., for the <code>choice</code> compositors,
+     <code>any</code>, <code>any1</code>, etc., for the <code>any</code>
+     wildcards, and <code>any_attribute</code>, <code>any_attribute1</code>,
+     etc., for the <code>anyAttribute</code> wildcards. For example:</p>
+
+  <pre>
+&lt;xs:complexType name="coordinates">
+  &lt;xs:sequence maxOccurs="unbounded">
+    &lt;xs:element name="lat" type="xs:float"/>
+    &lt;xs:element name="lon" type="xs:float"/>
+  &lt;/xs:sequence>
+&lt;/xs:complexType>
+  </pre>
+
+  <p>The above schema fragment, when compiled, results in the following
+     serializer skeleton:</p>
+
+  <pre class="c++">
+class coordinates_sskel: public xml_schema::serializer_complex_content
+{
+public:
+  virtual void
+  pre ();
+
+  virtual bool
+  sequence_next ();
+
+  virtual float
+  lan () = 0;
+
+  virtual float
+  lon () = 0;
+
+  virtual void
+  post ();
+
+  ...
+};
+  </pre>
+
+
+  <h2><a name="5.1">5.1 Optional Callback</a></h2>
+
+  <p>For elements, compositors, and element wildcards with the minimal
+     occurrence constraint equals <code>0</code> (<code>minOccurs="0"</code>)
+     and the maximum occurrence constraint equals <code>1</code>
+     (<code>maxOccurs="1"</code>) as well as for optional attributes, the
+     optional callback is generated in the form:</p>
+
+  <pre class="c++">
+virtual bool
+&lt;name>_present ();
+  </pre>
+
+  <p>This callback is called before any other callbacks for this schema
+     construct and if it returns <code>false</code> no further callback
+     calls corresponding to this construct are made and the corresponding
+     XML fragment is omitted. For example:</p>
+
+  <pre>
+&lt;xs:complexType name="name">
+  &lt;xs:sequence minOccurs="0">
+    &lt;xs:element name="first" type="xs:string"/>
+    &lt;xs:element name="initial" type="xs:string" minOccurs="0"/>
+    &lt;xs:element name="last" type="xs:string"/>
+  &lt;/xs:sequence>
+  &lt;xs:attribute name="lang" type="xs:language"/>
+&lt;/xs:complexType>
+  </pre>
+
+  <p>The above schema fragment, when compiled, results in the following
+     serializer skeleton:</p>
+
+  <pre class="c++">
+class name_sskel: public xml_schema::serializer_complex_content
+{
+public:
+  virtual void
+  pre ();
+
+  virtual bool
+  lang_present ();
+
+  virtual std::string
+  lang () = 0;
+
+  virtual bool
+  sequence_present ();
+
+  virtual std::string
+  first () = 0;
+
+  virtual bool
+  initial_present ();
+
+  virtual std::string
+  initial () = 0;
+
+  virtual std::string
+  last () = 0;
+
+  virtual void
+  post ();
+
+  ...
+};
+  </pre>
+
+  <h2><a name="5.2">5.2 Sequence Callback</a></h2>
+
+  <p>For elements, compositors, and element wildcards with the the maximum
+     occurrence constraint greater than <code>1</code> (for example,
+     <code>maxOccurs="unbounded"</code>) the sequence callback is
+     generated in the form:</p>
+
+  <pre class="c++">
+virtual bool
+&lt;name>_next ();
+  </pre>
+
+  <p>This callback is called before each new item of the sequence is
+     about to be serialized. Returning <code>false</code> from this
+     callback indicates that no more items in the sequence need to
+     be serialized. For example:</p>
+
+  <pre>
+&lt;xs:complexType name="names">
+  &lt;xs:sequence maxOccurs="unbounded">
+    &lt;xs:element name="first" type="xs:string"/>
+    &lt;xs:element name="last" type="xs:string"/>
+    &lt;xs:element name="pseudonym" type="xs:string" maxOccurs="3"/>
+  &lt;/xs:sequence>
+&lt;/xs:complexType>
+  </pre>
+
+  <p>The above schema fragment, when compiled, results in the following
+     serializer skeleton:</p>
+
+  <pre class="c++">
+class names_sskel: public xml_schema::serializer_complex_content
+{
+public:
+  virtual void
+  pre ();
+
+  virtual bool
+  sequence_next () = 0;
+
+  virtual std::string
+  first () = 0;
+
+  virtual std::string
+  last () = 0;
+
+  virtual bool
+  pseudonym_next () = 0;
+
+  virtual std::string
+  pseudonym () = 0;
+
+  virtual void
+  post ();
+};
+  </pre>
+
+  <h2><a name="5.3">5.3 Choice Callback</a></h2>
+
+  <p>The choice compositor allows an XML document to contain one
+     of several element or compositor options. In the Embedded
+     C++/Serializer mapping, these options are called <em>choice
+     arms</em> and are identified by the <em>arm tags</em>. For
+     example:</p>
+
+  <pre>
+&lt;xs:complexType name="name">
+  &lt;xs:choice>
+    &lt;xs:element name="full-name" type="xs:string"/>
+    &lt;xs:sequence>
+      &lt;xs:element name="first-name" type="xs:string"/>
+      &lt;xs:element name="last-name" type="xs:string"/>
+    &lt;/xs:sequence>
+  &lt;/xs:choice>
+&lt;/xs:complexType>
+  </pre>
+
+  <p>The above schema fragment, when compiled, results in the following
+     serializer skeleton:</p>
+
+  <pre class="c++">
+class name_sskel: public xml_schema::serializer_complex_content
+{
+public:
+  virtual void
+  pre ();
+
+  enum choice_arm_tag
+  {
+    full_name_tag,
+    sequence_tag
+  };
+
+  virtual choice_arm_tag
+  choice_arm () = 0;
+
+  virtual std::string
+  full_name () = 0;
+
+  virtual std::string
+  first_name () = 0;
+
+  virtual std::string
+  last_name () = 0;
+
+  virtual void
+  post ();
+};
+  </pre>
+
+  <p>The arm tags enum name (<code>choice_arm_tag</code> above) is derived
+     from the choice compositor name (that is, <code>choice</code>,
+     <code>choice1</code>, etc.) by adding the <code>_arm_tag</code>
+     suffix. The tag names themselves are derived from the corresponding
+     elements, compositors, or element wildcards.</p>
+
+  <p>The choice compositor callback has a name in the form
+     <code>choice_tag()</code> (or <code>choice1_tag()</code>, etc., for
+     subsequent <code>choice</code> compositors in the type). It returns
+     the arm tag which identifies the choice arm that should be
+     serialized. For example, if a <code>name_sskel</code> implementation
+     returns <code>full_name_tag</code> from the <code>choice_arm()</code>
+     callback, then the first choice arm is chosen and
+     the <code>full_name()</code> callback is then called. Otherwise
+     the <code>first_name</code> and <code>last_name()</code> callbacks
+     are called.</p>
+
+
+  <h2><a name="5.4">5.4 Element Wildcard Callbacks</a></h2>
+
+  <p>An element wildcard allows an arbitrary element from the specified
+     namespace list to be present in an XML instance. Element wildcards
+     can have the same cardinality constraints as elements and, as as a
+     result, the optional or sequence callbacks can be generated. For
+     example:</p>
+
+  <pre>
+&lt;xs:complexType name="name">
+  &lt;xs:sequence>
+    &lt;xs:element name="first" type="xs:string"/>
+    &lt;xs:element name="last" type="xs:string"/>
+    &lt;xs:any namespace="##other" processContents="skip" minOccurs="0"/>
+  &lt;/xs:sequence>
+&lt;/xs:complexType>
+  </pre>
+
+  <p>The above schema fragment, when compiled, results in the following
+     serializer skeleton:</p>
+
+  <pre class="c++">
+class name_sskel: public xml_schema::serializer_complex_content
+{
+public:
+  virtual void
+  pre ();
+
+  virtual std::string
+  first () = 0;
+
+  virtual std::string
+  last () = 0;
+
+  virtual bool
+  any_present ();
+
+  virtual void
+  any (std::string&amp; ns, std::string&amp; name);
+
+  virtual void
+  serialize_any ();
+
+  virtual void
+  post ();
+};
+  </pre>
+
+  <p>The <code>any()</code> callback is called to obtain the element
+     name and namespace. If validation is enabled, the namespace is
+     checked against the allowed list. Then an element with these name
+     and namespace is created and the <code>serialize_any()</code>
+     callback is called to allow you to serialize the element's attributes
+     and  content. There are two common ways to serialize a wildcard
+     element. The first approach is to use a serializer implementation.
+     This approach is shown in the <code>wildcard</code> example which
+     is part of the XSD/e distribution. The other approach is to use
+     the low-level XML serialization API that is available to every
+     serializer implementation via the
+     <code>xml_schema::serializer_base</code> base serializer:</p>
+
+  <pre class="c++">
+namespace xml_schema
+{
+  class serializer_base
+  {
+  public:
+    void
+    _start_element (const char* name);
+
+    void
+    _start_element (const char* ns, const char* name);
+
+    void
+    _end_element ();
+
+    void
+    _start_attribute (const char* name);
+
+    void
+    _start_attribute (const char* ns, const char* name);
+
+    void
+    _end_attribute ();
+
+    void
+    _attribute (const char* name, const char* value);
+
+    void
+    _attribute (const char* ns, const char* name, const char* value);
+
+    void
+    _characters (const char*);
+
+    void
+    _characters (const char*, size_t);
+
+    void
+    _declare_namespace (const char* ns, const char* prefix);
+
+    void
+    _declare_default_namespace (const char* ns);
+
+    void
+    _clear_default_namespace ();
+  };
+}
+  </pre>
+
+  <p>The following example shows how we could implement the
+     <code>name_sskel</code> skeleton using this approach:</p>
+
+  <pre class="c++">
+class name_simpl: public name_sskel
+{
+public:
+  virtual std::string
+  first ()
+  {
+    return "John";
+  }
+
+  virtual ::std::string
+  last ()
+  {
+    return "Doe";
+  }
+
+  virtual bool
+  any_present ()
+  {
+    return true;
+  }
+
+  virtual void
+  any (std::string&amp; ns, std::string&amp; name)
+  {
+    ns = "http://www.example.com/extension";
+    name = "pseudonyms";
+  }
+
+  virtual void
+  serialize_any ()
+  {
+    _attribute ("id", "jd");
+
+    _start_element ("pseudonym");
+    _characters ("Johnny Doer");
+    _end_element ();
+
+    _start_element ("pseudonym");
+    _characters ("Johnty Doo");
+    _end_element ();
+  }
+};
+  </pre>
+
+
+  <h2><a name="5.5">5.5 Attribute Wildcard Callbacks</a></h2>
+
+  <p>An attribute wildcard allows an arbitrary number of attributes from
+     the specified namespace list to be present in an XML instance. As a
+     result, the serializer callbacks for an attribute wildcard resemble
+     those of an element with <code>maxOccurs="unbounded"</code>. For
+     example:</p>
+
+  <pre>
+&lt;xs:complexType name="name">
+  &lt;xs:sequence>
+    &lt;xs:element name="first" type="xs:string"/>
+    &lt;xs:element name="last" type="xs:string"/>
+  &lt;/xs:sequence>
+  &lt;xs:anyAttribute namespace="##any" processContents="skip"/>
+&lt;/xs:complexType>
+  </pre>
+
+  <p>The above schema fragment, when compiled, results in the following
+     serializer skeleton:</p>
+
+  <pre class="c++">
+class name_sskel: public xml_schema::serializer_complex_content
+{
+public:
+  virtual void
+  pre ();
+
+  virtual bool
+  any_attribute_next ();
+
+  virtual void
+  any_attribute (std::string&amp; ns, std::string&amp; name);
+
+  virtual void
+  serialize_any_attribute ();
+
+  virtual std::string
+  first () = 0;
+
+  virtual std::string
+  last () = 0;
+
+  virtual void
+  post ();
+};
+  </pre>
+
+  <p>Every time the <code>any_attribute_next()</code> callback returns
+     <code>true</code>, <code>any_attribute()</code> is called to obtain
+     the attribute name and namespace. If validation is enabled, the
+     namespace is checked against the allowed list. Then an attribute
+     with these name and namespace is created and the
+     <code>serialize_any_attribute()</code> callback is called to allow
+     you to write the attribute value, for example using one of the
+     serializer implementations (see the <code>wildcard</code> example
+     on how to do it) or the low-level <code>_characters()</code> function
+     (for more information about the low-level XML serialization
+     API see the previous section). The following example show
+     how we could implement the <code>name_sskel</code> skeleton
+     using the latter approach:</p>
+
+  <pre class="c++">
+class name_simpl: public name_sskel
+{
+public:
+  virtual void
+  pre ()
+  {
+    id_written_ = false;
+  }
+
+  virtual bool
+  any_attribute_next ()
+  {
+    return !id_written_;
+  }
+
+  virtual void
+  any_attribute (std::string&amp; ns, std::string&amp; name)
+  {
+    ns = "";
+    name = "id";
+  }
+
+  virtual void
+  serialize_any_attribute ()
+  {
+    _characters ("jd");
+    id_written_ = true;
+  }
+
+  virtual std::string
+  first ()
+  {
+    return "John";
+  }
+
+  virtual ::std::string
+  last ()
+  {
+    return "Doe";
+  }
+
+private:
+  bool id_written_;
+};
+  </pre>
+
+
+  <!-- Mapping Configuration -->
+
+
+  <h1><a name="6">6 Mapping Configuration</a></h1>
+
+  <p>The Embedded C++/Serializer mapping has a number of configuration
+     parameters that determine the overall properties and behavior
+     of the generated code, such as the use of Standard Template
+     Library (STL), Input/Output Stream Library (iostream), C++
+     exceptions, XML Schema validation, 64-bit integer types, serializer
+     implementation reuse styles, and support for XML Schema polymorphism.
+     Previous chapters assumed that the use of STL, iostream, C++
+     exceptions, and XML Schema validation were enabled.
+     This chapter will discuss the changes in the Embedded C++/Serializer
+     programming model that result from the changes to these configuration
+     parameters. A complete example that uses the minimal mapping
+     configuration is presented at the end of this chapter.</p>
+
+  <p>In order to enable or disable a particular feature, the corresponding
+     configuration parameter should be set accordingly in the XSD/e runtime
+     library as well as specified during schema compilation with the XSD/e
+     command line options as described in the
+     <a href="http://www.codesynthesis.com/projects/xsde/documentation/xsde.xhtml">XSD/e
+     Compiler Command Line Manual</a>.
+  </p>
+
+  <p>The Embedded C++/Serializer mapping always expects character data
+     supplied by the application to be in the same encoding. The
+     application encoding can either be UTF-8 (default) or ISO-8859-1.
+     To select a particular encoding, configure the XSD/e runtime library
+     accordingly and pass the <code>--char-encoding</code> option to the
+     XSD/e compiler when translating your schemas. The underlying XML
+     serializer used by the Embedded C++/Serializer mapping produces
+     the resulting XML documents in the UTF-8 encoding.</p>
+
+  <h2><a name="6.1">6.1 Standard Template Library</a></h2>
+
+  <p>To disable the use of STL you will need to configure the XSD/e
+     runtime without support for STL as well as pass the
+     <code>--no-stl</code> option to the XSD/e compiler when
+     translating your schemas. When STL is disabled, all string-based
+     XML Schema types are mapped to C-style <code>const char*</code>
+     instead of <code>std::string</code>, as described in
+     <a href="#4.2">Section 4.2, "Type Map File Format"</a>. The
+     following code fragment shows changes in the
+     signatures of the <code>first_name()</code> and <code>last_name()</code>
+     callbacks from the person record example.</p>
+
+  <pre class="c++">
+class person_sskel
+{
+public:
+  virtual const char*
+  first_name ();
+
+  virtual const char*
+  last_name ();
+
+  ...
+};
+  </pre>
+
+  <p>When STL is disabled, the serializer implementations for the string-based
+     built-in XML Schema types can be instructed to release the string
+     after serialization using operator <code>delete[]</code>. For more
+     information on how to do this refer to <a href="#7.2">Section 7.2,
+     "String-Based Type Serializers"</a>.
+  </p>
+
+  <h2><a name="6.2">6.2 Input/Output Stream Library</a></h2>
+
+  <p>To disable the use of iostream you will need to configure the
+     XSD/e runtime library without support for iostream as well as
+     pass the <code>--no-iostream</code> option to the XSD/e compiler
+     when translating your schemas. When iostream is disabled, the
+     following <code>serialize()</code> function in the
+     <code>xml_schema::document_simpl</code> class become unavailable:</p>
+
+  <pre class="c++">
+void
+serialize (std::ostream&amp;, flags);
+  </pre>
+
+  <p>See <a href="#8.1">Section 8.1, "Document Serializer"</a>
+     for more information.</p>
+
+  <h2><a name="6.3">6.3 C++ Exceptions</a></h2>
+
+  <p>To disable the use of C++ exceptions, you will need to configure
+     the XSD/e runtime without support for exceptions as well as pass
+     the <code>--no-exceptions</code> option to the XSD/e compiler
+     when translating your schemas. When C++ exceptions are disabled,
+     the error conditions are indicated with error codes instead of
+     exceptions, as described in <a href="#8.3">Section 8.3,
+     "Error Codes"</a>.
+  </p>
+
+  <h2><a name="6.4">6.4 XML Schema Validation</a></h2>
+
+  <p>To disable support for XML Schema validation, you will need to
+     configure the XSD/e runtime accordingly as well as pass
+     the <code>--suppress-validation</code> option to the XSD/e compiler
+     when translating your schemas. Disabling XML Schema validation
+     allows to further increase the serialization performance and
+     reduce footprint in cases where the data being serialized is
+     known to be valid.
+  </p>
+
+  <h2><a name="6.5">6.5 64-bit Integer Type</a></h2>
+
+  <p>By default the 64-bit <code>long</code> and <code>unsignedLong</code>
+     XML Schema built-in types are mapped to the 64-bit <code>long long</code>
+     and <code>unsigned long long</code> fundamental C++ types. To
+     disable the use of these types in the mapping you will need to
+     configure the XSD/e runtime accordingly as well as pass
+     the <code>--no-long-long</code> option to the XSD/e compiler
+     when translating your schemas. When the use of 64-bit integral
+     C++ types is disabled the <code>long</code> and
+     <code>unsignedLong</code> XML Schema built-in types are mapped
+     to <code>long</code> and <code>unsigned long</code> fundamental
+     C++ types.</p>
+
+  <h2><a name="6.6">6.6 Serializer Reuse</a></h2>
+
+  <p>When one type in XML Schema inherits from another, it is
+     often desirable to be able to reuse the serializer implementation
+     corresponding to the base type in the serializer implementation
+     corresponding to the derived type. XSD/e provides support
+     for two serializer reuse styles: the so-called <em>mixin</em>
+     (generated when the <code>--reuse-style-mixin</code> option
+     is specified) and <em>tiein</em> (generated by default) styles.</p>
+
+  <p>The compiler can also be instructed not to generate any support
+     for serializer reuse with the <code>--reuse-style-none</code> option.
+     This is mainly useful to further reduce the generated code size
+     when your vocabulary does not use inheritance or when you plan
+     to implement each serializer from scratch. Note also that the
+     XSD/e runtime should be configured in accordance with the
+     serializer reuse style used in the generated code. The remainder
+     of this section discusses the mixin and tiein serializer reuse
+     styles in more detail.</p>
+
+
+  <p>To provide concrete examples for each reuse style we will use the
+     following schema fragment:</p>
+
+  <pre class="xml">
+&lt;xs:complexType name="person">
+  &lt;xs:sequence>
+    &lt;xs:element name="first-name" type="xs:string"/>
+    &lt;xs:element name="last-name" type="xs:string"/>
+    &lt;xs:element name="age" type="xs:short"/>
+  &lt;/xs:sequence>
+&lt;/xs:complexType>
+
+&lt;xs:complexType name="emplyee">
+  &lt;complexContent>
+    &lt;extension base="person">
+      &lt;xs:sequence>
+        &lt;xs:element name="position" type="xs:string"/>
+        &lt;xs:element name="salary" type="xs:unsignedLong"/>
+      &lt;/xs:sequence>
+    &lt;/extension>
+  &lt;/complexContent>
+&lt;/xs:complexType>
+  </pre>
+
+  <p>The mixin serializer reuse style uses the C++ mixin idiom that
+     relies on multiple and virtual inheritance. Because
+     virtual inheritance can result in a significant object
+     code size increase, this reuse style should be considered
+     when such an overhead is acceptable and/or the vocabulary
+     consists of only a handful of types. When the mixin reuse
+     style is used, the generated serializer skeletons use virtual
+     inheritance, for example:</p>
+
+  <pre class="c++">
+class person_sskel: public virtual serializer_complex_content
+{
+  ...
+};
+
+class employee_sskel: public virtual person_sskel
+{
+  ...
+};
+  </pre>
+
+
+  <p>When you implement the base serializer you also need to use
+     virtual inheritance. The derived serializer is implemented
+     by inheriting from both the derived serializer skeleton and
+     the base serializer implementation (that is, <em>mixing in</em>
+     the base serializer implementation), for example:</p>
+
+  <pre class="c++">
+class person_simpl: public virtual person_sskel
+{
+  ...
+};
+
+class employee_simpl: public employee_sskel,
+                      public person_simpl
+{
+  ...
+};
+  </pre>
+
+
+  <p>The tiein serializer reuse style uses delegation and normally
+     results in a significantly smaller object code while being
+     almost as convenient to use as the mixin style. When the
+     tiein reuse style is used, the generated derived serializer
+     skeleton declares a constructor which allows you to specify
+     the implementation of the base serializer:</p>
+
+  <pre class="c++">
+class person_sskel: public serializer_complex_content
+{
+  ...
+};
+
+class employee_sskel: public person_sskel
+{
+public:
+  employee_sskel (person_sskel* base_impl)
+
+  ...
+};
+  </pre>
+
+  <p>If you pass the implementation of the base serializer to this
+     constructor then the generated code will transparently
+     forward all the callbacks corresponding to the base serializer
+     skeleton to this implementation. You can also pass
+     <code>0</code> to this constructor in which case you will
+     need to implement the derived serializer from scratch. The
+     following example shows how we could implement the
+     <code>person</code> and <code>employee</code> serializers
+     using the tiein style:</p>
+
+  <pre class="c++">
+class person_simpl: public person_sskel
+{
+  ...
+};
+
+class employee_simpl: public employee_sskel
+{
+public:
+  employee_simpl ()
+    : employee_sskel (&amp;base_impl_)
+  {
+  }
+
+  ...
+
+private:
+  person_simpl base_impl_;
+};
+  </pre>
+
+  <p>Note that you cannot use the <em>tied in</em> base serializer
+     instance (<code>base_impl_</code> in the above code) for
+     serializing anything except the derived type.</p>
+
+  <p>The ability to override the base serializer callbacks in the
+     derived serializer is also available in the tiein style. For
+     example, the following code fragment shows how we can
+     override the <code>age()</code> callback if we didn't
+     like the implementation provided by the base serializer:</p>
+
+  <pre class="c++">
+class employee_simpl: public employee_sskel
+{
+public:
+  employee_simpl ()
+    : employee_sskel (&amp;base_impl_)
+  {
+  }
+
+  virtual short
+  age ()
+  {
+    ...
+  }
+
+  ...
+
+private:
+  person_simpl base_impl_;
+};
+  </pre>
+
+  <p>In the above example the <code>age</code> element will be
+     handled by <code>emplyee_simpl</code> while the <code>first-name</code>
+     and <code>last-name</code> callbacks will still go to
+     <code>base_impl_</code>.</p>
+
+  <p>It is also possible to inherit from the base serializer implementation
+     instead of declaring it as a member variable. This can be useful
+     if you need to access protected members in the base implementation
+     or need to override a virtual function that is not part of
+     the serializer skeleton interface. Note, however, that in this case
+     you will need to resolve a number of ambiguities with explicit
+     qualifications or using-declarations. For example:</p>
+
+
+  <pre class="c++">
+class person_simpl: public person_sskel
+{
+public:
+  virtual void
+  pre (person* p)
+  {
+    person_ = p;
+  }
+
+  ...
+
+protected:
+  person* person_;
+};
+
+class employee_simpl: public employee_sskel,
+                      public person_simpl
+{
+public:
+  employee_simpl ()
+    : employee_sskel (static_cast&lt;person_simpl*> (this))
+  {
+  }
+
+  // Resolve ambiguities.
+  //
+  using emplyee_sskel::serializers;
+
+  virtual void
+  pre (employee* e)
+  {
+    person_simpl::pre (e);
+  }
+
+  virtual std::string
+  position ()
+  {
+    return static_cast&lt;employee*> (person_)->position ();
+  }
+
+  virtual unsigned int
+  salary ()
+  {
+    return static_cast&lt;employee*> (person_)->salary ();
+  }
+};
+  </pre>
+
+  <h2><a name="6.7">6.7 Support for Polymorphism</a></h2>
+
+  <p>By default the XSD/e compiler generates non-polymorphic code. If your
+     vocabulary uses XML Schema polymorphism in the form of <code>xsi:type</code>
+     and/or substitution groups, then you will need to configure the XSD/e
+     runtime with support for polymorphism, compile your schemas with the
+     <code>--generate-polymorphic</code> option to produce polymorphism-aware
+     code, as well as pass <code>true</code> as the last argument to the
+     <code>xml_schema::document</code>'s constructors. If some of your
+     schemas do not require support for polymorphism then you can compile
+     them with the <code>--runtime-polymorphic</code> option and still
+     use the XSD/e runtime configured with polymorphism support.
+  </p>
+
+  <p>When using the polymorphism-aware generated code, you can specify
+     several serializers for a single element by passing a serializer map
+     instead of an individual serializer to the serializer connection function
+     for the element. One of the serializers will then be looked up and used
+     depending on the user-provided type information that can optionally be
+     set in the callback function for the element. Consider the following
+     schema as an example:</p>
+
+  <pre class="xml">
+&lt;xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  &lt;xs:complexType name="person">
+    &lt;xs:sequence>
+      &lt;xs:element name="name" type="xs:string"/>
+    &lt;/xs:sequence>
+  &lt;/xs:complexType>
+
+  &lt;!-- substitution group root -->
+  &lt;xs:element name="person" type="person"/>
+
+  &lt;xs:complexType name="superman">
+    &lt;xs:complexContent>
+      &lt;xs:extension base="person">
+        &lt;xs:attribute name="can-fly" type="xs:boolean"/>
+      &lt;/xs:extension>
+    &lt;/xs:complexContent>
+  &lt;/xs:complexType>
+
+  &lt;xs:element name="superman"
+              type="superman"
+              substitutionGroup="person"/>
+
+  &lt;xs:complexType name="batman">
+    &lt;xs:complexContent>
+      &lt;xs:extension base="superman">
+        &lt;xs:attribute name="wing-span" type="xs:unsignedInt"/>
+      &lt;/xs:extension>
+    &lt;/xs:complexContent>
+  &lt;/xs:complexType>
+
+  &lt;xs:complexType name="supermen">
+    &lt;xs:sequence>
+      &lt;xs:element ref="person" maxOccurs="unbounded"/>
+    &lt;/xs:sequence>
+  &lt;/xs:complexType>
+
+  &lt;xs:element name="supermen" type="supermen"/>
+
+&lt;/xs:schema>
+  </pre>
+
+  <p>Conforming XML documents can use the <code>superman</code>
+     and <code>batman</code> types in place of the <code>person</code>
+     type either by specifying the type with the <code>xsi:type</code>
+     attributes or by using the elements from the substitution
+     group, for instance:</p>
+
+  <pre class="xml">
+&lt;supermen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  &lt;person>
+    &lt;name>John Doe&lt;/name>
+  &lt;/person>
+
+  &lt;superman can-fly="false">
+    &lt;name>James "007" Bond&lt;/name>
+  &lt;/superman>
+
+  &lt;person can-fly="true" wing-span="10" xsi:type="batman">
+    &lt;name>Bruce Wayne&lt;/name>
+  &lt;/person>
+
+&lt;/supermen>
+  </pre>
+
+  <p>The C++ object model for this vocabulary might look as follows:</p>
+
+  <pre class="c++">
+#include &lt;string>
+#include &lt;vector>
+
+enum type_id
+{
+  person_type,
+  superman_type,
+  batman_type
+};
+
+class person
+{
+public:
+  virtual
+  ~person () {}
+
+  person (const std::string&amp; name)
+      : name_ (name)
+  {
+  }
+
+  const std::string&amp;
+  name () const
+  {
+    return name_;
+  }
+
+  void
+  name (const std::string&amp; n)
+  {
+    name_ = n;
+  }
+
+  virtual type_id
+  type () const
+  {
+    return person_type;
+  }
+
+private:
+  std::string name_;
+};
+
+class superman: public person
+{
+public:
+  superman (const std::string&amp; name, bool can_fly)
+      : person (name), can_fly_ (can_fly)
+  {
+  }
+
+  bool
+  can_fly () const
+  {
+    return can_fly_;
+  }
+
+  void
+  can_fly (bool cf)
+  {
+    can_fly_ = cf;
+  }
+
+  virtual type_id
+  type () const
+  {
+    return superman_type;
+  }
+
+private:
+  bool can_fly_;
+};
+
+class batman: public superman
+{
+public:
+  batman (const std::string&amp; name, unsigned int wing_span)
+      : superman (name, true), wing_span_ (wing_span)
+  {
+  }
+
+  unsigned int
+  wing_span () const
+  {
+    return wing_span_;
+  }
+
+  void
+  wing_span (unsigned int ws)
+  {
+    wing_span_ = ws;
+  }
+
+  virtual type_id
+  type () const
+  {
+    return batman_type;
+  }
+
+private:
+  unsigned int wing_span_;
+};
+
+// Poor man's polymorphic sequence which also assumes ownership
+// of the elements.
+//
+class supermen: public std::vector&lt;person*>
+{
+public:
+  ~supermen ()
+  {
+    for (iterator i = begin (); i != end (); ++i)
+      delete *i;
+  }
+};
+  </pre>
+
+  <p>Here we choose to provide our own type information. We can instead
+     use the standard C++ <code>typeid</code>/<code>type_info</code>
+     mechanism if it is available. The type map corresponding to this
+     object model is presented below. Notice that the <code>superman</code>
+     and <code>batman</code> objects are passed as a reference to
+     <code>person</code>:</p>
+
+  <pre>
+person   "const ::person&amp;";
+superman "const ::person&amp;";
+batman   "const ::person&amp;";
+supermen "const ::supermen&amp;";
+  </pre>
+
+  <p>The serializer implementations that serialize the above
+     C++ object model to XML are presented next:</p>
+
+  <pre class="c++">
+class person_simpl: public person_sskel
+{
+public:
+  virtual void
+  pre (const person&amp; p)
+  {
+    person_ = &amp;p;
+  }
+
+  virtual std::string
+  name ()
+  {
+    return person_->name ();
+  }
+
+  // Derived serializer implementations need access to this
+  // member variable.
+  //
+public:
+  const person* person_;
+};
+
+class superman_simpl: public superman_sskel
+{
+public:
+  superman_simpl ()
+    : superman_sskel (&amp;base_impl_)
+  {
+  }
+
+  virtual bool
+  can_fly ()
+  {
+    return superman_ ().can_fly ();
+  }
+
+  const superman&amp;
+  superman_ ()
+  {
+    return *static_cast&lt;const superman*> (base_impl_.person_);
+  }
+
+private:
+  person_simpl base_impl_;
+};
+
+class batman_simpl: public batman_sskel
+{
+public:
+  batman_simpl ()
+    : batman_sskel (&amp;base_impl_)
+  {
+  }
+
+  virtual unsigned int
+  wing_span ()
+  {
+    return batman_ ().wing_span ();
+  }
+
+  const batman&amp;
+  batman_ ()
+  {
+    return static_cast&lt;const batman&amp;> (base_impl_.superman_ ());
+  }
+
+private:
+  superman_simpl base_impl_;
+};
+
+class supermen_simpl: public supermen_sskel
+{
+public:
+  virtual void
+  pre (const supermen&amp; s)
+  {
+    supermen_ = &amp;s;
+    i_ = s.begin ();
+  }
+
+  virtual bool
+  person_next ()
+  {
+    return i_ != supermen_->end ();
+  }
+
+  virtual const ::person&amp;
+  person ()
+  {
+    const ::person&amp; p = **i_++;
+    xml_schema::serializer_context&amp; ctx = _context ();
+
+    switch (p.type ())
+    {
+    case person_type:
+      {
+        ctx.type_id (person_sskel::_static_type ());
+        break;
+      }
+    case superman_type:
+      {
+        ctx.type_id (superman_sskel::_static_type ());
+        break;
+      }
+    case batman_type:
+      {
+        ctx.type_id (batman_sskel::_static_type ());
+        break;
+      }
+    }
+
+    return p;
+  }
+
+private:
+  const supermen* supermen_;
+  supermen::const_iterator i_;
+};
+  </pre>
+
+  <p>Most of the code in these serializer implementations is the same
+     as in the non-polymorphic case. The only part that explicitly deals
+     with polymorphism is the <code>person()</code> callback in the
+     <code>superman_simpl</code> class. In it we are translating
+     the type information as provided by the C++ object mode to
+     the type information used in the default implementation of
+     the serializer map (we will talk more about serializer maps
+     as well as the <code>_static_type()</code> function shortly).
+     The <code>type_id()</code> function from
+     <code>xml_schema::serializer_context</code> allows you to
+     specify optional type information which is used to look up
+     the corresponding serializer. Its argument is of type
+     <code>const void*</code> which allows you to pass
+     application-specific type information as an opaque pointer.</p>
+
+  <p>The following code fragment shows how to connect the serializers
+     together and then use them to serialize a sample object model.
+     Notice that for the <code>person</code> element in the
+     <code>instance_s</code> serializer we specify a serializer map
+     instead of a specific serializer and we pass <code>true</code> as
+     the last argument to the document serializer constructor to indicate
+     that we are serializing potentially-polymorphic XML documents:</p>
+
+  <pre class="c++">
+int
+main ()
+{
+  // Create a sample supermen catalog. To keep things simple
+  // the following code is not exception-safe.
+  //
+  supermen sm;
+
+  sm.push_back (new person ("John Doe"));
+  sm.push_back (new superman ("James 007 Bond", false));
+  sm.push_back (new batman ("Bruce Wayne", 10));
+
+  // Construct the serializer.
+  //
+  xml_schema::string_simpl string_s;
+  xml_schema::boolean_simpl boolean_s;
+  xml_schema::unsigned_int_simpl unsigned_int_s;
+
+  person_simpl person_s;
+  superman_simpl superman_s;
+  batman_simpl batman_s;
+
+  xml_schema::serializer_map_impl person_map (5); // 5 hashtable buckets
+  supermen_simpl supermen_s;
+
+  person_s.serializers (string_s);
+  superman_s.serializers (string_s, boolean_s);
+  batman_s.serializers (string_s, boolean_s, unsigned_int_s);
+
+  // Here we are specifying several serializers that can be
+  // used to serialize the person element.
+  //
+  person_map.insert (person_s);
+  person_map.insert (superman_s);
+  person_map.insert (batman_s);
+
+  supermen_s.person_serializer (person_map);
+
+  // Create the XML instance document. The last argument to the
+  // document's constructor indicates that we are serializing
+  // polymorphic XML documents.
+  //
+  xml_schema::document_simpl doc_s (supermen_s, "supermen", true);
+
+  supermen_s.pre (sm);
+  doc_s.serialize (std::cout, xml_schema::document_simpl::pretty_print);
+  supermen_s.post ();
+}
+  </pre>
+
+  <p>When polymorphism-aware code is generated, each element's
+     <code>*_serializer()</code> function is overloaded to also accept
+     an object of the <code>xml_schema::serializer_map</code> type.
+     For example, the <code>supermen_sskel</code> class from the
+     above example looks like this:</p>
+
+  <pre class="c++">
+class supermen_sskel: public xml_schema::serializer_complex_content
+{
+public:
+
+  ...
+
+  // Serializer construction API.
+  //
+  void
+  serializers (person_sskel&amp;);
+
+  // Individual element serializers.
+  //
+  void
+  person_serializer (person_sskel&amp;);
+
+  void
+  person_serializer (xml_schema::serializer_map&amp;);
+
+  ...
+};
+  </pre>
+
+  <p>Note that you can specify both the individual (static) serializer and
+     the serializer map. The individual serializer will be used when the static
+     element type and the dynamic type of the object being serialized are
+     the same. This is the case when the <code>type_id()</code> function
+     hasn't been called or the type information pointer is set to
+     <code>0</code>. Because the individual serializer for an element
+     is cached and no map lookup is necessary, it makes sense to specify
+     both the individual serializer and the serializer map when most of
+     the objects being serialized are of the static type and optimal
+     performance is important. The following code fragment shows how
+     to change the above example to set both the individual serializer
+     and the serializer map:</p>
+
+  <pre class="c++">
+int
+main ()
+{
+  ...
+
+  // Here we are specifying several serializers that can be
+  // used to serialize the person element.
+  //
+  person_map.insert (superman_s);
+  person_map.insert (batman_s);
+
+  supermen_s.person_serializer (person_s);
+  supermen_s.person_serializer (person_map);
+
+  ...
+}
+  </pre>
+
+
+  <p>The <code>xml_schema::serializer_map</code> interface and its
+     default implementation, <code>xml_schema::serializer_map_impl</code>,
+     are presented below:</p>
+
+  <pre class="c++">
+namespace xml_schema
+{
+  class serializer_map
+  {
+  public:
+    virtual serializer_base*
+    find (const void* type_id) const = 0;
+
+    virtual void
+    reset () const = 0;
+  };
+
+  class serializer_map_impl: public serializer_map
+  {
+  public:
+    serializer_map_impl (size_t buckets);
+
+    // Note that the type_id string is not copied so it should
+    // be valid for the lifetime of the map.
+    //
+    void
+    insert (const char* type_id, serializer_base&amp;);
+
+    // This version of insert is a shortcut that uses the string
+    // returned by the serializer's _dynamic_type() function.
+    //
+    void
+    insert (serializer_base&amp;);
+
+    virtual serializer_base*
+    find (const void* type_id) const;
+
+    virtual void
+    reset () const;
+
+  private:
+    serializer_map_impl (const serializer_map_impl&amp;);
+
+    serializer_map_impl&amp;
+    operator= (const serializer_map_impl&amp;);
+
+    ...
+  };
+}
+  </pre>
+
+  <p>The <code>type_id</code> argument in the <code>find()</code> virtual
+     function is the application-specific type information for the object
+     being serialized that is specified using the <code>type_id()</code>
+     function in the element callback. It is passed as an opaque
+     <code>const void*</code>. The <code>reset()</code> virtual function
+     is used to reset the serializers contained in the map (as opposed to
+     resetting or clearing the map itself). For more information on serializer
+     resetting refer to <a href="#8.4">Section 8.4, "Reusing Serializers
+     after an Error"</a>.</p>
+
+  <p>The XSD/e runtime provides the default implementation for the
+     <code>xml_schema::serializer_map</code> interface,
+     <code>xml_schema::serializer_map_impl</code>, which uses a C string
+     (<code>const char*</code>) as type information. One way to
+     obtain a serializer's dynamic type in the form
+     <code>"&lt;name>&nbsp;&lt;namespace>"</code> with the space and the
+     namespace part absent if the type does not have a namespace
+     is to call the <code>_dynamic_type()</code> function on this
+     serializer. The static type can be obtained by calling the static
+     <code>_static_type()</code> function, for example
+     <code>person_sskel::_static_type()</code>. Both functions return
+     a C string (<code>const char*</code>) which is valid for as long
+     as the application is running.</p>
+
+  <p>The default serializer map implementation is a hashmap. It requires
+     that you specify the number of buckets it will contain and it does
+     not support automatic table resizing. To obtain good performance the
+     elements to buckets ratio should be between 0.7 and 0.9. It is also
+     recommended to use prime numbers for bucket counts:
+     53, 97, 193, 389, 769, 1543, 3079, 6151, 12289, 24593, 49157, 98317,
+     196613, 393241.
+  </p>
+
+  <p>If C++ exceptions are disabled (<a href="#5.3">Section 5.3,
+     "C++ Exceptions"</a>), the <code>xml_schema::serializer_map_impl</code>
+     class has the following additional error querying API. It can be used
+     to detect the out of memory errors after calls to the
+     <code>serializer_map_impl</code>'s constructor and <code>insert()</code>
+     functions.</p>
+
+  <pre class="c++">
+namespace xml_schema
+{
+  class serializer_map_impl: public serializer_map
+  {
+  public:
+    enum error
+    {
+      error_none,
+      error_no_memory
+    };
+
+    error
+    _error () const;
+
+    ...
+  };
+}
+  </pre>
+
+  <p>You can also provide your own serializer map implementation which uses
+     custom type information. The following example shows how we can
+     implement our own serializer map for the above example that uses
+     the type information provided by the C++ object model:</p>
+
+  <pre class="c++">
+#include &lt;map>
+
+class person_serializer_map: public xml_schema::serializer_map
+{
+public:
+ void
+ insert (person_sskel&amp; p)
+ {
+   const char* dt = p._dynamic_type ();
+   type_id ti;
+
+   if (strcmp (dt, person_sskel::_static_type ()) == 0)
+     ti = person_type;
+   else if (strcmp (dt, superman_sskel::_static_type ()) == 0)
+     ti = superman_type;
+   else if (strcmp (dt, batman_sskel::_static_type ()) == 0)
+     ti = batman_type;
+   else
+     return;
+
+   map_[ti] = &amp;p;
+ }
+
+ virtual xml_schema::serializer_base*
+ find (const char* x) const
+ {
+   const person* p = static_cast&lt;const person*> (x);
+   map::const_iterator i = map_.find (p->type ());
+   return i != map_.end () ? i->second : 0;
+ }
+
+ virtual void
+ reset () const
+ {
+   for (map::const_iterator i (map_.begin ()), e (map_.end ());
+        i != e; ++i)
+   {
+     person_sskel* s = i->second;
+     s->_reset ();
+   }
+ }
+
+private:
+  typedef std::map&lt;type_id, person_sskel*> map;
+  map map_;
+};
+  </pre>
+
+  <p>Our custom implementation of the serializer map expects that
+     we pass the actual object to the <code>find()</code> function.
+     To account for this will need to change the
+     <code>supermen_simpl::person()</code> callback as follows:</p>
+
+  <pre class="c++">
+  virtual const ::person&amp;
+  person ()
+  {
+    const ::person&amp; p = **i_++;
+    _context ().type_id (&amp;p);
+    return p;
+  }
+  </pre>
+
+
+  <p>To support polymorphic serialization the XSD/e runtime and generated
+     code maintain a number of hashmaps that contain substitution and, if
+     XML Schema validation is enabled (<a href="#5.4">Section 5.4,
+     "XML Schema Validation"</a>), inheritance information. Because
+     the number of elements in these hashmaps depends on the schemas
+     being compiled and thus is fairly static, these hashmaps do not
+     perform automatic table resizing and instead the number of buckets
+     is specified when the XSD/e runtime is configured. To obtain good
+     performance the elements to buckets ratio in these hashmaps should
+     be between 0.7 and 0.9. The recommended way to ensure this range
+     is to add diagnostics code to your application as shown in the
+     following example:</p>
+
+  <pre class="c++">
+int
+main ()
+{
+  // Check that the load in substitution and inheritance hashmaps
+  // is not too high.
+  //
+#ifndef NDEBUG
+  float load = xml_schema::serializer_smap_elements ();
+  load /= xml_schema::serializer_smap_buckets ();
+
+  if (load > 0.8)
+  {
+    cerr &lt;&lt; "substitution hashmap load is " &lt;&lt; load &lt;&lt; endl;
+    cerr &lt;&lt; "time to increase XSDE_SERIALIZER_SMAP_BUCKETS" &lt;&lt; endl;
+  }
+
+  load = xml_schema::serializer_smap_bucket_elements ();
+  load /= xml_schema::serializer_smap_bucket_buckets ();
+
+  if (load > 0.8)
+  {
+    cerr &lt;&lt; "substitution inner hashmap load is " &lt;&lt; load &lt;&lt; endl;
+    cerr &lt;&lt; "time to increase XSDE_SERIALIZER_SMAP_BUCKET_BUCKETS" &lt;&lt; endl;
+  }
+
+  load = xml_schema::serializer_imap_elements ();
+  load /= xml_schema::serializer_imap_buckets ();
+
+  if (load > 0.8)
+  {
+    cerr &lt;&lt; "inheritance hashmap load is " &lt;&lt; load &lt;&lt; endl;
+    cerr &lt;&lt; "time to increase XSDE_SERIALIZER_IMAP_BUCKETS" &lt;&lt; endl;
+  }
+#endif
+
+  ...
+}
+  </pre>
+
+  <p>Most of the code presented in this section is taken from the
+     <code>polymorphism</code> example which can be found in the
+     <code>examples/cxx/serializer/</code> directory of the XSD/e distribution.
+     Handling of <code>xsi:type</code> and substitution groups when used
+     on root elements requires a number of special actions as shown in
+     the <code>polyroot</code> example.</p>
+
+  <h2><a name="6.8">6.8 Custom Allocators</a></h2>
+
+  <p>By default the XSD/e runtime and generated code use
+     the standard operators <code>new</code> and <code>delete</code>
+     to manage dynamic memory. However, it is possible to instead
+     use custom allocator functions provided by your application.
+     To achieve this, configure the XSD/e runtime library to use
+     custom allocator functions as well as pass the
+     <code>--custom-allocator</code> option to the XSD/e compiler
+     when translating your schemas. The signatures of the custom
+     allocator functions that should be provided by your application
+     are listed below. Their semantics should be equivalent to the
+     standard C <code>malloc()</code>, <code>realloc()</code>, and
+     <code>free()</code> functions.</p>
+
+  <pre class="c++">
+extern "C" void*
+xsde_alloc (size_t);
+
+extern "C" void*
+xsde_realloc (void*, size_t);
+
+extern "C" void
+xsde_free (void*);
+  </pre>
+
+  <p>Note also that when custom allocators are enabled, any
+     dynamically-allocated object of which the XSD/e runtime
+     or generated code assume ownership should be allocated
+     using the custom allocation function. Similarly, if your
+     application assumes ownership of any dynamically-allocated
+     object returned by the XSD/e runtime or the generated code,
+     then such an object should be disposed of using the custom
+     deallocation function. To help with these tasks the generated
+     <code>xml_schema</code> namespace defines the following two
+     helper functions and, if C++ exceptions are enabled, automatic
+     pointer class:</p>
+
+  <pre class="c++">
+namespace xml_schema
+{
+  void*
+  alloc (size_t);
+
+  void
+  free (void*);
+
+  struct alloc_guard
+  {
+    alloc_guard (void*);
+    ~alloc_guard ();
+
+    void*
+    get () const;
+
+    void
+    release ();
+
+  private:
+    ...
+  };
+}
+  </pre>
+
+  <p>If C++ exceptions are disabled, these functions are equivalent
+     to <code>xsde_alloc()</code> and <code>xsde_free()</code>.
+     If exceptions are enabled, <code>xml_schema::alloc()</code>
+     throws <code>std::bad_alloc</code> on memory allocation failure.</p>
+
+  <p>The following code fragment shows how to create and destroy a
+     dynamically-allocated object with custom allocators when C++
+     exceptions are disabled:</p>
+
+  <pre class="c++">
+void* v = xml_schema::alloc (sizeof (type));
+
+if (v == 0)
+{
+  // Handle out of memory condition.
+}
+
+type* x = new (v) type (1, 2);
+
+...
+
+if (x)
+{
+  x->~type ();
+  xml_schema::free (x);
+}
+  </pre>
+
+  <p>The equivalent code fragment for configurations with C++ exceptions
+     enabled is shown below:</p>
+
+  <pre class="c++">
+xml_schema::alloc_guard g (xml_schema::alloc (sizeof (type)));
+type* x = new (g.get ()) type (1, 2);
+g.release ();
+
+...
+
+if (x)
+{
+  x->~type ();
+  xml_schema::free (x);
+}
+  </pre>
+
+  <h2><a name="6.9">6.9 A Minimal Example</a></h2>
+
+  <p>The following example is a re-implementation of the person
+     records example presented in <a href="#4">Chapter 4,
+     "Type Maps"</a>. It is intended to work without STL,
+     iostream, and C++ exceptions. It can be found in the
+     <code>examples/cxx/serializer/minimal/</code> directory of the
+     XSD/e distribution. The <code>people.xsd</code> schema is
+     compiled with the <code>--no-stl</code>, <code>--no-iostream</code>,
+     and <code>--no-exceptions</code> options. The object model
+     types in <code>people.hxx</code> have also been reimplemented
+     in order not to use STL types:</p>
+
+  <pre class="c++">
+#include &lt;stddef.h> // size_t
+
+enum gender
+{
+  male,
+  female
+};
+
+struct person
+{
+  const char* first_name_;
+  const char* last_name_;
+  gender gender_;
+  unsigned short age_;
+};
+
+struct people
+{
+  person* people_;
+  size_t size_;
+};
+  </pre>
+
+
+  <p>The following listing presents the implementation of serializer
+     skeletons and the test driver in full:</p>
+
+  <pre class="c++">
+#include &lt;stdio.h>
+#include "people-sskel.hxx"
+
+const char* gender_strings[] = {"male", "female"};
+
+class gender_simpl: public gender_sskel
+{
+public:
+  gender_simpl ()
+    : gender_sskel (&amp;base_impl_)
+  {
+  }
+
+  virtual void
+  pre (gender g)
+  {
+    base_impl_.pre (gender_strings[g]);
+  }
+
+private:
+  public xml_schema::string_simpl base_impl_;
+};
+
+class person_simpl: public person_sskel
+{
+public:
+  virtual void
+  pre (const person&amp; p)
+  {
+    person_ = &amp;p;
+  }
+
+  virtual const char*
+  first_name ()
+  {
+    return person_->first_name_;
+  }
+
+  virtual const char*
+  last_name ()
+  {
+    return person_->last_name_;
+  }
+
+  virtual ::gender
+  gender ()
+  {
+    return person_->gender_;
+  }
+
+  virtual unsigned short
+  age ()
+  {
+    return person_->age_;
+  }
+
+private:
+  const person* person_;
+};
+
+class people_simpl: public people_sskel
+{
+public:
+  virtual void
+  pre (const people&amp; p)
+  {
+    i_ = 0;
+    people_ = &amp;p;
+  }
+
+  virtual bool
+  person_next ()
+  {
+    return i_ &lt; people_->size_;
+  }
+
+  virtual const ::person&amp;
+  person ()
+  {
+    return people_->people_[i_++];
+  }
+
+private:
+  size_t i_;
+  const people* people_;
+};
+
+class writer: public xml_schema::writer
+{
+public:
+  virtual bool
+  write (const char* s, size_t n)
+  {
+    return fwrite (s, n, 1, stdout) == 1;
+  }
+
+  virtual bool
+  flush ()
+  {
+    return fflush (stdout) == 0;
+  }
+};
+
+int
+main ()
+{
+  // Create a sample person list.
+  //
+  people p;
+
+  p.size_ = 2;
+  p.people_ = new person[p.size_];
+
+  if (p.people_ == 0)
+  {
+    fprintf (stderr, "error: no memory\n");
+    return 1;
+  }
+
+  p.people_[0].first_name_ = "John";
+  p.people_[0].last_name_ = "Doe";
+  p.people_[0].gender_ = male;
+  p.people_[0].age_ = 32;
+
+  p.people_[1].first_name_ = "Jane";
+  p.people_[1].last_name_ = "Doe";
+  p.people_[1].gender_ = female;
+  p.people_[1].age_ = 28;
+
+  // Construct the serializer.
+  //
+  xml_schema::unsigned_short_simpl unsigned_short_s;
+  xml_schema::string_simpl string_s;
+
+  gender_simpl gender_s;
+  person_simpl person_s;
+  people_simpl people_s;
+
+  person_s.serializers (string_s, string_s, gender_s, unsigned_short_s);
+  people_s.serializers (person_s);
+
+  // Serialize.
+  //
+  typedef xml_schema::serializer_error error;
+
+  error e;
+  writer w;
+
+  do
+  {
+    xml_schema::document_simpl doc_s (people_s, "people");
+
+    if (e = doc_s._error ())
+      break;
+
+    people_s.pre (p);
+
+    if (e = people_s._error ())
+      break;
+
+    doc_s.serialize (w, xml_schema::document_simpl::pretty_print);
+
+    if (e = doc_s._error ())
+      break;
+
+    people_s.post ();
+
+    e = people_s._error ();
+
+  } while (false);
+
+  delete[] p.people_;
+
+  // Handle errors.
+  //
+  if (e)
+  {
+    switch (e.type ())
+    {
+    case error::sys:
+      {
+        fprintf (stderr, "error: %s\n", e.sys_text ());
+        break;
+      }
+    case error::xml:
+      {
+        fprintf (stderr, "error: %s\n", e.xml_text ());
+        break;
+      }
+    case error::schema:
+      {
+        fprintf (stderr, "error: %s\n", e.schema_text ());
+        break;
+      }
+    case error::app:
+      {
+        fprintf (stderr, "application error: %d\n", e.app_code ());
+        break;
+      }
+    default:
+      break;
+    }
+
+    return 1;
+  }
+
+  return 0;
+}
+  </pre>
+
+
+  <!-- Built-in XML Schema Type Serializers -->
+
+
+  <h1><a name="7">7 Built-In XML Schema Type Serializers</a></h1>
+
+  <p>The XSD/e runtime provides serializer implementations for all built-in
+     XML Schema types as summarized in the following table. Declarations
+     for these types are automatically included into each generated
+     header file. As a result you don't need to include any headers
+     to gain access to these serializer implementations.</p>
+
+  <!-- border="1" is necessary for html2ps -->
+  <table id="builtin" border="1">
+    <tr>
+      <th>XML Schema type</th>
+      <th>Serializer implementation in the <code>xml_schema</code> namespace</th>
+      <th>Serializer argument type</th>
+    </tr>
+
+    <tr>
+      <th colspan="3">anyType and anySimpleType types</th>
+    </tr>
+    <tr>
+      <td><code>anyType</code></td>
+      <td><code>any_type_simpl</code></td>
+      <td><code>void</code></td>
+    </tr>
+    <tr>
+      <td><code>anySimpleType</code></td>
+      <td><code>any_simple_type_simpl</code></td>
+      <td><code>const std::string&amp;</code> or<br/> <code>const char*</code><br/>
+          <a href="#7.2">Section 7.2, "String-Based Type Serializers"</a></td>
+    </tr>
+
+    <tr>
+      <th colspan="3">fixed-length integral types</th>
+    </tr>
+    <!-- 8-bit -->
+    <tr>
+      <td><code>byte</code></td>
+      <td><code>byte_simpl</code></td>
+      <td><code>signed&nbsp;char</code></td>
+    </tr>
+    <tr>
+      <td><code>unsignedByte</code></td>
+      <td><code>unsigned_byte_simpl</code></td>
+      <td><code>unsigned&nbsp;char</code></td>
+    </tr>
+
+    <!-- 16-bit -->
+    <tr>
+      <td><code>short</code></td>
+      <td><code>short_simpl</code></td>
+      <td><code>short</code></td>
+    </tr>
+    <tr>
+      <td><code>unsignedShort</code></td>
+      <td><code>unsigned_short_simpl</code></td>
+      <td><code>unsigned&nbsp;short</code></td>
+    </tr>
+
+    <!-- 32-bit -->
+    <tr>
+      <td><code>int</code></td>
+      <td><code>int_simpl</code></td>
+      <td><code>int</code></td>
+    </tr>
+    <tr>
+      <td><code>unsignedInt</code></td>
+      <td><code>unsigned_int_simpl</code></td>
+      <td><code>unsigned&nbsp;int</code></td>
+    </tr>
+
+    <!-- 64-bit -->
+    <tr>
+      <td><code>long</code></td>
+      <td><code>long_simpl</code></td>
+      <td><code>long&nbsp;long</code> or <code>long</code><br/>
+          <a href="#6.5">Section 6.5, "64-bit Integer Type"</a></td>
+    </tr>
+    <tr>
+      <td><code>unsignedLong</code></td>
+      <td><code>unsigned_long_simpl</code></td>
+      <td><code>unsigned&nbsp;long&nbsp;long</code> or
+          <code>unsigned&nbsp;long</code><br/>
+          <a href="#6.5">Section 6.5, "64-bit Integer Type"</a></td>
+    </tr>
+
+    <tr>
+      <th colspan="3">arbitrary-length integral types</th>
+    </tr>
+    <tr>
+      <td><code>integer</code></td>
+      <td><code>integer_simpl</code></td>
+      <td><code>long</code></td>
+    </tr>
+    <tr>
+      <td><code>nonPositiveInteger</code></td>
+      <td><code>non_positive_integer_simpl</code></td>
+      <td><code>long</code></td>
+    </tr>
+    <tr>
+      <td><code>nonNegativeInteger</code></td>
+      <td><code>non_negative_integer_simpl</code></td>
+      <td><code>unsigned&nbsp;long</code></td>
+    </tr>
+    <tr>
+      <td><code>positiveInteger</code></td>
+      <td><code>positive_integer_simpl</code></td>
+      <td><code>unsigned&nbsp;long</code></td>
+    </tr>
+    <tr>
+      <td><code>negativeInteger</code></td>
+      <td><code>negative_integer_simpl</code></td>
+      <td><code>long</code></td>
+    </tr>
+
+    <tr>
+      <th colspan="3">boolean types</th>
+    </tr>
+    <tr>
+      <td><code>boolean</code></td>
+      <td><code>boolean_simpl</code></td>
+      <td><code>bool</code></td>
+    </tr>
+
+    <tr>
+      <th colspan="3">fixed-precision floating-point types</th>
+    </tr>
+    <tr>
+      <td><code>float</code></td>
+      <td><code>float_simpl</code></td>
+      <td><code>float</code><br/>
+          <a href="#7.1">Section 7.1, "Floating-Point Type Serializers"</a></td>
+    </tr>
+    <tr>
+      <td><code>double</code></td>
+      <td><code>double_simpl</code></td>
+      <td><code>double</code><br/>
+          <a href="#7.1">Section 7.1, "Floating-Point Type Serializers"</a></td>
+    </tr>
+
+    <tr>
+      <th colspan="3">arbitrary-precision floating-point types</th>
+    </tr>
+    <tr>
+      <td><code>decimal</code></td>
+      <td><code>decimal_simpl</code></td>
+      <td><code>double</code><br/>
+          <a href="#7.1">Section 7.1, "Floating-Point Type Serializers"</a></td>
+    </tr>
+
+    <tr>
+      <th colspan="3">string-based types</th>
+    </tr>
+    <tr>
+      <td><code>string</code></td>
+      <td><code>string_simpl</code></td>
+      <td><code>const std::string&amp;</code> or<br/> <code>const char*</code><br/>
+          <a href="#7.2">Section 7.2, "String-Based Type Serializers"</a></td>
+    </tr>
+    <tr>
+      <td><code>normalizedString</code></td>
+      <td><code>normalized_string_simpl</code></td>
+      <td><code>const std::string&amp;</code> or<br/> <code>const char*</code><br/>
+          <a href="#7.2">Section 7.2, "String-Based Type Serializers"</a></td>
+    </tr>
+    <tr>
+      <td><code>token</code></td>
+      <td><code>token_simpl</code></td>
+      <td><code>const std::string&amp;</code> or<br/> <code>const char*</code><br/>
+          <a href="#7.2">Section 7.2, "String-Based Type Serializers"</a></td>
+    </tr>
+    <tr>
+      <td><code>Name</code></td>
+      <td><code>name_simpl</code></td>
+      <td><code>const std::string&amp;</code> or<br/> <code>const char*</code><br/>
+          <a href="#7.2">Section 7.2, "String-Based Type Serializers"</a></td>
+    </tr>
+    <tr>
+      <td><code>NMTOKEN</code></td>
+      <td><code>nmtoken_simpl</code></td>
+      <td><code>const std::string&amp;</code> or<br/> <code>const char*</code><br/>
+          <a href="#7.2">Section 7.2, "String-Based Type Serializers"</a></td>
+    </tr>
+    <tr>
+      <td><code>NCName</code></td>
+      <td><code>ncname_simpl</code></td>
+      <td><code>const std::string&amp;</code> or<br/> <code>const char*</code><br/>
+          <a href="#7.2">Section 7.2, "String-Based Type Serializers"</a></td>
+    </tr>
+
+    <tr>
+      <td><code>language</code></td>
+      <td><code>language_simpl</code></td>
+      <td><code>const std::string&amp;</code> or<br/> <code>const char*</code><br/>
+          <a href="#7.2">Section 7.2, "String-Based Type Serializers"</a></td>
+    </tr>
+
+    <tr>
+      <th colspan="3">qualified name</th>
+    </tr>
+    <tr>
+      <td><code>QName</code></td>
+      <td><code>qname_simpl</code></td>
+      <td><code>const xml_schema::qname&amp;</code> or<br/>
+          <code>const xml_schema::qname*</code><br/>
+          <a href="#7.3">Section 7.3, "<code>QName</code> Serializer"</a></td>
+    </tr>
+
+    <tr>
+      <th colspan="3">ID/IDREF types</th>
+    </tr>
+    <tr>
+      <td><code>ID</code></td>
+      <td><code>id_simpl</code></td>
+      <td><code>const std::string&amp;</code> or<br/> <code>const char*</code><br/>
+          <a href="#7.2">Section 7.2, "String-Based Type Serializers"</a></td>
+    </tr>
+    <tr>
+      <td><code>IDREF</code></td>
+      <td><code>idref_simpl</code></td>
+      <td><code>const std::string&amp;</code> or<br/> <code>const char*</code><br/>
+          <a href="#7.2">Section 7.2, "String-Based Type Serializers"</a></td>
+    </tr>
+
+    <tr>
+      <th colspan="3">list types</th>
+    </tr>
+    <tr>
+      <td><code>NMTOKENS</code></td>
+      <td><code>nmtokens_simpl</code></td>
+      <td><code>const xml_schema::string_sequence*</code><br/><a href="#7.4">Section
+          7.4, "<code>NMTOKENS</code> and <code>IDREFS</code> Serializers"</a></td>
+    </tr>
+    <tr>
+      <td><code>IDREFS</code></td>
+      <td><code>idrefs_simpl</code></td>
+      <td><code>const xml_schema::string_sequence*</code><br/><a href="#7.4">Section
+          7.4, "<code>NMTOKENS</code> and <code>IDREFS</code> Serializers"</a></td>
+    </tr>
+
+    <tr>
+      <th colspan="3">URI types</th>
+    </tr>
+    <tr>
+      <td><code>anyURI</code></td>
+      <td><code>uri_simpl</code></td>
+      <td><code>const std::string&amp;</code> or<br/> <code>const char*</code><br/>
+          <a href="#7.2">Section 7.2, "String-Based Type Serializers"</a></td>
+    </tr>
+
+    <tr>
+      <th colspan="3">binary types</th>
+    </tr>
+    <tr>
+      <td><code>base64Binary</code></td>
+      <td><code>base64_binary_simpl</code></td>
+      <td><code>const xml_schema::buffer*</code><br/>
+          <a href="#7.5">Section 7.5, "<code>base64Binary</code> and
+          <code>hexBinary</code> Serializers"</a></td>
+    </tr>
+    <tr>
+      <td><code>hexBinary</code></td>
+      <td><code>hex_binary_simpl</code></td>
+      <td><code>const xml_schema::buffer*</code><br/>
+          <a href="#7.5">Section 7.5, "<code>base64Binary</code> and
+          <code>hexBinary</code> Serializers"</a></td>
+    </tr>
+
+    <tr>
+      <th colspan="3">date/time types</th>
+    </tr>
+    <tr>
+      <td><code>date</code></td>
+      <td><code>date_simpl</code></td>
+      <td><code>const xml_schema::date&amp;</code><br/>
+          <a href="#7.7">Section 7.7, "<code>date</code> Serializer"</a></td>
+    </tr>
+    <tr>
+      <td><code>dateTime</code></td>
+      <td><code>date_time_simpl</code></td>
+      <td><code>const xml_schema::date_time&amp;</code><br/>
+          <a href="#7.8">Section 7.8, "<code>dateTime</code> Serializer"</a></td>
+    </tr>
+    <tr>
+      <td><code>duration</code></td>
+      <td><code>duration_simpl</code></td>
+      <td><code>const xml_schema::duration&amp;</code><br/>
+          <a href="#7.9">Section 7.9, "<code>duration</code> Serializer"</a></td>
+    </tr>
+    <tr>
+      <td><code>gDay</code></td>
+      <td><code>gday_simpl</code></td>
+      <td><code>const xml_schema::gday&amp;</code><br/>
+          <a href="#7.10">Section 7.10, "<code>gDay</code> Serializer"</a></td>
+    </tr>
+    <tr>
+      <td><code>gMonth</code></td>
+      <td><code>gmonth_simpl</code></td>
+      <td><code>const xml_schema::gmonth&amp;</code><br/>
+          <a href="#7.11">Section 7.11, "<code>gMonth</code> Serializer"</a></td>
+    </tr>
+    <tr>
+      <td><code>gMonthDay</code></td>
+      <td><code>gmonth_day_simpl</code></td>
+      <td><code>const xml_schema::gmonth_day&amp;</code><br/>
+          <a href="#7.12">Section 7.12, "<code>gMonthDay</code> Serializer"</a></td>
+    </tr>
+    <tr>
+      <td><code>gYear</code></td>
+      <td><code>gyear_simpl</code></td>
+      <td><code>const xml_schema::gyear&amp;</code><br/>
+          <a href="#7.13">Section 7.13, "<code>gYear</code> Serializer"</a></td>
+    </tr>
+    <tr>
+      <td><code>gYearMonth</code></td>
+      <td><code>gyear_month_simpl</code></td>
+      <td><code>const xml_schema::gyear_month&amp;</code><br/>
+          <a href="#7.14">Section 7.14, "<code>gYearMonth</code> Serializer"</a></td>
+    </tr>
+    <tr>
+      <td><code>time</code></td>
+      <td><code>time_simpl</code></td>
+      <td><code>const xml_schema::time&amp;</code><br/>
+          <a href="#7.15">Section 7.15, "<code>time</code> Serializer"</a></td>
+    </tr>
+
+  </table>
+
+  <h2><a name="7.1">7.1 Floating-Point Type Serializers</a></h2>
+
+  <p>The serializer implementations for the <code>float</code>,
+     <code>double</code>, and <code>decimal</code> built-in
+     XML Schema types allow you to specify the resulting
+     notation (fixed or scientific) as well as precision.
+     This is done by passing the corresponding arguments
+     to their constructors:</p>
+
+  <pre class="c++">
+namespace xml_schema
+{
+  class float_simpl: public float_sskel
+  {
+    enum notation
+    {
+      notation_auto,
+      notation_fixed,
+      notation_scientific
+    };
+
+    float_simpl (notation = notation_auto,
+                 unsigned int precision = FLT_DIG);
+
+    virtual void
+    pre (float);
+
+    ...
+  };
+
+  class double_simpl: public double_sskel
+  {
+    enum notation
+    {
+      notation_auto,
+      notation_fixed,
+      notation_scientific
+    };
+
+    double_simpl (notation = notation_auto,
+                  unsigned int precision = DBL_DIG);
+
+    virtual void
+    pre (double);
+
+    ...
+  };
+
+  class decimal_simpl: public decimal_sskel
+  {
+    decimal_simpl (unsigned int precision = DBL_DIG);
+
+    virtual void
+    pre (double);
+
+    ...
+  };
+}
+  </pre>
+
+  <p>By default the notation for the <code>float</code> and <code>double</code>
+     types is automatically selected to produce the shortest representation.
+     Note that the <code>decimal</code> values are always serialized in
+     the fixed-point notation.</p>
+
+  <h2><a name="7.2">7.2 String-Based Type Serializers</a></h2>
+
+  <p>When STL is enabled (<a href="#6.1">Section 6.1, "Standard Template
+     Library"</a>), the serializer argument type for the <code>string</code>,
+     <code>normalizedString</code>, <code>token</code>,
+     <code>Name</code>, <code>NMTOKEN</code>, <code>NCName</code>,
+     <code>ID</code>, <code>IDREF</code>, <code>language</code>,
+     <code>anyURI</code>, and <code>anySimpleType</code> built-in XML Schema
+     types is
+     <code>const std::string&amp;</code>. When STL is disabled, the value
+     is passed as a constant C-string: <code>const char*</code>.
+     In this case, you can also instruct the serializer
+     implementations for string-based types to release the
+     string with operator <code>delete[]</code> by passing
+     <code>true</code> to their constructors. For instance,
+     using the person records example from the previous chapter:</p>
+
+  <pre class="c++">
+class person_simpl: public person_sskel
+{
+public:
+  virtual const char*
+  first_name ()
+  {
+    char* r = new char[5];
+    strcpy (r, "John");
+    return r;
+  }
+
+  virtual const char*
+  last_name ()
+  {
+    char* r = new char[4];
+    strcpy (r, "Doe");
+    return r;
+  }
+
+  ...
+};
+
+int
+main ()
+{
+  // Construct the serializer.
+  //
+  xml_schema::unsigned_short_simpl unsigned_short_s;
+  xml_schema::string_simpl string_s (true); // Release the string passed.
+
+  gender_simpl gender_s;
+  person_simpl person_s;
+  people_simpl people_s;
+
+  person_s.serializers (string_s, string_s, gender_s, unsigned_short_s);
+
+  ...
+}
+  </pre>
+
+  <h2><a name="7.3">7.3 <code>QName</code> Serializer</a></h2>
+
+  <p>The argument type of the <code>qname_simpl</code> serializer
+     implementation is either <code>const xml_schema::qname&amp;</code>
+     when STL is enabled (<a href="#6.1">Section 6.1, "Standard Template
+     Library"</a>) or <code>const xml_schema::qname*</code> when STL
+     is disabled. The <code>qname</code> class represents an XML
+     qualified name. When the argument type is <code>const
+     xml_schema::qname*</code>, you can optionally instruct the
+     serializer to release the <code>qname</code> object with operator
+     <code>delete</code> by passing <code>true</code> to its
+     constructor.</p>
+
+  <p>With STL enabled, the <code>qname</code> type has the following
+     interface:</p>
+
+  <pre class="c++">
+namespace xml_schema
+{
+  class qname
+  {
+  public:
+    // The default constructor creates an uninitialized object.
+    // Use modifiers to initialize it.
+    //
+    qname ();
+
+    explicit
+    qname (const std::string&amp; name);
+    qname (const std::string&amp; prefix, const std::string&amp; name);
+
+    void
+    swap (qname&amp;);
+
+    const std::string&amp;
+    prefix () const;
+
+    std::string&amp;
+    prefix ();
+
+    void
+    prefix (const std::string&amp;);
+
+    const std::string&amp;
+    name () const;
+
+    std::string&amp;
+    name ();
+
+    void
+    name (const std::string&amp;);
+  };
+
+  bool
+  operator== (const qname&amp;, const qname&amp;);
+
+  bool
+  operator!= (const qname&amp;, const qname&amp;);
+}
+  </pre>
+
+  <p>When STL is disabled and C++ exceptions are enabled
+     (<a href="#6.3">Section 6.3, "C++ Exceptions"</a>), the
+     <code>qname</code> type has the following interface:</p>
+
+  <pre class="c++">
+namespace xml_schema
+{
+  class qname
+  {
+  public:
+    // The default constructor creates an uninitialized object.
+    // Use modifiers to initialize it.
+    //
+    qname ();
+
+    explicit
+    qname (char* name);
+    qname (char* prefix, char* name);
+
+    void
+    swap (qname&amp;);
+
+  private:
+    qname (const qname&amp;);
+
+    qname&amp;
+    operator= (const qname&amp;);
+
+  public:
+    char*
+    prefix ();
+
+    const char*
+    prefix () const;
+
+    void
+    prefix (char*);
+
+    void
+    prefix_copy (const char*);
+
+    char*
+    prefix_detach ();
+
+  public:
+    char*
+    name ();
+
+    const char*
+    name () const;
+
+    void
+    name (char*);
+
+    void
+    name_copy (const char*);
+
+    char*
+    name_detach ();
+  };
+
+  bool
+  operator== (const qname&amp;, const qname&amp;);
+
+  bool
+  operator!= (const qname&amp;, const qname&amp;);
+}
+</pre>
+
+  <p>The modifier functions and constructors that have the <code>char*</code>
+     argument assume ownership of the passed strings which should be allocated
+     with operator <code>new char[]</code> and will be deallocated with
+     operator <code>delete[]</code> by the <code>qname</code> object.
+     If you detach the underlying prefix or name strings, then they
+     should eventually be deallocated with operator <code>delete[]</code>.
+     </p>
+
+  <p>Finally, if both STL and C++ exceptions are disabled, the
+     <code>qname</code> type has the following interface:</p>
+
+  <pre class="c++">
+namespace xml_schema
+{
+  class qname
+  {
+  public:
+    enum error
+    {
+      error_none,
+      error_no_memory
+    };
+
+    // The default constructor creates an uninitialized object.
+    // Use modifiers to initialize it.
+    //
+    qname ();
+
+    explicit
+    qname (char* name);
+    qname (char* prefix, char* name);
+
+    void
+    swap (qname&amp;);
+
+  private:
+    qname (const qname&amp;);
+
+    qname&amp;
+    operator= (const qname&amp;);
+
+  public:
+    char*
+    prefix ();
+
+    const char*
+    prefix () const;
+
+    void
+    prefix (char*);
+
+    error
+    prefix_copy (const char*);
+
+    char*
+    prefix_detach ();
+
+  public:
+    char*
+    name ();
+
+    const char*
+    name () const;
+
+    void
+    name (char*);
+
+    error
+    name_copy (const char*);
+
+    char*
+    name_detach ();
+  };
+
+  bool
+  operator== (const qname&amp;, const qname&amp;);
+
+  bool
+  operator!= (const qname&amp;, const qname&amp;);
+}
+  </pre>
+
+  <h2><a name="7.4">7.4 <code>NMTOKENS</code> and <code>IDREFS</code> Serializers</a></h2>
+
+  <p>The argument type of the <code>nmtokens_simpl</code> and
+     <code>idrefs_simpl</code> serializer implementations is
+     <code>const xml_schema::string_sequence*</code>. You can
+     optionally instruct these serializers to release the
+     <code>string_sequence</code> object with operator <code>delete</code>
+     by passing <code>true</code> to their constructors. With STL and C++ exceptions enabled
+     (<a href="#6.1">Section 6.1, "Standard Template Library"</a>,
+      <a href="#6.3">Section 6.3, "C++ Exceptions"</a>), the
+     <code>string_sequence</code> type has the following interface:</p>
+
+  <pre class="c++">
+namespace xml_schema
+{
+  class string_sequence
+  {
+  public:
+    typedef std::string         value_type;
+    typedef std::string*        pointer;
+    typedef const std::string*  const_pointer;
+    typedef std::string&amp;        reference;
+    typedef const std::string&amp;  const_reference;
+
+    typedef size_t              size_type;
+    typedef ptrdiff_t           difference_type;
+
+    typedef std::string*        iterator;
+    typedef const std::string*  const_iterator;
+
+  public:
+    string_sequence ();
+
+    void
+    swap (string_sequence&amp;);
+
+  private:
+    string_sequence (string_sequence&amp;);
+
+    string_sequence&amp;
+    operator= (string_sequence&amp;);
+
+  public:
+    iterator
+    begin ();
+
+    const_iterator
+    begin () const;
+
+    iterator
+    end ();
+
+    const_iterator
+    end () const;
+
+    std::string&amp;
+    front ();
+
+    const std::string&amp;
+    front () const;
+
+    std::string&amp;
+    back ();
+
+    const std::string&amp;
+    back () const;
+
+    std::string&amp;
+    operator[] (size_t);
+
+    const std::string&amp;
+    operator[] (size_t) const;
+
+  public:
+    bool
+    empty () const;
+
+    size_t
+    size () const;
+
+    size_t
+    capacity () const;
+
+    size_t
+    max_size () const;
+
+  public:
+    void
+    clear ();
+
+    void
+    pop_back ();
+
+    iterator
+    erase (iterator);
+
+    void
+    push_back (const std::string&amp;);
+
+    iterator
+    insert (iterator, const std::string&amp;);
+
+    void
+    reserve (size_t);
+  };
+
+  bool
+  operator== (const string_sequence&amp;, const string_sequence&amp;);
+
+  bool
+  operator!= (const string_sequence&amp;, const string_sequence&amp;);
+}
+  </pre>
+
+  <p>When STL is enabled and C++ exceptions are disabled, the signatures
+     of the <code>push_back()</code>, <code>insert()</code>, and
+     <code>reserve()</code> functions change as follows:</p>
+
+  <pre class="c++">
+namespace xml_schema
+{
+  class string_sequence
+  {
+  public:
+    enum error
+    {
+      error_none,
+      error_no_memory
+    };
+
+    ...
+
+  public:
+    error
+    push_back (const std::string&amp;);
+
+    error
+    insert (iterator, const std::string&amp;);
+
+    error
+    insert (iterator, const std::string&amp;, iterator&amp; result);
+
+    error
+    reserve (size_t);
+  };
+}
+  </pre>
+
+  <p>When STL is disabled and C++ exceptions are enabled, the
+     <code>string_sequence</code> type has the following interface:</p>
+
+  <pre class="c++">
+namespace xml_schema
+{
+  class string_sequence
+  {
+  public:
+    typedef char*         value_type;
+    typedef char**        pointer;
+    typedef const char**  const_pointer;
+    typedef char*         reference;
+    typedef const char*   const_reference;
+
+    typedef size_t        size_type;
+    typedef ptrdiff_t     difference_type;
+
+    typedef char** iterator;
+    typedef const char* const* const_iterator;
+
+    string_sequence ();
+
+    void
+    swap (string_sequence&amp;);
+
+  private:
+    string_sequence (string_sequence&amp;);
+
+    string_sequence&amp;
+    operator= (string_sequence&amp;);
+
+  public:
+    iterator
+    begin ();
+
+    const_iterator
+    begin () const;
+
+    iterator
+    end ();
+
+    const_iterator
+    end () const;
+
+    char*
+    front ();
+
+    const char*
+    front () const;
+
+    char*
+    back ();
+
+    const char*
+    back () const;
+
+    char*
+    operator[] (size_t);
+
+    const char*
+    operator[] (size_t) const;
+
+  public:
+    bool
+    empty () const;
+
+    size_t
+    size () const;
+
+    size_t
+    capacity () const;
+
+    size_t
+    max_size () const;
+
+  public:
+    void
+    clear ();
+
+    void
+    pop_back ();
+
+    iterator
+    erase (iterator);
+
+    void
+    push_back (char*);
+
+    void
+    push_back_copy (const char*);
+
+    iterator
+    insert (iterator, char*);
+
+    void
+    reserve (size_t);
+
+    // Detach a string from the sequence at a given position.
+    // The string pointer at this position in the sequence is
+    // set to 0.
+    //
+    char*
+    detach (iterator);
+  };
+
+  bool
+  operator== (const string_sequence&amp;, const string_sequence&amp;);
+
+  bool
+  operator!= (const string_sequence&amp;, const string_sequence&amp;);
+}
+  </pre>
+
+  <p>The <code>push_back()</code> and <code>insert()</code> functions
+     assume ownership of the passed string which should be allocated
+     with operator <code>new char[]</code> and will be deallocated
+     with operator <code>delete[]</code> by the <code>string_sequence</code>
+     object. These two functions free the passed object if the reallocation
+     of the underlying sequence buffer fails. The <code>push_back_copy()</code>
+     function makes a copy of the passed string.
+     If you detach the underlying element string, then it should
+     eventually be deallocated with operator <code>delete[]</code>.</p>
+
+  <p>When both STL and C++ exceptions are disabled, the signatures
+     of the <code>push_back()</code>, <code>push_back_copy()</code>,
+     <code>insert()</code>, and <code>reserve()</code> functions change
+     as follows:</p>
+
+  <pre class="c++">
+namespace xml_schema
+{
+  class string_sequence
+  {
+  public:
+    enum error
+    {
+      error_none,
+      error_no_memory
+    };
+
+    ...
+
+  public:
+    error
+    push_back (char*);
+
+    error
+    push_back_copy (const char*);
+
+    error
+    insert (iterator, char*);
+
+    error
+    insert (iterator, char*, iterator&amp; result);
+
+    error
+    reserve (size_t);
+  };
+}
+  </pre>
+
+
+  <h2><a name="7.5">7.5 <code>base64Binary</code> and <code>hexBinary</code> Serializers</a></h2>
+
+  <p>The argument type of the <code>base64_binary_simpl</code> and
+     <code>hex_binary_simpl</code> serializer implementations is
+     <code>const xml_schema::buffer*</code>. You can optionally
+     instruct these serializers to release the <code>buffer</code>
+     object with operator <code>delete</code> by passing <code>true</code>
+     to their constructors. With C++ exceptions enabled (<a href="#6.3">Section
+     6.3, "C++ Exceptions"</a>), the <code>buffer</code> type has the
+     following interface:</p>
+
+  <pre class="c++">
+namespace xml_schema
+{
+  class buffer
+  {
+  public:
+    class bounds {}; // Out of bounds exception.
+
+  public:
+    buffer ();
+
+    explicit
+    buffer (size_t size);
+    buffer (size_t size, size_t capacity);
+    buffer (const void* data, size_t size);
+    buffer (const void* data, size_t size, size_t capacity);
+
+    enum ownership_value { assume_ownership };
+
+    // This constructor assumes ownership of the memory passed.
+    //
+    buffer (void* data, size_t size, size_t capacity, ownership_value);
+
+  private:
+    buffer (const buffer&amp;);
+
+    buffer&amp;
+    operator= (const buffer&amp;);
+
+  public:
+    void
+    attach (void* data, size_t size, size_t capacity);
+
+    void*
+    detach ();
+
+    void
+    swap (buffer&amp;);
+
+  public:
+    size_t
+    capacity () const;
+
+    bool
+    capacity (size_t);
+
+  public:
+    size_t
+    size () const;
+
+    bool
+    size (size_t);
+
+  public:
+    const char*
+    data () const;
+
+    char*
+    data ();
+
+    const char*
+    begin () const;
+
+    char*
+    begin ();
+
+    const char*
+    end () const;
+
+    char*
+    end ();
+  };
+
+  bool
+  operator== (const buffer&amp;, const buffer&amp;);
+
+  bool
+  operator!= (const buffer&amp;, const buffer&amp;);
+}
+  </pre>
+
+  <p>The last constructor and the <code>attach()</code> member function
+     make the <code>buffer</code> instance assume the ownership of the
+     memory block pointed to by the <code>data</code> argument and
+     eventually release it by calling <code>operator delete()</code>.
+     The <code>detach()</code> member function detaches and returns the
+     underlying memory block which should eventually be released by
+     calling <code>operator delete()</code>.
+  </p>
+
+  <p>The <code>capacity()</code> and <code>size()</code> modifier functions
+     return <code>true</code> if the underlying buffer has moved. The
+     <code>bounds</code> exception is thrown if the constructor or
+     <code>attach()</code> member function arguments violate the
+     <code>(size&nbsp;&lt;=&nbsp;capacity)</code> constraint.</p>
+
+  <p>If C++ exceptions are disabled, the <code>buffer</code> type has
+     the following interface:</p>
+
+  <pre class="c++">
+namespace xml_schema
+{
+  class buffer
+  {
+  public:
+    enum error
+    {
+      error_none,
+      error_bounds,
+      error_no_memory
+    };
+
+    buffer ();
+
+  private:
+    buffer (const buffer&amp;);
+
+    buffer&amp;
+    operator= (const buffer&amp;);
+
+  public:
+    error
+    attach (void* data, size_t size, size_t capacity);
+
+    void*
+    detach ();
+
+    void
+    swap (buffer&amp;);
+
+  public:
+    size_t
+    capacity () const;
+
+    error
+    capacity (size_t);
+
+    error
+    capacity (size_t, bool&amp; moved);
+
+  public:
+    size_t
+    size () const;
+
+    error
+    size (size_t);
+
+    error
+    size (size_t, bool&amp; moved);
+
+  public:
+    const char*
+    data () const;
+
+    char*
+    data ();
+
+    const char*
+    begin () const;
+
+    char*
+    begin ();
+
+    const char*
+    end () const;
+
+    char*
+    end ();
+  };
+
+  bool
+  operator== (const buffer&amp;, const buffer&amp;);
+
+  bool
+  operator!= (const buffer&amp;, const buffer&amp;);
+}
+  </pre>
+
+  <h2><a name="7.6">7.6 Time Zone Representation</a></h2>
+
+  <p>The <code>date</code>, <code>dateTime</code>, <code>gDay</code>,
+     <code>gMonth</code>, <code>gMonthDay</code>, <code>gYear</code>,
+     <code>gYearMonth</code>, and <code>time</code> XML Schema built-in
+     types all include an optional time zone component. The following
+     <code>xml_schema::time_zone</code> base class is used to represent
+     this information:</p>
+
+  <pre class="c++">
+namespace xml_schema
+{
+  class time_zone
+  {
+  public:
+    time_zone ();
+    time_zone (short hours, short minutes);
+
+    bool
+    zone_present () const;
+
+    void
+    zone_reset ();
+
+    short
+    zone_hours () const;
+
+    void
+    zone_hours (short);
+
+    short
+    zone_minutes () const;
+
+    void
+    zone_minutes (short);
+  };
+
+  bool
+  operator== (const time_zone&amp;, const time_zone&amp;);
+
+  bool
+  operator!= (const time_zone&amp;, const time_zone&amp;);
+}
+  </pre>
+
+  <p>The <code>zone_present()</code> accessor function returns <code>true</code>
+     if the time zone is specified. The <code>zone_reset()</code> modifier
+     function resets the time zone object to the <em>not specified</em>
+     state. If the time zone offset is negative then both hours and
+     minutes components are represented as negative integers.</p>
+
+  <h2><a name="7.7">7.7 <code>date</code> Serializer</a></h2>
+
+ <p>The argument type of the <code>date_simpl</code> serializer implementation
+     is <code>const xml_schema::date&amp;</code>. The <code>date</code> class
+     represents a year, a day, and a month with an optional time zone. Its
+     interface is presented below. For more information on the base
+     <code>xml_schema::time_zone</code> class refer to <a href="#7.6">Section
+     7.6, "Time Zone Representation"</a>.</p>
+
+  <pre class="c++">
+namespace xml_schema
+{
+  class date: public time_zone
+  {
+  public:
+    // The default constructor creates an uninitialized object.
+    // Use modifiers to initialize it.
+    //
+    date ();
+
+    date (int year, unsigned short month, unsigned short day);
+
+    date (int year, unsigned short month, unsigned short day,
+          short zone_hours, short zone_minutes);
+
+    int
+    year () const;
+
+    void
+    year (int);
+
+    unsigned short
+    month () const;
+
+    void
+    month (unsigned short);
+
+    unsigned short
+    day () const;
+
+    void
+    day (unsigned short);
+  };
+
+  bool
+  operator== (const date&amp;, const date&amp;);
+
+  bool
+  operator!= (const date&amp;, const date&amp;);
+}
+  </pre>
+
+  <h2><a name="7.8">7.8 <code>dateTime</code> Serializer</a></h2>
+
+  <p>The argument type of the <code>date_time_simpl</code> serializer
+     implementation is <code>const xml_schema::date_time&amp;</code>.
+     The <code>date_time</code> class represents a year, a month, a day,
+     hours, minutes, and seconds with an optional time zone. Its interface
+     is presented below. For more information on the base
+     <code>xml_schema::time_zone</code> class refer to <a href="#7.6">Section
+     7.6, "Time Zone Representation"</a>.</p>
+
+  <pre class="c++">
+namespace xml_schema
+{
+  class date_time: public time_zone
+  {
+  public:
+    // The default constructor creates an uninitialized object.
+    // Use modifiers to initialize it.
+    //
+    date_time ();
+
+    date_time (int year, unsigned short month, unsigned short day,
+               unsigned short hours, unsigned short minutes,
+               double seconds);
+
+    date_time (int year, unsigned short month, unsigned short day,
+               unsigned short hours, unsigned short minutes,
+               double seconds, short zone_hours, short zone_minutes);
+
+    int
+    year () const;
+
+    void
+    year (int);
+
+    unsigned short
+    month () const;
+
+    void
+    month (unsigned short);
+
+    unsigned short
+    day () const;
+
+    void
+    day (unsigned short);
+
+    unsigned short
+    hours () const;
+
+    void
+    hours (unsigned short);
+
+    unsigned short
+    minutes () const;
+
+    void
+    minutes (unsigned short);
+
+    double
+    seconds () const;
+
+    void
+    seconds (double);
+  };
+
+  bool
+  operator== (const date_time&amp;, const date_time&amp;);
+
+  bool
+  operator!= (const date_time&amp;, const date_time&amp;);
+}
+  </pre>
+
+  <h2><a name="7.9">7.9 <code>duration</code> Serializer</a></h2>
+
+  <p>The argument type of the <code>duration_simpl</code> serializer
+     implementation is <code>const xml_schema::duration&amp;</code>.
+     The <code>duration</code> class represents a potentially
+     negative duration in the form of years, months, days, hours, minutes,
+     and seconds. Its interface is presented below.</p>
+
+  <pre class="c++">
+namespace xml_schema
+{
+  class duration
+  {
+  public:
+    // The default constructor creates an uninitialized object.
+    // Use modifiers to initialize it.
+    //
+    duration ();
+
+    duration (bool negative,
+              unsigned int years, unsigned int months, unsigned int days,
+              unsigned int hours, unsigned int minutes, double seconds);
+
+    bool
+    negative () const;
+
+    void
+    negative (bool);
+
+    unsigned int
+    years () const;
+
+    void
+    years (unsigned int);
+
+    unsigned int
+    months () const;
+
+    void
+    months (unsigned int);
+
+    unsigned int
+    days () const;
+
+    void
+    days (unsigned int);
+
+    unsigned int
+    hours () const;
+
+    void
+    hours (unsigned int);
+
+    unsigned int
+    minutes () const;
+
+    void
+    minutes (unsigned int);
+
+    double
+    seconds () const;
+
+    void
+    seconds (double);
+  };
+
+  bool
+  operator== (const duration&amp;, const duration&amp;);
+
+  bool
+  operator!= (const duration&amp;, const duration&amp;);
+}
+  </pre>
+
+
+  <h2><a name="7.10">7.10 <code>gDay</code> Serializer</a></h2>
+
+  <p>The argument type of the <code>gday_simpl</code> serializer
+     implementation is <code>const xml_schema::gday&amp;</code> The
+     <code>gday</code> class represents a day of the month with
+     an optional time zone. Its interface is presented below. For
+     more information on the base <code>xml_schema::time_zone</code>
+     class refer to <a href="#7.6">Section 7.6, "Time Zone
+     Representation"</a>.</p>
+
+  <pre class="c++">
+namespace xml_schema
+{
+  class gday: public time_zone
+  {
+  public:
+    // The default constructor creates an uninitialized object.
+    // Use modifiers to initialize it.
+    //
+    gday ();
+
+    explicit
+    gday (unsigned short day);
+
+    gday (unsigned short day, short zone_hours, short zone_minutes);
+
+    unsigned short
+    day () const;
+
+    void
+    day (unsigned short);
+  };
+
+  bool
+  operator== (const gday&amp;, const gday&amp;);
+
+  bool
+  operator!= (const gday&amp;, const gday&amp;);
+}
+  </pre>
+
+  <h2><a name="7.11">7.11 <code>gMonth</code> Serializer</a></h2>
+
+  <p>The argument type of the <code>gmonth_simpl</code> serializer
+     implementation is <code>const xml_schema::gmonth&amp;</code>. The
+     <code>gmonth</code> class represents a month of the year with
+     an optional time zone. Its interface is presented below. For
+     more information on the base <code>xml_schema::time_zone</code>
+     class refer to <a href="#7.6">Section 7.6, "Time Zone
+     Representation"</a>.</p>
+
+  <pre class="c++">
+namespace xml_schema
+{
+  class gmonth: public time_zone
+  {
+  public:
+    // The default constructor creates an uninitialized object.
+    // Use modifiers to initialize it.
+    //
+    gmonth ();
+
+    explicit
+    gmonth (unsigned short month);
+
+    gmonth (unsigned short month,
+            short zone_hours, short zone_minutes);
+
+    unsigned short
+    month () const;
+
+    void
+    month (unsigned short);
+  };
+
+  bool
+  operator== (const gmonth&amp;, const gmonth&amp;);
+
+  bool
+  operator!= (const gmonth&amp;, const gmonth&amp;);
+}
+  </pre>
+
+  <h2><a name="7.12">7.12 <code>gMonthDay</code> Serializer</a></h2>
+
+  <p>The argument type of the <code>gmonth_day_simpl</code> serializer
+     implementation is <code>const xml_schema::gmonth_day&amp;</code>.
+     The <code>gmonth_day</code> class represents a day and a month of
+     the year with an optional time zone. Its interface is presented below.
+     For more information on the base <code>xml_schema::time_zone</code>
+     class refer to <a href="#7.6">Section 7.6, "Time Zone
+     Representation"</a>.</p>
+
+  <pre class="c++">
+namespace xml_schema
+{
+  class gmonth_day: public time_zone
+  {
+  public:
+    // The default constructor creates an uninitialized object.
+    // Use modifiers to initialize it.
+    //
+    gmonth_day ();
+
+    gmonth_day (unsigned short month, unsigned short day);
+
+    gmonth_day (unsigned short month, unsigned short day,
+                short zone_hours, short zone_minutes);
+
+    unsigned short
+    month () const;
+
+    void
+    month (unsigned short);
+
+    unsigned short
+    day () const;
+
+    void
+    day (unsigned short);
+  };
+
+  bool
+  operator== (const gmonth_day&amp;, const gmonth_day&amp;);
+
+  bool
+  operator!= (const gmonth_day&amp;, const gmonth_day&amp;);
+}
+  </pre>
+
+  <h2><a name="7.13">7.13 <code>gYear</code> Serializer</a></h2>
+
+  <p>The argument type of the <code>gyear_simpl</code> serializer
+     implementation is <code>const xml_schema::gyear&amp;</code>. The
+     <code>gyear</code> class represents a year with an optional
+     time zone. Its interface is presented below. For more information
+     on the base <code>xml_schema::time_zone</code> class refer to
+     <a href="#7.6">Section 7.6, "Time Zone Representation"</a>.</p>
+
+  <pre class="c++">
+namespace xml_schema
+{
+  class gyear: public time_zone
+  {
+  public:
+    // The default constructor creates an uninitialized object.
+    // Use modifiers to initialize it.
+    //
+    gyear ();
+
+    explicit
+    gyear (int year);
+
+    gyear (int year, short zone_hours, short zone_minutes);
+
+    int
+    year () const;
+
+    void
+    year (int);
+  };
+
+  bool
+  operator== (const gyear&amp;, const gyear&amp;);
+
+  bool
+  operator!= (const gyear&amp;, const gyear&amp;);
+}
+  </pre>
+
+  <h2><a name="7.14">7.14 <code>gYearMonth</code> Serializer</a></h2>
+
+  <p>The argument type of the <code>gyear_month_simpl</code> serializer
+     implementation is <code>const xml_schema::gyear_month&amp;</code>.
+     The <code>gyear_month</code> class represents a year and a month
+     with an optional time zone. Its interface is presented below.
+     For more information on the base <code>xml_schema::time_zone</code>
+     class refer to <a href="#7.6">Section 7.6, "Time Zone
+     Representation"</a>.</p>
+
+  <pre class="c++">
+namespace xml_schema
+{
+  class gyear_month: public time_zone
+  {
+  public:
+    // The default constructor creates an uninitialized object.
+    // Use modifiers to initialize it.
+    //
+    gyear_month ();
+
+    gyear_month (int year, unsigned short month);
+
+    gyear_month (int year, unsigned short month,
+                 short zone_hours, short zone_minutes);
+
+    int
+    year () const;
+
+    void
+    year (int);
+
+    unsigned short
+    month () const;
+
+    void
+    month (unsigned short);
+  };
+
+  bool
+  operator== (const gyear_month&amp;, const gyear_month&amp;);
+
+  bool
+  operator!= (const gyear_month&amp;, const gyear_month&amp;);
+}
+  </pre>
+
+
+  <h2><a name="7.15">7.15 <code>time</code> Serializer</a></h2>
+
+ <p>The argument type of the <code>time_simpl</code> serializer implementation
+    is <code>const xml_schema::time&amp;</code>. The <code>time</code> class
+    represents hours, minutes, and seconds with an optional time zone. Its
+    interface is presented below. For more information on the base
+    <code>xml_schema::time_zone</code> class refer to <a href="#7.6">Section
+    7.6, "Time Zone Representation"</a>.</p>
+
+  <pre class="c++">
+namespace xml_schema
+{
+  class time: public time_zone
+  {
+  public:
+    // The default constructor creates an uninitialized object.
+    // Use modifiers to initialize it.
+    //
+    time ();
+
+    time (unsigned short hours, unsigned short minutes, double seconds);
+
+    time (unsigned short hours, unsigned short minutes, double seconds,
+          short zone_hours, short zone_minutes);
+
+    unsigned short
+    hours () const;
+
+    void
+    hours (unsigned short);
+
+    unsigned short
+    minutes () const;
+
+    void
+    minutes (unsigned short);
+
+    double
+    seconds () const;
+
+    void
+    seconds (double);
+  };
+
+  bool
+  operator== (const time&amp;, const time&amp;);
+
+  bool
+  operator!= (const time&amp;, const time&amp;);
+}
+  </pre>
+
+
+  <!-- Error Handling -->
+
+
+  <h1><a name="8">8 Document Serializer and Error Handling</a></h1>
+
+  <p>In this chapter we will discuss the <code>xml_schema::document_simpl</code>
+     type, the error handling mechanisms provided by the mapping, as well as
+     how to reuse a serializer after an error has occurred.</p>
+
+  <p>There are four categories of errors that can result from running
+     a serializer to produce an XML instance: system, xml, schema, and
+     application. The system category contains memory allocation and
+     input/output operation errors. The xml category is for XML serialization
+     and well-formedness checking errors. Similarly, the schema category is
+     for XML Schema validation errors.  Finally, the application category
+     is for application logic errors that you may want to propagate
+     from serializer implementations to the caller of the serializer.
+  </p>
+
+  <p>The C++/Serializer mapping supports two methods of reporting errors:
+     using C++ exceptions and with error codes. The method used depends
+     on whether or not you have configured the XSD/e runtime and
+     the generated code with C++ exceptions enabled, as described
+     in <a href="#6.3">Section 6.3, "C++ Exceptions"</a>.</p>
+
+  <h2><a name="8.1">8.1 Document Serializer</a></h2>
+
+  <p>The <code>xml_schema::document_simpl</code> serializer is a root
+     serializer for the vocabulary. As mentioned in <a href="#3.4">Section
+     3.4, "Connecting the Serializer Together"</a>, its interface varies
+     depending on the mapping configuration (<a href="#6">Chapter 6, "Mapping
+     Configuration"</a>). When STL, C++ exceptions, and the iostream library
+     are enabled, the <code>xml_schema::document_simpl</code> class has the
+     following interface:</p>
+
+  <pre class="c++">
+namespace xml_schema
+{
+  class serializer_base;
+
+  class writer
+  {
+  public:
+    // The first write function is called to write a '\0'-terminated
+    // string. Its default implementation calls the second versions:
+    // write (s, strlen (s)). These functions use exceptions to
+    // indicate a write failure.
+    //
+    virtual void
+    write (const char* s);
+
+    virtual void
+    write (const char* s, size_t n) = 0;
+
+    virtual void
+    flush () = 0;
+  };
+
+  class document_simpl
+  {
+  public:
+    document_simpl (serializer_base&amp;,
+                    const char* root_element_name);
+
+    document_simpl (serializer_base&amp;,
+                    const char* root_element_namespace,
+                    const char* root_element_name);
+
+    document_simpl (serializer_base&amp;,
+                    const std::string&amp; root_element_name);
+
+    document_simpl (serializer_base&amp;,
+                    const std::string&amp; root_element_namespace,
+                    const std::string&amp; root_element_name);
+
+  public:
+    void
+    add_prefix (const char* prefix, const char* namespace_);
+
+    void
+    add_default_prefix (const char* namespace_);
+
+    void
+    add_schema (const char* namespace_, const char* location);
+
+    void
+    add_no_namespace_schema (const char* location);
+
+    void
+    add_prefix (const std::string&amp; prefix,
+                const std::string&amp; namespace_);
+
+    void
+    add_default_prefix (const std::string&amp; namespace_);
+
+    void
+    add_schema (const std::string&amp; namespace_,
+                const std::string&amp; location);
+
+    void
+    add_no_namespace_schema (const std::string&amp; location);
+
+  public:
+    // Serialization flags.
+    //
+    typedef unsigned short flags;
+
+    static const flags pretty_print;
+
+  public:
+    // Serialize to std::ostream. The std::ios_base::failure
+    // exception is used to report io errors (badbit and failbit)
+    // if C++ exceptions are enabled. Otherwise error codes are
+    // used.
+    //
+    void
+    serialize (std::ostream&amp;, flags = 0);
+
+  public:
+    // Serialize by calling writer::write() and writer::flush() to
+    // output XML.
+    //
+    void
+    serialize (writer&amp;, flags = 0);
+
+    // Serialize by calling the write and flush functions. If the
+    // unbounded write function is not provided, the bounded version
+    // is called: write_bound_func (s, strlen (s)). user_data is
+    // passed as a first argument to these functions. These functions
+    // use exceptions to indicate a write failure.
+    //
+    typedef void (*write_func) (void*, const char*);
+    typedef void (*write_bound_func) (void*, const char*, size_t);
+    typedef void (*flush_func) (void*);
+
+    void
+    serialize (write_bound_func,
+               flush_func,
+               void* user_data,
+               flags = 0);
+
+    void
+    serialize (write_func,
+               write_bound_func,
+               flush_func,
+               void* user_data,
+               flags = 0);
+  public:
+    // Low-level, genx-specific serialization. With this method
+    // it is your responsibility to call genxStartDoc*() and
+    // genxEndDocument().
+    //
+    void
+    serialize (genxWriter);
+  };
+}
+  </pre>
+
+  <p>When the use of STL is disabled, the constructors, as well as
+     the <code>add_prefix()</code> and <code>add_schema()</code>
+     functions that use <code>std::string</code> in their signatures
+     are not available. When the use of iostream is disabled, the
+     <code>serialize()</code> functions that serializes to
+     <code>std::ostream</code> is not available.</p>
+
+  <p>When C++ exceptions are disabled, the <code>write()</code> and
+     <code>flush()</code> virtual functions in the <code>writer</code>
+     interface as well as <code>write_func</code>,
+     <code>write_bound_func</code>, and <code>flush_func</code>
+     function pointers use <code>bool</code> return type
+     for error reporting. These functions should return <code>true</code>
+     if the operation was successful and <code>false</code> otherwise.
+     The relevant parts in the <code>writer</code> and
+    <code>document_simpl</code> interfaces change as follows:</p>
+
+  <pre class="c++">
+namespace xml_schema
+{
+  class serializer_base;
+
+  class writer
+  {
+  public:
+    // The first write function is called to write a '\0'-terminated
+    // string. Its default implementation calls the second versions:
+    // write (s, strlen (s)). These functions return true if the
+    // operation was successful and false otherwise.
+    //
+    // indicate a write failure.
+    //
+    virtual bool
+    write (const char* s);
+
+    virtual bool
+    write (const char* s, size_t n) = 0;
+
+    virtual bool
+    flush () = 0;
+  };
+
+  class document_simpl
+  {
+    ...
+
+    // Serialize by calling the write and flush functions. If the
+    // unbounded write function is not provided, the bounded version
+    // is called: write_bound_func (s, strlen (s)). user_data is
+    // passed as a first argument to these functions. These functions
+    // return true if the operation was successful and false otherwise.
+    //
+    typedef bool (*write_func) (void*, const char*);
+    typedef bool (*write_bound_func) (void*, const char*, size_t);
+    typedef bool (*flush_func) (void*);
+
+    ...
+
+  public:
+    const serializer_error&amp;
+    _error () const;
+  };
+}
+  </pre>
+
+  <p>For more information on error handling with C++ exceptions and
+     error codes see <a href="#8.2">Section 8.2, "Exceptions"</a>
+     and <a href="#8.3">Section 8.3, "Error Codes"</a> below.</p>
+
+  <p>When support for XML Schema polymorphism is enabled, the
+     overloaded <code>document_simpl</code> constructors have
+     additional arguments which control polymorphic serialization.
+     For more information refer to <a href="#6.7">Section 6.7,
+     "Support for Polymorphism"</a>.
+  </p>
+
+  <p>The first argument to all overloaded constructors is the
+     serializer for the type of the root element. The
+     <code>serializer_base</code> class is the base type for all
+     serializer skeletons. The second and third arguments to the
+     <code>document_simpl</code>'s constructors are the root element's
+     name and namespace.</p>
+
+  <p>The <code>add_prefix()</code> and <code>add_default_prefix()</code>
+     functions allow you to establish custom prefixes for XML
+     namespaces. If none is provided, and namespaces are used
+     by your vocabulary, the serializer will automatically
+     assign namespace prefixes in an implementation-specific
+     manner. For example:</p>
+
+  <pre class="c++">
+xml_schema::document_simpl doc_s (
+  root_s,
+  "http://www.example.com/example",
+  "root");
+
+doc_s.add_prefix ("ex", "http://www.example.com/example");
+  </pre>
+
+  <p>The resulting XML will have the following namespace declaration:</p>
+
+  <pre class="xml">
+&lt;ex:root xmlns:ex="http://www.example.com/example" ...>
+  ...
+&lt;/ex:root>
+  </pre>
+
+  <p>Similarly, the <code>add_schema()</code> and
+     <code>add_no_namespace_schema()</code> functions allow you to embed
+     schema location information for a particular namespace into resulting
+     XML. The schema location information is placed into the
+     <code>xsi:schemaLocation</code> and
+     <code>xsi:noNamespaceSchemaLocation</code> attributes. For example:</p>
+
+  <pre class="c++">
+xml_schema::document_simpl doc_s (
+  root_s,
+  "http://www.example.com/example",
+  "root");
+
+doc_s.add_prefix ("ex", "http://www.example.com/example");
+doc_s.add_schema ("http://www.example.com/example", "example.xsd");
+  </pre>
+
+  <p>The resulting XML will have the following namespace declaration:</p>
+
+  <pre class="xml">
+&lt;ex:root
+  xmlns:ex="http://www.example.com/example"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.example.com/example example.xsd" ...>
+  ...
+&lt;/ex:root>
+  </pre>
+
+  <h2><a name="8.2">8.2 Exceptions</a></h2>
+
+  <p>When C++ exceptions are used for error reporting, the system
+     errors are mapped to the standard exceptions. The out of memory
+     condition is indicated by throwing an instance
+     of <code>std::bad_alloc</code>. The stream operation errors
+     are reported by throwing an instance of
+     <code>std::ios_base::failure</code>.</p>
+
+  <p>The xml and schema errors are reported by throwing the
+     <code>xml_schema::serializer_xml</code> and
+     <code>xml_schema::serializer_schema</code>
+     exceptions, respectively. These two exceptions derive from
+     <code>xml_schema::serializer_exception</code> which, in turn, derives
+     from <code>std::exception</code>. As a result, you can handle
+     any error from these two categories by either catching
+     <code>std::exception</code>, <code>xml_schema::serializer_exception</code>,
+     or individual exceptions. The further down the hierarchy you go
+     the more detailed error information is available to you. The
+     following listing shows the definitions of these exceptions:</p>
+
+  <pre class="c++">
+namespace xml_schema
+{
+  class serializer_exception: public std::exception
+  {
+  public:
+    virtual const char*
+    text () const = 0;
+
+    ...
+  };
+
+  std::ostream&amp;
+  operator&lt;&lt; (std::ostream&amp;, const serializer_exception&amp;);
+
+
+  typedef &lt;implementation-details> serializer_xml_error;
+
+  class serializer_xml: public serializer_exception
+  {
+  public:
+    serializer_xml_error
+    code () const;
+
+    virtual const char*
+    text () const;
+
+    virtual const char*
+    what () const throw ();
+
+    ...
+  };
+
+
+  typedef &lt;implementation-details> serializer_schema_error;
+
+  class serializer_schema: public serializer_exception
+  {
+  public:
+    serializer_schema_error
+    code () const;
+
+    virtual const char*
+    text () const;
+
+    virtual const char*
+    what () const throw ();
+
+    ...
+  };
+}
+  </pre>
+
+  <p>The <code>serializer_xml_error</code> and
+     <code>serializer_schema_error</code> are implementation-specific error
+     code types. The <code>operator&lt;&lt;</code> defined for the
+     <code>serializer_exception</code> class simply prints the error
+     description as returned by the <code>text()</code> function. The
+     following example shows how we can catch these exceptions:</p>
+
+  <pre class="c++">
+int
+main ()
+{
+  try
+  {
+    // Serialize.
+  }
+  catch (const xml_schema::serializer_exception&amp; e)
+  {
+    cout &lt;&lt; "error: " &lt;&lt; e.text () &lt;&lt; endl;
+    return 1;
+  }
+}
+  </pre>
+
+  <p>Finally, for reporting application errors from serializer callbacks,
+     you can throw any exceptions of your choice. They are propagated
+     to the caller of the serializer without any alterations.</p>
+
+  <h2><a name="8.3">8.3 Error Codes</a></h2>
+
+  <p>When C++ exceptions are not available, error codes are used to
+     report error conditions. Each serializer skeleton and the root
+     <code>document_simpl</code> serializer have the following member
+     function for querying the error status:</p>
+
+  <pre class="c++">
+xml_schema::serializer_error
+_error () const;
+  </pre>
+
+  <p>To handle all possible error conditions, you will need to obtain
+     the error status after calls to: the <code>document_simpl</code>'s
+     constructor (it performs memory allocations which may fail),
+     calls to <code>add_prefix()</code> and <code>add_schema()</code>
+     functions if any, the call to the root serializer <code>pre()</code>
+     callback, the call to the <code>serialize()</code> function, and,
+     finally, the call to the root serializer <code>post()</code> callback.
+     The definition of <code>xml_schema::serializer_error</code> class
+     is presented below:</p>
+
+  <pre class="c++">
+namespace xml_schema
+{
+  class sys_error
+  {
+  public:
+    enum value
+    {
+      none,
+      no_memory,
+      open_failed,
+      read_failed,
+      write_failed
+    };
+
+    sys_error (value);
+
+    operator value () const;
+
+    static const char*
+    text (value);
+
+    ...
+  };
+
+  typedef &lt;implementation-details> serializer_xml_error;
+  typedef &lt;implementation-details> serializer_schema_error;
+
+  class serializer_error
+  {
+  public:
+    enum error_type
+    {
+      none,
+      sys,
+      xml,
+      schema,
+      app
+    };
+
+    error_type
+    type () const;
+
+    // Returns true if there is an error so that you can write
+    // if (s.error ()) or if (error e = s.error ()).
+    //
+    typedef void (error::*bool_convertible) ();
+    operator bool_convertible () const;
+
+    // system
+    //
+    sys_error
+    sys_code () const;
+
+    const char*
+    sys_text () const;
+
+    // xml
+    //
+    serializer_xml_error
+    xml_code () const;
+
+    const char*
+    xml_text () const;
+
+    // schema
+    //
+    serializer_schema_error
+    schema_code () const;
+
+    const char*
+    schema_text () const;
+
+    // app
+    //
+    int
+    app_code () const;
+
+    ...
+  };
+}
+  </pre>
+
+  <p>The <code>serializer_xml_error</code> and
+     <code>serializer_schema_error</code> are implementation-specific
+     error code types. The <code>serializer_error</code> class incorporates
+     four categories of errors which you can query by calling the
+     <code>type()</code> function. The following example shows how to
+     handle error conditions with error codes. It is based on the
+     person record example presented in <a href="#3">Chapter 3, "Serializer
+     Skeletons"</a>.</p>
+
+  <pre class="c++">
+int
+main ()
+{
+  // Construct the serializer.
+  //
+  xml_schema::short_simpl short_s;
+  xml_schema::string_simpl string_s;
+
+  gender_simpl gender_s;
+  person_simpl person_s;
+  people_simpl people_s;
+
+  person_s.serializers (string_s, string_s, gender_s, short_s);
+  people_s.serializers (person_s);
+
+  // Serialize.
+  //
+  using xml_schema::serializer_error;
+  serializer_error e;
+
+  do
+  {
+    xml_schema::document_simpl doc_s (people_s, "people");
+    if (e = doc_s._error ())
+      break;
+
+    people_s.pre ();
+    if (e = people_s._error ())
+      break;
+
+    doc_s.serialize (cout);
+    if (e = doc_s._error ())
+      break;
+
+    people_s.post ();
+    e = people_s._error ();
+
+  } while (false);
+
+  // Handle errors.
+  //
+  if (e)
+  {
+    switch (e.type ())
+    {
+    case serializer_error::sys:
+      {
+        cerr &lt;&lt; "system error: " &lt;&lt; e.sys_text () &lt;&lt; endl;
+        break;
+      }
+    case serializer_error::xml:
+      {
+        cerr &lt;&lt; "xml error: " &lt;&lt; e.xml_text () &lt;&lt; endl;
+        break;
+      }
+    case serializer_error::schema:
+      {
+        cerr &lt;&lt; "schema error: " &lt;&lt; e.schema_text () &lt;&lt; endl;
+        break;
+      }
+    case serializer_error::app:
+      {
+        cerr &lt;&lt; "application error: " &lt;&lt; e.app_code () &lt;&lt; endl;
+        break;
+      }
+    }
+    return 1;
+  }
+}
+  </pre>
+
+  <p>The error type for application errors is <code>int</code> with
+     the value <code>0</code> indicated the absence of error. You can
+     set the application error by calling the <code>_app_error()</code>
+     function inside a serializer callback. For example, if it was invalid
+     to have a person younger than 18 in our people catalog, then we
+     could have implemented this check as follows: </p>
+
+  <pre class="c++">
+class person_simpl: public person_sskel
+{
+public:
+  virtual short
+  age ()
+  {
+    short a = ...;
+
+    if (a &lt; 18)
+      _app_error (1);
+
+    return a;
+  }
+};
+  </pre>
+
+  <p>You can also set a system error by calling the <code>_sys_error()</code>
+     function inside a serializer callback. This function has one argument of
+     type <code>xml_schema::sys_error</code> which was presented above.
+     For example:</p>
+
+  <pre class="c++">
+class person_simpl: public person_sskel
+{
+public:
+  virtual const char*
+  first_name ()
+  {
+    char* r = new char[5];
+
+    if (r == 0)
+    {
+      _sys_error (xml_schema::sys_error::no_memory);
+      return 0;
+    }
+
+    strcpy (r, "John");
+    return r;
+  }
+};
+  </pre>
+
+  <h2><a name="8.4">8.4 Reusing Serializers after an Error</a></h2>
+
+  <p>After a successful execution a serializer returns into the initial
+     state and can be used to serialize another document without any
+     extra actions. On the other hand, if an error occurred during
+     serialization and you would like to reuse the serializer to serialize another
+     document, you need to explicitly reset it into the initial
+     state as shown in the following code fragment:</p>
+
+  <pre class="c++">
+int
+main ()
+{
+  ...
+
+  xml_schema::document_simpl doc_s (people_s, "people");
+
+  for (size_t i = 0; i &lt; 4; ++i)
+  {
+    try
+    {
+      people_s.pre ();
+      doc_s.serialize (cout);
+      people_s.post ();
+    }
+    catch (const xml_schema::serializer_exception&amp;)
+    {
+      doc_s.reset ();
+    }
+  }
+}
+  </pre>
+
+  <p>If you do not need to reuse serializers after an error for example
+     because your application terminates or you create a new serializer
+     instance in such situations, then you can avoid generating
+     serializer reset code by specifying the <code>--suppress-reset</code>
+     XSD/e compiler option.</p>
+
+  <p>Your individual serializer implementations may also require extra
+     actions in order to bring them into a usable state after an
+     error. To accomplish this you can override the <code>_reset()</code>
+     virtual function as shown below. Notice that when you override the
+     <code>_reset()</code> function in your implementation, you should
+     always call the base skeleton version to allow it to reset
+     its state:</p>
+
+<pre class="c++">
+class person_simpl: public person_sskel
+{
+public:
+  virtual void
+  pre (person* p)
+  {
+    p_ = p;
+  }
+
+  virtual void
+  post ()
+  {
+    delete p_;
+    p_ = 0;
+  }
+
+  virtual void
+  _reset ()
+  {
+    person_sskel::_reset ();
+    delete p_;
+    p_ = 0;
+  }
+
+  ...
+
+private:
+  person* p_;
+};
+  </pre>
+
+  <p>Note also that the <code>_reset()</code> mechanism is used only when
+     an error has occurred. To make sure that your serializer implementations
+     arrive at the initial state during successful execution, use the
+     initialization (<code>pre()</code> and <code>_pre()</code>) and
+     finalization (<code>post_*()</code> and <code>_post()</code>)
+     callbacks.</p>
+
+
+  <!-- Appendix A -->
+
+
+  <h1><a name="A">Appendix A &mdash; Supported XML Schema Constructs</a></h1>
+
+  <p>The Embedded C++/Serializer mapping supports validation of the following
+     W3C XML Schema constructs in the generated code.</p>
+
+  <!-- border="1" is necessary for html2ps -->
+  <table id="features" border="1">
+    <tr><th>Construct</th><th>Notes</th></tr>
+    <tr><th colspan="2">Structure</th></tr>
+
+    <tr><td>element</td><td></td></tr>
+    <tr><td>attribute</td><td></td></tr>
+
+    <tr><td>any</td><td></td></tr>
+    <tr><td>anyAttribute</td><td></td></tr>
+
+    <tr><td>all</td><td></td></tr>
+    <tr><td>sequence</td><td></td></tr>
+    <tr><td>choice</td><td></td></tr>
+
+    <tr><td>complex type, empty content</td><td></td></tr>
+    <tr><td>complex type, mixed content</td><td></td></tr>
+    <tr><td>complex type, simple content extension</td><td></td></tr>
+    <tr><td>complex type, simple content restriction</td><td></td></tr>
+    <tr><td>complex type, complex content extension</td><td></td></tr>
+    <tr><td>complex type, complex content restriction</td><td></td></tr>
+
+    <tr><td>list</td><td></td></tr>
+
+    <tr><th colspan="2">Facets</th></tr>
+
+    <tr><td>length</td><td>String-based types.</td></tr>
+    <tr><td>minLength</td><td>String-based types.</td></tr>
+    <tr><td>maxLength</td><td>String-based types.</td></tr>
+    <tr><td>pattern</td><td>String-based types.</td></tr>
+    <tr><td>enumeration</td><td>String-based types.</td></tr>
+
+    <tr><td>minExclusive</td><td>Integer and floating-point types.</td></tr>
+    <tr><td>minInclusive</td><td>Integer and floating-point types.</td></tr>
+    <tr><td>maxExclusive</td><td>Integer and floating-point types.</td></tr>
+    <tr><td>maxInclusive</td><td>Integer and floating-point types.</td></tr>
+
+    <tr><th colspan="2">Datatypes</th></tr>
+
+    <tr><td>byte</td><td></td></tr>
+    <tr><td>unsignedByte</td><td></td></tr>
+    <tr><td>short</td><td></td></tr>
+    <tr><td>unsignedShort</td><td></td></tr>
+    <tr><td>int</td><td></td></tr>
+    <tr><td>unsignedInt</td><td></td></tr>
+    <tr><td>long</td><td></td></tr>
+    <tr><td>unsignedLong</td><td></td></tr>
+    <tr><td>integer</td><td></td></tr>
+    <tr><td>nonPositiveInteger</td><td></td></tr>
+    <tr><td>nonNegativeInteger</td><td></td></tr>
+    <tr><td>positiveInteger</td><td></td></tr>
+    <tr><td>negativeInteger</td><td></td></tr>
+
+    <tr><td>boolean</td><td></td></tr>
+
+    <tr><td>float</td><td></td></tr>
+    <tr><td>double</td><td></td></tr>
+    <tr><td>decimal</td><td></td></tr>
+
+    <tr><td>string</td><td></td></tr>
+    <tr><td>normalizedString</td><td></td></tr>
+    <tr><td>token</td><td></td></tr>
+    <tr><td>Name</td><td></td></tr>
+    <tr><td>NMTOKEN</td><td></td></tr>
+    <tr><td>NCName</td><td></td></tr>
+    <tr><td>language</td><td></td></tr>
+    <tr><td>anyURI</td><td></td></tr>
+
+    <tr><td>ID</td><td>Identity constraint is not enforced.</td></tr>
+    <tr><td>IDREF</td><td>Identity constraint is not enforced.</td></tr>
+
+    <tr><td>NMTOKENS</td><td></td></tr>
+    <tr><td>IDREFS</td><td>Identity constraint is not enforced.</td></tr>
+
+    <tr><td>QName</td><td></td></tr>
+
+    <tr><td>base64Binary</td><td></td></tr>
+    <tr><td>hexBinary</td><td></td></tr>
+
+    <tr><td>date</td><td></td></tr>
+    <tr><td>dateTime</td><td></td></tr>
+    <tr><td>duration</td><td></td></tr>
+    <tr><td>gDay</td><td></td></tr>
+    <tr><td>gMonth</td><td></td></tr>
+    <tr><td>gMonthDay</td><td></td></tr>
+    <tr><td>gYear</td><td></td></tr>
+    <tr><td>gYearMonth</td><td></td></tr>
+    <tr><td>time</td><td></td></tr>
+  </table>
+
+  </div>
+</div>
+
+
+</body>
+</html>

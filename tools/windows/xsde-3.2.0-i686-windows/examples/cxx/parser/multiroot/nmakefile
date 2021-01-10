@@ -1,0 +1,66 @@
+root = ..\..\..\..
+
+!include $(root)\build\cxx\rules.nmake
+
+# Build.
+#
+EXTRA_CPPFLAGS = /I$(root)\libxsde
+
+!if "$(XSDE_ENCODING)" == "iso8859-1"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --char-encoding iso8859-1
+!endif
+
+!if "$(XSDE_LONGLONG)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --no-long-long
+!endif
+
+!if "$(XSDE_PARSER_VALIDATION)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --suppress-validation
+!endif
+
+!if "$(XSDE_REUSE_STYLE)" == "mixin"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --reuse-style-mixin
+!endif
+
+!if "$(XSDE_POLYMORPHIC)" == "y"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --runtime-polymorphic
+!endif
+
+!if "$(XSDE_REUSE_STYLE)" == "mixin"
+impl = protocol-pimpl-mixin
+!else
+impl = protocol-pimpl-tiein
+!endif
+
+
+driver.exe: driver.obj protocol-pskel.obj $(impl).obj $(root)\libxsde\xsde\xsde.lib
+
+driver.obj: driver.cxx $(impl).hxx protocol-pskel.hxx protocol.hxx
+$(impl).obj: $(impl).cxx $(impl).hxx protocol-pskel.hxx protocol.hxx
+protocol-pskel.obj: protocol-pskel.cxx protocol-pskel.hxx protocol.hxx
+
+
+protocol-pskel.hxx protocol-pskel.cxx: protocol.xsd protocol.map
+	$(root)\bin\xsde.exe cxx-parser $(XSDFLAGS) $(EXTRA_XSDFLAGS) \
+--type-map protocol.map protocol.xsd
+
+
+# Generate.
+#
+gen: protocol-pskel.hxx
+
+
+# Test.
+#
+test: driver.exe balance.xml withdraw.xml deposit.xml
+	.\driver balance.xml
+	.\driver withdraw.xml
+	.\driver deposit.xml
+
+# Clean.
+#
+cleanobj:
+	-del $(impl).obj protocol-pskel.obj driver.obj driver.exe
+
+clean: cleanobj
+	-del protocol-pskel.?xx

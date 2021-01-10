@@ -1,0 +1,70 @@
+root = ..\..\..\..
+
+!include $(root)\build\cxx\rules.nmake
+
+# Build.
+#
+EXTRA_CPPFLAGS = /I$(root)\libxsde
+
+!if "$(XSDE_ENCODING)" == "iso8859-1"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --char-encoding iso8859-1
+!endif
+
+!if "$(XSDE_STL)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --no-stl
+!endif
+
+!if "$(XSDE_LONGLONG)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --no-long-long
+!endif
+
+!if "$(XSDE_PARSER_VALIDATION)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --suppress-parser-val
+!endif
+
+!if "$(XSDE_SERIALIZER_VALIDATION)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --suppress-serializer-val
+!endif
+
+!if "$(XSDE_REUSE_STYLE)" == "mixin"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --reuse-style-mixin
+!endif
+
+driver.exe: driver.obj supermen.obj supermen-pskel.obj supermen-pimpl.obj \
+supermen-sskel.obj supermen-simpl.obj $(root)\libxsde\xsde\xsde.lib
+
+driver.obj: driver.cxx supermen.hxx supermen-pimpl.hxx supermen-simpl.hxx
+supermen.obj: supermen.cxx
+supermen-pskel.obj: supermen-pskel.cxx
+supermen-pimpl.obj: supermen-pimpl.cxx
+supermen-sskel.obj: supermen-sskel.cxx
+supermen-simpl.obj: supermen-simpl.cxx
+
+supermen.cxx supermen.hxx \
+supermen-pskel.cxx supermen-pskel.hxx supermen-pimpl.cxx supermen-pimpl.hxx \
+supermen-sskel.cxx supermen-sskel.hxx supermen-simpl.cxx supermen-simpl.hxx \
+: supermen.xsd
+	$(root)\bin\xsde.exe cxx-hybrid $(XSDFLAGS) $(EXTRA_XSDFLAGS) \
+--generate-parser --generate-serializer --generate-aggregate \
+--generate-polymorphic --generate-typeinfo --root-element supermen supermen.xsd
+
+
+# Generate.
+#
+gen: supermen.hxx
+
+
+# Test.
+#
+test: driver.exe supermen.xml
+	.\driver.exe supermen.xml
+
+# Clean.
+#
+cleanobj:
+	-del supermen-pimpl.obj supermen-pskel.obj supermen-simpl.obj \
+supermen-sskel.obj supermen.obj driver.obj driver.exe
+
+clean: cleanobj
+	-del supermen-pimpl.?xx supermen-pskel.?xx supermen-simpl.?xx \
+supermen-sskel.?xx supermen.?xx

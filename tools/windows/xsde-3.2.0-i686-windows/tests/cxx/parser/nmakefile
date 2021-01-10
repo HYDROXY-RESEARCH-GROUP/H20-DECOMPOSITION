@@ -1,0 +1,56 @@
+root = ..\..\..
+
+!include $(root)\build\config.nmake
+
+dirs = generated-impl duplicate
+
+!if "$(XSDE_IOSTREAM)" == "y"
+!if "$(XSDE_EXCEPTIONS)" == "y"
+dirs = $(dirs) built-in recursive test-template union
+
+!if "$(XSDE_REUSE_STYLE)" == "tiein"
+dirs = $(dirs) enumeration list
+!endif
+
+!endif # EXCEPTIONS
+
+!if "$(XSDE_POLYMORPHIC)" == "y"
+!if "$(XSDE_REUSE_STYLE)" == "tiein"
+dirs = $(dirs) polymorphism
+!endif
+!endif
+
+dirs = $(dirs) reset
+
+!endif # IOSTREAM
+
+!if "$(XSDE_PARSER_VALIDATION)" == "y"
+dirs = $(dirs) validation
+
+!if "$(XSDE_IOSTREAM)" == "y"
+
+!if "$(XSDE_EXCEPTIONS)" == "y"
+dirs = $(dirs) error-handling\exceptions
+!else
+dirs = $(dirs) error-handling\codes
+!endif
+
+!if "$(XSDE_EXCEPTIONS)" == "y"
+dirs = $(dirs) name-clash\inheritance
+!endif
+
+!endif
+!endif
+
+
+all:
+	@for %i in ( $(dirs) ) do \
+@cmd /c "echo entering %i && cd %i && $(MAKE) /nologo /f nmakefile" || exit 1
+
+gen test:
+	@for %i in ( $(dirs) ) do \
+@cmd /c "echo entering %i && cd %i && $(MAKE) /nologo /f nmakefile $@" || exit 1
+
+clean cleanobj:
+	@for %i in ( $(dirs) ) do \
+@cmd /c "echo entering %i && cd %i && $(MAKE) /nologo /f nmakefile $@"

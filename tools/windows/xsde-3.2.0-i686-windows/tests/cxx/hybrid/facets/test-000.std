@@ -1,0 +1,62 @@
+<t:root xmlns:t="test">
+  <byte>10</byte>
+  <byte>50</byte>
+  <byte>100</byte>
+  <ubyte>10</ubyte>
+  <ubyte>50</ubyte>
+  <ubyte>100</ubyte>
+  <short>10</short>
+  <short>50</short>
+  <short>100</short>
+  <ushort>10</ushort>
+  <ushort>50</ushort>
+  <ushort>100</ushort>
+  <int>10</int>
+  <int>50</int>
+  <int>100</int>
+  <uint>10</uint>
+  <uint>50</uint>
+  <uint>100</uint>
+  <long>10</long>
+  <long>50</long>
+  <long>100</long>
+  <ulong>10</ulong>
+  <ulong>50</ulong>
+  <ulong>100</ulong>
+  <integer>10</integer>
+  <integer>50</integer>
+  <integer>100</integer>
+  <ninteger>-100</ninteger>
+  <ninteger>-50</ninteger>
+  <ninteger>-10</ninteger>
+  <npinteger>-100</npinteger>
+  <npinteger>-50</npinteger>
+  <npinteger>-10</npinteger>
+  <pinteger>10</pinteger>
+  <pinteger>50</pinteger>
+  <pinteger>100</pinteger>
+  <nninteger>10</nninteger>
+  <nninteger>50</nninteger>
+  <nninteger>100</nninteger>
+  <float>10.5</float>
+  <float>50</float>
+  <float>99.5</float>
+  <double>10.5</double>
+  <double>50</double>
+  <double>99.5</double>
+  <decimal>10.5</decimal>
+  <decimal>50</decimal>
+  <decimal>99.5</decimal>
+  <string1>12345</string1>
+  <string2>12345</string2>
+  <string2>1234567</string2>
+  <string2>1234567890</string2>
+  <string3>
+
+a  aa
+
+  </string3>
+  <string4>  a  aa    </string4>
+  <string5>a aa</string5>
+  <token>a aa</token>
+</t:root>

@@ -1,0 +1,158 @@
+This file contains instructions for building the XSD/e runtime
+library (libxsde) and examples. The XSD/e compiler itself was
+pre-built for your host development platform and can be found
+in the bin/ directory. The runtime library and examples can be
+built using either GNU make (normally on UNIX operating systems)
+or Microsoft nmake (on Windows). The following sections describe
+each of the two methods.
+
+
+GNU make
+--------
+
+This section provides general instructions for building the XSD/e
+runtime and examples with GNU make. For additional information on
+building for iPhone/iOS, Android NDK, and Symbian SDK see the
+corresponding notes at the end of this document.
+
+The first step in building the source code with GNU make is to
+configure the runtime library by editing the config/config.make
+file. There you can specify which toolchain should be used to
+compile the source code as well as which optional feature (such
+as STL, C++ exceptions, etc.) should be used. Follow the
+instructions in the comments in config/config.make and make the
+appropriate changes. The etc/ directory contains a number of
+sample configurations for various targets/toolchains.
+
+To start the compilation process simply execute make (or gmake)
+in the root directory. This will build the libxsde.a runtime
+library as well as the examples. If you do not want to build
+the examples, you can start the compilation process from the
+libxsde/ directory. Note that if you change any configuration
+parameters in the config/config.make file, then you need to
+completely clean the distribution before recompiling. For that
+run 'make clean' from the root directory.
+
+In order to start using XSD/e in your applications, you will
+need add the libxsde/ directory to your include search paths
+(-I) and link your executables with the libxsde/xsde/libxsde.a
+library.
+
+
+Microsoft nmake
+---------------
+
+This section provides general instructions for building the XSD/e
+runtime and examples with nmake. For additional information on
+eMbedded Visual C++ 4.0, Visual Studio 2005 with Smart Devices,
+and Visual Studio 2008 with Smart Devices support see the
+corresponding notes at the end of this document.
+
+The first step in building the source code with nmake is to
+configure the runtime library by editing the config\config.nmake
+file. There you can specify which toolchain should be used to
+compile the source code as well as which optional feature (such
+as STL, C++ exceptions, etc.) should be used. Follow the
+instructions in the comments in config\config.nmake and make the
+appropriate changes. The etc/ directory contains a number of
+sample configurations for various targets/toolchains.
+
+If you are using an IDE (e.g., Visual Studio, eMbedded Visual C++,
+or Rational Rhapsody) to develop your applications, you can copy
+the compiler options (such as C++ language features, CPU and
+Platform preprocessor macros, etc.) from your project's C++
+compiler settings. In particular, you need to make sure the
+CFLAGS and CXXFLAGS variables in config.nmake contain the same
+runtime option (one of /MD, /MDd, /ML, /MLd, /MT, /MTd) as your
+application. A common symptom of using different runtime options
+when building the XSD/e runtime library (xsde.lib) and your
+application is a large number of link errors related to symbol
+redefinitions.
+
+The next step is to start a new command prompt and execute
+the vcvars32.bat (or equivalent) file that is normally found
+in your development environment's installation directory.
+After executing vcvars32.bat, you can start the compilation
+process by executing
+
+nmake /f nmakefile
+
+from the XSD/e root directory. This will build the xsde.lib
+runtime library as well as the examples. If you do not want to
+build the examples, you can start the compilation process from
+the libxsde\ directory. Note that if you change any configuration
+parameters in the config\config.nmake file, then you need to
+completely clean the distribution before recompiling. For that
+run 'nmake /f nmakefile clean' from the root directory.
+
+In order to start using XSD/e in your applications, you will
+need add the libxsde\ directory to your include search paths
+and link your executables with the libxsde\xsde\xsde.lib
+library.
+
+
+Notes on XCode and iPhone/iOS SDK
+---------------------------------
+
+You can find sample configuration files for iPhone/iOS in the
+etc/ios/ directory. The accompanying README file provides step-by-
+step instructions on how to use XSD/e with iOS.
+
+
+Notes on Android NDK
+--------------------
+
+You can find a sample configuration file as well as the Android NDK
+makefiles in the etc/android/ directory. The accompanying README
+file provides step-by-step instructions on how to use XSD/e with
+Android.
+
+Notes on Symbian SDK
+--------------------
+
+You can find sample configuration files for Symbian SDK in the
+etc/symbian/ directory. The accompanying README file provides 
+step-by-step instructions on how to use XSD/e with Symbian.
+
+
+Notes on eMbedded Visual C++ 4.0
+--------------------------------
+
+You can find a sample configuration file for this development
+environment in the etc\evc-4.0\ directory.
+
+Instead of one vcvars32.bat file, eMbedded Visual C++ has a set
+of such files each for a particular platform and CPU. They can be
+found in the EVC\WCEnnn\BIN\ subdirectory in the eMbedded Visual
+C++ installation directory. For example, a file for Windows CE
+4.0 for ARMv4 CPU is EVC\WCE400\BIN\WCEARMV4.bat. You may want
+to review the installation paths in this file to make sure they
+reflect your setup. You can also study this file to find out the
+name of the C/C++ compiler for this CPU. In case of ARM, it is
+clarm.exe.
+
+
+Notes on Visual Studio 2005 with Smart Devices support
+------------------------------------------------------
+
+You can find sample configuration files for this development
+environment in the etc\vc-8.0\ directory.
+
+This version of Visual Studio does not provide vcvars32.bat or
+equivalent for Smart Devices development. Instead you can use
+the vcvarssd.bat file provided in the etc\vc-8.0\ directory.
+Modify it according to your setup as instructed by the comments
+found in this file.
+
+
+Notes on Visual Studio 2008 with Smart Devices support
+------------------------------------------------------
+
+You can find sample configuration files for this development
+environment in the etc\vc-9.0\ directory.
+
+This version of Visual Studio does not provide vcvars32.bat or
+equivalent for Smart Devices development. Instead you can use
+the vcvarssd.bat file provided in the etc\vc-9.0\ directory.
+Modify it according to your setup as instructed by the comments
+found in this file.

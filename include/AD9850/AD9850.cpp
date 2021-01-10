@@ -1,4 +1,4 @@
-#include <AD9850/AD9850.h>
+#include <AD9850.h>
 #define pulse(pin) {digitalWrite(pin, HIGH); digitalWrite(pin, LOW);}
 
 AD9850::AD9850(char w_clk, char fq_ud, char d7)
@@ -26,16 +26,16 @@ void AD9850::update() {
     pulse(FQ_UD);
 }
 
-void AD9850::setFreq(double f) {
+void AD9850::setfreq(double f) {
     frequency = f * 4294967296.0 / EX_CLK;
     update();
 }
-void AD9850::setPhase(uint8_t p) {
+void AD9850::setphase(uint8_t p) {
     phase = p << 3;
     update();
 }
 
-void AD9850::PowerDown() {
+void AD9850::down() {
     pulse(FQ_UD);
     uint8_t p = 0x04;
     for (int i = 0; i < 8; i++, p >>= 1) {
@@ -45,4 +45,4 @@ void AD9850::PowerDown() {
     pulse(FQ_UD);
 }
 
-void AD9850::PowerUp() { update(); }
+void AD9850::up() { update(); }

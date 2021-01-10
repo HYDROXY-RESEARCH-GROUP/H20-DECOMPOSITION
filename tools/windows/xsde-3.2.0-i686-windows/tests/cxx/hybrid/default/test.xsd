@@ -1,0 +1,228 @@
+<?xml version="1.0"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:t="test" targetNamespace="test">
+
+  <!-- union -->
+
+  <simpleType name="union">
+    <union memberTypes="int string"/>
+  </simpleType>
+
+  <complexType name="union-test">
+    <attribute default="abc" name="a" type="t:union"/>
+  </complexType>
+
+  <!-- list -->
+
+  <simpleType name="fix-list">
+    <list itemType="int"/>
+  </simpleType>
+
+  <simpleType name="var-list">
+    <list itemType="string"/>
+  </simpleType>
+
+  <simpleType name="list-item">
+    <restriction base="string"/>
+  </simpleType>
+
+  <simpleType name="usr-list">
+    <list itemType="t:list-item"/>
+  </simpleType>
+
+  <simpleType name="union-list">
+    <list itemType="t:union"/>
+  </simpleType>
+
+  <complexType name="list-test">
+    <attribute default="123 345 678" name="a" type="t:fix-list"/>
+    <attribute default=" ab   cd ef   " name="b" type="t:var-list"/>
+    <attribute default="abc" name="c" type="t:usr-list"/>
+    <attribute default="abc def" name="d" type="t:union-list"/>
+  </complexType>
+
+  <!-- simple type -->
+
+  <simpleType name="int-base">
+    <restriction base="int"/>
+  </simpleType>
+
+  <simpleType name="str-base">
+    <restriction base="string"/>
+  </simpleType>
+
+  <simpleType name="int">
+    <restriction base="t:int-base"/>
+  </simpleType>
+
+  <simpleType name="str">
+    <restriction base="t:str-base"/>
+  </simpleType>
+
+  <simpleType name="union-derived">
+    <restriction base="t:union"/>
+  </simpleType>
+
+  <simpleType name="list-derived">
+    <restriction base="t:usr-list"/>
+  </simpleType>
+
+  <complexType name="simple-test">
+    <attribute default="123" name="a" type="t:int-base"/>
+    <attribute default="abc" name="b" type="t:str-base"/>
+    <attribute default="123" name="c" type="t:int"/>
+    <attribute default="abc" name="d" type="t:str"/>
+    <attribute default="abc" name="e" type="t:union-derived"/>
+    <attribute default="abc 123" name="f" type="t:list-derived"/>
+  </complexType>
+
+  <!-- date/time types -->
+
+  <complexType name="date-test">
+    <attribute default="2009-03-31" name="a" type="date"/>
+    <attribute default="2009-03-31Z" name="b" type="date"/>
+    <attribute default="2009-03-31+00:00" name="c" type="date"/>
+    <attribute default="2009-03-31-00:00" name="d" type="date"/>
+    <attribute default="2009-03-31+12:30" name="e" type="date"/>
+    <attribute default="2009-03-31-12:30" name="f" type="date"/>
+    <attribute default="2002009-03-31-12:30" name="g" type="date"/>
+  </complexType>
+
+  <complexType name="time-test">
+    <attribute default="12:03:45" name="a" type="time"/>
+    <attribute default="12:03:45.123Z" name="b" type="time"/>
+    <attribute default="12:03:05.123+00:00" name="c" type="time"/>
+    <attribute default="12:03:45.123-00:00" name="d" type="time"/>
+    <attribute default="12:03:45.123+12:30" name="e" type="time"/>
+    <attribute default="12:03:45-12:30" name="f" type="time"/>
+  </complexType>
+
+  <complexType name="date-time-test">
+    <attribute default="2009-03-31T12:03:45" name="a" type="dateTime"/>
+    <attribute default="2009-03-31T12:03:45.123Z" name="b" type="dateTime"/>
+    <attribute default="2002009-03-31T12:03:05.123-12:30" name="c" type="dateTime"/>
+  </complexType>
+
+  <complexType name="duration-test">
+    <attribute default="P100Y" name="a" type="duration"/>
+    <attribute default="P100M" name="b" type="duration"/>
+    <attribute default="P100D" name="c" type="duration"/>
+    <attribute default="PT12H" name="d" type="duration"/>
+    <attribute default="PT12M" name="e" type="duration"/>
+    <attribute default="PT12.123S" name="f" type="duration"/>
+    <attribute default="-P100Y10M20DT12H12M1.123S" name="g" type="duration"/>
+  </complexType>
+
+  <complexType name="day-test">
+    <attribute default="---02" name="a" type="gDay"/>
+    <attribute default="---22Z" name="b" type="gDay"/>
+    <attribute default="---22-12:30" name="c" type="gDay"/>
+  </complexType>
+
+  <complexType name="month-test">
+    <attribute default="--02" name="a" type="gMonth"/>
+    <attribute default="--12Z" name="b" type="gMonth"/>
+    <attribute default="--12+12:30" name="c" type="gMonth"/>
+  </complexType>
+
+  <complexType name="year-test">
+    <attribute default="2009" name="a" type="gYear"/>
+    <attribute default="-2002009Z" name="b" type="gYear"/>
+    <attribute default="2009-12:30" name="c" type="gYear"/>
+  </complexType>
+
+  <complexType name="month-day-test">
+    <attribute default="--02-02" name="a" type="gMonthDay"/>
+    <attribute default="--12-22Z" name="b" type="gMonthDay"/>
+    <attribute default="--12-22+12:30" name="c" type="gMonthDay"/>
+  </complexType>
+
+  <complexType name="year-month-test">
+    <attribute default="2009-02" name="a" type="gYearMonth"/>
+    <attribute default="-2002009-12Z" name="b" type="gYearMonth"/>
+    <attribute default="2009-12-12:30" name="c" type="gYearMonth"/>
+  </complexType>
+
+
+  <complexType name="type">
+    <sequence>
+      <element name="union" type="t:union-test"/>
+      <element name="list" type="t:list-test"/>
+      <element name="simple" type="t:simple-test"/>
+      <element name="date" type="t:date-test"/>
+      <element name="time" type="t:time-test"/>
+      <element name="date-time" type="t:date-time-test"/>
+      <element name="duration" type="t:duration-test"/>
+      <element name="day" type="t:day-test"/>
+      <element name="month" type="t:month-test"/>
+      <element name="year" type="t:year-test"/>
+      <element name="month-day" type="t:month-day-test"/>
+      <element name="year-month" type="t:year-month-test"/>
+    </sequence>
+      <attribute name="any" type="anySimpleType" default=""/>
+
+      <attribute name="bool1" type="boolean" default="true"/>
+      <attribute name="bool2" type="boolean" default="1"/>
+      <attribute name="bool3" type="boolean" default="false"/>
+      <attribute name="bool4" type="boolean" default="0"/>
+
+      <attribute name="byte" type="byte" default="-99"/>
+      <attribute name="ubyte" type="unsignedByte" default="99"/>
+      <attribute name="short" type="short" default="-999"/>
+      <attribute name="ushort" type="unsignedShort" default="999"/>
+      <attribute name="int" type="int" default="-99999"/>
+      <attribute name="uint" type="unsignedInt" default="99999"/>
+      <attribute name="long" type="long" default="-99999"/>
+      <attribute name="ulong" type="unsignedLong" default="99999"/>
+
+      <attribute name="integer" type="integer" default="-99999"/>
+      <attribute name="npinteger" type="nonPositiveInteger" default="-99999"/>
+      <attribute name="nninteger" type="nonNegativeInteger" default="99999"/>
+      <attribute name="pinteger" type="positiveInteger" default="99999"/>
+      <attribute name="ninteger" type="negativeInteger" default="-99999"/>
+
+      <attribute name="float1" type="float" default="1.123"/>
+      <attribute name="float2" type="float" default="1.123e3"/>
+      <attribute name="float3" type="float" default="-.123E-3"/>
+      <attribute name="float4" type="float" default="NaN"/>
+      <attribute name="float5" type="float" default="-INF"/>
+
+      <attribute name="double1" type="double" default="1.12345"/>
+      <attribute name="double2" type="double" default="1.12345e3"/>
+      <attribute name="double3" type="double" default="-.12345E-3"/>
+      <attribute name="double4" type="double" default="NaN"/>
+      <attribute name="double5" type="double" default="-INF"/>
+
+      <attribute name="decimal1" type="decimal" default="1.12345"/>
+      <attribute name="decimal2" type="decimal" default="-.456"/>
+
+      <attribute name="string1" type="string" default=""/>
+      <attribute name="string2" type="string" default=" a  b "/>
+      <attribute name="nstring" type="normalizedString" default=" a  b "/>
+      <attribute name="token" type="token" default=" a  b "/>
+      <attribute name="nmtoken" type="NMTOKEN" default="ab:cd"/>
+      <attribute name="nmtokens1" type="NMTOKENS" default="  a:b  efg aaa  "/>
+      <attribute name="nmtokens2" type="NMTOKENS" default="abc"/>
+      <attribute name="ncname" type="NCName" default="  abcd  "/>
+      <attribute name="language" type="language" default=" en-us "/>
+      <attribute name="id" type="ID"/>
+      <attribute name="idref" type="IDREF" default="this"/>
+      <attribute name="idrefs" type="IDREFS" default=" this "/>
+      <attribute name="uri" type="anyURI" default=" http://example.com "/>
+
+      <attribute name="qname1" type="QName" default="foo"/>
+      <attribute name="qname2" type="QName" default="t:bar"/>
+
+      <!-- fixed -->
+
+      <attribute name="fix1" type="int" fixed="123"/>
+      <attribute name="fix2" type="int" fixed="123" use="required"/>
+      <attribute name="fix3" type="string" fixed="abc"/>
+      <attribute name="fix4" type="string" fixed="abc" use="required"/>
+      <attribute name="fix5" type="NMTOKENS" fixed="aaa bbb ccc"/>
+      <attribute name="fix6" type="NMTOKENS" fixed="aaa bbb ccc" use="required"/>
+
+  </complexType>
+
+  <element name="root" type="t:type"/>
+
+</schema>

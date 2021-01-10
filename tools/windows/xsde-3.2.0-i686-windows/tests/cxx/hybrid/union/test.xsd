@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:t="test" targetNamespace="test">
+
+  <simpleType name="int-string-union">
+    <union memberTypes="int string"/>
+  </simpleType>
+
+  <complexType name="int-string-union-lang">
+    <simpleContent>
+      <extension base="t:int-string-union">
+        <attribute name="lang" type="string"/>
+      </extension>
+    </simpleContent>
+  </complexType>
+
+  <complexType name="type">
+    <sequence>
+      <element name="int-string-union" type="t:int-string-union"/>
+      <element name="int-string-union-lang" type="t:int-string-union-lang"/>
+      <element name="dummy" type="boolean" minOccurs="0" maxOccurs="unbounded"/>
+    </sequence>
+  </complexType>
+
+  <element name="root" type="t:type"/>
+
+</schema>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+
+<!--
+
+file      : examples/cxx/hybrid/streaming/position.xml
+author    : Boris Kolpackov <boris@codesynthesis.com>
+copyright : not copyrighted - public domain
+
+-->
+
+<object id="123">
+
+  <position lat="-33.8569" lon="18.5083"/>
+  <position lat="-33.8568" lon="18.5083"/>
+  <position lat="-33.8568" lon="18.5082"/>
+  <position lat="-33.8570" lon="18.5083"/>
+  <position lat="-33.8569" lon="18.5084"/>
+  <position lat="-33.8570" lon="18.5084"/>
+  <position lat="-33.8570" lon="18.5082"/>
+  <position lat="-33.8569" lon="18.5082"/>
+
+</object>

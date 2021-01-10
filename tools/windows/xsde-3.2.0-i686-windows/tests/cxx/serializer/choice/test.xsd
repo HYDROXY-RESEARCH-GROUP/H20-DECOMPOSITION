@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:t="test" targetNamespace="test">
+
+  <complexType name="test-1">
+    <choice>
+      <element name="a" type="int"/>
+      <element name="b" type="int" minOccurs="0"/>
+      <element name="c" type="int" maxOccurs="unbounded"/>
+    </choice>
+  </complexType>
+
+  <complexType name="test-2">
+    <choice minOccurs="0">
+      <element name="a" type="int"/>
+      <element name="b" type="int"/>
+    </choice>
+  </complexType>
+
+  <complexType name="test-3">
+    <choice maxOccurs="unbounded">
+      <element name="a" type="int"/>
+      <element name="b" type="int"/>
+    </choice>
+  </complexType>
+
+  <complexType name="test-4">
+    <choice>
+      <element name="a" type="int"/>
+      <choice>
+        <element name="b" type="int"/>
+        <element name="c" type="int"/>
+      </choice>
+      <sequence>
+        <element name="d" type="int"/>
+        <element name="e" type="int"/>
+      </sequence>
+    </choice>
+  </complexType>
+
+  <complexType name="root">
+    <sequence>
+      <element name="test-1" type="t:test-1" maxOccurs="unbounded"/>
+      <element name="test-2" type="t:test-2" maxOccurs="unbounded"/>
+      <element name="test-3" type="t:test-3" maxOccurs="unbounded"/>
+      <element name="test-4" type="t:test-4" maxOccurs="unbounded"/>
+    </sequence>
+  </complexType>
+
+  <element name="root" type="t:root"/>
+
+</schema>

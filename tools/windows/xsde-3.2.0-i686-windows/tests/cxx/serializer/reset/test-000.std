@@ -1,0 +1,7 @@
+0: <t:root xmlns:t="test" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="test test.xsd"><a><b>1</b></a></t:root>
+1: <t:root xmlns:t="test" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="test test.xsd"><a><b>1</b></a></t:root>
+2: <t:root xmlns:t="test" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="test test.xsd"><a><b>1</b></a></t:root>
+3: <t:root xmlns:t="test" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="test test.xsd"><a><b>1</b></a></t:root>
+4: <t:root xmlns:t="test" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="test test.xsd"><a><b>1</b></a></t:root>
+5: <t:root xmlns:t="test" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="test test.xsd"><a><b>1</b></a></t:root>
+6: <t:root xmlns:t="test" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="test test.xsd"><a><b>1</b></a></t:root>

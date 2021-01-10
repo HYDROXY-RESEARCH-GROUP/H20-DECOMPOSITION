@@ -1,0 +1,64 @@
+root = ..\..\..
+
+!include $(root)\build\config.nmake
+
+dirs =
+
+!if "$(XSDE_CUSTOM_ALLOCATOR)" == "n"
+
+!if "$(XSDE_REUSE_STYLE)" != "none"
+dirs = $(dirs) generated
+!endif
+
+!if "$(XSDE_STL)" == "y"
+!if "$(XSDE_IOSTREAM)" == "y"
+!if "$(XSDE_EXCEPTIONS)" == "y"
+
+dirs = $(dirs) hello
+
+!if "$(XSDE_REUSE_STYLE)" != "none"
+dirs = $(dirs) library multiroot
+
+!if "$(XSDE_POLYMORPHIC)" == "y"
+dirs = $(dirs) polymorphism polyroot
+!endif
+
+!endif
+
+!if "$(XSDE_REUSE_STYLE)" == "tiein"
+dirs = $(dirs) mixed wildcard
+!endif
+
+!endif
+!endif
+!endif
+
+!if "$(XSDE_STL)" == "n"
+!if "$(XSDE_EXCEPTIONS)" == "n"
+!if "$(XSDE_REUSE_STYLE)" != "none"
+dirs = $(dirs) minimal
+!endif
+!endif
+!endif
+
+!else # XSDE_CUSTOM_ALLOCATOR
+
+!if "$(XSDE_DEFAULT_ALLOCATOR)" == "y"
+!if "$(XSDE_REUSE_STYLE)" != "none"
+dirs = $(dirs) generated
+!endif
+!endif
+
+!endif
+
+all:
+	@for %i in ( $(dirs) ) do \
+@cmd /c "echo entering %i && cd %i && $(MAKE) /nologo /f nmakefile" || exit 1
+
+gen test:
+	@for %i in ( $(dirs) ) do \
+@cmd /c "echo entering %i && cd %i && $(MAKE) /nologo /f nmakefile $@" || exit 1
+
+clean cleanobj:
+	@for %i in ( $(dirs) ) do \
+@cmd /c "echo entering %i && cd %i && $(MAKE) /nologo /f nmakefile $@"

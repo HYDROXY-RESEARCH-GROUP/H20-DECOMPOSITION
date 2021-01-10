@@ -1,0 +1,79 @@
+<t:root xmlns:t="test">
+  <complex af="123" av="abc def">
+    <f>123</f>
+    <v>abc def ghq</v>
+    <of>123</of>
+    <ov>abc def ghq</ov>
+
+    <pod>1</pod>
+    <pod>2</pod>
+    <pod>3</pod>
+
+    <fix><x>1</x><y>1</y></fix>
+    <fix><x>2</x><y>2</y></fix>
+    <fix><x>3</x><y>3</y></fix>
+
+    <var>a1 b1 c1</var>
+    <var>a2 b2 c2</var>
+    <var>a3 b3 c3</var>
+
+    <str>aaa</str>
+    <str>bbb</str>
+    <str>ccc</str>
+
+    <cv>abc def ghq</cv>
+  </complex>
+
+  <all>
+    <f>123</f>
+    <v>abc def ghq</v>
+    <of>123</of>
+    <ov>abc def ghq</ov>
+  </all>
+
+  <sequence>
+    <f>123</f>
+    <v>abc def ghq</v>
+    <f>123</f>
+    <v>abc def ghq</v>
+
+    <c1v>abc def ghq</c1v>
+
+    <c2f>123</c2f>
+  </sequence>
+
+  <choice>
+    <cf>123</cf>
+  </choice>
+
+  <choice>
+    <cv>abc def ghq</cv>
+  </choice>
+
+  <choice>
+    <f>123</f>
+    <v>abc def ghq</v>
+    <f>123</f>
+    <v>abc def ghq</v>
+  </choice>
+
+  <fixder>
+    <x>1</x>
+    <y>1</y>
+    <v>abc def ghq</v>
+  </fixder>
+
+  <varder>
+    <x>1</x>
+    <y>abc def ghq</y>
+    <f>123</f>
+  </varder>
+
+  <strder v="abc def ghq">str str</strder>
+
+  <list>abc def ghq</list>
+  <union>abc</union>
+  <enum>c</enum>
+  <enumder>b</enumder>
+
+</t:root>

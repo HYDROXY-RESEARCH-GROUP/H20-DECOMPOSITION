@@ -1,0 +1,80 @@
+root = ..\..\..\..
+
+!include $(root)\build\cxx\rules.nmake
+
+# Build.
+#
+EXTRA_CPPFLAGS = /I$(root)\libxsde
+
+!if "$(XSDE_ENCODING)" == "iso8859-1"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --char-encoding iso8859-1
+!endif
+
+!if "$(XSDE_STL)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --no-stl
+!endif
+
+!if "$(XSDE_LONGLONG)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --no-long-long
+!endif
+
+!if "$(XSDE_PARSER_VALIDATION)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --suppress-parser-val
+!endif
+
+!if "$(XSDE_SERIALIZER_VALIDATION)" == "n"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --suppress-serializer-val
+!endif
+
+!if "$(XSDE_REUSE_STYLE)" == "mixin"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --reuse-style-mixin
+!endif
+
+!if "$(XSDE_POLYMORPHIC)" == "y"
+EXTRA_XSDFLAGS = $(EXTRA_XSDFLAGS) --runtime-polymorphic
+!endif
+
+driver.exe: driver.obj position.obj position-pskel.obj position-pimpl.obj \
+position-sskel.obj position-simpl.obj object-pimpl.obj object-simpl.obj \
+$(root)\libxsde\xsde\xsde.lib
+
+driver.obj: driver.cxx position.hxx position-pimpl.hxx position-simpl.hxx
+position.obj: position.cxx position.hxx
+position-pskel.obj: position-pskel.cxx
+position-pimpl.obj: position-pimpl.cxx
+position-simpl.obj: position-simpl.cxx
+position-simpl.obj: position-simpl.cxx
+object-pimpl.obj: object-pimpl.cxx object-pimpl.hxx position.hxx
+object-simpl.obj: object-simpl.cxx object-simpl.hxx position.hxx
+
+position.cxx position.hxx \
+position-pskel.cxx position-pskel.hxx position-pimpl.cxx position-pimpl.hxx \
+position-sskel.cxx position-sskel.hxx position-simpl.cxx position-simpl.hxx \
+: position.xsd
+	$(root)\bin\xsde.exe cxx-hybrid $(XSDFLAGS) $(EXTRA_XSDFLAGS) \
+--generate-parser --generate-serializer --generate-aggregate \
+--custom-parser object=/object-pimpl.hxx \
+--custom-serializer object=/object-simpl.hxx position.xsd
+
+
+# Generate.
+#
+gen: position.hxx
+
+
+# Test.
+#
+test: driver.exe position.xml
+	.\driver.exe position.xml
+
+
+# Clean.
+#
+cleanobj:
+	-del object-pimpl.obj object-simpl.obj position-pimpl.obj \
+position-pskel.obj position-simpl.obj position-sskel.obj position.obj \
+driver.obj driver.exe
+
+clean: cleanobj
+	-del position-pimpl.?xx position-pskel.?xx position-simpl.?xx \
+position-sskel.?xx position.?xx

@@ -1,27 +1,7 @@
 {
-<<<<<<< .mine
-<<<<<<< HEAD
-    "recommendations": [
-        "vsciot-vscode.vscode-arduino"
-    ]
-}
-=======
-=======
     // See http://go.microsoft.com/fwlink/?LinkId=827846
     // for the documentation about the extensions.json format
     "recommendations": [
         "platformio.platformio-ide"
     ]
 }
->>>>>>> .theirs
-    // See http://go.microsoft.com/fwlink/?LinkId=827846
-    // for the documentation about the extensions.json format
-    "recommendations": [
-        "platformio.platformio-ide"
-    ]
-}
-<<<<<<< .mine
->>>>>>> remotes/origin/Intel-Galileo2
-=======
-
->>>>>>> .theirs

@@ -1,0 +1,8 @@
+--generate-parser
+--generate-serializer
+--generate-aggregate
+--generate-insertion orawstream
+--hxx-prologue #include "orawstream.hxx"
+--generate-extraction irawstream 
+--hxx-prologue #include "irawstream.hxx"
+--extern-xml-schema xml-schema.xsd

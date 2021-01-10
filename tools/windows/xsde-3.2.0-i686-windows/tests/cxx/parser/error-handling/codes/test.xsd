@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:t="test" targetNamespace="test">
+
+  <complexType name="person">
+    <sequence>
+      <element name="age" type="int"/>
+    </sequence>
+    <attribute name="id" type="string" use="required"/>
+  </complexType>
+
+  <complexType name="type">
+    <sequence>
+      <element name="person" type="t:person" maxOccurs="unbounded"/>
+    </sequence>
+  </complexType>
+
+  <element name="root" type="t:type"/>
+
+</schema>

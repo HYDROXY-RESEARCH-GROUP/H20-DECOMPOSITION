@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+
+<!--
+
+file      : examples/cxx/hybrid/evolution/passthrough/transform-v2.xsd
+author    : Boris Kolpackov <boris@codesynthesis.com>
+copyright : not copyrighted - public domain
+
+-->
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:tf="http://www.codesynthesis.com/transform"
+            targetNamespace="http://www.codesynthesis.com/transform"
+            elementFormDefault="qualified">
+
+  <xsd:complexType name="transformation_type" abstract="true">
+    <xsd:sequence>
+      <xsd:element name="description" type="xsd:string"/>
+    </xsd:sequence>
+    <xsd:attribute name="name" type="xsd:string" use="required"/>
+  </xsd:complexType>
+
+  <xsd:element name="transformation" type="tf:transformation_type"/>
+
+  <!-- Document root. -->
+
+  <xsd:complexType name="transformations_type">
+    <xsd:sequence>
+      <xsd:element ref="tf:transformation" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:element name="transformations" type="tf:transformations_type"/>
+
+  <!-- Special type for unknown transformations. -->
+
+  <xsd:complexType name="unknown_type">
+    <xsd:complexContent>
+      <xsd:extension base="tf:transformation_type">
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+
+  <!-- Move. -->
+
+  <xsd:complexType name="move_type">
+    <xsd:complexContent>
+      <xsd:extension base="tf:transformation_type">
+      <xsd:sequence>
+        <xsd:element name="x" type="xsd:float"/>
+	<xsd:element name="y" type="xsd:float"/>
+      </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+  <xsd:element name="move-transformation"
+               type="tf:move_type"
+               substitutionGroup="tf:transformation"/>
+
+  <!-- Rotate. -->
+
+  <xsd:complexType name="rotate_type">
+    <xsd:complexContent>
+      <xsd:extension base="tf:transformation_type">
+      <xsd:sequence>
+        <xsd:element name="angle" type="xsd:float"/>
+      </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+  <xsd:element name="rotate-transformation"
+               type="tf:rotate_type"
+               substitutionGroup="tf:transformation"/>
+
+  <!-- Scale. -->
+
+  <xsd:complexType name="ratio_type">
+    <xsd:sequence>
+      <xsd:element name="x" type="xsd:float"/>
+      <xsd:element name="y" type="xsd:float"/>
+    </xsd:sequence>
+    <xsd:attribute name="unit" type="xsd:string"/>
+  </xsd:complexType>
+
+  <xsd:complexType name="scale_type">
+    <xsd:complexContent>
+      <xsd:extension base="tf:transformation_type">
+      <xsd:sequence>
+        <xsd:element name="ratios" type="tf:ratio_type"/>
+      </xsd:sequence>
+      <xsd:attribute name="proportional" type="xsd:boolean"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+  <xsd:element name="scale-transformation"
+               type="tf:scale_type"
+               substitutionGroup="tf:transformation"/>
+
+</xsd:schema>

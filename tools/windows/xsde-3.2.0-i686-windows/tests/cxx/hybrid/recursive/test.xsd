@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:t="test" targetNamespace="test">
+
+  <element name="root" type="t:type"/>
+
+  <complexType name="type">
+    <sequence>
+      <element name="test1" type="t:test1" maxOccurs="unbounded"/>
+      <element name="test2" type="t:test2a" maxOccurs="unbounded"/>
+      <element name="test3" type="t:test3b" maxOccurs="unbounded"/>
+      <element name="test4" type="t:test4b" maxOccurs="unbounded"/>
+      <element name="test5" type="t:test5b" maxOccurs="unbounded"/>
+    </sequence>
+  </complexType>
+
+
+  <!-- test 1: single type recursion -->
+
+  <complexType name="test1">
+    <choice>
+      <element name="a" type="int"/>
+      <element name="b" type="t:test1"/>
+    </choice>
+  </complexType>
+
+
+  <!-- test 2: muti-type recursion -->
+
+  <complexType name="test2a">
+    <sequence>
+      <element name="b" type="t:test2b" minOccurs="0" maxOccurs="unbounded"/>
+    </sequence>
+  </complexType>
+
+  <complexType name="test2b">
+    <sequence>
+      <element name="c" type="t:test2c" minOccurs="0" maxOccurs="unbounded"/>
+      <element name="d" type="t:test2d"/>
+    </sequence>
+  </complexType>
+
+  <complexType name="test2c">
+    <sequence>
+      <element name="a" type="t:test2a" minOccurs="0" maxOccurs="unbounded"/>
+    </sequence>
+  </complexType>
+
+  <complexType name="test2d">
+    <sequence>
+      <element name="x" type="int"/>
+    </sequence>
+  </complexType>
+
+
+  <!-- test 3: single type recursion with a non-recursive base -->
+
+  <complexType name="test3a">
+    <sequence>
+      <element name="a" type="int"/>
+      <element name="b" type="string"/>
+    </sequence>
+  </complexType>
+
+  <complexType name="test3b">
+    <complexContent>
+      <extension base="t:test3a">
+        <sequence>
+          <element name="c" type="string"/>
+          <element name="d" type="t:test3b" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+
+
+  <!-- test 4: single type recursion with a non-recursive derived -->
+
+  <complexType name="test4a">
+    <choice>
+      <element name="a" type="int"/>
+      <element name="b" type="t:test4a"/>
+    </choice>
+  </complexType>
+
+  <complexType name="test4b">
+    <complexContent>
+      <extension base="t:test4a">
+        <sequence>
+          <element name="c" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+
+
+  <!-- test 5: recursion via derivation -->
+
+  <complexType name="test5a">
+    <choice>
+      <element name="a" type="int"/>
+      <element name="b" type="t:test5b"/>
+    </choice>
+  </complexType>
+
+  <complexType name="test5b">
+    <complexContent>
+      <extension base="t:test5a">
+        <sequence>
+          <element name="c" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+
+</schema>
