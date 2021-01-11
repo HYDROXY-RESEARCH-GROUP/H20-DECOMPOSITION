@@ -1,5 +1,8 @@
-<!ELEMENT configFile (DisplayElements)>
-<!ATTLIST configFile locale CDATA #REQUIRED>
+<!DOCTYPE UIXConfig SYSTEM "uix_def.dtd">
+
+
+<!ELEMENT UIXConfig (UIXConfig)>
+<!ATTLIST UIXConfig locale CDATA #REQUIRED>
 
 <!ELEMENT DisplayElements (ScreenObjects,ApplicationStates)>
 <!ATTLIST DisplayElements name CDATA #REQUIRED>

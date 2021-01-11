@@ -1,21 +1,75 @@
-rmatted XML:
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE UIXConfig SYSTEM "config.dtd">
+
 <UIXConfig locale="JM-EN">
-    <DisplayElement name="HomeScreen">
-        <ScreenObjects>
-            <objIdentifier id="0" desc="Ramp Trigger frequency identifier.">R</objIdentifier>
-            <freqValue id="1" desc="Ramp Trigger frequency value.">999.99</freqValue>
-            <unitPrefix id="2" desc="Ramp Trigger frequency prefix.">
-                <prefix id="0" desc="Frequency unit in hertz (Hz)" />
-                <prefix id="1" desc="Frequency unit in kilo hertz (kHz)">K</prefix>
-                <prefix id="2" desc="Frequency unit in mega hertz (MHz)">M</prefix>
-            </unitPrefix>
-            <unit id="3" desc="Dispays unit of frequency i.e. hertz (Hz)">Hz</unit>
-        </ScreenObjects>
-        <ApplicationStates>
-            <state id="0">Automatic scanning mode.</state>
-            <state id="1">Manual fine tuning mode.</state>
-        </ApplicationStates>
-    </DisplayElement>
+
+    <ApplicationStates>
+
+        <AppState id="0" name="SplashScreen" desc="Boot Loader Screen">
+            <AppModes>
+                <mode id="0" desc="Boot up sequence.">0</state>
+            </AppModes>
+            <ScreenObjects>
+                <LCDCharacterLine id="0" max_char="16">
+                    <objIdentifier id="0" desc="Ramp Trigger frequency identifier.">R</objIdentifier>
+                    <freqValue id="1" desc="Ramp Trigger frequency value.">999.99</freqValue>
+                    <unitPrefix id="2" desc="Ramp Trigger frequency prefix.">
+                        <prefix id="0" desc="Frequency unit in hertz (Hz)" />
+                        <prefix id="1" desc="Frequency unit in kilo hertz (kHz)">K</prefix>
+                        <prefix id="2" desc="Frequency unit in mega hertz (MHz)">M</prefix>
+                    </unitPrefix>
+                    <dispUnit id="3" desc="Dispays unit of frequency i.e. hertz (Hz)">Hz</dispUnit>
+                </LCDCharacterLine>
+                <LCDCharacterLine id="1" max_char="16">
+                    <objIdentifier id="0" desc="Ramp Trigger frequency identifier.">R</objIdentifier>
+                    <freqValue id="1" desc="Ramp Trigger frequency value.">999.99</freqValue>
+                    <unitPrefix id="2" desc="Ramp Trigger frequency prefix.">
+                        <prefix id="0" desc="Frequency unit in hertz (Hz)" />
+                        <prefix id="1" desc="Frequency unit in kilo hertz (kHz)">K</prefix>
+                        <prefix id="2" desc="Frequency unit in mega hertz (MHz)">M</prefix>
+                    </unitPrefix>
+                    <dispUnit id="3" desc="Dispays unit of frequency i.e. hertz (Hz)">Hz</dispUnit>
+                </LCDCharacterLine>
+            </ScreenObjects>
+        </AppState>
+
+        <AppState id="1" name="HomeScreen" desc="Boot Loader Screen">
+            <AppModes>
+                <mode id="0" desc="Automatic resonance scanning mode.">0</state>
+                <mode id="1" desc="Manual fine tuning mode.">1</state>
+            </AppModes>
+            <ScreenObjects>
+                <LCDCharacterLine num="0" max_char="16">
+                    <DispIdentifier id="0" desc="Gate Trigger frequency identifier." xpos_min="0" xpos_max="0" xcount="1">G</DispIdentifier>
+                    <DispFrequency>
+                        <freqValue id="0" desc="Gate Trigger frequency value." xpos_min="1" xpos_max="6" xcount="6">009.99</freqValue>
+                        <unitPrefix id="1" desc="Gate Trigger frequency prefix." xpos_min="7" xpos_max="7" xcount="1" mode="option" selected="0">
+                            <prefix id="0" desc="Frequency unit in hertz (Hz)" />
+                            <prefix id="1" desc="Frequency unit in kilo hertz (kHz)">K</prefix>
+                            <prefix id="2" desc="Frequency unit in mega hertz (MHz)">M</prefix>
+                        </unitPrefix>
+                        <dispUnit id="2" desc="Dispays unit of frequency as hertz (Hz)" xpos_min="8" xpos_max="9" xcount="2">Hz</dispUnit>
+                    </DispFrequency>
+                    <DispIdentifier id="1" desc="Gate duty cycle identifier." xpos_min="10" xpos_max="10" xcount="1">@</DispIdentifier>
+                    <DispDutyCycle>
+                        <dutyCycle id="0" desc="Gate duty cycle value." xpos_min="11" xpos_max="14" xcount="4">09.9</dutyCycle>
+                        <dispUnit id="1" desc="Dispays unit of duty cycle as percentage (%)" xpos_min="15" xpos_max="15" xcount="1">%</dispUnit>
+                    </DispDutyCycle>
+                </LCDCharacterLine>
+                <LCDCharacterLine num="1" max_char="16">
+                    <dispIdentifier id="0" desc="Pulse Trigger frequency identifier.">P</objIdentifier>
+                    <DispFrequency>
+                        <freqValue id="0" desc="Pulse Trigger frequency value.">999.99</freqValue>
+                        <unitPrefix id="1" desc="Pulse Trigger frequency prefix." mode="option" selected="0">
+                            <prefix id="0" desc="Frequency unit in hertz (Hz)" default_value=" " />
+                            <prefix id="1" desc="Frequency unit in kilo hertz (kHz)">K</prefix>
+                            <prefix id="2" desc="Frequency unit in mega hertz (MHz)">M</prefix>
+                        </unitPrefix>
+                        <dispUnit id="2" desc="Dispays unit of frequency i.e. hertz (Hz)">Hz</dispUnit>
+                    </DispFrequency>
+                </LCDCharacterLine>
+            </ScreenObjects>
+        </AppState>
+
+    </ApplicationStates>
+    
 </UIXConfig>
